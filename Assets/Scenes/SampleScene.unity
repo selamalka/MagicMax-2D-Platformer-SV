@@ -438,7 +438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408661629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -67.98132, y: -6.716715, z: -10}
+  m_LocalPosition: {x: -66.989456, y: -5.176715, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -524,7 +524,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -67.98132, y: -6.716715, z: -10}
+  m_LocalPosition: {x: -66.989456, y: -5.176715, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13365,7 +13365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5691167642217653533}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.885, y: 1.625, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13469,7 +13469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5877969560244236634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -77.43292, y: -12.38, z: 0}
+  m_LocalPosition: {x: -76.44, y: -10.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13822,7 +13822,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.96, y: 3.47}
+  m_Offset: {x: 0.12, y: 1.82}
   serializedVersion: 2
   m_Radius: 1.27
 --- !u!70 &5877969560244236636
@@ -13838,7 +13838,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.92561823, y: 1.2770491}
+  m_Offset: {x: -0, y: -0.36}
   m_Size: {x: 1.4676573, y: 2.4531937}
   m_Direction: 0
 --- !u!50 &5877969560244236637
@@ -13874,15 +13874,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2b0de82c27c0e4b8b9dc648ef66eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
+  jumpForce: 5
   accelerationTime: 0.1
   deceleationTime: 0.25
   maxSpeed: 10
+  body: {fileID: 5691167642217653533}
   groundCheckTransform: {fileID: 683121255}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  groundCheckRadius: 0.3
+  groundCheckRadius: 2
   isGrounded: 0
 --- !u!1 &5966393714596769051
 GameObject:
