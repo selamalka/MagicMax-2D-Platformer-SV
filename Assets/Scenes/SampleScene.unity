@@ -438,7 +438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408661629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -66.989456, y: -5.176715, z: -10}
+  m_LocalPosition: {x: -66.989456, y: -8.602297, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -524,7 +524,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -66.989456, y: -5.176715, z: -10}
+  m_LocalPosition: {x: -66.989456, y: -8.602297, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -863,7 +863,7 @@ MonoBehaviour:
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.32999998
-  m_ScreenY: 0.63
+  m_ScreenY: 0.47
   m_CameraDistance: 10
   m_DeadZoneWidth: 0.17
   m_DeadZoneHeight: 0.24
@@ -872,7 +872,7 @@ MonoBehaviour:
   m_SoftZoneWidth: 0.3
   m_SoftZoneHeight: 0.35
   m_BiasX: 0.10899946
-  m_BiasY: 0.08799975
+  m_BiasY: 0.08800003
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
   m_AdjustmentMode: 0
@@ -13878,6 +13878,7 @@ MonoBehaviour:
   accelerationTime: 0.1
   deceleationTime: 0.25
   maxSpeed: 10
+  fallSpeedMultiplier: 1500
   body: {fileID: 5691167642217653533}
   groundCheckTransform: {fileID: 683121255}
   groundLayer:
@@ -13885,6 +13886,30 @@ MonoBehaviour:
     m_Bits: 64
   groundCheckRadius: 2
   isGrounded: 0
+  fallCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5966393714596769051
 GameObject:
   m_ObjectHideFlags: 0

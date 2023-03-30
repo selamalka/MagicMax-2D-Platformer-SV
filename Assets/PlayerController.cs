@@ -1,4 +1,3 @@
-using UnityEditor.Search;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float accelerationTime = 0.2f;
     [SerializeField] private float deceleationTime = 0.2f;
     [SerializeField] private float maxSpeed = 5f;
+    [SerializeField] private float fallSpeedMultiplier;
     private float currentSpeed;
     private float velocityXSmoothing;
 
@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     private bool isJumpPressed;
     private bool isFacingRight;
 
+    [SerializeField] private AnimationCurve fallCurve;
+    private float time;
+    private float curveSpeed;
+
     private Rigidbody2D rb;
 
     private void Start()
@@ -30,6 +34,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        time = Time.deltaTime;
+        curveSpeed = fallCurve.Evaluate(time);
+
         isGrounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);        
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
@@ -42,12 +49,18 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
 
-        //print(rb.velocity.y);
+        print(rb.velocity.y);
 
         if (isJumpPressed && isGrounded)
         {
             Jump();
         }
+
+        if (rb.velocity.y < 0)
+        {
+            rb.AddForce(new Vector2(0, -curveSpeed * fallSpeedMultiplier), ForceMode2D.Impulse);
+        }
+
     }
 
     private void FixedUpdate()
