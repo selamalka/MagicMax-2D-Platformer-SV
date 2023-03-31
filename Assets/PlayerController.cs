@@ -6,9 +6,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float accelerationTime = 0.2f;
     [SerializeField] private float deceleationTime = 0.2f;
     [SerializeField] private float maxSpeed = 5f;
-    [SerializeField] private float fallSpeedMultiplier;
+
     private float currentSpeed;
-    private float velocityXSmoothing;
+    private float currentVelocityXSmoothing;
 
     [SerializeField] private GameObject body;
     [SerializeField] Transform groundCheckTransform;
@@ -19,10 +19,6 @@ public class PlayerController : MonoBehaviour
     private float inputY;
     private bool isJumpPressed;
     private bool isFacingRight;
-
-    [SerializeField] private AnimationCurve fallCurve;
-    private float time;
-    private float curveSpeed;
 
     private Rigidbody2D rb;
 
@@ -37,19 +33,7 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);
         isJumpPressed = isGrounded ? Input.GetKeyDown(KeyCode.Space) : false;
 
-
-
-        time = Time.deltaTime;
-        curveSpeed = fallCurve.Evaluate(time);
-
         FacingHandler();
-
-        if (isJumpPressed)
-        {
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-        }
-
-        //print(rb.velocity.y);
 
         if (isJumpPressed && isGrounded)
         {
@@ -63,12 +47,9 @@ public class PlayerController : MonoBehaviour
         inputY = Input.GetAxisRaw("Vertical");
 
         float targetVelocityX = maxSpeed * inputX;
-        currentSpeed = Mathf.SmoothDamp(rb.velocity.x, targetVelocityX, ref velocityXSmoothing, inputX > 0 ? accelerationTime : deceleationTime);
+        currentSpeed = Mathf.SmoothDamp(rb.velocity.x, targetVelocityX, ref currentVelocityXSmoothing, inputX > 0 ? accelerationTime : deceleationTime);
+
         rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
-
-
-        print(inputY);
-
     }
 
     private void SetGravityScale(float value)
