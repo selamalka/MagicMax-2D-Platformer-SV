@@ -18153,10 +18153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 5
-  accelerationTime: 0.1
-  deceleationTime: 0.25
-  maxSpeed: 10
-  fallSpeedMultiplier: 1500
+  accelerationTime: 0.01
+  deceleationTime: 0.1
+  maxSpeed: 20
+  fallSpeedMultiplier: 2218.16
   body: {fileID: 5691167642217653533}
   groundCheckTransform: {fileID: 683121255}
   groundLayer:

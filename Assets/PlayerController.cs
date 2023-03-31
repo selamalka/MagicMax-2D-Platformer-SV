@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);
         isJumpPressed = isGrounded ? Input.GetKeyDown(KeyCode.Space) : false;
 
+
+
         time = Time.deltaTime;
         curveSpeed = fallCurve.Evaluate(time);
 
@@ -47,18 +49,12 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
 
-        print(rb.velocity.y);
+        //print(rb.velocity.y);
 
         if (isJumpPressed && isGrounded)
         {
             Jump();
         }
-
-        if (rb.velocity.y < 0)
-        {
-            rb.AddForce(new Vector2(0, -curveSpeed * fallSpeedMultiplier), ForceMode2D.Impulse);
-        }
-
     }
 
     private void FixedUpdate()
@@ -69,6 +65,10 @@ public class PlayerController : MonoBehaviour
         float targetVelocityX = maxSpeed * inputX;
         currentSpeed = Mathf.SmoothDamp(rb.velocity.x, targetVelocityX, ref velocityXSmoothing, inputX > 0 ? accelerationTime : deceleationTime);
         rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
+
+
+        print(inputY);
+
     }
 
     private void SetGravityScale(float value)
