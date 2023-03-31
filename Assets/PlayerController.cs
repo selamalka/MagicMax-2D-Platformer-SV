@@ -34,13 +34,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        isGrounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);
+        isJumpPressed = isGrounded ? Input.GetKeyDown(KeyCode.Space) : false;
+
         time = Time.deltaTime;
         curveSpeed = fallCurve.Evaluate(time);
-
-        isGrounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);        
-        inputX = Input.GetAxisRaw("Horizontal");
-        inputY = Input.GetAxisRaw("Vertical");
-        isJumpPressed = isGrounded ? Input.GetKeyDown(KeyCode.Space) : false;
 
         FacingHandler();
 
@@ -65,6 +63,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        inputX = Input.GetAxisRaw("Horizontal");
+        inputY = Input.GetAxisRaw("Vertical");
+
         float targetVelocityX = maxSpeed * inputX;
         currentSpeed = Mathf.SmoothDamp(rb.velocity.x, targetVelocityX, ref velocityXSmoothing, inputX > 0 ? accelerationTime : deceleationTime);
         rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
