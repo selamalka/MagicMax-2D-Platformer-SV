@@ -18155,8 +18155,7 @@ MonoBehaviour:
   jumpForce: 5
   accelerationTime: 0.01
   deceleationTime: 0.1
-  maxSpeed: 20
-  fallSpeedMultiplier: 2218.16
+  maxSpeed: 15
   body: {fileID: 5691167642217653533}
   groundCheckTransform: {fileID: 683121255}
   groundLayer:
@@ -18164,30 +18163,6 @@ MonoBehaviour:
     m_Bits: 64
   groundCheckRadius: 2
   isGrounded: 0
-  fallCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &5966393714596769051
 GameObject:
   m_ObjectHideFlags: 0
