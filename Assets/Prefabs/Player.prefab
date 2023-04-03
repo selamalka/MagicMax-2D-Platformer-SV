@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &531452075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 531452076}
+  m_Layer: 0
+  m_Name: Projectile Origin Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &531452076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531452075}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.3749973, y: 0.36500043, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5030706469420289041}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &935123623146058074
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +385,7 @@ GameObject:
   - component: {fileID: 8550203995976687189}
   - component: {fileID: 1081117674339621061}
   - component: {fileID: 8963468310251956158}
+  - component: {fileID: 2608739400377468351}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -473,8 +505,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2966023db1bd6147aa6e3102244734d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  maxMana: 6
+--- !u!114 &2608739400377468351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336361800321668108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d516903c0733b4bb5785f437a9050f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileOrigin: {fileID: 531452076}
+  magicShot: {fileID: 6151851385008733511, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
 --- !u!1 &3457254081780802303
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,6 +637,7 @@ Transform:
   - {fileID: 2611548530544160476}
   - {fileID: 6669768208618604990}
   - {fileID: 658567864827967329}
+  - {fileID: 531452076}
   m_Father: {fileID: 4505071554451754095}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
