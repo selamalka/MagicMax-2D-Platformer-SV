@@ -31,4 +31,13 @@ public class PlayerProjectile : MonoBehaviour
     {        
         transform.position += transform.up * data.Speed * Time.deltaTime;        
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<IDamageable>().TakeDamage(data.Damage);
+            Destroy(gameObject);
+        }
+    }
 }
