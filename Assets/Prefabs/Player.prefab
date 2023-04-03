@@ -350,9 +350,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4122009474316010912}
-  - component: {fileID: 626437650179297546}
   - component: {fileID: 4640541351702211481}
   - component: {fileID: 4459096911972575773}
+  - component: {fileID: 626437650179297546}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -377,29 +377,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &626437650179297546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3025372299783953859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2b0de82c27c0e4b8b9dc648ef66eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 15
-  accelerationTime: 0.01
-  deceleationTime: 0.1
-  maxSpeed: 15
-  body: {fileID: 3933297164676221316}
-  groundCheckTransform: {fileID: 4994759405004716155}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  groundCheckRadius: 2
-  isGrounded: 0
 --- !u!70 &4640541351702211481
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -409,7 +386,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 3025372299783953859}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e63921fe57c488c4eba37db469c1d812, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -437,6 +414,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &626437650179297546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3025372299783953859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2b0de82c27c0e4b8b9dc648ef66eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 15
+  maxSpeed: 15
+  body: {fileID: 3933297164676221316}
+  groundCheckTransform: {fileID: 4994759405004716155}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  groundCheckRadius: 2
+  isGrounded: 0
 --- !u!1 &3072041290837164418
 GameObject:
   m_ObjectHideFlags: 0
