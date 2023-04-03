@@ -20885,7 +20885,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 7830839619016114143}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: e63921fe57c488c4eba37db469c1d812, type: 2}
+  m_Material: {fileID: 6200000, guid: 896464b6e20195041a1a9c9022bda616, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -21631,9 +21631,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 15
-  accelerationTime: 0.2
-  deceleationTime: 0.2
-  maxSpeed: 15
+  accelerationTime: 0.05
+  deceleationTime: 0.1
+  maxSpeed: 10
   body: {fileID: 8342095709817580440}
   groundCheckTransform: {fileID: 683121255}
   groundLayer:
@@ -21870,8 +21870,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8963468310251956156}
-  - component: {fileID: 375611807120214405}
   - component: {fileID: 8696756764269725697}
+  - component: {fileID: 375611807120214405}
   - component: {fileID: 5611905760334279446}
   m_Layer: 0
   m_Name: Player
@@ -22087,7 +22087,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &8870254937773222305
 SpriteRenderer:
