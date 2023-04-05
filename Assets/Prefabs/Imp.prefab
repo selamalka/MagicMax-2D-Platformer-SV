@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6028912246207242816}
   - component: {fileID: 8600215806563782599}
   - component: {fileID: 1067818498637294709}
+  - component: {fileID: 7102724643580211680}
   m_Layer: 0
   m_Name: Imp
   m_TagString: Enemy
@@ -112,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 222477417180465270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -66.59852, y: -12.468767, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7533375970561216619}
@@ -171,6 +172,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+--- !u!114 &7102724643580211680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222477417180465270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e460b05fa5f4a5947a5a483356113e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPointA: {fileID: 0}
+  patrolPointB: {fileID: 0}
 --- !u!1 &1357499704117595780
 GameObject:
   m_ObjectHideFlags: 0
