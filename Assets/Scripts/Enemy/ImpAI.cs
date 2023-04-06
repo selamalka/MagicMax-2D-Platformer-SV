@@ -1,77 +1,61 @@
-using System;
-using System.Data;
 using UnityEngine;
 
 public class ImpAI : MonoBehaviour
 {
+    [SerializeField] private Transform projectilePointTransform;
+    [SerializeField] private Transform groundCheckTransform;
+
     private Rigidbody2D rb;
     private float speed;
     private bool isFacingRight = true;
     private Vector3 playerPosition;
-    private Vector3 startingPosition;
-    private Vector3 targetTravelPosition;
-    [SerializeField] private Vector3 travelDistance = new Vector3(5, 0, 0);
-    [SerializeField] private Transform shotPointTransform;
     private GameObject projectilePrefab;
-    private float timeBetweenShots;
-    private float shotCooldownCounter;
+    private float timeBetweenProjectiles;
+    private float projectileCooldownCounter;
+
+    [SerializeField] private Vector3 startingPosition;
+    private float maxTravelDistance = 5f;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         startingPosition = transform.position;
-        targetTravelPosition = startingPosition + travelDistance;
 
         speed = EnemyManager.Instance.ImpSpeed;
-        timeBetweenShots = EnemyManager.Instance.ImpTimeBetweenShots;
+        timeBetweenProjectiles = EnemyManager.Instance.ImpTimeBetweenShots;
         projectilePrefab = EnemyManager.Instance.ImpProjetilePrefab;
+        projectileCooldownCounter = timeBetweenProjectiles;
+    }
 
-        shotCooldownCounter = timeBetweenShots;
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(groundCheckTransform.position, new Vector3(0.5f, 0.5f, 0f));
     }
 
     private void Update()
     {
-        if (shotCooldownCounter > 0)
+        if (projectileCooldownCounter > 0)
         {
-            shotCooldownCounter -= Time.deltaTime;
+            projectileCooldownCounter -= Time.deltaTime;
         }
     }
 
     private void FixedUpdate()
     {
-        TurnHandler();
+        var groundCheck = Physics2D.OverlapBox(groundCheckTransform.position, new Vector2(0.5f, 0.5f), 0f);
+
+        TurnHandler(groundCheck);
         Move();
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void TurnHandler(Collider2D groundCheck)
     {
-        if (collision.CompareTag("Player"))
-        {
-            playerPosition = collision.transform.position;
-            InstantiateProjectile(playerPosition);
-        }
-    }
-
-    private void InstantiateProjectile(Vector3 targetPosition)
-    {
-        if (projectilePrefab == null) return;
-        if (shotCooldownCounter <= 0)
-        {
-            var direction = targetPosition - transform.position;
-            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            var projectile = Instantiate(projectilePrefab, shotPointTransform.position, Quaternion.Euler(new Vector3(0, 0, angle - 90)));
-            projectile.GetComponent<EnemyProjectile>().SetTarget(targetPosition);
-            shotCooldownCounter = timeBetweenShots;
-        }
-    }
-
-    private void TurnHandler()
-    {
-        if (transform.position.x > targetTravelPosition.x)
+        if (!groundCheck.CompareTag("Tilemap"))
         {
             Turn();
         }
-        else if (transform.position.x < startingPosition.x)
+        else if (Mathf.Abs(transform.position.x - startingPosition.x) > maxTravelDistance)
         {
             Turn();
         }
@@ -91,9 +75,32 @@ public class ImpAI : MonoBehaviour
 
     private void Turn()
     {
+        rb.velocity = Vector3.zero;
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
         isFacingRight = !isFacingRight;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerPosition = collision.transform.position;
+            InstantiateProjectile(playerPosition);
+        }
+    }
+
+    private void InstantiateProjectile(Vector3 targetPosition)
+    {
+        if (projectilePrefab == null) return;
+        if (projectileCooldownCounter <= 0)
+        {
+            var direction = targetPosition - transform.position;
+            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            var projectile = Instantiate(projectilePrefab, projectilePointTransform.position, Quaternion.Euler(new Vector3(0, 0, angle - 90)));
+            projectile.GetComponent<EnemyProjectile>().SetTarget(targetPosition);
+            projectileCooldownCounter = timeBetweenProjectiles;
+        }
     }
 }
