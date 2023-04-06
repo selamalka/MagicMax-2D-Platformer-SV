@@ -908,6 +908,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ImpMaxHealth>k__BackingField: 3
   <ImpSpeed>k__BackingField: 70
+  <ImpTimeBetweenShots>k__BackingField: 2
+  <ImpProjetilePrefab>k__BackingField: {fileID: 7847511327988088231, guid: 407d55ede06d18345a310670dc427789, type: 3}
 --- !u!114 &1012876929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21136,6 +21138,14 @@ PrefabInstance:
     - target: {fileID: 1431722318330974229, guid: d3a577495d15ac14babaf4bd8eb5d414, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824684057076608436, guid: d3a577495d15ac14babaf4bd8eb5d414, type: 3}
+      propertyPath: m_Radius
+      value: 14.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824684057076608436, guid: d3a577495d15ac14babaf4bd8eb5d414, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3a577495d15ac14babaf4bd8eb5d414, type: 3}

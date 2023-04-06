@@ -7,7 +7,6 @@ public class PlayerProjectile : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<SpriteRenderer>().sprite = data.Sprite;
         lifespanCounter = data.Lifespan;
     }
 

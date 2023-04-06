@@ -18,7 +18,7 @@ public class EnemyStats : MonoBehaviour, IDamageable
                 break;
 
             case EnemyType.Imp:
-                currentHealth = EnemyStatsManager.Instance.ImpMaxHealth;
+                currentHealth = EnemyManager.Instance.ImpMaxHealth;
                 break;
 
             default:
