@@ -7,6 +7,7 @@ public class EnemyManager : MonoBehaviour
     [field: SerializeField] public float ImpMaxHealth { get; private set; }
     [field: SerializeField] public float ImpSpeed { get; private set; }
     [field: SerializeField] public float ImpTimeBetweenShots { get; private set; }
+    [field: SerializeField] public float ImpTravelDistance { get; private set; }
     [field: SerializeField] public GameObject ImpProjetilePrefab { get; private set; }
 
     private void Awake()

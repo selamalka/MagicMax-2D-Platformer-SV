@@ -438,7 +438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408661629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48.290646, y: -10.39929, z: -10}
+  m_LocalPosition: {x: -48.295692, y: -10.39929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -524,7 +524,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48.290646, y: -10.39929, z: -10}
+  m_LocalPosition: {x: -48.295692, y: -10.39929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -909,6 +909,7 @@ MonoBehaviour:
   <ImpMaxHealth>k__BackingField: 3
   <ImpSpeed>k__BackingField: 100
   <ImpTimeBetweenShots>k__BackingField: 2
+  <ImpTravelDistance>k__BackingField: 5
   <ImpProjetilePrefab>k__BackingField: {fileID: 7847511327988088231, guid: 407d55ede06d18345a310670dc427789, type: 3}
 --- !u!114 &1012876929
 MonoBehaviour:
@@ -21145,6 +21146,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7824684057076608436, guid: d3a577495d15ac14babaf4bd8eb5d414, type: 3}
       propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600215806563782599, guid: d3a577495d15ac14babaf4bd8eb5d414, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
