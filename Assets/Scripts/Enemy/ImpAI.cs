@@ -4,6 +4,8 @@ public class ImpAI : MonoBehaviour
 {
     [SerializeField] private Transform projectilePointTransform;
     [SerializeField] private Transform groundCheckTransform;
+    [SerializeField] private Transform pointA;
+    [SerializeField] private Transform pointB;
 
     private Rigidbody2D rb;
     private float speed;
@@ -14,6 +16,7 @@ public class ImpAI : MonoBehaviour
     private float projectileCooldownCounter;
     private ImpStateType currentState;
 
+    private Vector3 playerPosition;
     private Vector3 startingPosition;
     private float travelDistance;
 
@@ -31,12 +34,6 @@ public class ImpAI : MonoBehaviour
         currentState = ImpStateType.Patrol;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(groundCheckTransform.position, new Vector3(0.5f, 0.5f, 0f));
-    }
-
     private void Update()
     {
         if (projectileCooldownCounter > 0)
@@ -47,17 +44,18 @@ public class ImpAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var groundCheck = Physics2D.OverlapBox(groundCheckTransform.position, new Vector2(0.5f, 0.5f), 0f);
+        //var groundCheck = Physics2D.OverlapBox(groundCheckTransform.position, new Vector2(0.5f, 0.5f), 0f);
 
         switch (currentState)
         {
             case ImpStateType.Patrol:
-                TurnHandler(groundCheck);
+                //TurnHandler(groundCheck);
+                CheckPositionX();
                 Move();
                 break;
 
             case ImpStateType.Attack:
-                
+                InstantiateProjectile(playerPosition);
                 break;
 
             default:
@@ -70,6 +68,7 @@ public class ImpAI : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             currentState = ImpStateType.Attack;
+            projectileCooldownCounter = timeBetweenProjectiles;
         }
     }
 
@@ -77,7 +76,7 @@ public class ImpAI : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            var playerPosition = collision.transform.position;
+            playerPosition = collision.transform.position;
             var direction = playerPosition - transform.position;
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             
@@ -94,9 +93,7 @@ public class ImpAI : MonoBehaviour
                 {
                     Turn();
                 }
-            }
-
-            InstantiateProjectile(playerPosition);
+            }  
         }
     }
 
@@ -143,7 +140,7 @@ public class ImpAI : MonoBehaviour
 
     private void InstantiateProjectile(Vector3 targetPosition)
     {
-        if (projectilePrefab == null) return;
+        if (projectilePrefab == null) return; 
         if (projectileCooldownCounter <= 0)
         {
             var direction = targetPosition - transform.position;
@@ -151,6 +148,18 @@ public class ImpAI : MonoBehaviour
             var projectile = Instantiate(projectilePrefab, projectilePointTransform.position, Quaternion.Euler(new Vector3(0, 0, angle - 90)));
             projectile.GetComponent<EnemyProjectile>().SetTarget(targetPosition);
             projectileCooldownCounter = timeBetweenProjectiles;
+        }
+    }
+
+    private void CheckPositionX()
+    {
+        if (transform.position.x >= pointA.position.x)
+        {
+            Turn();
+        }
+        else if (transform.position.x <= pointB.position.x)
+        {
+            Turn();
         }
     }
 }
