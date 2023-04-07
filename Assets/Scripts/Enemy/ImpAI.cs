@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ImpAI : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class ImpAI : MonoBehaviour
     private Rigidbody2D rb;
     private float speed;
     private bool isFacingRight = true;
-    private Vector3 playerPosition;
+
     private GameObject projectilePrefab;
     private float timeBetweenProjectiles;
     private float projectileCooldownCounter;
@@ -54,6 +56,11 @@ public class ImpAI : MonoBehaviour
     {
         var groundCheck = Physics2D.OverlapBox(groundCheckTransform.position, new Vector2(0.5f, 0.5f), 0f);
 
+        var playerPosition = FindObjectOfType<PlayerController>().transform.position;
+        var direction = playerPosition - transform.position;
+        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        print(angle);
+
         switch (currentState)
         {
             case ImpStateType.Patrol:
@@ -62,11 +69,54 @@ public class ImpAI : MonoBehaviour
                 break;
 
             case ImpStateType.Attack:
-                FacePlayer();
+                
                 break;
 
             default:
                 break;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            currentState = ImpStateType.Attack;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            var playerPosition = collision.transform.position;
+            var direction = playerPosition - transform.position;
+            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            
+            if (angle > 90f || angle < -90f)
+            {
+                if (isFacingRight)
+                {
+                    Turn();
+                }
+            }
+            else if (angle < 90 || angle > -90)
+            {
+                if (!isFacingRight)
+                {
+                    Turn();
+                }
+            }
+
+            InstantiateProjectile(playerPosition);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            currentState = ImpStateType.Patrol;
         }
     }
 
@@ -103,50 +153,10 @@ public class ImpAI : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            playerPosition = collision.transform.position;
-            InstantiateProjectile(playerPosition);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            currentState = ImpStateType.Patrol;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            currentState = ImpStateType.Attack;
-
-            playerPosition = collision.transform.position;
-
-            var direction = playerPosition - transform.position;
-            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-            if (angle > 90f || angle < -90f)
-            {
-                transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, -180, transform.localEulerAngles.z);
-            }
-            else
-            {
-                transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
-            } 
-        }
-    }
-
-    private void FacePlayer()
+    private void FacePlayer(Vector3 playerPosition)
     {
         var direction = playerPosition - transform.position;
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        print(angle);
 
         if (angle > 90f || angle < -90f)
         {
@@ -157,7 +167,6 @@ public class ImpAI : MonoBehaviour
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, -180, transform.localEulerAngles.z);
         }
     }
-
 
     private void InstantiateProjectile(Vector3 targetPosition)
     {
