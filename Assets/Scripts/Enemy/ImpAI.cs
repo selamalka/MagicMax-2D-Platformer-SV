@@ -12,9 +12,10 @@ public class ImpAI : MonoBehaviour
     private GameObject projectilePrefab;
     private float timeBetweenProjectiles;
     private float projectileCooldownCounter;
+    private bool isAttacking;
 
     [SerializeField] private Vector3 startingPosition;
-    private float maxTravelDistance = 5f;
+    private float travelDistance;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class ImpAI : MonoBehaviour
         speed = EnemyManager.Instance.ImpSpeed;
         timeBetweenProjectiles = EnemyManager.Instance.ImpTimeBetweenShots;
         projectilePrefab = EnemyManager.Instance.ImpProjetilePrefab;
+        travelDistance = EnemyManager.Instance.ImpTravelDistance;
         projectileCooldownCounter = timeBetweenProjectiles;
     }
 
@@ -45,8 +47,11 @@ public class ImpAI : MonoBehaviour
     {
         var groundCheck = Physics2D.OverlapBox(groundCheckTransform.position, new Vector2(0.5f, 0.5f), 0f);
 
-        TurnHandler(groundCheck);
-        Move();
+        if (!isAttacking)
+        {
+            TurnHandler(groundCheck);
+            Move();
+        }
     }
 
     private void TurnHandler(Collider2D groundCheck)
@@ -55,10 +60,19 @@ public class ImpAI : MonoBehaviour
         {
             Turn();
         }
-        else if (Mathf.Abs(transform.position.x - startingPosition.x) > maxTravelDistance)
+        else if (Mathf.Abs(transform.position.x - startingPosition.x) > travelDistance)
         {
             Turn();
         }
+    }
+
+    private void Turn()
+    {
+        rb.velocity = Vector3.zero;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+        isFacingRight = !isFacingRight;
     }
 
     private void Move()
@@ -73,21 +87,25 @@ public class ImpAI : MonoBehaviour
         }
     }
 
-    private void Turn()
-    {
-        rb.velocity = Vector3.zero;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
-        isFacingRight = !isFacingRight;
-    }
-
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            if (isAttacking == false)
+            {
+                isAttacking = true;
+            }
+
             playerPosition = collision.transform.position;
             InstantiateProjectile(playerPosition);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isAttacking = false;
         }
     }
 

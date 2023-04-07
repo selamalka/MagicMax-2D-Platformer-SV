@@ -15,5 +15,4 @@ MonoBehaviour:
   <Name>k__BackingField: Magic Shot
   <Speed>k__BackingField: 20
   <Damage>k__BackingField: 1
-  <Lifespan>k__BackingField: 3
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 11850a46b26f10f48b8a7184dc453b4c, type: 3}
+  <Lifespan>k__BackingField: 0.3
