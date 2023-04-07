@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class ImpAI : MonoBehaviour
 {
@@ -16,12 +12,9 @@ public class ImpAI : MonoBehaviour
     private GameObject projectilePrefab;
     private float timeBetweenProjectiles;
     private float projectileCooldownCounter;
-    private bool isAttacking;
-    private float waitTime = 2f;
-    private bool isWaiting;
     private ImpStateType currentState;
 
-    [SerializeField] private Vector3 startingPosition;
+    private Vector3 startingPosition;
     private float travelDistance;
 
     private void Start()
@@ -55,11 +48,6 @@ public class ImpAI : MonoBehaviour
     private void FixedUpdate()
     {
         var groundCheck = Physics2D.OverlapBox(groundCheckTransform.position, new Vector2(0.5f, 0.5f), 0f);
-
-        var playerPosition = FindObjectOfType<PlayerController>().transform.position;
-        var direction = playerPosition - transform.position;
-        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        print(angle);
 
         switch (currentState)
         {
@@ -150,21 +138,6 @@ public class ImpAI : MonoBehaviour
         else
         {
             rb.velocity = new Vector2(-transform.right.x * Time.deltaTime * speed, 0);
-        }
-    }
-
-    private void FacePlayer(Vector3 playerPosition)
-    {
-        var direction = playerPosition - transform.position;
-        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        if (angle > 90f || angle < -90f)
-        {
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
-        }
-        else
-        {
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, -180, transform.localEulerAngles.z);
         }
     }
 
