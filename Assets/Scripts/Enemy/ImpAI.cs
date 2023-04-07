@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class ImpAI : MonoBehaviour
@@ -13,6 +15,9 @@ public class ImpAI : MonoBehaviour
     private float timeBetweenProjectiles;
     private float projectileCooldownCounter;
     private bool isAttacking;
+    private float waitTime = 2f;
+    private bool isWaiting;
+    private ImpStateType currentState;
 
     [SerializeField] private Vector3 startingPosition;
     private float travelDistance;
@@ -27,6 +32,8 @@ public class ImpAI : MonoBehaviour
         projectilePrefab = EnemyManager.Instance.ImpProjetilePrefab;
         travelDistance = EnemyManager.Instance.ImpTravelDistance;
         projectileCooldownCounter = timeBetweenProjectiles;
+
+        currentState = ImpStateType.Patrol;
     }
 
     private void OnDrawGizmos()
@@ -47,10 +54,19 @@ public class ImpAI : MonoBehaviour
     {
         var groundCheck = Physics2D.OverlapBox(groundCheckTransform.position, new Vector2(0.5f, 0.5f), 0f);
 
-        if (!isAttacking)
+        switch (currentState)
         {
-            TurnHandler(groundCheck);
-            Move();
+            case ImpStateType.Patrol:
+                TurnHandler(groundCheck);
+                Move();
+                break;
+
+            case ImpStateType.Attack:
+                FacePlayer();
+                break;
+
+            default:
+                break;
         }
     }
 
@@ -91,11 +107,6 @@ public class ImpAI : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (isAttacking == false)
-            {
-                isAttacking = true;
-            }
-
             playerPosition = collision.transform.position;
             InstantiateProjectile(playerPosition);
         }
@@ -105,9 +116,48 @@ public class ImpAI : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            isAttacking = false;
+            currentState = ImpStateType.Patrol;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            currentState = ImpStateType.Attack;
+
+            playerPosition = collision.transform.position;
+
+            var direction = playerPosition - transform.position;
+            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            if (angle > 90f || angle < -90f)
+            {
+                transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, -180, transform.localEulerAngles.z);
+            }
+            else
+            {
+                transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
+            } 
+        }
+    }
+
+    private void FacePlayer()
+    {
+        var direction = playerPosition - transform.position;
+        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        print(angle);
+
+        if (angle > 90f || angle < -90f)
+        {
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
+        }
+        else
+        {
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, -180, transform.localEulerAngles.z);
+        }
+    }
+
 
     private void InstantiateProjectile(Vector3 targetPosition)
     {
