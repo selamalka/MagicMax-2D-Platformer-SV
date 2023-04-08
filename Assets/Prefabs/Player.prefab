@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 1081117674339621061}
   - component: {fileID: 8963468310251956158}
   - component: {fileID: 2608739400377468351}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -520,8 +520,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileOrigin: {fileID: 531452076}
   meleeInstancesParent: {fileID: 4809942442862245372}
+  body: {fileID: 5030706469420289041}
   magicShotPrefab: {fileID: 6151851385008733511, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
-  meleeAttackPrefab: {fileID: 9193478952144904772, guid: 6a4a0a0f4f10cf74fa346ba2fb1107b8, type: 3}
+  meleeSlashPrefab: {fileID: 5239689112579095281, guid: 1593f3e23ce15c1458aa8dc70897c5e8, type: 3}
 --- !u!1 &3457254081780802303
 GameObject:
   m_ObjectHideFlags: 0

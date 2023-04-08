@@ -4,8 +4,8 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
 
-    [SerializeField] private Camera cam;
-    [SerializeField] private GameObject crosshair;
+    //[SerializeField] private Camera cam;
+    //[SerializeField] private GameObject crosshair;
 
     public Vector2 MousePosition { get; private set; }
 
@@ -21,24 +21,27 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        MousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
-        crosshair.transform.position = MousePosition;
+/*        MousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+        crosshair.transform.position = MousePosition;*/
 
         if (IsLeftMousePressed())
         {
             EventManager.OnLeftMousePressed?.Invoke();
         }
+
+        if (IsEPressed())
+        {
+            EventManager.OnEPressed?.Invoke();
+        }
     }
 
     private bool IsLeftMousePressed()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return Input.GetMouseButtonDown(0);
+    }
+
+    private bool IsEPressed()
+    {
+        return Input.GetKeyDown(KeyCode.E);
     }
 }

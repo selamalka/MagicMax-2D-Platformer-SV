@@ -15,8 +15,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - Player
+  - Enemies
   - 
   - 
   - 
@@ -43,6 +43,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemies
+    uniqueID: 3944737629
+    locked: 0
+  - name: Melee Slash
+    uniqueID: 2617553245
     locked: 0
   - name: Crosshair
     uniqueID: 911880285
