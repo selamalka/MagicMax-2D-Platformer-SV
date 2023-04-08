@@ -10,6 +10,7 @@ public class ImpAI : MonoBehaviour
     private Rigidbody2D rb;
     private float speed;
     private bool isFacingRight = true;
+    private bool isTurning;
 
     private GameObject projectilePrefab;
     private float timeBetweenProjectiles;
@@ -44,17 +45,14 @@ public class ImpAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //var groundCheck = Physics2D.OverlapBox(groundCheckTransform.position, new Vector2(0.5f, 0.5f), 0f);
-
         switch (currentState)
         {
             case ImpStateType.Patrol:
-                //TurnHandler(groundCheck);
-                CheckPositionX();
                 Move();
                 break;
 
             case ImpStateType.Attack:
+                TurnHandler();
                 InstantiateProjectile(playerPosition);
                 break;
 
@@ -70,30 +68,23 @@ public class ImpAI : MonoBehaviour
             currentState = ImpStateType.Attack;
             projectileCooldownCounter = timeBetweenProjectiles;
         }
+        else if (collision.CompareTag("PatrolPoint"))
+        {
+            if (currentState == ImpStateType.Patrol)
+            {
+                Turn();
+            }
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("PatrolPoint"))
         {
-            playerPosition = collision.transform.position;
-            var direction = playerPosition - transform.position;
-            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            
-            if (angle > 90f || angle < -90f)
+            if (currentState == ImpStateType.Patrol)
             {
-                if (isFacingRight)
-                {
-                    Turn();
-                }
+                Turn();
             }
-            else if (angle < 90 || angle > -90)
-            {
-                if (!isFacingRight)
-                {
-                    Turn();
-                }
-            }  
         }
     }
 
@@ -105,18 +96,6 @@ public class ImpAI : MonoBehaviour
         }
     }
 
-    private void TurnHandler(Collider2D groundCheck)
-    {
-        if (!groundCheck.CompareTag("Tilemap"))
-        {
-            Turn();
-        }
-        else if (Mathf.Abs(transform.position.x - startingPosition.x) > travelDistance)
-        {
-            Turn();
-        }
-    }
-
     private void Turn()
     {
         rb.velocity = Vector3.zero;
@@ -124,6 +103,33 @@ public class ImpAI : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
         isFacingRight = !isFacingRight;
+    }
+
+    private void TurnHandler()
+    {
+        //playerPosition = collision.transform.position;
+        playerPosition = GameObject.FindWithTag("Player").transform.position;
+        var direction = playerPosition - transform.position;
+        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        if (angle > 90f || angle < -90f)
+        {
+            if (isFacingRight && !isTurning)
+            {
+                isTurning = true;
+                Turn();
+                isTurning = false;
+            }
+        }
+        else if (angle < 90 || angle > -90)
+        {
+            if (!isFacingRight && !isTurning)
+            {
+                isTurning = true;
+                Turn();
+                isTurning = false;
+            }
+        }
     }
 
     private void Move()
@@ -151,15 +157,4 @@ public class ImpAI : MonoBehaviour
         }
     }
 
-    private void CheckPositionX()
-    {
-        if (transform.position.x >= pointA.position.x)
-        {
-            Turn();
-        }
-        else if (transform.position.x <= pointB.position.x)
-        {
-            Turn();
-        }
-    }
 }
