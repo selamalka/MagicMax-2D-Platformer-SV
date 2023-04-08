@@ -4,8 +4,9 @@ public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private Transform projectileOrigin;
     [SerializeField] private Transform meleeInstancesParent;
+    [SerializeField] private Transform body;
     [SerializeField] private GameObject magicShotPrefab;
-    [SerializeField] private GameObject meleeAttackPrefab;
+    //[SerializeField] private GameObject meleeAttackPrefab;
 
     private Rigidbody2D rb;
 
@@ -17,13 +18,13 @@ public class PlayerCombat : MonoBehaviour
     private void OnEnable()
     {
         //EventManager.OnLeftMousePressed += MeleeAttack;
-        EventManager.OnLeftMousePressed += FireProjectile;
+        //EventManager.OnLeftMousePressed += FireProjectile;
     }
 
     private void OnDisable()
     {
         //EventManager.OnLeftMousePressed -= MeleeAttack;
-        EventManager.OnLeftMousePressed -= FireProjectile;
+        //EventManager.OnLeftMousePressed -= FireProjectile;
     }
 
     private void FireProjectile()
@@ -33,8 +34,10 @@ public class PlayerCombat : MonoBehaviour
         Instantiate(magicShotPrefab, projectileOrigin.position, Quaternion.Euler(new Vector3(0,0,-angle)));
     }
 
-    private void MeleeAttack()
+    /*private void MeleeAttack()
     {
-        Instantiate(meleeAttackPrefab, projectileOrigin.position, Quaternion.identity, meleeInstancesParent);
-    }
+        var meleeInstance = Instantiate(meleeAttackPrefab, projectileOrigin.position, Quaternion.identity, meleeInstancesParent);
+        meleeInstance.transform.localScale = body.transform.localScale;
+    }*/
+
 }
