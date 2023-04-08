@@ -6,6 +6,7 @@ public class PlayerStatsManager : MonoBehaviour
 
     [field: SerializeField] public float MaxHealth { get; private set; }
     [field: SerializeField] public float MaxMana { get; private set; }
+    [field: SerializeField] public float MeleeDamage { get; private set; }
 
     private void Awake()
     {

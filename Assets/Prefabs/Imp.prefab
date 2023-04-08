@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8600215806563782599}
   - component: {fileID: 1067818498637294709}
   - component: {fileID: 7102724643580211680}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Imp
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  currentHealth: 0
 --- !u!114 &7102724643580211680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6526592780005475507}
   - component: {fileID: 7824684057076608436}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Detection Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
