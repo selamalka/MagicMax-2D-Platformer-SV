@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
         currentMana = PlayerStatsManager.Instance.MaxMana;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
