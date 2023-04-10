@@ -5,15 +5,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Transform projectileOrigin;
     [SerializeField] private Transform meleeInstancesParent;
     [SerializeField] private Transform body;
-    [SerializeField] private GameObject magicShotPrefab;
+    [SerializeField] private GameObject magicShotContainer;
     [SerializeField] private GameObject meleeSlashPrefab;
-
-    private Rigidbody2D rb;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
 
     private void OnEnable()
     {
@@ -29,10 +22,8 @@ public class PlayerCombat : MonoBehaviour
 
     private void LaunchProjectile()
     {
-        var projectileInstance = Instantiate(magicShotPrefab, projectileOrigin.position, Quaternion.Euler(0,0,-90));
-        var modifiedLocalScale = projectileInstance.transform.localScale;
-        modifiedLocalScale.x *= Mathf.Sign(projectileInstance.transform.localScale.x);
-        projectileInstance.transform.localScale = modifiedLocalScale;
+        var projectileContainer = Instantiate(magicShotContainer, projectileOrigin.position, Quaternion.identity);
+        projectileContainer.transform.rotation = Quaternion.Euler(0, 0, PlayerController.Instance.IsFacingRight ? -90 : 90);
     }
 
     private void MeleeSlash()
