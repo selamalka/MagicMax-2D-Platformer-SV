@@ -28,7 +28,7 @@ public class PlayerProjectile : MonoBehaviour
 
     private void Fly()
     {        
-        transform.position += transform.right * data.Speed * Time.deltaTime;        
+        transform.position += transform.up * data.Speed * Time.deltaTime;        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -521,7 +521,7 @@ MonoBehaviour:
   projectileOrigin: {fileID: 531452076}
   meleeInstancesParent: {fileID: 4809942442862245372}
   body: {fileID: 5030706469420289041}
-  magicShotPrefab: {fileID: 6151851385008733511, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
+  magicShotPrefab: {fileID: 6891076197353053397, guid: 6f7826af8745d8543aacba702a7213bf, type: 3}
   meleeSlashPrefab: {fileID: 5239689112579095281, guid: 1593f3e23ce15c1458aa8dc70897c5e8, type: 3}
 --- !u!1 &3457254081780802303
 GameObject:

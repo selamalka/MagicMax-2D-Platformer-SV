@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
+
     [SerializeField] private float jumpForce;
     [SerializeField] private float accelerationTime = 0.2f;
     [SerializeField] private float deceleationTime = 0.2f;
@@ -18,13 +20,18 @@ public class PlayerController : MonoBehaviour
     private float inputX;
     private float inputY;
     private bool isJumpPressed;
-    private bool isFacingRight;
+    public bool IsFacingRight { get; private set; }
 
     private Rigidbody2D rb;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
-        isFacingRight = true;
+        IsFacingRight = true;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -68,16 +75,16 @@ public class PlayerController : MonoBehaviour
         localScale.x *= -1;
         body.transform.localScale = localScale;
 
-        isFacingRight = !isFacingRight;
+        IsFacingRight = !IsFacingRight;
     }
 
     private void FacingHandler()
     {
-        if (inputX < 0 && isFacingRight)
+        if (inputX < 0 && IsFacingRight)
         {
             Flip();
         }
-        else if (inputX > 0 && !isFacingRight)
+        else if (inputX > 0 && !IsFacingRight)
         {
             Flip();
         }
