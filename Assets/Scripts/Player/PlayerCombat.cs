@@ -18,26 +18,26 @@ public class PlayerCombat : MonoBehaviour
     private void OnEnable()
     {
         EventManager.OnEPressed += MeleeSlash;
-        //EventManager.OnLeftMousePressed += FireProjectile;
+        EventManager.OnQPressed += LaunchProjectile;
     }
 
     private void OnDisable()
     {
         EventManager.OnEPressed -= MeleeSlash;
-        //EventManager.OnLeftMousePressed -= FireProjectile;
+        EventManager.OnQPressed -= LaunchProjectile;
     }
 
-    private void FireProjectile()
+    private void LaunchProjectile()
     {
-        var direction = InputManager.Instance.MousePosition - rb.position;
-        var angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-        Instantiate(magicShotPrefab, projectileOrigin.position, Quaternion.Euler(new Vector3(0,0,-angle)));
+        var projectileInstance = Instantiate(magicShotPrefab, projectileOrigin.position, Quaternion.Euler(0,0,-90));
+        var modifiedLocalScale = projectileInstance.transform.localScale;
+        modifiedLocalScale.x *= Mathf.Sign(projectileInstance.transform.localScale.x);
+        projectileInstance.transform.localScale = modifiedLocalScale;
     }
 
     private void MeleeSlash()
     {
         var meleeInstance = Instantiate(meleeSlashPrefab, projectileOrigin.position, Quaternion.identity, meleeInstancesParent);
-        meleeInstance.transform.localScale = body.transform.localScale;
+        meleeInstance.transform.localScale = body.localScale;
     }
-
 }
