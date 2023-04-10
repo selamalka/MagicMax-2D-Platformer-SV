@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour, IDamageable
 {
-    private float currentHealth;
+    private int currentHealth;
     private float currentMana;
 
 
@@ -15,7 +15,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
+        EventManager.OnPlayerGetHit?.Invoke();
         if (currentHealth <= 0) 
         {
             Destroy(gameObject);

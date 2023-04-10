@@ -578,7 +578,7 @@ RectTransform:
   m_Children:
   - {fileID: 1331034973}
   m_Father: {fileID: 1618658563}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -810,7 +810,7 @@ RectTransform:
   m_Children:
   - {fileID: 859883133}
   m_Father: {fileID: 1618658563}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -1641,9 +1641,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1012876927}
+  - component: {fileID: 1012876929}
+  - component: {fileID: 1012876930}
   - component: {fileID: 1012876926}
   - component: {fileID: 1012876928}
-  - component: {fileID: 1012876929}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1666,11 +1667,11 @@ MonoBehaviour:
   <CurrentLevel>k__BackingField: 1
   <CurrentExp>k__BackingField: 0
   <TargetExp>k__BackingField: 10
-  <MaxHealth>k__BackingField: 0
-  <CurrentHealth>k__BackingField: 0
-  <MaxMana>k__BackingField: 6
-  <CurrentMana>k__BackingField: 0
-  <MeleeDamage>k__BackingField: 0
+  <MaxHealth>k__BackingField: 5
+  <CurrentHealth>k__BackingField: 5
+  <MaxMana>k__BackingField: 10
+  <CurrentMana>k__BackingField: 10
+  <MeleeDamage>k__BackingField: 1
 --- !u!4 &1012876927
 Transform:
   m_ObjectHideFlags: 0
@@ -1715,6 +1716,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36cf422c43646a745a2af5cfbb9307e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1012876930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012876925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6062a4ebe5d479c489508bc969982c31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints:
+  - {fileID: 1670259749}
+  - {fileID: 1161184285}
+  - {fileID: 539658680}
+  - {fileID: 985565718}
+  - {fileID: 183497621}
+  manaBarFull: {fileID: 859883134}
+  expBarFull: {fileID: 1331034974}
 --- !u!1 &1104406607
 GameObject:
   m_ObjectHideFlags: 0
@@ -2230,8 +2251,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 323468735}
   - {fileID: 458534471}
+  - {fileID: 323468735}
   m_Father: {fileID: 299537109}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22783,11 +22804,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591922617110757509, guid: bf71e6dd730bc644da426efb21b54af8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -43.33777
+      value: -51
       objectReference: {fileID: 0}
     - target: {fileID: 5591922617110757509, guid: bf71e6dd730bc644da426efb21b54af8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2770387
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 5591922617110757509, guid: bf71e6dd730bc644da426efb21b54af8, type: 3}
       propertyPath: m_LocalPosition.z
