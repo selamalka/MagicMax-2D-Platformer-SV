@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,9 +26,9 @@ public class UIManager : MonoBehaviour
     {
         for (int i = PlayerStatsManager.Instance.CurrentHealth - 1; i <= healthPoints.Length; i--)
         {
-            if (healthPoints[i].enabled)
+            if (healthPoints[i].color.a > 0)
             {
-                healthPoints[i].enabled = false;
+                healthPoints[i].DOFade(0, 0.2f);
                 break;
             }
         }
@@ -35,12 +36,14 @@ public class UIManager : MonoBehaviour
 
     private void UpdateManaBar()
     {
-        manaBarFull.fillAmount = PlayerStatsManager.Instance.CurrentMana / PlayerStatsManager.Instance.MaxMana;
+        //manaBarFull.fillAmount = PlayerStatsManager.Instance.CurrentMana / PlayerStatsManager.Instance.MaxMana;
+        manaBarFull.DOFillAmount(PlayerStatsManager.Instance.CurrentMana / PlayerStatsManager.Instance.MaxMana, 0.2f);
     }
 
     private void UpdateExpBar()
     {
-        expBarFull.fillAmount = PlayerStatsManager.Instance.CurrentExp / PlayerStatsManager.Instance.TargetExp;
+        //expBarFull.fillAmount = PlayerStatsManager.Instance.CurrentExp / PlayerStatsManager.Instance.TargetExp;
+        expBarFull.DOFillAmount(PlayerStatsManager.Instance.CurrentExp / PlayerStatsManager.Instance.TargetExp, 0.2f);
     }
 
 }
