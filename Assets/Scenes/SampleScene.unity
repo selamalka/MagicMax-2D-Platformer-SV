@@ -291,6 +291,11 @@ Transform:
   m_Father: {fileID: 963407270}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &92545464 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 92545464, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+  m_PrefabInstance: {fileID: 4819300501451025363}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &183497619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,6 +1345,11 @@ Transform:
   m_Father: {fileID: 963407270}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &692619718 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 692619718, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+  m_PrefabInstance: {fileID: 4819300501451025363}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &737095379
 GameObject:
   m_ObjectHideFlags: 0
@@ -2509,6 +2519,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753773039}
   m_CullTransparentMesh: 1
+--- !u!4 &1757376957 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 531452076, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+  m_PrefabInstance: {fileID: 4819300501451025363}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1867404942
 GameObject:
   m_ObjectHideFlags: 0
@@ -22794,10 +22809,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92545463, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: m_Name
+      value: Projectile Origin Top Transform
+      objectReference: {fileID: 0}
+    - target: {fileID: 531452075, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: m_Name
+      value: Projectile Origin Side Transform
+      objectReference: {fileID: 0}
+    - target: {fileID: 692619717, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: m_Name
+      value: Projectile Origin Bottom Transform
+      objectReference: {fileID: 0}
     - target: {fileID: 2608739400377468351, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
-      propertyPath: magicShotContainer
+      propertyPath: projectileOriginTop
       value: 
-      objectReference: {fileID: 6891076197353053397, guid: 6f7826af8745d8543aacba702a7213bf, type: 3}
+      objectReference: {fileID: 92545464}
+    - target: {fileID: 2608739400377468351, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: projectileOriginSide
+      value: 
+      objectReference: {fileID: 1757376957}
+    - target: {fileID: 2608739400377468351, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: projectileOriginBottom
+      value: 
+      objectReference: {fileID: 692619718}
     - target: {fileID: 3336361800321668108, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: m_Name
       value: Player
