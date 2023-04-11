@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 92545464}
   m_Layer: 0
-  m_Name: Projectile Top Origin Transform (1)
+  m_Name: Projectile Origin Top Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 531452076}
   m_Layer: 0
-  m_Name: Projectile Side Origin Transform
+  m_Name: Projectile Origin Side Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 692619718}
   m_Layer: 0
-  m_Name: Projectile Bottom Origin Transform (2)
+  m_Name: Projectile Origin Bottom Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,7 +580,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d516903c0733b4bb5785f437a9050f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileOrigin: {fileID: 531452076}
+  projectileOriginSide: {fileID: 531452076}
+  projectileOriginTop: {fileID: 92545464}
+  projectileOriginBottom: {fileID: 692619718}
   meleeInstancesParent: {fileID: 4809942442862245372}
   body: {fileID: 5030706469420289041}
   magicShotContainer: {fileID: 6891076197353053397, guid: 6f7826af8745d8543aacba702a7213bf, type: 3}
