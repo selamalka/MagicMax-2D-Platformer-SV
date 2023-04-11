@@ -48,5 +48,4 @@ public class EnemyProjectile : MonoBehaviour
     {
         transform.position += transform.up * data.Speed * Time.deltaTime;
     }
-
 }

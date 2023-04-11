@@ -22,6 +22,12 @@ public class UIManager : MonoBehaviour
         EventManager.OnEnemyDeath -= UpdateExpBar;
     }
 
+    private void Start()
+    {
+        UpdateManaBar();
+        UpdateExpBar();
+    }
+
     private void DecreaseHealthPoints()
     {
         for (int i = PlayerStatsManager.Instance.CurrentHealth - 1; i <= healthPoints.Length; i--)
@@ -45,5 +51,4 @@ public class UIManager : MonoBehaviour
         //expBarFull.fillAmount = PlayerStatsManager.Instance.CurrentExp / PlayerStatsManager.Instance.TargetExp;
         expBarFull.DOFillAmount(PlayerStatsManager.Instance.CurrentExp / PlayerStatsManager.Instance.TargetExp, 0.2f);
     }
-
 }
