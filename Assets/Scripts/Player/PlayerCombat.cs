@@ -32,32 +32,50 @@ public class PlayerCombat : MonoBehaviour
 
     private void MeleeSlash()
     {
+        var origin = GetProjectileOrigin();
         var meleeInstance = Instantiate(meleeSlashPrefab, GetProjectileOrigin(), Quaternion.identity, meleeInstancesParent);
+
         meleeInstance.transform.localScale = body.localScale;
+        
+        if (origin == projectileOriginTop.position)
+        {
+            meleeInstance.transform.rotation = PlayerController.Instance.IsFacingRight ? Quaternion.Euler(0, 0, 90) : Quaternion.Euler(0, 0, -90);
+        }
+        else if (origin == projectileOriginBottom.position)
+        {
+            meleeInstance.transform.rotation = PlayerController.Instance.IsFacingRight ? Quaternion.Euler(0, 0, -90) : Quaternion.Euler(0, 0, 90);
+        }
     }
 
     private Vector3 GetProjectileOrigin()
     {
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
         {
+            if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
+            {
+                print("top");
+                return projectileOriginTop.position;
+            }
+            else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow))
+            {
+                print("bottom");
+                return projectileOriginBottom.position;
+            }
+
+            print("side");
             return projectileOriginSide.position;
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
+            print("top");
             return projectileOriginTop.position;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
+            print("bottom");
             return projectileOriginBottom.position;
         }
-        else if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
-        {
-            return projectileOriginTop.position;
-        }
-        else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow))
-        {
-            return projectileOriginBottom.position;
-        }
+
         else return projectileOriginSide.position;
     }
 }
