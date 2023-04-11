@@ -3,7 +3,8 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour, IDamageable
 {
     [SerializeField] private EnemyType type;
-    [SerializeField] private float currentHealth;
+    private float currentHealth;
+    private float expValue;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class EnemyStats : MonoBehaviour, IDamageable
 
             case EnemyType.Imp:
                 currentHealth = EnemyManager.Instance.ImpMaxHealth;
+                expValue = EnemyManager.Instance.ImpExpValue;
                 break;
 
             default:
@@ -32,6 +34,8 @@ public class EnemyStats : MonoBehaviour, IDamageable
 
         if (currentHealth <= 0)
         {
+            PlayerStatsManager.Instance.GrantExp(expValue);
+            EventManager.OnEnemyDeath?.Invoke();
             Destroy(gameObject);
         }
     }

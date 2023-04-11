@@ -7,6 +7,7 @@ public class PlayerStatsManager : MonoBehaviour
     [field: SerializeField] public int CurrentLevel { get; private set; }
     [field: SerializeField] public float CurrentExp { get; private set; }
     [field: SerializeField] public float TargetExp { get; private set; }
+    [field: SerializeField] public float TargetExpMultiplier { get; private set; }
     [field: SerializeField] public int MaxHealth { get; private set; }
     [field: SerializeField] public int CurrentHealth { get; private set; }
     [field: SerializeField] public float MaxMana { get; private set; }
@@ -21,6 +22,7 @@ public class PlayerStatsManager : MonoBehaviour
     private void Start()
     {
         CurrentLevel = 1;
+        CurrentHealth = MaxHealth;
     }
 
     public void SetCurrentExp(float value)
@@ -46,5 +48,21 @@ public class PlayerStatsManager : MonoBehaviour
     public void SetCurrentMana(float value)
     {
         CurrentMana = value;
+    }
+
+    public void CheckExpToLevelUp()
+    {
+        if (CurrentExp >= TargetExp)
+        {
+            CurrentExp = 0;
+            TargetExp *= TargetExpMultiplier;
+            CurrentLevel++;
+        }
+    }
+
+    public void GrantExp(float expValue)
+    {
+        SetCurrentExp(CurrentExp + expValue);
+        CheckExpToLevelUp();
     }
 }
