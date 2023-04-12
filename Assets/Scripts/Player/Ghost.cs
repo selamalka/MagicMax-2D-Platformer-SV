@@ -3,7 +3,8 @@ using UnityEngine;
 public class Ghost : MonoBehaviour
 {
     [SerializeField] private GameObject ghostPrefab;
-    [SerializeField] private Transform ghostInstancesParent;
+    [SerializeField] private Transform ghostOriginTransform;
+    [SerializeField] private Transform body;
     [SerializeField] private float ghostDelayStartTime;
     [SerializeField] private float ghostDestructionTime;
     
@@ -22,6 +23,8 @@ public class Ghost : MonoBehaviour
 
     private void GhostHandler()
     {
+        if (!ShouldCreateGhost) return;
+
         ghostCounter -= Time.deltaTime;
 
         if (ghostCounter <= 0)
@@ -33,8 +36,14 @@ public class Ghost : MonoBehaviour
 
     private void InstantiateGhost()
     {
-        var newPos = new Vector3(ghostInstancesParent.transform.position.x, ghostInstancesParent.transform.position.y, ghostInstancesParent.transform.position.z);
-        var currentGhost = Instantiate(ghostPrefab, newPos, Quaternion.identity, ghostInstancesParent);
+        var newPos = new Vector3(ghostOriginTransform.transform.position.x, ghostOriginTransform.transform.position.y, ghostOriginTransform.transform.position.z);
+        var currentGhost = Instantiate(ghostPrefab, newPos, Quaternion.identity);
+        currentGhost.transform.localScale = body.localScale;
         Destroy(currentGhost, ghostDestructionTime);
+    }
+
+    public void SetShouldCreateGhost(bool value)
+    {
+        ShouldCreateGhost = value;
     }
 }

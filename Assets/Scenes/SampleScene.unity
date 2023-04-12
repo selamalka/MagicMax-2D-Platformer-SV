@@ -1804,6 +1804,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &957618167 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2059795651199947884, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+  m_PrefabInstance: {fileID: 4819300501451025363}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963407269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,7 +1958,7 @@ MonoBehaviour:
   <CurrentExp>k__BackingField: 0
   <TargetExp>k__BackingField: 10
   <TargetExpMultiplier>k__BackingField: 1.2
-  <MaxHealth>k__BackingField: 5
+  <MaxHealth>k__BackingField: 100
   <CurrentHealth>k__BackingField: 0
   <MaxMana>k__BackingField: 10
   <CurrentMana>k__BackingField: 10
@@ -2757,6 +2762,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618658562}
   m_CullTransparentMesh: 1
+--- !u!4 &1648730793 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5030706469420289041, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+  m_PrefabInstance: {fileID: 4819300501451025363}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1670259747
 GameObject:
   m_ObjectHideFlags: 0
@@ -23252,9 +23262,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1081117674339621061, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
-      propertyPath: dashForce
-      value: 20
+    - target: {fileID: 193162768718995139, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: m_Name
+      value: Ghost Origin Transform
       objectReference: {fileID: 0}
     - target: {fileID: 3336361800321668108, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: m_Name
@@ -23304,6 +23314,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8963468310251956163, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 1648730793}
+    - target: {fileID: 8963468310251956163, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: ghostDelayStartTime
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963468310251956163, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: ghostOriginTransform
+      value: 
+      objectReference: {fileID: 957618167}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
 --- !u!4 &8963468310251956156 stripped

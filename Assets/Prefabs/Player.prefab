@@ -588,7 +588,7 @@ MonoBehaviour:
     m_Bits: 64
   groundCheckRadius: 2
   isGrounded: 0
-  dashForce: 200
+  dashForce: 20
   dashTime: 0.2
   dashCooldown: 0.01
 --- !u!114 &8963468310251956158
@@ -636,8 +636,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostPrefab: {fileID: 2369115971850078861, guid: 4783bdcb8999b8c4e922a8b66ce51372, type: 3}
   ghostInstancesParent: {fileID: 2059795651199947884}
-  ghostDelayStartTime: 0.2
-  ghostDestructionTime: 0.5
+  ghostDelayStartTime: 0.03
+  ghostDestructionTime: 1
 --- !u!1 &3457254081780802303
 GameObject:
   m_ObjectHideFlags: 0
