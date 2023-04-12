@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
             if (dashDirection == Vector2.zero)
             {
-                dashDirection = new Vector2(transform.localScale.x, 0);
+                dashDirection = new Vector2(body.transform.localScale.x, 0);
             }
 
             StartCoroutine(StopDashing());
