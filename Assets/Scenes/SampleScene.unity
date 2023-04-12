@@ -1958,7 +1958,7 @@ MonoBehaviour:
   <CurrentExp>k__BackingField: 0
   <TargetExp>k__BackingField: 10
   <TargetExpMultiplier>k__BackingField: 1.2
-  <MaxHealth>k__BackingField: 100
+  <MaxHealth>k__BackingField: 5
   <CurrentHealth>k__BackingField: 0
   <MaxMana>k__BackingField: 10
   <CurrentMana>k__BackingField: 10
@@ -1993,7 +1993,7 @@ MonoBehaviour:
   <ImpMaxHealth>k__BackingField: 3
   <ImpSpeed>k__BackingField: 100
   <ImpExpValue>k__BackingField: 4
-  <ImpTimeBetweenShots>k__BackingField: 0.8
+  <ImpTimeBetweenShots>k__BackingField: 1.5
   <ImpTravelDistance>k__BackingField: 5
   <ImpProjetilePrefab>k__BackingField: {fileID: 7847511327988088231, guid: 407d55ede06d18345a310670dc427789, type: 3}
 --- !u!114 &1012876929
