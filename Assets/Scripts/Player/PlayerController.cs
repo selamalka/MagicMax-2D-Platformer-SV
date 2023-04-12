@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -21,6 +23,14 @@ public class PlayerController : MonoBehaviour
     private float inputY;
     private bool isJumpPressed;
     public bool IsFacingRight { get; private set; }
+
+    [Header("Dashing")]
+    [SerializeField] private float dashForce;
+    [SerializeField] private float dashTime;
+    [SerializeField] private float dashCooldown;
+    private Vector2 dashDirection;
+    private bool canDash = true;
+    private bool isDashing;
 
     private Rigidbody2D rb;
 
@@ -46,6 +56,9 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+
+        var isDashPressed = Input.GetKeyDown(KeyCode.LeftShift);
+        Dash(isDashPressed);
     }
 
     private void FixedUpdate()
@@ -57,6 +70,38 @@ public class PlayerController : MonoBehaviour
         currentSpeed = Mathf.SmoothDamp(rb.velocity.x, targetVelocityX, ref currentVelocityXSmoothing, inputX > 0 ? accelerationTime : deceleationTime);
 
         rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
+
+        if (isDashing)
+        {
+            rb.velocity = dashDirection.normalized * dashForce;
+            return;
+        }
+    }
+
+    private void Dash(bool isDashPressed)
+    {
+        if (isDashPressed && canDash)
+        {
+            isDashing = true;
+            canDash = false;
+
+            dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+            if (dashDirection == Vector2.zero)
+            {
+                dashDirection = new Vector2(transform.localScale.x, 0);
+            }
+
+            StartCoroutine(StopDashing());
+        }
+    }
+
+    private IEnumerator StopDashing()
+    {
+        yield return new WaitForSeconds(dashTime);
+        isDashing = false;
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 
     private void SetGravityScale(float value)
