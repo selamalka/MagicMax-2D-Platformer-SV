@@ -54,10 +54,15 @@ public class PlayerStatsManager : MonoBehaviour
     {
         if (CurrentExp >= TargetExp)
         {
-            CurrentExp = 0;
-            TargetExp *= TargetExpMultiplier;
-            CurrentLevel++;
+            LevelUp();
         }
+    }
+
+    private void LevelUp()
+    {
+        CurrentExp = 0;
+        TargetExp *= TargetExpMultiplier;
+        CurrentLevel++;
     }
 
     public void GrantExp(float expValue)
