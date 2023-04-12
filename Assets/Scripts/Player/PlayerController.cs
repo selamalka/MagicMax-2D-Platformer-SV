@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private bool canDash = true;
     private bool isDashing;
 
+    private Ghost ghostScript;
     private Rigidbody2D rb;
 
     private void Awake()
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         IsFacingRight = true;
+        ghostScript = GetComponent<Ghost>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -84,6 +86,7 @@ public class PlayerController : MonoBehaviour
         {
             isDashing = true;
             canDash = false;
+            ghostScript.SetShouldCreateGhost(true);
 
             dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
@@ -100,6 +103,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(dashTime);
         isDashing = false;
+        ghostScript.SetShouldCreateGhost(false);
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
