@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour
 {
-    [SerializeField] private ProjectileData data;
+    [field: SerializeField] public ProjectileData Data { get; private set; }
     private float lifespanCounter;
 
     private void Start()
     {
-        lifespanCounter = data.Lifespan;
+        lifespanCounter = Data.Lifespan;
     }
 
     private void Update()
@@ -28,14 +28,14 @@ public class PlayerProjectile : MonoBehaviour
 
     private void Fly()
     {        
-        transform.position += transform.up * data.Speed * Time.deltaTime;        
+        transform.position += transform.up * Data.Speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<IDamageable>().TakeDamage(data.Damage);
+            collision.GetComponent<IDamageable>().TakeDamage(Data.Damage);
             Destroy(gameObject);
         }
         else if (collision.CompareTag("Tilemap"))

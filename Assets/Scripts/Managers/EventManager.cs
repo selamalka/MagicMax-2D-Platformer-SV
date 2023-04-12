@@ -14,7 +14,7 @@ public class EventManager : MonoBehaviour
     public delegate void PlayerGetHitAction();
     public static PlayerGetHitAction OnPlayerGetHit;
 
-    public delegate void PlayerUseManaAction();
+    public delegate void PlayerUseManaAction(float manaCost);
     public static PlayerUseManaAction OnPlayerUseMana;
 
     public delegate void EnemyDeathAction();

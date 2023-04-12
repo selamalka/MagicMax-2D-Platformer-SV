@@ -19,6 +19,16 @@ public class PlayerStatsManager : MonoBehaviour
         Instance = this;
     }
 
+    private void OnEnable()
+    {
+        EventManager.OnPlayerUseMana += UseMana;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnPlayerUseMana -= UseMana;
+    }
+
     private void Start()
     {
         CurrentLevel = 1;
@@ -45,9 +55,16 @@ public class PlayerStatsManager : MonoBehaviour
         CurrentHealth = value;
     }
 
-    public void SetCurrentMana(float value)
+    private void UseMana(float manaCost)
     {
-        CurrentMana = value;
+        if (CurrentMana - manaCost >= 0)
+        {
+            CurrentMana -= manaCost;
+        }
+        else
+        {
+            CurrentMana = 0;
+        }    
     }
 
     public void CheckExpToLevelUp()

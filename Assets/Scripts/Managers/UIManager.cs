@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateManaBar();
+        UpdateManaBar(0);
         UpdateExpBar();
     }
 
@@ -40,15 +40,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void UpdateManaBar()
+    private void UpdateManaBar(float notInUse)
     {
-        //manaBarFull.fillAmount = PlayerStatsManager.Instance.CurrentMana / PlayerStatsManager.Instance.MaxMana;
         manaBarFull.DOFillAmount(PlayerStatsManager.Instance.CurrentMana / PlayerStatsManager.Instance.MaxMana, 0.2f);
     }
 
     private void UpdateExpBar()
     {
-        //expBarFull.fillAmount = PlayerStatsManager.Instance.CurrentExp / PlayerStatsManager.Instance.TargetExp;
         expBarFull.DOFillAmount(PlayerStatsManager.Instance.CurrentExp / PlayerStatsManager.Instance.TargetExp, 0.2f);
     }
 }

@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2059795651199947884}
   m_Layer: 7
-  m_Name: Ghost Instances Parent
+  m_Name: Ghost Origin Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -635,7 +635,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostPrefab: {fileID: 2369115971850078861, guid: 4783bdcb8999b8c4e922a8b66ce51372, type: 3}
-  ghostInstancesParent: {fileID: 2059795651199947884}
+  ghostOriginTransform: {fileID: 2059795651199947884}
+  body: {fileID: 5030706469420289041}
   ghostDelayStartTime: 0.03
   ghostDestructionTime: 1
 --- !u!1 &3457254081780802303
