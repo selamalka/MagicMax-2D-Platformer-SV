@@ -24,10 +24,11 @@ public class PlayerCombat : MonoBehaviour
 
     private void LaunchProjectile()
     {
+        if (PlayerStatsManager.Instance.CurrentMana == 0) return;
         var projectileContainer = Instantiate(magicShotContainer, projectileOriginSide.position, Quaternion.identity);
         projectileContainer.transform.rotation = Quaternion.Euler(0, 0, PlayerController.Instance.IsFacingRight ? -90 : 90);
-
-        EventManager.OnPlayerUseMana?.Invoke();
+        var manaCost = projectileContainer.GetComponentInChildren<PlayerProjectile>().Data.ManaCost;
+        EventManager.OnPlayerUseMana?.Invoke(manaCost);
     }
 
     private void MeleeSlash()
