@@ -10,28 +10,31 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image[] manaPoints;
     [SerializeField] private Image expBarFull;
 
-    private void OnEnable()
-    {
-        EventManager.OnPlayerGetHit += DecreaseHealthPoint;
-        EventManager.OnPlayerUseMana += DecreaseManaPoint;
-        EventManager.OnEnemyDeath += UpdateExpBar;
-    }
-
     private void Awake()
     {
         Instance = this;
     }
 
+    private void OnEnable()
+    {
+        EventManager.OnPlayerGetHit += DecreaseHealthPoint;
+        EventManager.OnEnemyDeath += UpdateExpBar;
+    }
+
     private void OnDisable()
     {
         EventManager.OnPlayerGetHit -= DecreaseHealthPoint;
-        EventManager.OnPlayerUseMana -= DecreaseManaPoint;
         EventManager.OnEnemyDeath -= UpdateExpBar;
     }
 
     private void Start()
     {
         UpdateExpBar();
+    }
+
+    private void UpdateExpBar()
+    {
+        expBarFull.DOFillAmount(PlayerStatsManager.Instance.CurrentExp / PlayerStatsManager.Instance.TargetExp, 0.2f);
     }
 
     public void FillHealthPoint()
@@ -68,6 +71,7 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
     public void DecreaseManaPoint()
     {
         for (int i = PlayerStatsManager.Instance.CurrentMana; i <= manaPoints.Length; i--)
@@ -78,10 +82,5 @@ public class UIManager : MonoBehaviour
                 break;
             }
         }
-    }
-
-    private void UpdateExpBar()
-    {
-        expBarFull.DOFillAmount(PlayerStatsManager.Instance.CurrentExp / PlayerStatsManager.Instance.TargetExp, 0.2f);
     }
 }

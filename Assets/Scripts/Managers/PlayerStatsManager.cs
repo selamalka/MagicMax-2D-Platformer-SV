@@ -62,15 +62,16 @@ public class PlayerStatsManager : MonoBehaviour
 
     public void UseMana(int manaCost)
     {
-        if (CurrentMana - manaCost >= 0)
+        for (int i = 1; i <= manaCost; i++)
         {
-            CurrentMana -= manaCost;
+            CurrentMana--;
             UIManager.Instance.DecreaseManaPoint();
         }
-        else
-        {
-            CurrentMana = 0;
-        }
+    }
+
+    public bool IsEnoughMana(int manaCost)
+    {
+        return CurrentMana - manaCost >= 0;
     }
 
     public void CheckExpToLevelUp()
