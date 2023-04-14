@@ -25,11 +25,20 @@ public class PlayerCombat : MonoBehaviour
     private void LaunchProjectile()
     {
         if (PlayerStatsManager.Instance.CurrentMana == 0) return;
+
         var projectileContainer = Instantiate(magicShotContainer, projectileOriginSide.position, Quaternion.identity);
         projectileContainer.transform.rotation = Quaternion.Euler(0, 0, PlayerController.Instance.IsFacingRight ? -90 : 90);
         var manaCost = projectileContainer.GetComponentInChildren<PlayerProjectile>().Data.ManaCost;
-        PlayerStatsManager.Instance.UseMana(manaCost);
-        EventManager.OnPlayerUseMana?.Invoke();
+
+        if (PlayerStatsManager.Instance.IsEnoughMana(manaCost))
+        {
+            PlayerStatsManager.Instance.UseMana(manaCost); 
+        }
+        else
+        {
+            Destroy(projectileContainer);
+            print("not enough mana");
+        }
     }
 
     private void MeleeSlash()
