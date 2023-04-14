@@ -11,16 +11,12 @@ public class EventManager : MonoBehaviour
     public delegate void QPressedAction();
     public static QPressedAction OnQPressed;
 
-    public delegate void FPressedAction();
-    public static FPressedAction OnFPressed;
-
     public delegate void PlayerGetHitAction();
     public static PlayerGetHitAction OnPlayerGetHit;
 
-    public delegate void PlayerUseManaAction(int manaCost);
+    public delegate void PlayerUseManaAction();
     public static PlayerUseManaAction OnPlayerUseMana;
 
     public delegate void EnemyDeathAction();
     public static EnemyDeathAction OnEnemyDeath;
-
 }

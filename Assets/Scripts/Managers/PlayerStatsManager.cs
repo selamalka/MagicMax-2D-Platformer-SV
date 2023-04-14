@@ -14,23 +14,14 @@ public class PlayerStatsManager : MonoBehaviour
     [field: SerializeField] public int CurrentHealth { get; private set; }
     [field: SerializeField] public int CurrentMana { get; private set; }
     [field: SerializeField] public int CurrentSouls { get; private set; }
+    [field: SerializeField] public float ManaFillTime { get; private set; }
     [field: SerializeField] public int MeleeDamage { get; private set; }
+
+    [SerializeField] private float ManaFillCounter;
 
     private void Awake()
     {
         Instance = this;
-    }
-
-    private void OnEnable()
-    {
-        EventManager.OnPlayerUseMana += UseMana;
-        EventManager.OnFPressed += RegenerateHealthPoint;
-    }
-
-    private void OnDisable()
-    {
-        EventManager.OnPlayerUseMana -= UseMana;
-        EventManager.OnFPressed -= RegenerateHealthPoint;
     }
 
     private void Start()
@@ -38,8 +29,15 @@ public class PlayerStatsManager : MonoBehaviour
         CurrentLevel = 1;
         CurrentHealth = MaxHealth;
         CurrentMana = MaxMana;
+        ManaFillCounter = ManaFillTime;
     }
 
+    private void Update()
+    {
+        HealthRegenHandler();
+    }
+
+    #region Setters
     public void SetCurrentExp(float value)
     {
         CurrentExp = value;
@@ -60,16 +58,19 @@ public class PlayerStatsManager : MonoBehaviour
         CurrentHealth = value;
     }
 
-    private void UseMana(int manaCost)
+    #endregion
+
+    public void UseMana(int manaCost)
     {
         if (CurrentMana - manaCost >= 0)
         {
             CurrentMana -= manaCost;
+            UIManager.Instance.DecreaseManaPoint();
         }
         else
         {
             CurrentMana = 0;
-        }    
+        }
     }
 
     public void CheckExpToLevelUp()
@@ -104,14 +105,25 @@ public class PlayerStatsManager : MonoBehaviour
         }
     }
 
-    public void RegenerateHealthPoint()
+    public void HealthRegenHandler()
     {
-        if (CurrentMana > 0 && CurrentHealth < MaxHealth)
+        if (InputManager.Instance.IsFPressed() && CurrentMana > 0 && CurrentHealth < MaxHealth)
         {
-            CurrentHealth++;
-            UIManager.Instance.FillHealthPoint();
-            CurrentMana--;
-            UIManager.Instance.DecreaseManaPoint(1);
+            ManaFillCounter -= Time.deltaTime;
+
+            if (ManaFillCounter <= 0)
+            {
+                RegenerateHealthPoint();
+                ManaFillCounter = ManaFillTime;
+            }
         }
+    }
+
+    private void RegenerateHealthPoint()
+    {
+        CurrentHealth++;
+        UIManager.Instance.FillHealthPoint();
+        CurrentMana--;
+        UIManager.Instance.DecreaseManaPoint();
     }
 }
