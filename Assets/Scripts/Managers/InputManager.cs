@@ -38,11 +38,6 @@ public class InputManager : MonoBehaviour
         {
             EventManager.OnQPressed?.Invoke();
         }
-
-        if (IsFPressed())
-        {
-            EventManager.OnFPressed?.Invoke();
-        }
     }
 
     private bool IsLeftMousePressed()
@@ -60,8 +55,8 @@ public class InputManager : MonoBehaviour
         return Input.GetKeyDown(KeyCode.Q);
     }
 
-    private bool IsFPressed()
+    public bool IsFPressed()
     {
-        return Input.GetKeyDown(KeyCode.F);
+        return Input.GetKey(KeyCode.F);
     }
 }

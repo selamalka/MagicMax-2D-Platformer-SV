@@ -2306,7 +2306,9 @@ MonoBehaviour:
   <CurrentHealth>k__BackingField: 0
   <CurrentMana>k__BackingField: 0
   <CurrentSouls>k__BackingField: 0
+  <ManaFillTime>k__BackingField: 2
   <MeleeDamage>k__BackingField: 1
+  ManaFillCounter: 0
 --- !u!4 &1012876927
 Transform:
   m_ObjectHideFlags: 0

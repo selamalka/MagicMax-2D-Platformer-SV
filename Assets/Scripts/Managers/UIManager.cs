@@ -34,6 +34,17 @@ public class UIManager : MonoBehaviour
         UpdateExpBar();
     }
 
+    public void FillHealthPoint()
+    {
+        for (int i = 0; i < healthPoints.Length; i++)
+        {
+            if (healthPoints[i].color.a == 0)
+            {
+                healthPoints[i].DOFade(1, 0.2f);
+                break;
+            }
+        }
+    }
     private void DecreaseHealthPoint()
     {
         for (int i = PlayerStatsManager.Instance.CurrentHealth; i <= healthPoints.Length; i--)
@@ -41,18 +52,6 @@ public class UIManager : MonoBehaviour
             if (healthPoints[i].color.a > 0)
             {
                 healthPoints[i].DOFade(0, 0.2f);
-                break;
-            }
-        }
-    }
-
-    public void DecreaseManaPoint(int manaCost)
-    {
-        for (int i = PlayerStatsManager.Instance.CurrentMana; i <= manaPoints.Length; i--)
-        {
-            if (manaPoints[i].color.a > 0)
-            {
-                manaPoints[i].DOFade(0, 0.2f);
                 break;
             }
         }
@@ -69,14 +68,13 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
-    public void FillHealthPoint()
+    public void DecreaseManaPoint()
     {
-        for (int i = 0; i < healthPoints.Length; i++)
+        for (int i = PlayerStatsManager.Instance.CurrentMana; i <= manaPoints.Length; i--)
         {
-            if (healthPoints[i].color.a == 0)
+            if (manaPoints[i].color.a > 0)
             {
-                healthPoints[i].DOFade(1, 0.2f);
+                manaPoints[i].DOFade(0, 0.2f);
                 break;
             }
         }
