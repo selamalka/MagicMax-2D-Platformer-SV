@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMelee : MonoBehaviour
+public class MeleeSlash : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
