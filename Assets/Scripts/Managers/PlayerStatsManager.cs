@@ -9,9 +9,11 @@ public class PlayerStatsManager : MonoBehaviour
     [field: SerializeField] public float TargetExp { get; private set; }
     [field: SerializeField] public float TargetExpMultiplier { get; private set; }
     [field: SerializeField] public int MaxHealth { get; private set; }
+    [field: SerializeField] public int MaxMana { get; private set; }
+    [field: SerializeField] public int MaxSouls { get; private set; }
     [field: SerializeField] public int CurrentHealth { get; private set; }
-    [field: SerializeField] public float MaxMana { get; private set; }
-    [field: SerializeField] public float CurrentMana { get; private set; }
+    [field: SerializeField] public int CurrentMana { get; private set; }
+    [field: SerializeField] public int CurrentSouls { get; private set; }
     [field: SerializeField] public int MeleeDamage { get; private set; }
 
     private void Awake()
@@ -33,6 +35,7 @@ public class PlayerStatsManager : MonoBehaviour
     {
         CurrentLevel = 1;
         CurrentHealth = MaxHealth;
+        CurrentMana = MaxMana;
     }
 
     public void SetCurrentExp(float value)
@@ -55,7 +58,7 @@ public class PlayerStatsManager : MonoBehaviour
         CurrentHealth = value;
     }
 
-    private void UseMana(float manaCost)
+    private void UseMana(int manaCost)
     {
         if (CurrentMana - manaCost >= 0)
         {
@@ -86,5 +89,16 @@ public class PlayerStatsManager : MonoBehaviour
     {
         SetCurrentExp(CurrentExp + expValue);
         CheckExpToLevelUp();
+    }
+
+    public void GrantSouls(int soulValue)
+    {
+        CurrentSouls += soulValue;
+        if (CurrentSouls >= MaxSouls)
+        {
+            CurrentMana += 1;
+            UIManager.Instance.FillManaPoint();
+            CurrentSouls = 0;
+        }
     }
 }
