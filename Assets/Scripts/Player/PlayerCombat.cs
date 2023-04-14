@@ -52,28 +52,28 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
         {
-            if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.UpArrow))
             {
                 print("top");
                 return projectileOriginTop.position;
             }
-            else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetKey(KeyCode.DownArrow))
             {
                 print("bottom");
                 return projectileOriginBottom.position;
             }
 
-            print("side");
+            //print("side");
             return projectileOriginSide.position;
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
-            print("top");
+            //print("top");
             return projectileOriginTop.position;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            print("bottom");
+            //print("bottom");
             return projectileOriginBottom.position;
         }
 
