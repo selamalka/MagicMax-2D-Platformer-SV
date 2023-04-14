@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void DecreaseManaPoint(int manaCost)
+    public void DecreaseManaPoint(int manaCost)
     {
         for (int i = PlayerStatsManager.Instance.CurrentMana; i <= manaPoints.Length; i--)
         {
@@ -65,6 +65,18 @@ public class UIManager : MonoBehaviour
             if (manaPoints[i].color.a == 0)
             {
                 manaPoints[i].DOFade(1, 0.2f);
+                break;
+            }
+        }
+    }
+
+    public void FillHealthPoint()
+    {
+        for (int i = 0; i < healthPoints.Length; i++)
+        {
+            if (healthPoints[i].color.a == 0)
+            {
+                healthPoints[i].DOFade(1, 0.2f);
                 break;
             }
         }

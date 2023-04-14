@@ -24,11 +24,13 @@ public class PlayerStatsManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.OnPlayerUseMana += UseMana;
+        EventManager.OnFPressed += RegenerateHealthPoint;
     }
 
     private void OnDisable()
     {
         EventManager.OnPlayerUseMana -= UseMana;
+        EventManager.OnFPressed -= RegenerateHealthPoint;
     }
 
     private void Start()
@@ -99,6 +101,17 @@ public class PlayerStatsManager : MonoBehaviour
             CurrentMana += 1;
             UIManager.Instance.FillManaPoint();
             CurrentSouls = 0;
+        }
+    }
+
+    public void RegenerateHealthPoint()
+    {
+        if (CurrentMana > 0 && CurrentHealth < MaxHealth)
+        {
+            CurrentHealth++;
+            UIManager.Instance.FillHealthPoint();
+            CurrentMana--;
+            UIManager.Instance.DecreaseManaPoint(1);
         }
     }
 }

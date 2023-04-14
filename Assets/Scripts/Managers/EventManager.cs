@@ -11,6 +11,9 @@ public class EventManager : MonoBehaviour
     public delegate void QPressedAction();
     public static QPressedAction OnQPressed;
 
+    public delegate void FPressedAction();
+    public static FPressedAction OnFPressed;
+
     public delegate void PlayerGetHitAction();
     public static PlayerGetHitAction OnPlayerGetHit;
 
