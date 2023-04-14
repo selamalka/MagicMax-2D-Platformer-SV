@@ -17,7 +17,7 @@ public class PlayerStatsManager : MonoBehaviour
     [field: SerializeField] public float ManaFillTime { get; private set; }
     [field: SerializeField] public int MeleeDamage { get; private set; }
 
-    [SerializeField] private float ManaFillCounter;
+    private float ManaFillCounter;
 
     private void Awake()
     {
