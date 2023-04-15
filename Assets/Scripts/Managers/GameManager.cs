@@ -13,17 +13,20 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         IsPaused = false;
+        Cursor.visible = false;
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0;
+        Cursor.visible = true;
         IsPaused = true;
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
+        Cursor.visible = false;
         IsPaused = false;
     }
 }
