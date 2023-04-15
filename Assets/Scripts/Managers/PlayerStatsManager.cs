@@ -5,20 +5,26 @@ public class PlayerStatsManager : MonoBehaviour
 {
     public static PlayerStatsManager Instance;
 
+    [field: Header("Exp")]
     [field: SerializeField] public int CurrentLevel { get; private set; }
     [field: SerializeField] public float CurrentExp { get; private set; }
     [field: SerializeField] public float TargetExp { get; private set; }
     [field: SerializeField] public float TargetExpMultiplier { get; private set; }
+    [field: SerializeField] public int SpellPoints { get; private set; }
+    [field: Header("Health")]
     [field: SerializeField] public int MaxHealth { get; private set; }
-    [field: SerializeField] public int MaxMana { get; private set; }
-    [field: SerializeField] public int MaxSouls { get; private set; }
     [field: SerializeField] public int CurrentHealth { get; private set; }
+    [field: Header("Mana")]
+    [field: SerializeField] public int MaxMana { get; private set; }
     [field: SerializeField] public int CurrentMana { get; private set; }
-    [field: SerializeField] public int CurrentSouls { get; private set; }
     [field: SerializeField] public float ManaFillTime { get; private set; }
+    [field: Header("Souls")]
+    [field: SerializeField] public int MaxSouls { get; private set; }
+    [field: SerializeField] public int CurrentSouls { get; private set; }
+    [field: Header("Melee")]
     [field: SerializeField] public int MeleeDamage { get; private set; }
 
-    private float ManaFillCounter;
+    private float manaFillCounter;
 
     private void Awake()
     {
@@ -28,9 +34,10 @@ public class PlayerStatsManager : MonoBehaviour
     private void Start()
     {
         CurrentLevel = 1;
+        SpellPoints = 0;
         CurrentHealth = MaxHealth;
         CurrentMana = MaxMana;
-        ManaFillCounter = ManaFillTime;
+        manaFillCounter = ManaFillTime;
     }
 
     private void Update()
@@ -88,6 +95,8 @@ public class PlayerStatsManager : MonoBehaviour
         CurrentExp = 0;
         TargetExp *= TargetExpMultiplier;
         CurrentLevel++;
+        SpellPoints++;
+        UIManager.Instance.UpdateSpellPoints();
     }
 
     public void GrantExp(float expValue)
@@ -116,12 +125,12 @@ public class PlayerStatsManager : MonoBehaviour
     {
         if (InputManager.Instance.IsFPressed() && CurrentMana > 0 && CurrentHealth < MaxHealth)
         {
-            ManaFillCounter -= Time.deltaTime;
+            manaFillCounter -= Time.deltaTime;
 
-            if (ManaFillCounter <= 0)
+            if (manaFillCounter <= 0)
             {
                 RegenerateHealthPoint();
-                ManaFillCounter = ManaFillTime;
+                manaFillCounter = ManaFillTime;
             }
         }
     }
