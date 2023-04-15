@@ -98,6 +98,8 @@ public class PlayerStatsManager : MonoBehaviour
 
     public async void GrantSouls(int soulValue)
     {
+        if (CurrentMana == MaxMana) return;
+
         CurrentSouls += soulValue;
         UIManager.Instance.FillSoulPoint();
         if (CurrentSouls >= MaxSouls && CurrentMana < MaxMana)

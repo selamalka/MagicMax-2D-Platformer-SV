@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image[] manaPoints;
     [SerializeField] private Image[] soulPoints;
     [SerializeField] private Image expBarFull;
+    [SerializeField] private GameObject spellbookPanel;
 
     private void Awake()
     {
@@ -21,12 +22,14 @@ public class UIManager : MonoBehaviour
     {
         EventManager.OnPlayerGetHit += DecreaseHealthPoint;
         EventManager.OnEnemyDeath += UpdateExpBar;
+        EventManager.OnTPressed += ToggleSpellbook;
     }
 
     private void OnDisable()
     {
         EventManager.OnPlayerGetHit -= DecreaseHealthPoint;
         EventManager.OnEnemyDeath -= UpdateExpBar;
+        EventManager.OnTPressed -= ToggleSpellbook;
     }
 
     private void Start()
@@ -37,6 +40,20 @@ public class UIManager : MonoBehaviour
     private void UpdateExpBar()
     {
         expBarFull.DOFillAmount(PlayerStatsManager.Instance.CurrentExp / PlayerStatsManager.Instance.TargetExp, 0.2f);
+    }
+
+    private void ToggleSpellbook()
+    {
+        if (!GameManager.Instance.IsPaused)
+        {
+            GameManager.Instance.PauseGame();
+            spellbookPanel.gameObject.SetActive(true); 
+        }
+        else
+        {
+            GameManager.Instance.ResumeGame();
+            spellbookPanel.gameObject.SetActive(false);
+        }
     }
 
     public void FillHealthPoint()
@@ -96,7 +113,6 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
     public void ResetSoulPoints()
     {
         foreach (var soulPoint in soulPoints)
