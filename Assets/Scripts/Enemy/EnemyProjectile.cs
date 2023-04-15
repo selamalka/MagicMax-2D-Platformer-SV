@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    [SerializeField] private ProjectileData data;
+    [SerializeField] private SpellData data;
     private float lifespanCounter;
     public Vector3 Target { get; private set; }
 

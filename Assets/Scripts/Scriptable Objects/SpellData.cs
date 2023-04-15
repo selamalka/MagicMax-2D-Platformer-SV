@@ -2,7 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Projectile Data", menuName = "Projectile Data")]
 
-public class ProjectileData : ScriptableObject
+public class SpellData : ScriptableObject
 {
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public float Speed { get; private set; }

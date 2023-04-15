@@ -28,7 +28,7 @@ public class PlayerCombat : MonoBehaviour
 
         var projectileContainer = Instantiate(magicShotContainer, projectileOriginSide.position, Quaternion.identity);
         projectileContainer.transform.rotation = Quaternion.Euler(0, 0, PlayerController.Instance.IsFacingRight ? -90 : 90);
-        var manaCost = projectileContainer.GetComponentInChildren<PlayerProjectile>().Data.ManaCost;
+        var manaCost = projectileContainer.GetComponentInChildren<MagicShot>().SpellData.ManaCost;
 
         if (PlayerStatsManager.Instance.IsEnoughMana(manaCost))
         {

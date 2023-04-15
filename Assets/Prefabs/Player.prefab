@@ -500,8 +500,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5030706469420289041}
-  - {fileID: 8568052236989083338}
-  - {fileID: 1353597519343271736}
   - {fileID: 4819300501041328564}
   - {fileID: 4809942442862245372}
   m_Father: {fileID: 0}
@@ -761,6 +759,8 @@ Transform:
   - {fileID: 92545464}
   - {fileID: 692619718}
   - {fileID: 2059795651199947884}
+  - {fileID: 8568052236989083338}
+  - {fileID: 1353597519343271736}
   m_Father: {fileID: 4505071554451754095}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1016,7 +1016,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4505071554451754095}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6066692115119287879
 GameObject:
@@ -1211,12 +1211,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7383218457655011951}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.105, y: -0.711, z: 0}
+  m_LocalPosition: {x: -0.10500336, y: -0.71100044, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4505071554451754095}
-  m_RootOrder: 2
+  m_Father: {fileID: 5030706469420289041}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4463523033923911775
 SpriteRenderer:
@@ -1463,12 +1463,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8369141326157363355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.184, y: -0.71100044, z: 0}
+  m_LocalPosition: {x: 0.18399811, y: -0.71100044, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4505071554451754095}
-  m_RootOrder: 1
+  m_Father: {fileID: 5030706469420289041}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6747315477878710761
 SpriteRenderer:
@@ -1720,5 +1720,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4505071554451754095}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
