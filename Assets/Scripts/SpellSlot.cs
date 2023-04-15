@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class SpellSlot : MonoBehaviour, IDropHandler
+public class SpellSlot : MonoBehaviour
 {
     [field: SerializeField] public SpellData CurrentSpell { get; private set; }
 
@@ -10,8 +9,4 @@ public class SpellSlot : MonoBehaviour, IDropHandler
         CurrentSpell = spell;
     }
 
-    public void OnDrop(PointerEventData eventData)
-    {
-
-    }
 }
