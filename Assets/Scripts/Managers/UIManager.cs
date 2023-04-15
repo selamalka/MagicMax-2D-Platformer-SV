@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image[] manaPoints;
     [SerializeField] private Image[] soulPoints;
     [SerializeField] private Image expBarFull;
+    [SerializeField] private TextMeshProUGUI spellPointsValue;
     [SerializeField] private GameObject spellbookPanel;
 
     private void Awake()
@@ -34,12 +36,18 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        spellbookPanel.SetActive(false);
         UpdateExpBar();
     }
 
     private void UpdateExpBar()
     {
         expBarFull.DOFillAmount(PlayerStatsManager.Instance.CurrentExp / PlayerStatsManager.Instance.TargetExp, 0.2f);
+    }
+
+    public void UpdateSpellPoints()
+    {
+        spellPointsValue.text = PlayerStatsManager.Instance.SpellPoints.ToString();
     }
 
     private void ToggleSpellbook()
