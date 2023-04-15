@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerStatsManager : MonoBehaviour
@@ -95,14 +96,17 @@ public class PlayerStatsManager : MonoBehaviour
         CheckExpToLevelUp();
     }
 
-    public void GrantSouls(int soulValue)
+    public async void GrantSouls(int soulValue)
     {
         CurrentSouls += soulValue;
-        if (CurrentSouls >= MaxSouls)
+        UIManager.Instance.FillSoulPoint();
+        if (CurrentSouls >= MaxSouls && CurrentMana < MaxMana)
         {
+            await Task.Delay(300);
+            CurrentSouls = 0;
+            UIManager.Instance.ResetSoulPoints();
             CurrentMana += 1;
             UIManager.Instance.FillManaPoint();
-            CurrentSouls = 0;
         }
     }
 
