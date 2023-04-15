@@ -20,5 +20,4 @@ public class SpellbookManager : MonoBehaviour
     {
         slot.SetCurrentSpell(spell);
     }
-
 }
