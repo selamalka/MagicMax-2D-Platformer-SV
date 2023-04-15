@@ -12,23 +12,23 @@ public class PlayerCombat : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.OnEPressed += MeleeSlash;
-        EventManager.OnQPressed += LaunchProjectile;
+        EventManager.OnWPressed += MeleeSlash;
+        EventManager.OnQPressed += UseSpellSlot1;
     }
 
     private void OnDisable()
     {
-        EventManager.OnEPressed -= MeleeSlash;
-        EventManager.OnQPressed -= LaunchProjectile;
+        EventManager.OnWPressed -= MeleeSlash;
+        EventManager.OnQPressed -= UseSpellSlot1;
     }
 
-    private void LaunchProjectile()
+    private void UseSpellSlot1()
     {
         if (PlayerStatsManager.Instance.CurrentMana == 0) return;
 
-        var projectileContainer = Instantiate(magicShotContainer, projectileOriginSide.position, Quaternion.identity);
-        projectileContainer.transform.rotation = Quaternion.Euler(0, 0, PlayerController.Instance.IsFacingRight ? -90 : 90);
-        var manaCost = projectileContainer.GetComponentInChildren<MagicShot>().SpellData.ManaCost;
+        var spellContainer = Instantiate(magicShotContainer, projectileOriginSide.position, Quaternion.identity);
+        spellContainer.transform.rotation = Quaternion.Euler(0, 0, PlayerController.Instance.IsFacingRight ? -90 : 90);
+        var manaCost = spellContainer.GetComponentInChildren<MagicShot>().SpellData.ManaCost;
 
         if (PlayerStatsManager.Instance.IsEnoughMana(manaCost))
         {
@@ -36,7 +36,7 @@ public class PlayerCombat : MonoBehaviour
         }
         else
         {
-            Destroy(projectileContainer);
+            Destroy(spellContainer);
             print("not enough mana");
         }
     }
