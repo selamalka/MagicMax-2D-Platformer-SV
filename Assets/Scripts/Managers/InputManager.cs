@@ -14,11 +14,6 @@ public class InputManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
-    {
-        Cursor.visible = false;
-    }
-
     private void Update()
     {
 /*        MousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
