@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Image[] healthPoints;
     [SerializeField] private Image[] manaPoints;
+    [SerializeField] private Image[] soulPoints;
     [SerializeField] private Image expBarFull;
 
     private void Awake()
@@ -71,7 +73,6 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
     public void DecreaseManaPoint()
     {
         for (int i = PlayerStatsManager.Instance.CurrentMana; i <= manaPoints.Length; i--)
@@ -81,6 +82,26 @@ public class UIManager : MonoBehaviour
                 manaPoints[i].DOFade(0, 0.2f);
                 break;
             }
+        }
+    }
+
+    public void FillSoulPoint()
+    {
+        for (int i = 0; i < soulPoints.Length; i++)
+        {
+            if (soulPoints[i].color.a == 0)
+            {
+                soulPoints[i].DOFade(1, 0.2f);
+                break;
+            }
+        }
+    }
+
+    public void ResetSoulPoints()
+    {
+        foreach (var soulPoint in soulPoints)
+        {
+            soulPoint.DOFade(0, 0.2f);
         }
     }
 }
