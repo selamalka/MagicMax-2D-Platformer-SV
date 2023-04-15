@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
     {
         spellbookPanel.SetActive(false);
         UpdateExpBar();
+        UpdateSpellPoints();
     }
 
     private void UpdateExpBar()
