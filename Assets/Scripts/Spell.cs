@@ -11,7 +11,13 @@ public class Spell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     [SerializeField] private int maxLevel;
     [SerializeField] private int level;
     private GameObject draggedIcon;
+    private SpellSlot spellSlot;
     private Button button;
+
+    private void Awake()
+    {
+        button = GetComponent<Button>();
+    }
 
     private void OnEnable()
     {
@@ -25,7 +31,7 @@ public class Spell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     private void Start()
     {
-        button = GetComponent<Button>();
+        GetComponent<Image>().sprite = spellData.Sprite;
     }
 
     private void AddLevel()
@@ -45,26 +51,31 @@ public class Spell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        draggedIcon = new GameObject("Dragged Icon");        
+        draggedIcon = new GameObject(spellData.Name);
         Image iconImage = draggedIcon.AddComponent<Image>();
         iconImage.sprite = GetComponent<Image>().sprite;
-        draggedIcon.transform.SetParent(GameObject.FindWithTag("Canvas").transform, false);
+        iconImage.raycastTarget = false;
+        draggedIcon.transform.SetParent(transform.root, false);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         draggedIcon.transform.position = Input.mousePosition;
-        Debug.Log("Pointer entered: " + eventData.pointerEnter.name);
-
+        print(eventData.pointerEnter.name);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        SpellSlot spellSlot = eventData.pointerEnter.GetComponent<SpellSlot>();
+        if (eventData.pointerEnter == null) return;
+        spellSlot = eventData.pointerEnter.GetComponent<SpellSlot>();
+        if (spellSlot == null) Destroy(draggedIcon);
+
+        print("spellslot found");
         if (spellSlot != null)
         {
-            transform.SetParent(spellSlot.transform, false);
-            transform.position = spellSlot.transform.position;        
+            draggedIcon.transform.SetParent(spellSlot.transform, false);
+            draggedIcon.transform.position = spellSlot.transform.position;
+            spellSlot.SetCurrentSpell(spellData);
         }
         else
         {
