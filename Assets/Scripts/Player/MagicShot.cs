@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class PlayerProjectile : MonoBehaviour
+public class MagicShot : MonoBehaviour, ISpell
 {
-    [field: SerializeField] public ProjectileData Data { get; private set; }
+    [field: SerializeField] public SpellData SpellData { get; private set; }
     private float lifespanCounter;
 
     private void Start()
     {
-        lifespanCounter = Data.Lifespan;
+        lifespanCounter = SpellData.Lifespan;
     }
 
     private void Update()
@@ -28,14 +28,14 @@ public class PlayerProjectile : MonoBehaviour
 
     private void Fly()
     {        
-        transform.position += transform.up * Data.Speed * Time.deltaTime;
+        transform.position += transform.up * SpellData.Speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<IDamageable>().TakeDamage(Data.Damage);
+            collision.GetComponent<IDamageable>().TakeDamage(SpellData.Damage);
             Destroy(gameObject);
         }
         else if (collision.CompareTag("Tilemap"))
