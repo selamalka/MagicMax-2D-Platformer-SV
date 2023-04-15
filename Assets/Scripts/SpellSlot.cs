@@ -8,5 +8,4 @@ public class SpellSlot : MonoBehaviour
     {
         CurrentSpell = spell;
     }
-
 }

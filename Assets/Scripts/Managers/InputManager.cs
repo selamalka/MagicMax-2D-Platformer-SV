@@ -19,19 +19,19 @@ public class InputManager : MonoBehaviour
 /*        MousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
         crosshair.transform.position = MousePosition;*/
 
-        if (IsLeftMousePressed())
+        if (IsQPressed())
         {
-            EventManager.OnLeftMousePressed?.Invoke();
+            EventManager.OnQPressed?.Invoke();
+        }
+
+        if (IsWPressed())
+        {
+            EventManager.OnWPressed?.Invoke();
         }
 
         if (IsEPressed())
         {
             EventManager.OnEPressed?.Invoke();
-        }
-
-        if (IsQPressed())
-        {
-            EventManager.OnQPressed?.Invoke();
         }
 
         if (IsTPressed())
@@ -40,9 +40,14 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    private bool IsLeftMousePressed()
+    private bool IsQPressed()
     {
-        return Input.GetMouseButtonDown(0);
+        return Input.GetKeyDown(KeyCode.Q);
+    }
+
+    private bool IsWPressed()
+    {
+        return Input.GetKeyDown(KeyCode.W);
     }
 
     private bool IsEPressed()
@@ -50,18 +55,13 @@ public class InputManager : MonoBehaviour
         return Input.GetKeyDown(KeyCode.E);
     }
 
-    private bool IsQPressed()
+    public bool IsTPressed()
     {
-        return Input.GetKeyDown(KeyCode.Q);
+        return Input.GetKeyDown(KeyCode.T);
     }
 
     public bool IsFPressed()
     {
         return Input.GetKey(KeyCode.F);
-    }
-
-    public bool IsTPressed()
-    {
-        return Input.GetKeyDown(KeyCode.T);
     }
 }

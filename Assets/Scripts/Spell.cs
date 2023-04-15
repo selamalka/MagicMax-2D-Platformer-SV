@@ -11,7 +11,6 @@ public class Spell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     [SerializeField] private int maxLevel;
     [SerializeField] private int level;
     private GameObject draggedIcon;
-    private SpellSlot spellSlot;
     private Button button;
 
     private void Awake()
@@ -61,16 +60,12 @@ public class Spell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     public void OnDrag(PointerEventData eventData)
     {
         draggedIcon.transform.position = Input.mousePosition;
-        print(eventData.pointerEnter.name);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (eventData.pointerEnter == null) return;
-        spellSlot = eventData.pointerEnter.GetComponent<SpellSlot>();
-        if (spellSlot == null) Destroy(draggedIcon);
+        SpellSlot spellSlot = eventData.pointerEnter.GetComponent<SpellSlot>();
 
-        print("spellslot found");
         if (spellSlot != null)
         {
             draggedIcon.transform.SetParent(spellSlot.transform, false);
@@ -79,7 +74,6 @@ public class Spell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         }
         else
         {
-            print("spellSlot is null");
             Destroy(draggedIcon);
         }
     }

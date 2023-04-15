@@ -122,12 +122,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2822268140030766065, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+      propertyPath: childSpell
+      value: 
+      objectReference: {fileID: 970245838262577957}
+    - target: {fileID: 2822268140030766065, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
       propertyPath: childProjectile
       value: 
       objectReference: {fileID: 970245838262577957}
     - target: {fileID: 3527644742189078306, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
       propertyPath: m_Name
-      value: Projectile Container - Magic Shot
+      value: Spell Container - Magic Shot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}

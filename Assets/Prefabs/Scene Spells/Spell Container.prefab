@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2575638511129968146}
   - component: {fileID: 2822268140030766065}
   m_Layer: 0
-  m_Name: Projectile Container
+  m_Name: Spell Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
