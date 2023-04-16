@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class ImpAI : MonoBehaviour
@@ -20,18 +19,18 @@ public class ImpAI : MonoBehaviour
     private ImpStateType currentState;
 
     private Vector3 playerPosition;
-    private Vector3 startingPosition;
-    private float travelDistance;
+/*    private Vector3 startingPosition;
+    private float travelDistance;*/
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        startingPosition = transform.position;
+        //startingPosition = transform.position;
 
         speed = EnemyManager.Instance.ImpSpeed;
         timeBetweenProjectiles = EnemyManager.Instance.ImpTimeBetweenShots;
         projectilePrefab = EnemyManager.Instance.ImpProjetilePrefab;
-        travelDistance = EnemyManager.Instance.ImpTravelDistance;
+        //travelDistance = EnemyManager.Instance.ImpTravelDistance;
         projectileCooldownCounter = timeBetweenProjectiles;
 
         currentState = ImpStateType.Patrol;

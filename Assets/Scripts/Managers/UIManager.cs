@@ -56,7 +56,7 @@ public class UIManager : MonoBehaviour
         if (!GameManager.Instance.IsPaused)
         {
             GameManager.Instance.PauseGame();
-            spellbookPanel.gameObject.SetActive(true); 
+            spellbookPanel.gameObject.SetActive(true);
         }
         else
         {
