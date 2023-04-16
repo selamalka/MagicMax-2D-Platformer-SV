@@ -2932,18 +2932,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 875949908}
     m_Modifications:
-    - target: {fileID: 1596816345454689825, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
-      propertyPath: spellData
-      value: 
-      objectReference: {fileID: 11400000, guid: 3a96e59b1d42307469357c1fa5b813ab, type: 2}
     - target: {fileID: 1596816345454689834, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
       propertyPath: m_Name
       value: Spell - Magic Shot
       objectReference: {fileID: 0}
-    - target: {fileID: 1596816345454689836, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4029a9cfeb86f134c9c5af05993eaac8, type: 3}
     - target: {fileID: 1596816345454689837, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -25872,7 +25864,7 @@ GameObject:
   - component: {fileID: 2065945220}
   - component: {fileID: 2065945219}
   m_Layer: 5
-  m_Name: Empty Panel
+  m_Name: Background Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25976,13 +25968,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2608739400377468351, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: spellSlot1
+      value: 
+      objectReference: {fileID: 1034829661}
+    - target: {fileID: 2608739400377468351, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: spellSlot2
+      value: 
+      objectReference: {fileID: 430608055}
     - target: {fileID: 3336361800321668108, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202015092320789458, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
-      propertyPath: m_GravityScale
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4505071554451754095, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: m_RootOrder
