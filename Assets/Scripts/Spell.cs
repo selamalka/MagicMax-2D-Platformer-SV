@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Spell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField] private SpellData spellData;
+    [field: SerializeField] public GameObject SpellPrefab { get; private set; }
+    [field: SerializeField] public SpellData SpellData { get; private set; }
     [SerializeField] private TextMeshProUGUI levelValue;
     [SerializeField] private Image blockedImage;
     [SerializeField] private int maxLevel;
@@ -30,7 +31,7 @@ public class Spell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     private void Start()
     {
-        GetComponent<Image>().sprite = spellData.Sprite;
+        GetComponent<Image>().sprite = SpellData.Sprite;
     }
 
     private void AddLevel()
@@ -50,7 +51,7 @@ public class Spell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        draggedIcon = new GameObject(spellData.Name);
+        draggedIcon = new GameObject(SpellData.Name);
         Image iconImage = draggedIcon.AddComponent<Image>();
         iconImage.sprite = GetComponent<Image>().sprite;
         iconImage.raycastTarget = false;
@@ -70,7 +71,7 @@ public class Spell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         {
             draggedIcon.transform.SetParent(spellSlot.transform, false);
             draggedIcon.transform.position = spellSlot.transform.position;
-            spellSlot.SetCurrentSpell(spellData);
+            spellSlot.SetCurrentSpell(this);
         }
         else
         {

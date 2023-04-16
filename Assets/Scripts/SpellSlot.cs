@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class SpellSlot : MonoBehaviour
 {
-    [field: SerializeField] public SpellData CurrentSpell { get; private set; }
+    [field: SerializeField] public Spell CurrentSpell { get; private set; }
 
-    public void SetCurrentSpell(SpellData spell)
+    public void SetCurrentSpell(Spell spell)
     {
         CurrentSpell = spell;
     }

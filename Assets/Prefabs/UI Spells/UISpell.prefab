@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 7327263993323584371}
   - component: {fileID: 7327263993323584380}
   m_Layer: 5
-  m_Name: Spell
+  m_Name: UISpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

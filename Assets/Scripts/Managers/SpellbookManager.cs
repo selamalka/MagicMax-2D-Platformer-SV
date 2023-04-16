@@ -15,9 +15,4 @@ public class SpellbookManager : MonoBehaviour
     {
         Instance = this;
     }
-
-    public void EquipSpell(SpellData spell, SpellSlot slot)
-    {
-        slot.SetCurrentSpell(spell);
-    }
 }

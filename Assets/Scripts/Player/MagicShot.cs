@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MagicShot : MonoBehaviour, ISpell
+public class MagicShot : MonoBehaviour
 {
     [field: SerializeField] public SpellData SpellData { get; private set; }
     private float lifespanCounter;
