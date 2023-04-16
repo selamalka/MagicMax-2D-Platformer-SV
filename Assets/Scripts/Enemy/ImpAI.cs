@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class ImpAI : MonoBehaviour
@@ -6,6 +7,7 @@ public class ImpAI : MonoBehaviour
     [SerializeField] private Transform groundCheckTransform;
     [SerializeField] private Transform pointA;
     [SerializeField] private Transform pointB;
+    [SerializeField] private Transform body;
 
     private Rigidbody2D rb;
     private float speed;
@@ -65,6 +67,7 @@ public class ImpAI : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            rb.velocity = Vector3.zero;
             currentState = ImpStateType.Attack;
             projectileCooldownCounter = timeBetweenProjectiles;
         }
@@ -92,6 +95,7 @@ public class ImpAI : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            rb.velocity = Vector3.zero;
             currentState = ImpStateType.Patrol;
         }
     }
@@ -99,9 +103,9 @@ public class ImpAI : MonoBehaviour
     private void Turn()
     {
         rb.velocity = Vector3.zero;
-        Vector3 scale = transform.localScale;
+        Vector3 scale = body.transform.localScale;
         scale.x *= -1;
-        transform.localScale = scale;
+        body.transform.localScale = scale;
         isFacingRight = !isFacingRight;
     }
 
