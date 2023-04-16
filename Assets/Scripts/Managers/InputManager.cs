@@ -6,8 +6,8 @@ public class InputManager : MonoBehaviour
 
     //[SerializeField] private Camera cam;
     //[SerializeField] private GameObject crosshair;
+    //public Vector2 MousePosition { get; private set; }
 
-    public Vector2 MousePosition { get; private set; }
 
     private void Awake()
     {

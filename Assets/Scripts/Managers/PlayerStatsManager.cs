@@ -46,6 +46,7 @@ public class PlayerStatsManager : MonoBehaviour
     }
 
     #region Setters
+
     public void SetCurrentExp(float value)
     {
         CurrentExp = value;
@@ -64,6 +65,11 @@ public class PlayerStatsManager : MonoBehaviour
     public void SetCurrentHealth(int value)
     {
         CurrentHealth = value;
+    }
+
+    public void SetSpellPoints(int value)
+    {
+        SpellPoints = value;
     }
 
     #endregion

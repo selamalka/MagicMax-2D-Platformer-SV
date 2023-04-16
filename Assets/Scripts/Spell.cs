@@ -36,16 +36,22 @@ public class Spell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     private void AddLevel()
     {
-        blockedImage.color = blockedImage.color.a > 0 ? new Color(0, 0, 0, 0) : blockedImage.color;
-
-        if (level < maxLevel)
-        {
-            level++;
-            levelValue.text = level.ToString();
-        }
+        if (PlayerStatsManager.Instance.SpellPoints == 0) print("Not enough available spell points");
         else
         {
-            print("spell is at max level");
+            blockedImage.color = blockedImage.color.a > 0 ? new Color(0, 0, 0, 0) : blockedImage.color;
+
+            if (level < maxLevel)
+            {
+                PlayerStatsManager.Instance.SetSpellPoints(PlayerStatsManager.Instance.SpellPoints - 1);
+                UIManager.Instance.UpdateSpellPoints();
+                level++;
+                levelValue.text = level.ToString();
+            }
+            else
+            {
+                print("spell is at max level");
+            }
         }
     }
 
