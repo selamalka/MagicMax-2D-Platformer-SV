@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    [SerializeField] private Transform body;
     [SerializeField] private Transform projectileOriginSide;
     [SerializeField] private Transform projectileOriginTop;
     [SerializeField] private Transform projectileOriginBottom;
     [SerializeField] private Transform meleeInstancesParent;
-    [SerializeField] private Transform body;
-    [SerializeField] private GameObject magicShotContainer;
     [SerializeField] private GameObject meleeSlashPrefab;
     [SerializeField] private SpellSlot spellSlot1;
     [SerializeField] private SpellSlot spellSlot2;
@@ -28,39 +27,44 @@ public class PlayerCombat : MonoBehaviour
 
     private void UseSpellSlot1()
     {
-        if (PlayerStatsManager.Instance.CurrentMana == 0 || spellSlot1.CurrentSpell == null) return;
-
-        var spellContainer = Instantiate(spellSlot1.CurrentSpell.SpellPrefab, projectileOriginSide.position, Quaternion.identity);
-        spellContainer.transform.rotation = Quaternion.Euler(0, 0, PlayerController.Instance.IsFacingRight ? -90 : 90);
-        var manaCost = spellContainer.GetComponentInChildren<MagicShot>().SpellData.ManaCost;
-
-        if (PlayerStatsManager.Instance.IsEnoughMana(manaCost))
-        {
-            PlayerStatsManager.Instance.UseMana(manaCost);
-        }
+        if (spellSlot1.CurrentSpell == null) print("No spell is equipped");
+        else if (PlayerStatsManager.Instance.CurrentMana == 0) print("Not enough mana");
         else
         {
-            Destroy(spellContainer);
-            print("not enough mana");
+            var spellContainer = Instantiate(spellSlot1.CurrentSpell.SpellPrefab, projectileOriginSide.position, Quaternion.identity);
+            spellContainer.transform.rotation = Quaternion.Euler(0, 0, PlayerController.Instance.IsFacingRight ? -90 : 90);
+            var manaCost = spellContainer.GetComponentInChildren<MagicShot>().SpellData.ManaCost;
+
+            if (PlayerStatsManager.Instance.IsEnoughMana(manaCost))
+            {
+                PlayerStatsManager.Instance.UseMana(manaCost);
+            }
+            else
+            {
+                Destroy(spellContainer);
+                print("not enough mana");
+            }
         }
     }
-
     private void UseSpellSlot2()
     {
-        if (PlayerStatsManager.Instance.CurrentMana == 0 || spellSlot2.CurrentSpell == null) return;
-
-        var spellContainer = Instantiate(spellSlot2.CurrentSpell.SpellPrefab, projectileOriginSide.position, Quaternion.identity);
-        spellContainer.transform.rotation = Quaternion.Euler(0, 0, PlayerController.Instance.IsFacingRight ? -90 : 90);
-        var manaCost = spellContainer.GetComponentInChildren<MagicShot>().SpellData.ManaCost;
-
-        if (PlayerStatsManager.Instance.IsEnoughMana(manaCost))
-        {
-            PlayerStatsManager.Instance.UseMana(manaCost);
-        }
+        if (spellSlot2.CurrentSpell == null) print("No spell is equipped");
+        else if (PlayerStatsManager.Instance.CurrentMana == 0) print("Not enough mana");
         else
         {
-            Destroy(spellContainer);
-            print("not enough mana");
+            var spellContainer = Instantiate(spellSlot2.CurrentSpell.SpellPrefab, projectileOriginSide.position, Quaternion.identity);
+            spellContainer.transform.rotation = Quaternion.Euler(0, 0, PlayerController.Instance.IsFacingRight ? -90 : 90);
+            var manaCost = spellContainer.GetComponentInChildren<MagicShot>().SpellData.ManaCost;
+
+            if (PlayerStatsManager.Instance.IsEnoughMana(manaCost))
+            {
+                PlayerStatsManager.Instance.UseMana(manaCost);
+            }
+            else
+            {
+                Destroy(spellContainer);
+                print("not enough mana");
+            }
         }
     }
 
