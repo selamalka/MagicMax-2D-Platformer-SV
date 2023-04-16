@@ -57,6 +57,7 @@ public class Spell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (level == 0) return;
         draggedIcon = new GameObject(SpellData.Name);
         Image iconImage = draggedIcon.AddComponent<Image>();
         iconImage.sprite = GetComponent<Image>().sprite;
@@ -66,11 +67,13 @@ public class Spell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (level == 0) return;
         draggedIcon.transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (level == 0) return;
         SpellSlot spellSlot = eventData.pointerEnter.GetComponent<SpellSlot>();
 
         if (spellSlot != null)
