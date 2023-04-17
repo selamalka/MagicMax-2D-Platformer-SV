@@ -2,5 +2,6 @@
 public enum EnemyType
 {
     None,
-    Imp
+    Imp,
+    ShadowDemon
 }
