@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6954609946549441915}
-  - component: {fileID: 5803291653485530237}
   m_Layer: 9
   m_Name: Point D
   m_TagString: PatrolPoint
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -32,22 +31,6 @@ Transform:
   m_Father: {fileID: 1284834233062613784}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5803291653485530237
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5572457140121033565}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.3
 --- !u!1 &8198089889569900353
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,11 +40,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8959991023404742437}
-  - component: {fileID: 5089054508116099201}
   m_Layer: 9
   m_Name: Point C
   m_TagString: PatrolPoint
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -80,22 +62,6 @@ Transform:
   m_Father: {fileID: 1284834233062613784}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5089054508116099201
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8198089889569900353}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.3
 --- !u!1001 &3391630499801299474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -169,6 +135,14 @@ PrefabInstance:
       propertyPath: childObject
       value: 
       objectReference: {fileID: 3565775204563966881}
+    - target: {fileID: 5591922616683264613, guid: bf71e6dd730bc644da426efb21b54af8, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 5591922616829505242, guid: bf71e6dd730bc644da426efb21b54af8, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 5591922617110757508, guid: bf71e6dd730bc644da426efb21b54af8, type: 3}
       propertyPath: m_Name
       value: Enemy Container - Shadow Demon
@@ -217,7 +191,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8449106606883473889, guid: bf71e6dd730bc644da426efb21b54af8, type: 3}
+    - {fileID: 7069000070330174928, guid: bf71e6dd730bc644da426efb21b54af8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bf71e6dd730bc644da426efb21b54af8, type: 3}
 --- !u!4 &1284834233062613784 stripped
 Transform:
