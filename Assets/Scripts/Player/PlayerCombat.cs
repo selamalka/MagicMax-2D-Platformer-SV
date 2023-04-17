@@ -91,12 +91,12 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                print("top");
+                //print("top");
                 return projectileOriginTop.position;
             }
             else if (Input.GetKey(KeyCode.DownArrow))
             {
-                print("bottom");
+                //print("bottom");
                 return projectileOriginBottom.position;
             }
 

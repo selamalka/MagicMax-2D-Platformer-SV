@@ -271,10 +271,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d4d5c4d329aa34b9142f9706158788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellData: {fileID: 0}
+  <SpellPrefab>k__BackingField: {fileID: 0}
+  <SpellData>k__BackingField: {fileID: 0}
   levelValue: {fileID: 7327263993040354330}
   blockedImage: {fileID: 7327263993343834756}
-  maxLevel: 3
+  maxLevel: 1
   level: 0
 --- !u!1 &7327263993343834778
 GameObject:
