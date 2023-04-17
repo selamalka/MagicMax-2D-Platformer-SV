@@ -8,13 +8,11 @@ public class ShadowDemonAI : MonoBehaviour
     private float speed;
     private bool isFacingRight = true;
     private int currentPatrolPointIndex;
-    private Vector2 velocity;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         speed = EnemyManager.Instance.ShadowDemonSpeed;
-        velocity = new Vector2(speed, speed);
 
         currentState = ShadowDemonStateType.Patrol;
     }
