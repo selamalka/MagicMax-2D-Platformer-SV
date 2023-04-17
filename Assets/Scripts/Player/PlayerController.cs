@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
-    private void Flip()
+    private void Turn()
     {
         Vector3 localScale = body.transform.localScale;
         localScale.x *= -1;
@@ -130,11 +130,11 @@ public class PlayerController : MonoBehaviour
     {
         if (inputX < 0 && IsFacingRight)
         {
-            Flip();
+            Turn();
         }
         else if (inputX > 0 && !IsFacingRight)
         {
-            Flip();
+            Turn();
         }
     }
 }

@@ -3082,7 +3082,7 @@ MonoBehaviour:
   <ImpTimeBetweenShots>k__BackingField: 1.5
   <ImpProjetilePrefab>k__BackingField: {fileID: 7847511327988088231, guid: 407d55ede06d18345a310670dc427789, type: 3}
   <ShadowDemonMaxHealth>k__BackingField: 2
-  <ShadowDemonSpeed>k__BackingField: 80
+  <ShadowDemonSpeed>k__BackingField: 2
   <ShadowDemonExpValue>k__BackingField: 2
   <ShadowDemonSoulValue>k__BackingField: 1
   <ShadowDemonTimeBetweenShots>k__BackingField: 1
@@ -3493,7 +3493,7 @@ PrefabInstance:
     - target: {fileID: 1284834232480930296, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+      objectReference: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 1284834232480930303, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.83
@@ -3513,18 +3513,18 @@ PrefabInstance:
     - target: {fileID: 1284834232898751815, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+      objectReference: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 1284834233062613784, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1284834233062613784, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -77.05
+      value: -79.69
       objectReference: {fileID: 0}
     - target: {fileID: 1284834233062613784, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.08
+      value: -0.82
       objectReference: {fileID: 0}
     - target: {fileID: 1284834233062613784, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3562,13 +3562,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Container - Shadow Demon
       objectReference: {fileID: 0}
+    - target: {fileID: 1426294396961636087, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2428623809803518914, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.95
+      value: 8.87
       objectReference: {fileID: 0}
     - target: {fileID: 2428623809803518914, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.36
+      value: 8.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626528130952994767, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3232415385415074143, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -3590,10 +3598,14 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[3]
       value: 
       objectReference: {fileID: 1090052479}
+    - target: {fileID: 3516093652669902162, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5572457140121033565, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+      objectReference: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 6954609946549441915, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.48
@@ -3605,7 +3617,7 @@ PrefabInstance:
     - target: {fileID: 8198089889569900353, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+      objectReference: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 8959991023404742437, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48.18
