@@ -43,10 +43,6 @@ public class ShadowDemonAI : MonoBehaviour
         {
             projectileCooldownCounter -= Time.deltaTime;
         }
-    }
-
-    private void FixedUpdate()
-    {
 
         switch (currentState)
         {
@@ -73,22 +69,13 @@ public class ShadowDemonAI : MonoBehaviour
 
     private void Patrol()
     {
-        /*        if (rb.position == (Vector2)patrolPoints[currentPatrolPointIndex].position)
-                {
-                    currentPatrolPointIndex = (currentPatrolPointIndex + 1) % patrolPoints.Length;
-                }
-                Vector2 targetPosition = Vector2.MoveTowards(rb.position, patrolPoints[currentPatrolPointIndex].position, speed * Time.deltaTime);
-                rb.MovePosition(targetPosition);*/
-
-        if (Vector2.Distance(rb.position, (Vector2)patrolPoints[currentPatrolPointIndex].position) < 0.1f)
+        if (Vector2.Distance(transform.position, patrolPoints[currentPatrolPointIndex].position) < 0.1f)
         {
             currentPatrolPointIndex = (currentPatrolPointIndex + 1) % patrolPoints.Length;
         }
 
-        Vector2 direction = (patrolPoints[currentPatrolPointIndex].position - transform.position).normalized;
-        rb.velocity = speed * Time.deltaTime * direction;
-
-        TurnHandler();
+        transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPatrolPointIndex].position, speed * Time.deltaTime);
+        TurnHandler(patrolPoints[currentPatrolPointIndex].position);
     }
 
     private void ChasePlayerAndAttack()
@@ -100,21 +87,17 @@ public class ShadowDemonAI : MonoBehaviour
         }
 
         playerPosition = playerGameObject.transform.position;
+        transform.position = Vector2.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime);
 
         var direction = playerPosition - transform.position;
-
-        if (Vector2.Distance(rb.position, playerPosition) <= maxDistanceFromPlayer)
-        {
-            rb.velocity = Vector2.zero;
-        }
-        else
-        {
-            rb.velocity = speed * Time.deltaTime * direction.normalized;
-        }
-
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         FaceTowardsPlayer(angle);
 
+        AttackPlayerInRange(direction, angle);
+    }
+
+    private void AttackPlayerInRange(Vector3 direction, float angle)
+    {
         if (IsPlayerInAttackRange())
         {
             if (projectileCooldownCounter <= 0)
@@ -135,13 +118,15 @@ public class ShadowDemonAI : MonoBehaviour
         Instantiate(projectilePrefab, projectilePointTransform.position, Quaternion.Euler(new Vector3(0, 0, angle - 90)));
     }
 
-    private void TurnHandler()
+    private void TurnHandler(Vector3 nextPatrolPoint)
     {
-        if (isFacingRight && rb.velocity.x < 0)
+        Vector3 direction = nextPatrolPoint - transform.position;
+
+        if (isFacingRight && direction.x < 0)
         {
             Turn();
         }
-        else if (!isFacingRight && rb.velocity.x > 0)
+        else if (!isFacingRight && direction.x > 0)
         {
             Turn();
         }
@@ -149,7 +134,6 @@ public class ShadowDemonAI : MonoBehaviour
 
     private void Turn()
     {
-        rb.velocity = Vector2.zero;
         Vector3 scale = body.transform.localScale;
         scale.x *= -1;
         body.transform.localScale = scale;

@@ -3,7 +3,6 @@ using UnityEngine;
 public class ImpAI : MonoBehaviour
 {
     [SerializeField] private Transform projectilePointTransform;
-    [SerializeField] private Transform groundCheckTransform;
     [SerializeField] private Transform pointA;
     [SerializeField] private Transform pointB;
     [SerializeField] private Transform body;
@@ -44,7 +43,7 @@ public class ImpAI : MonoBehaviour
         switch (currentState)
         {
             case ImpStateType.Patrol:
-                Move();
+                Patrol();
                 break;
 
             case ImpStateType.Attack:
@@ -126,7 +125,7 @@ public class ImpAI : MonoBehaviour
         }
     }
 
-    private void Move()
+    private void Patrol()
     {
         if (isFacingRight)
         {
