@@ -19,8 +19,8 @@ public class EnemyManager : MonoBehaviour
     [field: SerializeField] public int ShadowDemonSoulValue { get; private set; }
     [field: SerializeField] public float ShadowDemonTimeBetweenProjectiles { get; private set; }
     [field: SerializeField] public float ShadowDemonMaxDistanceFromPlayer { get; private set; }
+    [field: SerializeField] public float ShadowDemonAttackRange { get; private set; }
     [field: SerializeField] public GameObject ShadowDemonProjetilePrefab { get; private set; }
-
 
     private void Awake()
     {
