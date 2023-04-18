@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Projectile Data", menuName = "Projectile Data")]
+[CreateAssetMenu(fileName = "New Spell Data", menuName = "Spell Data")]
 
 public class SpellData : ScriptableObject
 {
