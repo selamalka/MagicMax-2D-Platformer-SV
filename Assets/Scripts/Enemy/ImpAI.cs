@@ -24,7 +24,7 @@ public class ImpAI : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         speed = EnemyManager.Instance.ImpSpeed;
-        timeBetweenProjectiles = EnemyManager.Instance.ImpTimeBetweenShots;
+        timeBetweenProjectiles = EnemyManager.Instance.ImpTimeBetweenProjectiles;
         projectilePrefab = EnemyManager.Instance.ImpProjetilePrefab;
         projectileCooldownCounter = timeBetweenProjectiles;
 
@@ -150,5 +150,4 @@ public class ImpAI : MonoBehaviour
             projectileCooldownCounter = timeBetweenProjectiles;
         }
     }
-
 }
