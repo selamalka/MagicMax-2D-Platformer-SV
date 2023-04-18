@@ -4,10 +4,16 @@ public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField] private SpellData data;
     private float lifespanCounter;
+    private GameObject player;
 
     private void Start()
     {
         lifespanCounter = data.Lifespan;
+        player = GameObject.FindWithTag("Player");
+
+        Vector3 direction = player.transform.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
     }
 
     private void Update()
@@ -15,6 +21,7 @@ public class EnemyProjectile : MonoBehaviour
         LifespanHandler();
         Fly();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

@@ -10,7 +10,6 @@ public class EnemyManager : MonoBehaviour
     [field: SerializeField] public float ImpExpValue { get; private set; }
     [field: SerializeField] public int ImpSoulValue { get; private set; }
     [field: SerializeField] public float ImpTimeBetweenProjectiles { get; private set; }
-    [field: SerializeField] public float ImpAttackRange { get; private set; }
     [field: SerializeField] public GameObject ImpProjetilePrefab { get; private set; }
 
     [field: Header("Shadow Demon")]

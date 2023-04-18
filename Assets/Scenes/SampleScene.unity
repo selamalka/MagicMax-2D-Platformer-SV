@@ -1299,7 +1299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408661629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.68, y: -6.14, z: -10}
+  m_LocalPosition: {x: -45.39, y: 3.6700006, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1709,7 +1709,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.68, y: -6.14, z: -10}
+  m_LocalPosition: {x: -45.39, y: 3.6700006, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3080,7 +3080,6 @@ MonoBehaviour:
   <ImpExpValue>k__BackingField: 5
   <ImpSoulValue>k__BackingField: 1
   <ImpTimeBetweenProjectiles>k__BackingField: 2
-  <ImpAttackRange>k__BackingField: 15
   <ImpProjetilePrefab>k__BackingField: {fileID: 4834836055424860735, guid: 9a599141bf3725a408c246bc23626799, type: 3}
   <ShadowDemonMaxHealth>k__BackingField: 2
   <ShadowDemonSpeed>k__BackingField: 3
@@ -3735,7 +3734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3558150348031737051, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
       propertyPath: m_Radius
-      value: 15.15
+      value: 16.88
       objectReference: {fileID: 0}
     - target: {fileID: 8720207877135626884, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
       propertyPath: m_RootOrder
@@ -3743,7 +3742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8720207877135626884, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -70.34
+      value: -60.99
       objectReference: {fileID: 0}
     - target: {fileID: 8720207877135626884, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25647,11 +25646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4505071554451754095, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -57.08
+      value: -45.79
       objectReference: {fileID: 0}
     - target: {fileID: 4505071554451754095, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.35
+      value: -1.54
       objectReference: {fileID: 0}
     - target: {fileID: 4505071554451754095, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: m_LocalPosition.z
