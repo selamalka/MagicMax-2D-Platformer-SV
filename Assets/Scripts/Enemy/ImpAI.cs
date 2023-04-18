@@ -18,7 +18,10 @@ public class ImpAI : MonoBehaviour
     private ImpStateType currentState;
 
     private GameObject playerGameObject;
+    private float detectionRadius;
+    [SerializeField] private LayerMask playerLayer;
     private Vector3 playerPosition;
+
 
     private void Start()
     {
@@ -27,6 +30,7 @@ public class ImpAI : MonoBehaviour
         speed = EnemyManager.Instance.ImpSpeed;
         timeBetweenProjectiles = EnemyManager.Instance.ImpTimeBetweenProjectiles;
         projectilePrefab = EnemyManager.Instance.ImpProjetilePrefab;
+        detectionRadius = EnemyManager.Instance.ImpDetectionRadius;
         projectileCooldownCounter = timeBetweenProjectiles;
 
         currentState = ImpStateType.Patrol;
@@ -34,14 +38,26 @@ public class ImpAI : MonoBehaviour
 
     private void Update()
     {
+        if (playerGameObject == null) return;
+
         if (projectileCooldownCounter > 0)
         {
             projectileCooldownCounter -= Time.deltaTime;
         }
-    }
+
+        Vector2 direction = playerGameObject.transform.position - transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, detectionRadius, playerLayer);
+
+        if (hit.collider != null && hit.collider.CompareTag("Player"))
+        {
+            currentState = ImpStateType.Attack;
+        }
+    }    
 
     private void FixedUpdate()
     {
+        if (playerGameObject == null) return;
+
         switch (currentState)
         {
             case ImpStateType.Patrol:
@@ -70,40 +86,17 @@ public class ImpAI : MonoBehaviour
         {
             InstantiateProjectile();
             projectileCooldownCounter = timeBetweenProjectiles;
-        }        
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            rb.velocity = Vector3.zero;
-            currentState = ImpStateType.Attack;
-            projectileCooldownCounter = timeBetweenProjectiles;
-        }
-        else if (collision.CompareTag("PatrolPoint"))
+        if (collision.CompareTag("PatrolPoint"))
         {
             if (currentState == ImpStateType.Patrol)
             {
                 Turn();
             }
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            playerPosition = collision.transform.position;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            rb.velocity = Vector3.zero;
-            currentState = ImpStateType.Patrol;
         }
     }
 
@@ -117,7 +110,7 @@ public class ImpAI : MonoBehaviour
     }
 
     private void TurnHandler()
-    {
+    {       
         playerPosition = playerGameObject.transform.position;
 
         Vector3 direction = playerPosition - transform.position;

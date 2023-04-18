@@ -13,12 +13,13 @@ public class ShadowDemonAI : MonoBehaviour
     private GameObject projectilePrefab;
 
     private GameObject playerGameObject;
+    private float detectionRadius;
+    [SerializeField] private LayerMask playerLayer;
     private Vector3 playerPosition;
     private float maxDistanceFromPlayer;
     private bool isTurning;
     private float timeBetweenProjectiles;
     private float projectileCooldownCounter;
-    private float attackRange;
 
     private void Start()
     {
@@ -29,7 +30,7 @@ public class ShadowDemonAI : MonoBehaviour
         projectilePrefab = EnemyManager.Instance.ShadowDemonProjetilePrefab;
         maxDistanceFromPlayer = EnemyManager.Instance.ShadowDemonMaxDistanceFromPlayer;
         timeBetweenProjectiles = EnemyManager.Instance.ShadowDemonTimeBetweenProjectiles;
-        attackRange = EnemyManager.Instance.ShadowDemonAttackRange;
+        detectionRadius = EnemyManager.Instance.ShadowDemonDetectionRadius;
 
         transform.position = patrolPoints[0].position;
         projectileCooldownCounter = timeBetweenProjectiles;
@@ -39,9 +40,19 @@ public class ShadowDemonAI : MonoBehaviour
 
     private void Update()
     {
+        if (playerGameObject == null) return;
+
         if (projectileCooldownCounter > 0)
         {
             projectileCooldownCounter -= Time.deltaTime;
+        }
+
+        Vector2 direction = playerGameObject.transform.position - transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, detectionRadius, playerLayer);
+
+        if (hit.collider != null && hit.collider.CompareTag("Player"))
+        {
+            currentState = ShadowDemonStateType.Attack;
         }
 
         switch (currentState)
@@ -59,13 +70,6 @@ public class ShadowDemonAI : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            currentState = ShadowDemonStateType.Attack;
-        }
-    }
 
     private void Patrol()
     {
@@ -96,17 +100,16 @@ public class ShadowDemonAI : MonoBehaviour
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         FaceTowardsPlayer(angle);
 
-        AttackPlayerInRange(angle);
+        AttackPlayerInRange();
     }
 
-    private void AttackPlayerInRange(float angle)
+    private void AttackPlayerInRange()
     {
         if (IsPlayerInAttackRange())
         {
             if (projectileCooldownCounter <= 0)
             {
-                print("suppose to attack");
-                InstantiateProjectile(angle);
+                InstantiateProjectile();
                 projectileCooldownCounter = timeBetweenProjectiles;
             }
         }
@@ -114,12 +117,12 @@ public class ShadowDemonAI : MonoBehaviour
 
     private bool IsPlayerInAttackRange()
     {
-        return Vector2.Distance(transform.position, playerPosition) <= attackRange;
+        return Vector2.Distance(transform.position, playerPosition) <= detectionRadius;
     }
 
-    private void InstantiateProjectile(float angle)
+    private void InstantiateProjectile()
     {
-        Instantiate(projectilePrefab, projectilePointTransform.position, Quaternion.Euler(new Vector3(0, 0, angle - 90)));
+        Instantiate(projectilePrefab, projectilePointTransform.position, Quaternion.identity);
     }
 
     private void TurnHandler(Vector3 nextPatrolPoint)

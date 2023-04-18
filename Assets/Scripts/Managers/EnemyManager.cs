@@ -10,6 +10,8 @@ public class EnemyManager : MonoBehaviour
     [field: SerializeField] public float ImpExpValue { get; private set; }
     [field: SerializeField] public int ImpSoulValue { get; private set; }
     [field: SerializeField] public float ImpTimeBetweenProjectiles { get; private set; }
+    [field: SerializeField] public float ImpDetectionRadius { get; private set; }
+
     [field: SerializeField] public GameObject ImpProjetilePrefab { get; private set; }
 
     [field: Header("Shadow Demon")]
@@ -19,7 +21,7 @@ public class EnemyManager : MonoBehaviour
     [field: SerializeField] public int ShadowDemonSoulValue { get; private set; }
     [field: SerializeField] public float ShadowDemonTimeBetweenProjectiles { get; private set; }
     [field: SerializeField] public float ShadowDemonMaxDistanceFromPlayer { get; private set; }
-    [field: SerializeField] public float ShadowDemonAttackRange { get; private set; }
+    [field: SerializeField] public float ShadowDemonDetectionRadius { get; private set; }
     [field: SerializeField] public GameObject ShadowDemonProjetilePrefab { get; private set; }
 
     private void Awake()

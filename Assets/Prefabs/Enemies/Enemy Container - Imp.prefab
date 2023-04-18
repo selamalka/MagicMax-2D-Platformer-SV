@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Imp
       objectReference: {fileID: 0}
+    - target: {fileID: 921516957789996992, guid: d3a577495d15ac14babaf4bd8eb5d414, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1431722318330974229, guid: d3a577495d15ac14babaf4bd8eb5d414, type: 3}
       propertyPath: m_RootOrder
       value: 2
