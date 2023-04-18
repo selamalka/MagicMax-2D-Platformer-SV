@@ -3082,10 +3082,11 @@ MonoBehaviour:
   <ImpTimeBetweenShots>k__BackingField: 1.5
   <ImpProjetilePrefab>k__BackingField: {fileID: 7847511327988088231, guid: 407d55ede06d18345a310670dc427789, type: 3}
   <ShadowDemonMaxHealth>k__BackingField: 2
-  <ShadowDemonSpeed>k__BackingField: 400
+  <ShadowDemonSpeed>k__BackingField: 200
   <ShadowDemonExpValue>k__BackingField: 2
   <ShadowDemonSoulValue>k__BackingField: 1
   <ShadowDemonTimeBetweenShots>k__BackingField: 1
+  <ShadowDemonMaxDistanceFromPlayer>k__BackingField: 10
   <ShadowDemonProjetilePrefab>k__BackingField: {fileID: 0}
 --- !u!114 &1012876929
 MonoBehaviour:
@@ -3496,19 +3497,19 @@ PrefabInstance:
       objectReference: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 1284834232480930303, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5
+      value: 5.41
       objectReference: {fileID: 0}
     - target: {fileID: 1284834232480930303, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 1284834232898751814, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.38
+      value: 16.61
       objectReference: {fileID: 0}
     - target: {fileID: 1284834232898751814, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.46
+      value: -4.07
       objectReference: {fileID: 0}
     - target: {fileID: 1284834232898751815, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_Icon
@@ -3587,6 +3588,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1443380911}
     - target: {fileID: 3232415385415074143, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
+      propertyPath: maxDistanceFromPlayer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232415385415074143, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -3616,11 +3621,11 @@ PrefabInstance:
       objectReference: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 6954609946549441915, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.52
+      value: 2.69
       objectReference: {fileID: 0}
     - target: {fileID: 6954609946549441915, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.9
+      value: -9.2
       objectReference: {fileID: 0}
     - target: {fileID: 8198089889569900353, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_Icon
@@ -3628,11 +3633,15 @@ PrefabInstance:
       objectReference: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 8959991023404742437, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.1
+      value: 8.8
       objectReference: {fileID: 0}
     - target: {fileID: 8959991023404742437, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.32
+      value: -9.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014914542659044904, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
