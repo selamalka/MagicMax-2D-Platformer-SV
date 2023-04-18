@@ -9,13 +9,20 @@ public class ShadowDemonAI : MonoBehaviour
     private float speed;
     private bool isFacingRight = true;
     private int currentPatrolPointIndex;
-    private GameObject projectilePrefab;    
+    private GameObject projectilePrefab;
+
+    private GameObject playerGameObject;
+    private Vector3 playerPosition;
+    private float maxDistanceFromPlayer;
+    private bool isTurning;
 
     private void Start()
     {
+        playerGameObject = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         speed = EnemyManager.Instance.ShadowDemonSpeed;
         projectilePrefab = EnemyManager.Instance.ShadowDemonProjetilePrefab;
+        maxDistanceFromPlayer = EnemyManager.Instance.ShadowDemonMaxDistanceFromPlayer;
         transform.position = patrolPoints[0].position;
 
         currentState = ShadowDemonStateType.Patrol;
@@ -26,12 +33,11 @@ public class ShadowDemonAI : MonoBehaviour
         switch (currentState)
         {
             case ShadowDemonStateType.Patrol:
-                Move();
-                TurnHandler();
+                Patrol();
                 break;
 
             case ShadowDemonStateType.Attack:
-                Attack();
+                ChasePlayerAndAttack();
                 break;
 
             default:
@@ -45,17 +51,9 @@ public class ShadowDemonAI : MonoBehaviour
         {
             currentState = ShadowDemonStateType.Attack;
         }
-    }
+    }    
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            currentState = ShadowDemonStateType.Patrol;
-        }
-    }
-
-    private void Move()
+    private void Patrol()
     {
 /*        if (rb.position == (Vector2)patrolPoints[currentPatrolPointIndex].position)
         {
@@ -71,6 +69,8 @@ public class ShadowDemonAI : MonoBehaviour
 
         Vector2 direction = (patrolPoints[currentPatrolPointIndex].position - transform.position).normalized;
         rb.velocity = speed * Time.deltaTime * direction;
+
+        TurnHandler();
     }
 
     private void TurnHandler()
@@ -94,8 +94,44 @@ public class ShadowDemonAI : MonoBehaviour
         isFacingRight = !isFacingRight;
     }
 
-    private void Attack()
+    private void ChasePlayerAndAttack()
     {
-        
+        playerPosition = playerGameObject.transform.position;
+
+        var direction = playerPosition - transform.position;
+
+        if (Vector2.Distance(rb.position, playerPosition) <= maxDistanceFromPlayer)
+        {
+            rb.velocity = Vector2.zero;
+        }
+        else
+        {
+            rb.velocity = speed * Time.deltaTime * direction.normalized;
+        }
+
+        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        FaceTowardsPlayer(angle);
+    }
+
+    private void FaceTowardsPlayer(float angle)
+    {
+        if (angle > 90f || angle < -90f)
+        {
+            if (isFacingRight && !isTurning)
+            {
+                isTurning = true;
+                Turn();
+                isTurning = false;
+            }
+        }
+        else if (angle < 90 || angle > -90)
+        {
+            if (!isFacingRight && !isTurning)
+            {
+                isTurning = true;
+                Turn();
+                isTurning = false;
+            }
+        }
     }
 }
