@@ -5,6 +5,7 @@ public class ShadowDemonAI : MonoBehaviour
     private ShadowDemonStateType currentState;
     [SerializeField] private Transform[] patrolPoints;
     [SerializeField] private Transform body;
+    [SerializeField] private Transform projectilePointTransform;
     private Rigidbody2D rb;
     private float speed;
     private bool isFacingRight = true;
@@ -15,6 +16,9 @@ public class ShadowDemonAI : MonoBehaviour
     private Vector3 playerPosition;
     private float maxDistanceFromPlayer;
     private bool isTurning;
+    private float projectileCooldownCounter;
+    private float timeBetweenProjectiles;
+    [SerializeField] private float attackRange;
 
     private void Start()
     {
@@ -23,9 +27,20 @@ public class ShadowDemonAI : MonoBehaviour
         speed = EnemyManager.Instance.ShadowDemonSpeed;
         projectilePrefab = EnemyManager.Instance.ShadowDemonProjetilePrefab;
         maxDistanceFromPlayer = EnemyManager.Instance.ShadowDemonMaxDistanceFromPlayer;
+        timeBetweenProjectiles = EnemyManager.Instance.ShadowDemonTimeBetweenProjectiles;
         transform.position = patrolPoints[0].position;
+        projectileCooldownCounter = timeBetweenProjectiles;
 
         currentState = ShadowDemonStateType.Patrol;
+    }
+
+    private void Update()
+    {
+        if (!IsPlayerInAttackRange()) return;
+        if (projectileCooldownCounter > 0)
+        {
+            projectileCooldownCounter -= Time.deltaTime;
+        }        
     }
 
     private void FixedUpdate()
@@ -111,6 +126,29 @@ public class ShadowDemonAI : MonoBehaviour
 
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         FaceTowardsPlayer(angle);
+
+        if (IsPlayerInAttackRange())
+        {
+            InstantiateProjectile(playerPosition);
+        }
+    }
+
+    private bool IsPlayerInAttackRange()
+    {
+        return Vector2.Distance(rb.position, playerPosition) <= attackRange;
+    }
+
+    private void InstantiateProjectile(Vector3 targetPosition)
+    {
+        if (projectilePrefab == null || targetPosition == null) return;
+        if (projectileCooldownCounter <= 0)
+        {
+            var direction = targetPosition - transform.position;
+            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            var projectile = Instantiate(projectilePrefab, projectilePointTransform.position, Quaternion.Euler(new Vector3(0, 0, angle - 90)));
+            projectile.GetComponent<EnemyProjectile>().SetTarget(targetPosition);
+            projectileCooldownCounter = timeBetweenProjectiles;
+        }
     }
 
     private void FaceTowardsPlayer(float angle)
