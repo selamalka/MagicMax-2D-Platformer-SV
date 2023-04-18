@@ -61,6 +61,7 @@ public class ImpAI : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            playerPosition = collision.transform.position;
             rb.velocity = Vector3.zero;
             currentState = ImpStateType.Attack;
             projectileCooldownCounter = timeBetweenProjectiles;
@@ -76,12 +77,9 @@ public class ImpAI : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("PatrolPoint"))
+        if (collision.CompareTag("Player"))
         {
-            if (currentState == ImpStateType.Patrol)
-            {
-                Turn();
-            }
+            playerPosition = collision.transform.position;
         }
     }
 
@@ -105,8 +103,6 @@ public class ImpAI : MonoBehaviour
 
     private void TurnHandler()
     {
-        //playerPosition = collision.transform.position;
-        playerPosition = GameObject.FindWithTag("Player").transform.position;
         var direction = playerPosition - transform.position;
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
