@@ -87,22 +87,26 @@ public class ShadowDemonAI : MonoBehaviour
         }
 
         playerPosition = playerGameObject.transform.position;
-        transform.position = Vector2.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime);
+        if (Vector2.Distance(transform.position, playerPosition) > maxDistanceFromPlayer)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime); 
+        }
 
         var direction = playerPosition - transform.position;
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         FaceTowardsPlayer(angle);
 
-        AttackPlayerInRange(direction, angle);
+        AttackPlayerInRange(angle);
     }
 
-    private void AttackPlayerInRange(Vector3 direction, float angle)
+    private void AttackPlayerInRange(float angle)
     {
         if (IsPlayerInAttackRange())
         {
             if (projectileCooldownCounter <= 0)
             {
-                InstantiateProjectile(direction, angle);
+                print("suppose to attack");
+                InstantiateProjectile(angle);
                 projectileCooldownCounter = timeBetweenProjectiles;
             }
         }
@@ -110,10 +114,10 @@ public class ShadowDemonAI : MonoBehaviour
 
     private bool IsPlayerInAttackRange()
     {
-        return Vector2.Distance(rb.position, playerPosition) <= attackRange;
+        return Vector2.Distance(transform.position, playerPosition) <= attackRange;
     }
 
-    private void InstantiateProjectile(Vector3 direction, float angle)
+    private void InstantiateProjectile(float angle)
     {
         Instantiate(projectilePrefab, projectilePointTransform.position, Quaternion.Euler(new Vector3(0, 0, angle - 90)));
     }

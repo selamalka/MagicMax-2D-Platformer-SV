@@ -17,14 +17,18 @@ public class ImpAI : MonoBehaviour
     private float projectileCooldownCounter;
     private ImpStateType currentState;
 
+    private GameObject playerGameObject;
     private Vector3 playerPosition;
+    private float attackRange;
 
     private void Start()
     {
+        playerGameObject = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         speed = EnemyManager.Instance.ImpSpeed;
         timeBetweenProjectiles = EnemyManager.Instance.ImpTimeBetweenProjectiles;
         projectilePrefab = EnemyManager.Instance.ImpProjetilePrefab;
+        attackRange = EnemyManager.Instance.ImpAttackRange;
         projectileCooldownCounter = timeBetweenProjectiles;
 
         currentState = ImpStateType.Patrol;
@@ -47,8 +51,7 @@ public class ImpAI : MonoBehaviour
                 break;
 
             case ImpStateType.Attack:
-                TurnHandler();
-                InstantiateProjectile(playerPosition);
+                AttackPlayer();
                 break;
 
             default:
@@ -56,11 +59,26 @@ public class ImpAI : MonoBehaviour
         }
     }
 
+    private void AttackPlayer()
+    {
+        if (playerGameObject == null)
+        {
+            currentState = ImpStateType.Patrol;
+            return;
+        }
+        playerPosition = playerGameObject.transform.position;
+
+        Vector3 direction = playerPosition - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        print(angle);
+        TurnHandler(angle);
+        AttackPlayerInRange(angle);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            playerPosition = collision.transform.position;
             rb.velocity = Vector3.zero;
             currentState = ImpStateType.Attack;
             projectileCooldownCounter = timeBetweenProjectiles;
@@ -100,11 +118,8 @@ public class ImpAI : MonoBehaviour
         isFacingRight = !isFacingRight;
     }
 
-    private void TurnHandler()
+    private void TurnHandler(float angle)
     {
-        var direction = playerPosition - transform.position;
-        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
         if (angle > 90f || angle < -90f)
         {
             if (isFacingRight && !isTurning)
@@ -137,16 +152,25 @@ public class ImpAI : MonoBehaviour
         }
     }
 
-    private void InstantiateProjectile(Vector3 targetPosition)
+    private void AttackPlayerInRange(float angle)
     {
-        if (projectilePrefab == null) return; 
-        if (projectileCooldownCounter <= 0)
+        if (IsPlayerInAttackRange())
         {
-            var direction = targetPosition - transform.position;
-            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            var projectile = Instantiate(projectilePrefab, projectilePointTransform.position, Quaternion.Euler(new Vector3(0, 0, angle - 90)));
-            projectile.GetComponent<EnemyProjectile>().SetTarget(targetPosition);
-            projectileCooldownCounter = timeBetweenProjectiles;
+            if (projectileCooldownCounter <= 0)
+            {
+                InstantiateProjectile(angle);
+                projectileCooldownCounter = timeBetweenProjectiles;
+            }
         }
+    }
+
+    private bool IsPlayerInAttackRange()
+    {
+        return Vector2.Distance(transform.position, playerPosition) <= attackRange;
+    }
+
+    private void InstantiateProjectile(float angle)
+    {
+        var projectile = Instantiate(projectilePrefab, projectilePointTransform.position, Quaternion.Euler(new Vector3(0, 0, angle -90)));
     }
 }

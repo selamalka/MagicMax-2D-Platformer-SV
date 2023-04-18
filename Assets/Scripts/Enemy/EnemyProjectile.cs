@@ -4,7 +4,6 @@ public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField] private SpellData data;
     private float lifespanCounter;
-    public Vector3 Target { get; private set; }
 
     private void Start()
     {
@@ -27,11 +26,6 @@ public class EnemyProjectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    public void SetTarget(Vector3 target)
-    {
-        Target = target;
     }
 
     private void LifespanHandler()
