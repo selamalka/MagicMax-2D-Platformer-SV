@@ -1652,7 +1652,7 @@ MonoBehaviour:
   m_Follow: {fileID: 8963468310251956156}
   m_Lens:
     FieldOfView: 93.9
-    OrthographicSize: 11.25
+    OrthographicSize: 16.6
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1676,7 +1676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408661629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -76, y: -6.0899997, z: -10}
+  m_LocalPosition: {x: -76, y: -4.1639986, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2131,7 +2131,7 @@ Camera:
   far clip plane: 1000
   field of view: 93.9
   orthographic: 1
-  orthographic size: 11.25
+  orthographic size: 16.6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2155,7 +2155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -76, y: -6.0899997, z: -10}
+  m_LocalPosition: {x: -76, y: -4.1639986, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3828,14 +3828,14 @@ MonoBehaviour:
   <ImpSpeed>k__BackingField: 100
   <ImpExpValue>k__BackingField: 5
   <ImpSoulValue>k__BackingField: 1
-  <ImpTimeBetweenProjectiles>k__BackingField: 2
+  <ImpTimeBetweenProjectiles>k__BackingField: 3
   <ImpDetectionRadius>k__BackingField: 10
   <ImpProjetilePrefab>k__BackingField: {fileID: 4834836055424860735, guid: 9a599141bf3725a408c246bc23626799, type: 3}
   <ShadowDemonMaxHealth>k__BackingField: 2
   <ShadowDemonSpeed>k__BackingField: 3
   <ShadowDemonExpValue>k__BackingField: 2
   <ShadowDemonSoulValue>k__BackingField: 1
-  <ShadowDemonTimeBetweenProjectiles>k__BackingField: 2
+  <ShadowDemonTimeBetweenProjectiles>k__BackingField: 3
   <ShadowDemonMaxDistanceFromPlayer>k__BackingField: 15
   <ShadowDemonDetectionRadius>k__BackingField: 20
   <ShadowDemonProjetilePrefab>k__BackingField: {fileID: 102004324205810066, guid: 0517d414b6012304a965f50ef2f8aa94, type: 3}

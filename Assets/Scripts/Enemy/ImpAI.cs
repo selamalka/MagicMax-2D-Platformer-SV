@@ -19,9 +19,6 @@ public class ImpAI : MonoBehaviour
 
     private GameObject playerGameObject;
     private float detectionRadius;
-    [SerializeField] private LayerMask playerLayer;
-    private Vector3 playerPosition;
-
 
     private void Start()
     {
@@ -40,37 +37,56 @@ public class ImpAI : MonoBehaviour
     {
         if (playerGameObject == null) return;
 
-        if (projectileCooldownCounter > 0)
-        {
-            projectileCooldownCounter -= Time.deltaTime;
-        }
-
-        Vector2 direction = playerGameObject.transform.position - transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, detectionRadius, playerLayer);
-
-        if (hit.collider != null && hit.collider.CompareTag("Player"))
-        {
-            currentState = ImpStateType.Attack;
-        }
-    }    
-
-    private void FixedUpdate()
-    {
-        if (playerGameObject == null) return;
-
         switch (currentState)
         {
             case ImpStateType.Patrol:
-                Patrol();
+                // Patrol() is in FixedUpdate
+                if (IsPlayerInAttackRange())
+                {
+                    currentState = ImpStateType.Attack;
+                }
+
                 break;
 
             case ImpStateType.Attack:
+
+                if (!IsPlayerInAttackRange())
+                {
+                    currentState = ImpStateType.Patrol;
+                }
+
                 AttackPlayer();
                 TurnHandler();
                 break;
 
             default:
                 break;
+        }
+
+        if (projectileCooldownCounter > 0)
+        {
+            projectileCooldownCounter -= Time.deltaTime;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (playerGameObject == null) return;
+
+        if (currentState == ImpStateType.Patrol)
+        {
+            Patrol();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("PatrolPoint"))
+        {
+            if (currentState == ImpStateType.Patrol)
+            {
+                Turn();
+            }
         }
     }
 
@@ -89,49 +105,39 @@ public class ImpAI : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private bool IsPlayerInAttackRange()
     {
-        if (collision.CompareTag("PatrolPoint"))
-        {
-            if (currentState == ImpStateType.Patrol)
-            {
-                Turn();
-            }
-        }
+        return Vector2.Distance(transform.position, playerGameObject.transform.position) <= detectionRadius;
     }
 
     private void Turn()
     {
+        isTurning = true;
         rb.velocity = Vector3.zero;
         Vector3 scale = body.transform.localScale;
         scale.x *= -1;
         body.transform.localScale = scale;
         isFacingRight = !isFacingRight;
+        isTurning = false;
     }
 
     private void TurnHandler()
-    {       
-        playerPosition = playerGameObject.transform.position;
-
-        Vector3 direction = playerPosition - transform.position;
+    {
+        Vector3 direction = playerGameObject.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         if (angle > 90f || angle < -90f)
         {
             if (isFacingRight && !isTurning)
-            {
-                isTurning = true;
-                Turn();
-                isTurning = false;
+            {             
+                Turn();    
             }
         }
         else if (angle < 90 || angle > -90)
         {
             if (!isFacingRight && !isTurning)
             {
-                isTurning = true;
                 Turn();
-                isTurning = false;
             }
         }
     }

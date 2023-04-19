@@ -14,8 +14,6 @@ public class ShadowDemonAI : MonoBehaviour
 
     private GameObject playerGameObject;
     private float detectionRadius;
-    [SerializeField] private LayerMask playerLayer;
-    private Vector3 playerPosition;
     private float maxDistanceFromPlayer;
     private bool isTurning;
     private float timeBetweenProjectiles;
@@ -42,22 +40,14 @@ public class ShadowDemonAI : MonoBehaviour
     {
         if (playerGameObject == null) return;
 
-        if (projectileCooldownCounter > 0)
-        {
-            projectileCooldownCounter -= Time.deltaTime;
-        }
-
-        Vector2 direction = playerGameObject.transform.position - transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, detectionRadius, playerLayer);
-
-        if (hit.collider != null && hit.collider.CompareTag("Player"))
-        {
-            currentState = ShadowDemonStateType.Attack;
-        }
-
         switch (currentState)
         {
             case ShadowDemonStateType.Patrol:
+
+                if (IsPlayerInAttackRange())
+                {
+                    currentState = ShadowDemonStateType.Attack;
+                }
                 Patrol();
                 break;
 
@@ -68,8 +58,12 @@ public class ShadowDemonAI : MonoBehaviour
             default:
                 break;
         }
-    }
 
+        if (projectileCooldownCounter > 0)
+        {
+            projectileCooldownCounter -= Time.deltaTime;
+        }
+    }
 
     private void Patrol()
     {
@@ -89,14 +83,13 @@ public class ShadowDemonAI : MonoBehaviour
             currentState = ShadowDemonStateType.Patrol;
             return;
         }
-
-        playerPosition = playerGameObject.transform.position;
-        if (Vector2.Distance(transform.position, playerPosition) > maxDistanceFromPlayer)
+   
+        if (Vector2.Distance(transform.position, playerGameObject.transform.position) > maxDistanceFromPlayer)
         {
-            transform.position = Vector2.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime); 
+            transform.position = Vector2.MoveTowards(transform.position, playerGameObject.transform.position, speed * Time.deltaTime); 
         }
 
-        var direction = playerPosition - transform.position;
+        var direction = playerGameObject.transform.position - transform.position;
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         FaceTowardsPlayer(angle);
 
@@ -117,7 +110,7 @@ public class ShadowDemonAI : MonoBehaviour
 
     private bool IsPlayerInAttackRange()
     {
-        return Vector2.Distance(transform.position, playerPosition) <= detectionRadius;
+        return Vector2.Distance(transform.position, playerGameObject.transform.position) <= detectionRadius;
     }
 
     private void InstantiateProjectile()
@@ -141,10 +134,12 @@ public class ShadowDemonAI : MonoBehaviour
 
     private void Turn()
     {
+        isTurning = true;
         Vector3 scale = body.transform.localScale;
         scale.x *= -1;
         body.transform.localScale = scale;
         isFacingRight = !isFacingRight;
+        isTurning = false;
     }
 
     private void FaceTowardsPlayer(float angle)
@@ -152,19 +147,15 @@ public class ShadowDemonAI : MonoBehaviour
         if (angle > 90f || angle < -90f)
         {
             if (isFacingRight && !isTurning)
-            {
-                isTurning = true;
+            {  
                 Turn();
-                isTurning = false;
             }
         }
         else if (angle < 90 || angle > -90)
         {
             if (!isFacingRight && !isTurning)
             {
-                isTurning = true;
                 Turn();
-                isTurning = false;
             }
         }
     }
