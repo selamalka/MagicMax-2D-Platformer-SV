@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Imp Projectile
   <Sprite>k__BackingField: {fileID: 21300000, guid: 18add6d80ac928d459479e243d0547a7, type: 3}
-  <Speed>k__BackingField: 20
+  <Speed>k__BackingField: 10
   <ManaCost>k__BackingField: 0
   <Damage>k__BackingField: 1
   <Lifespan>k__BackingField: 4
