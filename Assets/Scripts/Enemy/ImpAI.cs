@@ -63,6 +63,11 @@ public class ImpAI : MonoBehaviour
                 break;
         }
 
+        ProjectileCooldownHandler();
+    }
+
+    private void ProjectileCooldownHandler()
+    {
         if (projectileCooldownCounter > 0)
         {
             projectileCooldownCounter -= Time.deltaTime;
@@ -107,7 +112,12 @@ public class ImpAI : MonoBehaviour
 
     private bool IsPlayerInAttackRange()
     {
-        return Vector2.Distance(transform.position, playerGameObject.transform.position) <= detectionRadius;
+        return GetDistanceFromPlayer() <= detectionRadius;
+    }
+
+    private float GetDistanceFromPlayer()
+    {
+        return Vector2.Distance(transform.position, playerGameObject.transform.position);
     }
 
     private void Turn()

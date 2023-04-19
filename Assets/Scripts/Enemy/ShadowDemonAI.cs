@@ -48,23 +48,27 @@ public class ShadowDemonAI : MonoBehaviour
                 {
                     currentState = ShadowDemonStateType.Attack;
                 }
+
                 Patrol();
                 break;
 
             case ShadowDemonStateType.Attack:
 
-                if (projectileCooldownCounter > 0)
-                {
-                    projectileCooldownCounter -= Time.deltaTime;
-                }
-
+                ProjectileCooldownHandler();
                 ChasePlayerAndAttack();
                 break;
 
             default:
                 break;
         }
+    }
 
+    private void ProjectileCooldownHandler()
+    {
+        if (projectileCooldownCounter > 0)
+        {
+            projectileCooldownCounter -= Time.deltaTime;
+        }
     }
 
     private void Patrol()
@@ -86,7 +90,7 @@ public class ShadowDemonAI : MonoBehaviour
             return;
         }
 
-        if (Vector2.Distance(transform.position, playerGameObject.transform.position) > maxDistanceFromPlayer)
+        if (GetDistanceFromPlayer() > maxDistanceFromPlayer)
         {
             transform.position = Vector2.MoveTowards(transform.position, playerGameObject.transform.position, speed * Time.deltaTime);
         }
@@ -110,9 +114,14 @@ public class ShadowDemonAI : MonoBehaviour
         }
     }
 
+    private float GetDistanceFromPlayer()
+    {
+        return Vector2.Distance(transform.position, playerGameObject.transform.position);
+    }
+
     private bool IsPlayerInAttackRange()
     {
-        return Vector2.Distance(transform.position, playerGameObject.transform.position) <= detectionRadius;
+        return GetDistanceFromPlayer() <= detectionRadius;
     }
 
     private void InstantiateProjectile()
