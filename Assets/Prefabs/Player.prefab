@@ -576,17 +576,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 15
-  accelerationTime: 0.05
-  deceleationTime: 0.1
-  maxSpeed: 10
+  jumpTime: 0.3
+  speed: 550
+  fallMultiplier: 2
   body: {fileID: 3541108710210601035}
   groundCheckTransform: {fileID: 4819300501041328564}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  groundCheckRadius: 2
-  isGrounded: 0
-  dashForce: 20
+  groundCheckRadius: 1
+  isGrounded: 1
+  dashForce: 35
   dashTime: 0.2
   dashCooldown: 0.01
 --- !u!114 &8963468310251956158
@@ -1012,7 +1012,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4819300501041328565}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.47, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0, y: -0.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

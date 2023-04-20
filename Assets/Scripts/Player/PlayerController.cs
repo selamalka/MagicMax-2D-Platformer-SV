@@ -6,22 +6,20 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance;
 
     [SerializeField] private float jumpForce;
-    [SerializeField] private float accelerationTime = 0.2f;
-    [SerializeField] private float deceleationTime = 0.2f;
-    [SerializeField] private float maxSpeed = 5f;
-
-    private float currentSpeed;
-    private float currentVelocityXSmoothing;
+    [SerializeField] private float jumpTime;
+    [SerializeField] private float speed;
+    [SerializeField] private float fallMultiplier;
 
     [SerializeField] private GameObject body;
     [SerializeField] Transform groundCheckTransform;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float groundCheckRadius;
     [SerializeField] private bool isGrounded;
-    private float inputX;
-    private float inputY;
-    private bool isJumpPressed;
     public bool IsFacingRight { get; private set; }
+    private bool isJumping;
+    private float jumpTimeCounter;
+    private Vector2 gravityVector;
+    private float inputX;
 
     [Header("Dashing")]
     [SerializeField] private float dashForce;
@@ -41,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        gravityVector = new Vector2(0, -Physics2D.gravity.y);
         IsFacingRight = true;
         ghostScript = GetComponent<Ghost>();
         rb = GetComponent<Rigidbody2D>();
@@ -48,14 +47,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);
-        isJumpPressed = isGrounded ? Input.GetKeyDown(KeyCode.Space) : false;
-
         FacingHandler();
 
-        if (isJumpPressed && isGrounded)
+        isGrounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);
+
+        JumpHandler();
+
+        if (rb.velocity.y < 0)
         {
-            Jump();
+            rb.velocity -= gravityVector * fallMultiplier * Time.deltaTime;
         }
 
         var isDashPressed = Input.GetKeyDown(KeyCode.LeftShift);
@@ -65,17 +65,48 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         inputX = Input.GetAxisRaw("Horizontal");
-        inputY = Input.GetAxisRaw("Vertical");
 
-        float targetVelocityX = maxSpeed * inputX;
-        currentSpeed = Mathf.SmoothDamp(rb.velocity.x, targetVelocityX, ref currentVelocityXSmoothing, inputX > 0 ? accelerationTime : deceleationTime);
-
-        rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(inputX * speed * Time.deltaTime, rb.velocity.y);
 
         if (isDashing)
         {
             rb.velocity = dashDirection.normalized * dashForce;
             return;
+        }
+    }
+
+    private void JumpHandler()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            SetGravityScale(2);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+
+        if (Input.GetKey(KeyCode.Space) && isJumping)
+        {
+            if (jumpTimeCounter > 0)
+            {
+                rb.velocity = new Vector2(inputX, jumpForce * 2f);
+                jumpTimeCounter -= Time.deltaTime;
+                jumpTimeCounter = jumpTimeCounter < 0 ? 0 : jumpTimeCounter;
+            }
+            else
+            {
+                isJumping = false;
+                SetGravityScale(15);
+                rb.AddForce(Vector2.down * 10, ForceMode2D.Impulse);
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            jumpTimeCounter = 0;
+            isJumping = false;
+            SetGravityScale(10);
+            rb.AddForce(Vector2.down * 20, ForceMode2D.Impulse);
         }
     }
 
@@ -110,11 +141,6 @@ public class PlayerController : MonoBehaviour
     private void SetGravityScale(float value)
     {
         rb.gravityScale = value;
-    }
-
-    private void Jump()
-    {
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
     private void Turn()
