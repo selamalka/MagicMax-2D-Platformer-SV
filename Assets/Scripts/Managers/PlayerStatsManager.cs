@@ -34,7 +34,6 @@ public class PlayerStatsManager : MonoBehaviour
     private void Start()
     {
         CurrentLevel = 1;
-        SpellPoints = 0;
         CurrentHealth = MaxHealth;
         CurrentMana = MaxMana;
         manaFillCounter = ManaFillTime;

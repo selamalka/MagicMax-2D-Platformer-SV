@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class SpellSlot : MonoBehaviour
 {
-    [field: SerializeField] public Spell CurrentSpell { get; private set; }
+    [field: SerializeField] public UISpell CurrentSpell { get; private set; }
 
-    public void SetCurrentSpell(Spell spell)
+    public void SetCurrentSpell(UISpell uiSpell)
     {
-        CurrentSpell = spell;
+        CurrentSpell = uiSpell;
     }
 }
