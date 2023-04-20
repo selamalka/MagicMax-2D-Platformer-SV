@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Spell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [field: SerializeField] public GameObject SpellPrefab { get; private set; }
     [field: SerializeField] public SpellData SpellData { get; private set; }

@@ -55,7 +55,7 @@ TagManager:
   - name: Player
     uniqueID: 1909678611
     locked: 0
-  - name: Melee Slash
+  - name: Spells
     uniqueID: 2617553245
     locked: 0
   - name: Crosshair

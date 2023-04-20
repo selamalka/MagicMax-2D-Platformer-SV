@@ -33,11 +33,10 @@ public class PlayerCombat : MonoBehaviour
         {
             var spellContainer = Instantiate(spellSlot1.CurrentSpell.SpellPrefab, projectileOriginSide.position, Quaternion.identity);
             spellContainer.transform.rotation = Quaternion.Euler(0, 0, PlayerController.Instance.IsFacingRight ? -90 : 90);
-            var manaCost = spellContainer.GetComponentInChildren<MagicShot>().SpellData.ManaCost;
 
-            if (PlayerStatsManager.Instance.IsEnoughMana(manaCost))
+            if (PlayerStatsManager.Instance.IsEnoughMana(spellSlot1.CurrentSpell.SpellData.ManaCost))
             {
-                PlayerStatsManager.Instance.UseMana(manaCost);
+                PlayerStatsManager.Instance.UseMana(spellSlot1.CurrentSpell.SpellData.ManaCost);
             }
             else
             {
@@ -54,11 +53,10 @@ public class PlayerCombat : MonoBehaviour
         {
             var spellContainer = Instantiate(spellSlot2.CurrentSpell.SpellPrefab, projectileOriginSide.position, Quaternion.identity);
             spellContainer.transform.rotation = Quaternion.Euler(0, 0, PlayerController.Instance.IsFacingRight ? -90 : 90);
-            var manaCost = spellContainer.GetComponentInChildren<MagicShot>().SpellData.ManaCost;
 
-            if (PlayerStatsManager.Instance.IsEnoughMana(manaCost))
+            if (PlayerStatsManager.Instance.IsEnoughMana(spellSlot2.CurrentSpell.SpellData.ManaCost))
             {
-                PlayerStatsManager.Instance.UseMana(manaCost);
+                PlayerStatsManager.Instance.UseMana(spellSlot2.CurrentSpell.SpellData.ManaCost);
             }
             else
             {
