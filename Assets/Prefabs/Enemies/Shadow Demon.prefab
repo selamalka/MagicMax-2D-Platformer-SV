@@ -188,10 +188,6 @@ MonoBehaviour:
   patrolPoints: []
   body: {fileID: 8498534185121773998}
   projectilePointTransform: {fileID: 2595304868853628696}
-  detectionRadius: 20
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1 &2295377256285755200
 GameObject:
   m_ObjectHideFlags: 0

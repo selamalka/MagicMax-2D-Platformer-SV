@@ -18,6 +18,7 @@ public class ShadowDemonAI : MonoBehaviour
     private bool isTurning;
     private float timeBetweenProjectiles;
     private float projectileCooldownCounter;
+    private Vector3 directionToPlayer;
 
     private void Start()
     {
@@ -96,6 +97,7 @@ public class ShadowDemonAI : MonoBehaviour
         }
 
         var direction = playerGameObject.transform.position - transform.position;
+        directionToPlayer = direction;
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         FaceTowardsPlayer(angle);
 
@@ -168,6 +170,15 @@ public class ShadowDemonAI : MonoBehaviour
             {
                 Turn();
             }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {        
+        if (collision.CompareTag("Tilemap"))
+        {
+            print(collision.gameObject);
+            transform.position = Vector2.MoveTowards(transform.position, playerGameObject.transform.position, speed * 1.2f * Time.deltaTime);
         }
     }
 }
