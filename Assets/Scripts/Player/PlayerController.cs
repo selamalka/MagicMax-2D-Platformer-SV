@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform groundCheckTransform;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float groundCheckRadius;
-    [SerializeField] private bool isGrounded;
+    [field: SerializeField] public bool IsGrounded { get; private set; }
     public bool IsFacingRight { get; private set; }
     private bool isJumping;
     private float jumpTimeCounter;
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         FacingHandler();
 
-        isGrounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);
+        IsGrounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);
 
         JumpHandler();
 
@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
 
     private void JumpHandler()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded)
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;
