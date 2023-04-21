@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 gravityVector;
     private float inputX;
     public bool IsControllable { get; private set; }
-    public bool IsCloudActive { get; private set; }
+    public bool IsNimbusActive { get; private set; }
 
     [Header("Dashing")]
     [SerializeField] private float dashForce;
@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity -= gravityVector * fallMultiplier * Time.deltaTime;
         }
 
+        if (IsNimbusActive) return;
         var isDashPressed = Input.GetKeyDown(KeyCode.LeftShift);
         Dash(isDashPressed);
     }
@@ -72,10 +73,9 @@ public class PlayerController : MonoBehaviour
 
         inputX = Input.GetAxisRaw("Horizontal");
 
-        if (!IsCloudActive)
-        {
-            rb.velocity = new Vector2(inputX * speed * Time.deltaTime, rb.velocity.y);
-        }
+        if (IsNimbusActive) return;
+
+        rb.velocity = new Vector2(inputX * speed * Time.deltaTime, rb.velocity.y);
 
         if (isDashing)
         {
@@ -84,18 +84,37 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Nimbus"))
+        {
+            SetGravityScale(0);
+            rb.mass = 0f; 
+        }
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Nimbus"))
         {
             Vector2 nimbusVelocity = FindObjectOfType<Nimbus>().GetComponent<Rigidbody2D>().velocity;
-            rb.velocity = nimbusVelocity;            
+            rb.velocity = nimbusVelocity;
         }
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Nimbus"))
+        {
+            SetGravityScale(8);
+            rb.mass = 1f; 
+        }
+    }
+
+
     public void SetIsCloudActive(bool value)
     {
-        IsCloudActive = value;
+        IsNimbusActive = value;
     }
 
     public void SetIsControllable(bool value)
@@ -105,6 +124,8 @@ public class PlayerController : MonoBehaviour
 
     private void JumpHandler()
     {
+        if (IsNimbusActive) return;
+
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded)
         {
             isJumping = true;
