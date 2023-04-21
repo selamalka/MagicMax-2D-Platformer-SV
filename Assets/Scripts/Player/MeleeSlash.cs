@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class MeleeSlash : MonoBehaviour
@@ -15,6 +17,7 @@ public class MeleeSlash : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            PlayerController.Instance.SetIsControllable(false);
             shouldPush = true;
             collision.GetComponent<IDamageable>().TakeDamage(PlayerStatsManager.Instance.MeleeDamage);
             GetComponent<Collider2D>().enabled = false;
@@ -22,12 +25,14 @@ public class MeleeSlash : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private async void FixedUpdate()
     {
         if (shouldPush)
         {
             PushPlayer(enemyDirection);
             shouldPush = false;
+            await Task.Delay(100);
+            PlayerController.Instance.SetIsControllable(true);
         }
     }
 
@@ -37,11 +42,13 @@ public class MeleeSlash : MonoBehaviour
 
         if (enemyDirection.x > 0)
         {
-            rb.velocity = Vector2.left * 30;
+            rb.velocity = Vector2.left * 15;
+            //rb.AddForce(Vector2.left * 15, ForceMode2D.Impulse);
         }
         else if (enemyDirection.x < 0)
         {
-            rb.velocity = Vector2.right * 30;
+            rb.velocity = Vector2.right * 15;
+            //rb.AddForce(Vector2.right * 15, ForceMode2D.Impulse);
         }
 
         if (!PlayerController.Instance.IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
