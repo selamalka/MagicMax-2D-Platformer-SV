@@ -93,6 +93,7 @@ public class PlayerCombat : MonoBehaviour
         if (meleeCooldownCounter <= 0)
         {
             if (PlayerController.Instance.IsGrounded && Input.GetKey(KeyCode.DownArrow)) return;
+            if (PlayerController.Instance.IsCloudActive && Input.GetKey(KeyCode.DownArrow)) return;
 
             var origin = GetSpellOrigin();
             var meleeInstance = Instantiate(MeleeSlashPrefab, GetSpellOrigin(), Quaternion.identity, meleeInstancesParent);
