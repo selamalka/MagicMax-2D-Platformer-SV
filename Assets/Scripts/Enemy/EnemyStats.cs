@@ -45,7 +45,8 @@ public class EnemyStats : MonoBehaviour, IDamageable
             PlayerStatsManager.Instance.GrantExp(expValue);
             PlayerStatsManager.Instance.GrantSouls(soulValue);
             EventManager.OnEnemyDeath?.Invoke();
-            Destroy(gameObject);
+            StartCoroutine(GameManager.Instance.PauseGameEffect(GameManager.Instance.PauseTime));
+            Destroy(gameObject, 0.15f);
         }
     }
 }
