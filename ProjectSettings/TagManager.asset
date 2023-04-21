@@ -9,6 +9,7 @@ TagManager:
   - PatrolPoint
   - BlockedSpell
   - Canvas
+  - Nimbus
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Ground
   - Player
   - Enemies
-  - 
+  - Nimbus
   - 
   - 
   - 
