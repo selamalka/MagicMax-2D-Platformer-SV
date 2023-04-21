@@ -42,13 +42,11 @@ public class MeleeSlash : MonoBehaviour
 
         if (enemyDirection.x > 0)
         {
-            rb.velocity = Vector2.left * 15;
-            //rb.AddForce(Vector2.left * 15, ForceMode2D.Impulse);
+            rb.velocity = Vector2.left * 12;          
         }
         else if (enemyDirection.x < 0)
         {
-            rb.velocity = Vector2.right * 15;
-            //rb.AddForce(Vector2.right * 15, ForceMode2D.Impulse);
+            rb.velocity = Vector2.right * 12;
         }
 
         if (!PlayerController.Instance.IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)

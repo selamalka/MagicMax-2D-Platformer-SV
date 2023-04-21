@@ -6,8 +6,17 @@ public class ManaShield : MonoBehaviour
     private float lifespanCounter;
     private Transform playerTransform;
 
+    private void Awake()
+    {
+        if (FindObjectsOfType<ManaShield>().Length >= 2)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Start()
     {
+        if (PlayerStatsManager.Instance.CurrentMana == 0) Destroy(gameObject);
         lifespanCounter = SpellData.Lifespan;
         playerTransform = GameObject.FindWithTag("Player").transform;
         transform.parent.SetParent(playerTransform);
