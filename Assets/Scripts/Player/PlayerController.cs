@@ -88,8 +88,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Nimbus"))
         {
-            var nimbusVelocity = FindObjectOfType<Nimbus>().GetComponent<Rigidbody2D>().velocity;
-            rb.velocity = nimbusVelocity;
+            Vector2 nimbusVelocity = FindObjectOfType<Nimbus>().GetComponent<Rigidbody2D>().velocity;
+            rb.velocity = nimbusVelocity;            
         }
     }
 
@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
             jumpTimeCounter = 0;
             isJumping = false;
             SetGravityScale(8);
-            rb.AddForce(Vector2.down * 20, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.down * 10, ForceMode2D.Impulse);
         }
     }
 

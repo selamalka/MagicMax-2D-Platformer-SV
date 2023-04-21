@@ -15,7 +15,7 @@ public class Nimbus : MonoBehaviour
     {
         PlayerController.Instance.SetIsCloudActive(true);
         playerPosition = GameObject.FindWithTag("Player").transform.position;
-        transform.position = playerPosition + new Vector3(0,-5,0);
+        transform.position = playerPosition + new Vector3(0,-2,0);
         Rb = GetComponent<Rigidbody2D>();
         lifespanCounter = SpellData.Lifespan;
     }
