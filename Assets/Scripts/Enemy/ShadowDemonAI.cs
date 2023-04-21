@@ -148,9 +148,9 @@ public class ShadowDemonAI : MonoBehaviour
     private void Turn()
     {
         isTurning = true;
-        Vector3 scale = body.transform.localScale;
+        Vector3 scale = transform.localScale;
         scale.x *= -1;
-        body.transform.localScale = scale;
+        transform.localScale = scale;
         isFacingRight = !isFacingRight;
         isTurning = false;
     }

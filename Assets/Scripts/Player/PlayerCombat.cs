@@ -68,8 +68,8 @@ public class PlayerCombat : MonoBehaviour
 
     private void MeleeSlash()
     {
-        var origin = GetProjectileOrigin();
-        var meleeInstance = Instantiate(meleeSlashPrefab, GetProjectileOrigin(), Quaternion.identity, meleeInstancesParent);
+        var origin = GetSpellOrigin();
+        var meleeInstance = Instantiate(meleeSlashPrefab, GetSpellOrigin(), Quaternion.identity, meleeInstancesParent);
 
         meleeInstance.transform.localScale = body.localScale;
 
@@ -83,7 +83,7 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    private Vector3 GetProjectileOrigin()
+    private Vector3 GetSpellOrigin()
     {
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
         {
