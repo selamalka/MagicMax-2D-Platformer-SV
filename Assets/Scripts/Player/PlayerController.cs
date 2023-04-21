@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 gravityVector;
     private float inputX;
     public bool IsControllable { get; private set; }
+    public bool IsCloudActive { get; private set; }
 
     [Header("Dashing")]
     [SerializeField] private float dashForce;
@@ -50,7 +51,6 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (!IsControllable) return;
-
         FacingHandler();
 
         IsGrounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);
@@ -72,13 +72,30 @@ public class PlayerController : MonoBehaviour
 
         inputX = Input.GetAxisRaw("Horizontal");
 
-        rb.velocity = new Vector2(inputX * speed * Time.deltaTime, rb.velocity.y);
+        if (!IsCloudActive)
+        {
+            rb.velocity = new Vector2(inputX * speed * Time.deltaTime, rb.velocity.y);
+        }
 
         if (isDashing)
         {
             rb.velocity = dashDirection.normalized * dashForce;
             return;
         }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Nimbus"))
+        {
+            var nimbusVelocity = FindObjectOfType<Nimbus>().GetComponent<Rigidbody2D>().velocity;
+            rb.velocity = nimbusVelocity;
+        }
+    }
+
+    public void SetIsCloudActive(bool value)
+    {
+        IsCloudActive = value;
     }
 
     public void SetIsControllable(bool value)
