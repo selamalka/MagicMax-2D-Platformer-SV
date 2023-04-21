@@ -9,6 +9,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Transform projectileOriginTop;
     [SerializeField] private Transform projectileOriginBottom;
     [SerializeField] private Transform meleeInstancesParent;
+    [field: SerializeField] public Transform NimbusInstancesParent { get; private set; }
     [field: SerializeField] public GameObject MeleeSlashPrefab { get; private set; }
     [SerializeField] private SpellSlot spellSlot1;
     [SerializeField] private SpellSlot spellSlot2;
@@ -93,7 +94,7 @@ public class PlayerCombat : MonoBehaviour
         if (meleeCooldownCounter <= 0)
         {
             if (PlayerController.Instance.IsGrounded && Input.GetKey(KeyCode.DownArrow)) return;
-            if (PlayerController.Instance.IsCloudActive && Input.GetKey(KeyCode.DownArrow)) return;
+            if (PlayerController.Instance.IsNimbusActive && Input.GetKey(KeyCode.DownArrow)) return;
 
             var origin = GetSpellOrigin();
             var meleeInstance = Instantiate(MeleeSlashPrefab, GetSpellOrigin(), Quaternion.identity, meleeInstancesParent);

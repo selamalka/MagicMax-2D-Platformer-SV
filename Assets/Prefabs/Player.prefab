@@ -294,6 +294,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2156564969641351422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 68904670617449014}
+  m_Layer: 7
+  m_Name: Nimbus Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &68904670617449014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2156564969641351422}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.92, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4505071554451754095}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2294997520060392066
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +533,7 @@ Transform:
   - {fileID: 5030706469420289041}
   - {fileID: 4819300501041328564}
   - {fileID: 4809942442862245372}
+  - {fileID: 68904670617449014}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -520,7 +552,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 8
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -618,6 +650,7 @@ MonoBehaviour:
   projectileOriginTop: {fileID: 92545464}
   projectileOriginBottom: {fileID: 692619718}
   meleeInstancesParent: {fileID: 4809942442862245372}
+  <NimbusInstancesParent>k__BackingField: {fileID: 0}
   <MeleeSlashPrefab>k__BackingField: {fileID: 5239689112579095281, guid: 1593f3e23ce15c1458aa8dc70897c5e8, type: 3}
   spellSlot1: {fileID: 0}
   spellSlot2: {fileID: 0}
