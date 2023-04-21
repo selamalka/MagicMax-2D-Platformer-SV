@@ -459,11 +459,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1284834233062613784, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -64.12657
+      value: -54.92
       objectReference: {fileID: 0}
     - target: {fileID: 1284834233062613784, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.3036017
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 1284834233062613784, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3269,7 +3269,7 @@ MonoBehaviour:
   <TargetExp>k__BackingField: 10
   <TargetExpMultiplier>k__BackingField: 1.2
   <SpellPoints>k__BackingField: 1
-  <MaxHealth>k__BackingField: 5000
+  <MaxHealth>k__BackingField: 5
   <CurrentHealth>k__BackingField: 0
   <MaxMana>k__BackingField: 5
   <CurrentMana>k__BackingField: 0
@@ -3317,7 +3317,7 @@ MonoBehaviour:
   <ShadowDemonSoulValue>k__BackingField: 1
   <ShadowDemonTimeBetweenProjectiles>k__BackingField: 3
   <ShadowDemonMaxDistanceFromPlayer>k__BackingField: 15
-  <ShadowDemonDetectionRadius>k__BackingField: 30
+  <ShadowDemonDetectionRadius>k__BackingField: 20
   <ShadowDemonProjetilePrefab>k__BackingField: {fileID: 102004324205810066, guid: 0517d414b6012304a965f50ef2f8aa94, type: 3}
 --- !u!114 &1012876929
 MonoBehaviour:
@@ -3374,6 +3374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9582a41804fda4cb82dcd0c10327bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PauseTime>k__BackingField: 0.1
 --- !u!114 &1012876932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26315,6 +26316,10 @@ PrefabInstance:
       propertyPath: maxSpeed
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 1081117674339621061, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: fallMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2608739400377468351, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: spellSlot1
       value: 
@@ -26325,7 +26330,7 @@ PrefabInstance:
       objectReference: {fileID: 430608055}
     - target: {fileID: 2608739400377468351, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: meleeCooldownTime
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2608739400377468351, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: <MeleeSlashPrefab>k__BackingField

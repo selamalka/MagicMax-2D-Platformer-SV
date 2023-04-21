@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 isJumping = false;
-                SetGravityScale(15);
+                SetGravityScale(8);
                 rb.AddForce(Vector2.down * 10, ForceMode2D.Impulse);
             }
         }
@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
         {
             jumpTimeCounter = 0;
             isJumping = false;
-            SetGravityScale(10);
+            SetGravityScale(8);
             rb.AddForce(Vector2.down * 20, ForceMode2D.Impulse);
         }
     }

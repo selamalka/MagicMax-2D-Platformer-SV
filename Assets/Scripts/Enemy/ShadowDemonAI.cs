@@ -177,7 +177,7 @@ public class ShadowDemonAI : MonoBehaviour
     {        
         if (collision.CompareTag("Tilemap"))
         {
-            print(collision.gameObject);
+            if (playerGameObject == null) return;
             transform.position = Vector2.MoveTowards(transform.position, playerGameObject.transform.position, speed * 1.2f * Time.deltaTime);
         }
     }

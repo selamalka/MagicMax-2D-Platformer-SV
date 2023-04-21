@@ -17,8 +17,8 @@ public class MeleeSlash : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            PlayerController.Instance.SetIsControllable(false);
             shouldPush = true;
+            PlayerController.Instance.SetIsControllable(false);
             collision.GetComponent<IDamageable>().TakeDamage(PlayerStatsManager.Instance.MeleeDamage);
             GetComponent<Collider2D>().enabled = false;
             enemyDirection = collision.gameObject.transform.position - transform.position;
