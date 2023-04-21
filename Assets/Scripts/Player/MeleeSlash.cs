@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class MeleeSlash : MonoBehaviour
 {
-    private PlayerController playerController;
     private Rigidbody2D rb;
     private Vector2 enemyDirection;
     private bool shouldPush;
@@ -10,7 +9,6 @@ public class MeleeSlash : MonoBehaviour
     private void Start()
     {
         rb = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
-        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,6 +17,7 @@ public class MeleeSlash : MonoBehaviour
         {
             shouldPush = true;
             collision.GetComponent<IDamageable>().TakeDamage(PlayerStatsManager.Instance.MeleeDamage);
+            GetComponent<Collider2D>().enabled = false;
             enemyDirection = collision.gameObject.transform.position - transform.position;
         }
     }
@@ -38,14 +37,14 @@ public class MeleeSlash : MonoBehaviour
 
         if (enemyDirection.x > 0)
         {
-            rb.velocity = Vector2.left * 50;
+            rb.velocity = Vector2.left * 30;
         }
         else if (enemyDirection.x < 0)
         {
-            rb.velocity = Vector2.right * 50;
+            rb.velocity = Vector2.right * 30;
         }
 
-        if (!playerController.IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
+        if (!PlayerController.Instance.IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
         {
             rb.velocity = Vector2.up * 25;
         }
