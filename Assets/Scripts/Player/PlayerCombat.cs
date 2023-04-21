@@ -2,14 +2,36 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    public static PlayerCombat Instance;
+
     [SerializeField] private Transform body;
     [SerializeField] private Transform projectileOriginSide;
     [SerializeField] private Transform projectileOriginTop;
     [SerializeField] private Transform projectileOriginBottom;
     [SerializeField] private Transform meleeInstancesParent;
-    [SerializeField] private GameObject meleeSlashPrefab;
+    [field: SerializeField] public GameObject MeleeSlashPrefab { get; private set; }
     [SerializeField] private SpellSlot spellSlot1;
     [SerializeField] private SpellSlot spellSlot2;
+    [SerializeField] private float meleeCooldownTime;
+    private float meleeCooldownCounter;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        meleeCooldownCounter = meleeCooldownTime;
+    }
+
+    private void Update()
+    {
+        if (meleeCooldownCounter > 0)
+        {
+            meleeCooldownCounter -= Time.deltaTime;
+        }
+    }
 
     private void OnEnable()
     {
@@ -68,18 +90,24 @@ public class PlayerCombat : MonoBehaviour
 
     private void MeleeSlash()
     {
-        var origin = GetSpellOrigin();
-        var meleeInstance = Instantiate(meleeSlashPrefab, GetSpellOrigin(), Quaternion.identity, meleeInstancesParent);
-
-        meleeInstance.transform.localScale = body.localScale;
-
-        if (origin == projectileOriginTop.position)
+        if (meleeCooldownCounter <= 0)
         {
-            meleeInstance.transform.rotation = PlayerController.Instance.IsFacingRight ? Quaternion.Euler(0, 0, 90) : Quaternion.Euler(0, 0, -90);
-        }
-        else if (origin == projectileOriginBottom.position)
-        {
-            meleeInstance.transform.rotation = PlayerController.Instance.IsFacingRight ? Quaternion.Euler(0, 0, -90) : Quaternion.Euler(0, 0, 90);
+            if (PlayerController.Instance.IsGrounded && Input.GetKey(KeyCode.DownArrow)) return;
+
+            var origin = GetSpellOrigin();
+            var meleeInstance = Instantiate(MeleeSlashPrefab, GetSpellOrigin(), Quaternion.identity, meleeInstancesParent);
+
+            meleeInstance.transform.localScale = body.localScale;
+
+            if (origin == projectileOriginTop.position)
+            {
+                meleeInstance.transform.rotation = PlayerController.Instance.IsFacingRight ? Quaternion.Euler(0, 0, 90) : Quaternion.Euler(0, 0, -90);
+            }
+            else if (origin == projectileOriginBottom.position)
+            {
+                meleeInstance.transform.rotation = PlayerController.Instance.IsFacingRight ? Quaternion.Euler(0, 0, -90) : Quaternion.Euler(0, 0, 90);
+            }
+            meleeCooldownCounter = meleeCooldownTime;
         }
     }
 
