@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private float jumpTimeCounter;
     private Vector2 gravityVector;
     private float inputX;
+    public bool IsControllable { get; private set; }
 
     [Header("Dashing")]
     [SerializeField] private float dashForce;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        IsControllable = true;
         gravityVector = new Vector2(0, -Physics2D.gravity.y);
         IsFacingRight = true;
         ghostScript = GetComponent<Ghost>();
@@ -47,6 +49,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!IsControllable) return;
+
         FacingHandler();
 
         IsGrounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);
@@ -64,6 +68,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!IsControllable) return;
+
         inputX = Input.GetAxisRaw("Horizontal");
 
         rb.velocity = new Vector2(inputX * speed * Time.deltaTime, rb.velocity.y);
@@ -73,6 +79,11 @@ public class PlayerController : MonoBehaviour
             rb.velocity = dashDirection.normalized * dashForce;
             return;
         }
+    }
+
+    public void SetIsControllable(bool value)
+    {
+        IsControllable = value;
     }
 
     private void JumpHandler()
