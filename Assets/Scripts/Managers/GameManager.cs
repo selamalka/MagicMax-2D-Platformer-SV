@@ -1,12 +1,11 @@
-using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public bool IsPaused { get; private set; }
-    [field: SerializeField] public float PauseTime { get; private set; }
 
+    public bool IsPaused { get; private set; }
     [SerializeField] private float pauseGameCooldownTime;
     private float pauseGameCounter;
 
@@ -48,12 +47,12 @@ public class GameManager : MonoBehaviour
         IsPaused = false;
     }
 
-    public IEnumerator PauseGameEffect(float pauseTime)
-    { 
+    public async void PauseGameEffect(int pauseTimeInMilliseconds)
+    {
         if (pauseGameCounter <= 0)
         {
             Time.timeScale = 0;
-            yield return new WaitForSecondsRealtime(PauseTime);
+            await Task.Delay(pauseTimeInMilliseconds);
             Time.timeScale = 1f;
             pauseGameCounter = pauseGameCounter = pauseGameCooldownTime;
         }

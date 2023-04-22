@@ -672,7 +672,7 @@ MonoBehaviour:
   ghostOriginTransform: {fileID: 2059795651199947884}
   body: {fileID: 5030706469420289041}
   ghostDelayStartTime: 0.03
-  ghostDestructionTime: 1
+  ghostDestructionTime: 0.5
 --- !u!1 &3457254081780802303
 GameObject:
   m_ObjectHideFlags: 0
