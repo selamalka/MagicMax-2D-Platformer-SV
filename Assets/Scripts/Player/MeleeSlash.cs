@@ -1,9 +1,10 @@
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using UnityEngine;
 
 public class MeleeSlash : MonoBehaviour
 {
+    [SerializeField] private int sidePushForce;
+    [SerializeField] private int upPushForce;
     private Rigidbody2D rb;
     private Vector2 enemyDirection;
     private bool shouldPush;
@@ -42,16 +43,16 @@ public class MeleeSlash : MonoBehaviour
 
         if (enemyDirection.x > 0)
         {
-            rb.velocity = Vector2.left * 12;          
+            rb.velocity = Vector2.left * sidePushForce;          
         }
         else if (enemyDirection.x < 0)
         {
-            rb.velocity = Vector2.right * 12;
+            rb.velocity = Vector2.right * sidePushForce;
         }
 
         if (!PlayerController.Instance.IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
         {
-            rb.velocity = Vector2.up * 25;
+            rb.velocity = Vector2.up * upPushForce;
         }
     }
 }
