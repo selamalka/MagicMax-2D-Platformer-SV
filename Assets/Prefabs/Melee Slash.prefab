@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5239689112579095286}
   - component: {fileID: 8192276434109009582}
   - component: {fileID: 3011053516330497087}
-  - component: {fileID: -3894029998539027506}
   - component: {fileID: 1224189580320418599}
   m_Layer: 0
   m_Name: Melee Slash
@@ -135,24 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed12123dc1cabc4385d890bf9e3ab1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sidePushForce: 7
+  sidePushForce: 5
   upPushForce: 25
---- !u!58 &-3894029998539027506
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5239689112579095281}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.42, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.63
 --- !u!70 &1224189580320418599
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
