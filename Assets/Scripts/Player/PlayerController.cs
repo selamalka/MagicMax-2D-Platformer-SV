@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private float jumpTimeCounter;
     private Vector2 gravityVector;
     private float inputX;
-    public bool IsControllable { get; private set; }
+    [field: SerializeField] public bool IsControllable { get; private set; }
     public bool IsNimbusActive { get; private set; }
 
     [Header("Dashing")]
@@ -128,11 +128,14 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(Vector2.down * 20);
     }
 
+    private void SetGravityScale(float value)
+    {
+        rb.gravityScale = value;
+    }
     public void SetIsNimbusActive(bool value)
     {
         IsNimbusActive = value;
     }
-
     public void SetIsControllable(bool value)
     {
         IsControllable = value;
@@ -201,11 +204,6 @@ public class PlayerController : MonoBehaviour
         ghostScript.SetShouldCreateGhost(false);
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
-    }
-
-    private void SetGravityScale(float value)
-    {
-        rb.gravityScale = value;
     }
 
     private void Turn()
