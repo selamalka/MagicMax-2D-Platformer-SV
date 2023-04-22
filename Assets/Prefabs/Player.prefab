@@ -511,6 +511,7 @@ GameObject:
   - component: {fileID: 8963468310251956158}
   - component: {fileID: 2608739400377468351}
   - component: {fileID: 8963468310251956163}
+  - component: {fileID: 2731213968013254311}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -672,6 +673,24 @@ MonoBehaviour:
   body: {fileID: 5030706469420289041}
   ghostDelayStartTime: 0.03
   ghostDestructionTime: 1
+--- !u!255 &2731213968013254311
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336361800321668108}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 1
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -71.6, y: -7.47}
+  m_DampingRatio: 0
+  m_Frequency: 0
 --- !u!1 &3457254081780802303
 GameObject:
   m_ObjectHideFlags: 0

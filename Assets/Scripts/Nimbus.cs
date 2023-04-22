@@ -28,15 +28,17 @@ public class Nimbus : MonoBehaviour
 
     private void Start()
     {
-        PlayerController.Instance.SetIsCloudActive(true);
+        EventManager.OnNimbusIsActive?.Invoke();
+
+        PlayerController.Instance.SetIsNimbusActive(true);
         PlayerStatsManager.Instance.UseMana(1);
+        Rb = GetComponent<Rigidbody2D>();
 
         spellContainerParent = PlayerCombat.Instance.NimbusInstancesParent;
         transform.parent.SetParent(spellContainerParent);
         spellContainerParent.GetComponentInChildren<SpellContainer>().transform.rotation = Quaternion.Euler(0,0,0);        
         transform.position = spellContainerParent.transform.position;
 
-        Rb = GetComponent<Rigidbody2D>();
         lifespanCounter = SpellData.Lifespan;
     }
 
@@ -68,7 +70,7 @@ public class Nimbus : MonoBehaviour
 
         if (lifespanCounter <= 0)
         {
-            PlayerController.Instance.SetIsCloudActive(false);
+            PlayerController.Instance.SetIsNimbusActive(false);
             Destroy(gameObject);
         }
     }

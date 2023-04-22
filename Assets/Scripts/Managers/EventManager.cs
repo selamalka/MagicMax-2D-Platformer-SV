@@ -19,4 +19,7 @@ public class EventManager : MonoBehaviour
 
     public delegate void EnemyDeathAction();
     public static EnemyDeathAction OnEnemyDeath;
+
+    public delegate void NimbusIsActiveAction();
+    public static NimbusIsActiveAction OnNimbusIsActive;
 }
