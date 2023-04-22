@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public bool IsPaused { get; private set; }
     [field: SerializeField] public float PauseTime { get; private set; }
 
+    [SerializeField] private float pauseGameCooldownTime;
+    private float pauseGameCounter;
+
     private void Awake()
     {
         Instance = this;
@@ -14,8 +17,21 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        pauseGameCounter = pauseGameCooldownTime;
         IsPaused = false;
         Cursor.visible = false;
+    }
+
+    private void Update()
+    {
+        if (pauseGameCounter > 0)
+        {
+            pauseGameCounter -= Time.deltaTime;
+        }
+        else
+        {
+            pauseGameCounter = 0;
+        }
     }
 
     public void PauseGame()
@@ -33,9 +49,13 @@ public class GameManager : MonoBehaviour
     }
 
     public IEnumerator PauseGameEffect(float pauseTime)
-    {
-        Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(PauseTime);
-        Time.timeScale = 1f;
+    { 
+        if (pauseGameCounter <= 0)
+        {
+            Time.timeScale = 0;
+            yield return new WaitForSecondsRealtime(PauseTime);
+            Time.timeScale = 1f;
+            pauseGameCounter = pauseGameCounter = pauseGameCooldownTime;
+        }
     }
 }
