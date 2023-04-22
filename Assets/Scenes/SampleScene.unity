@@ -4107,7 +4107,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PauseTime>k__BackingField: 0.12
   pauseGameCooldownTime: 0.5
-  pauseGameCounter: 0
 --- !u!114 &1012876932
 MonoBehaviour:
   m_ObjectHideFlags: 0
