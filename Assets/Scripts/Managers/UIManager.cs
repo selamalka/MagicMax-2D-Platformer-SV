@@ -80,6 +80,8 @@ public class UIManager : MonoBehaviour
     {
         for (int i = PlayerStatsManager.Instance.CurrentHealth; i <= healthPoints.Length; i--)
         {
+            if (healthPoints[i] == null) break;
+
             if (healthPoints[i].color.a > 0)
             {
                 healthPoints[i].DOFade(0, 0.2f);
