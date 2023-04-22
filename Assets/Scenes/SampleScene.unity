@@ -3391,7 +3391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9582a41804fda4cb82dcd0c10327bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PauseTime>k__BackingField: 0.1
+  <PauseTime>k__BackingField: 0.12
 --- !u!114 &1012876932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26491,6 +26491,10 @@ PrefabInstance:
       propertyPath: <NimbusInstancesParent>k__BackingField
       value: 
       objectReference: {fileID: 4819300501451025364}
+    - target: {fileID: 2731213968013254311, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3336361800321668108, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: m_Name
       value: Player

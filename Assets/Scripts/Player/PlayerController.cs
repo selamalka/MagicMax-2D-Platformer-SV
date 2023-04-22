@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -39,6 +40,16 @@ public class PlayerController : MonoBehaviour
         Instance = this;
     }
 
+    private void OnEnable()
+    {
+        EventManager.OnNimbusIsActive += PushPlayerDown;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnNimbusIsActive -= PushPlayerDown;
+    }
+
     private void Start()
     {
         IsControllable = true;
@@ -57,11 +68,6 @@ public class PlayerController : MonoBehaviour
 
         JumpHandler();
 
-        if (rb.velocity.y < 0)
-        {
-            rb.velocity -= gravityVector * fallMultiplier * Time.deltaTime;
-        }
-
         if (IsNimbusActive) return;
         var isDashPressed = Input.GetKeyDown(KeyCode.LeftShift);
         Dash(isDashPressed);
@@ -72,6 +78,11 @@ public class PlayerController : MonoBehaviour
         if (!IsControllable) return;
 
         inputX = Input.GetAxisRaw("Horizontal");
+
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity -= gravityVector * fallMultiplier * Time.deltaTime;
+        }
 
         if (IsNimbusActive) return;
 
@@ -89,7 +100,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Nimbus"))
         {
             SetGravityScale(0);
-            rb.mass = 0f; 
+            rb.mass = 0f;
         }
     }
 
@@ -107,12 +118,17 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Nimbus"))
         {
             SetGravityScale(8);
-            rb.mass = 1f; 
+            rb.mass = 1f;
         }
     }
 
+    private void PushPlayerDown()
+    {
+        rb.velocity = Vector2.zero;
+        rb.AddForce(Vector2.down * 20);
+    }
 
-    public void SetIsCloudActive(bool value)
+    public void SetIsNimbusActive(bool value)
     {
         IsNimbusActive = value;
     }
