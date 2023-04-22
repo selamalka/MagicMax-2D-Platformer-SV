@@ -193,6 +193,8 @@ public class PlayerController : MonoBehaviour
                 dashDirection = new Vector2(body.transform.localScale.x, 0);
             }
 
+            CameraShaker.Instance.Shake(2f, 0.2f);
+
             StartCoroutine(StopDashing());
         }
     }
