@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using UnityEngine;
 
@@ -7,9 +8,11 @@ public class BehemothAI : MonoBehaviour
     [SerializeField] private Transform body;
 
     private Rigidbody2D rb;
+    private Vector3 startingPosition;
     private float speed;
     private bool isFacingRight = true;
     private bool isTurning;
+    public bool IsChargingTowardsPlayer { get; private set; }
 
     private GameObject projectilePrefab;
     private float timeBetweenProjectiles;
@@ -17,6 +20,7 @@ public class BehemothAI : MonoBehaviour
     private BehemothStateType currentState;
 
     private GameObject playerGameObject;
+    private Vector2 playerDirection;
     private float rangedDetectionRadius;
     private float meleeDetectionRadius;
 
@@ -32,8 +36,9 @@ public class BehemothAI : MonoBehaviour
 
     private void Start()
     {
+        startingPosition = transform.position;
         playerGameObject = GameObject.FindWithTag("Player");
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
         speed = EnemyManager.Instance.BehemothSpeed;
         timeBetweenProjectiles = EnemyManager.Instance.BehemothTimeBetweenProjectiles;
         timeBetweenMelee = EnemyManager.Instance.BehemothTimeBetweenMelee;
@@ -44,7 +49,6 @@ public class BehemothAI : MonoBehaviour
         meleeCooldownCounter = timeBetweenMelee;
 
         currentState = BehemothStateType.Guard;
-        print(currentState);
     }
 
     private void Update()
@@ -94,6 +98,14 @@ public class BehemothAI : MonoBehaviour
         ProjectileCooldownHandler();
     }
 
+    private void FixedUpdate()
+    {
+        if (meleeCooldownCounter <= 0)
+        {
+            ChargePlayer();
+        }
+    }
+
     private void RangedAttack()
     {
         if (projectileCooldownCounter <= 0)
@@ -105,17 +117,30 @@ public class BehemothAI : MonoBehaviour
 
     private void MeleeAttack()
     {
+        meleeCooldownCounter -= Time.deltaTime;
+
         if (meleeCooldownCounter <= 0)
         {
-            ChargePlayer();
-            meleeCooldownCounter = timeBetweenMelee;
+            // ChargePlayer is in FixedUpdate           
         }
     }
 
     private void ChargePlayer()
     {
-        print("Charging player");
+        IsChargingTowardsPlayer = true;
+        playerDirection = playerGameObject.transform.position - transform.position;
+        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * Time.deltaTime * 300;
+        meleeCooldownCounter = timeBetweenMelee;
+    }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            IsChargingTowardsPlayer = false;
+            rb.velocity = Vector2.zero;
+            rb.DOMoveX(startingPosition.x, 1f).SetLoops(0).SetEase(Ease.OutQuart);
+        }
     }
 
     private void ProjectileCooldownHandler()

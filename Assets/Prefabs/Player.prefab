@@ -304,8 +304,8 @@ GameObject:
   m_Component:
   - component: {fileID: 68904670617449014}
   m_Layer: 7
-  m_Name: Nimbus Parent
-  m_TagString: Untagged
+  m_Name: Nimbus Instances Parent
+  m_TagString: Nimbus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -611,6 +611,8 @@ MonoBehaviour:
   jumpTime: 0.3
   speed: 550
   fallMultiplier: 1.2
+  sidePushForce: 5
+  upPushForce: 25
   body: {fileID: 3541108710210601035}
   groundCheckTransform: {fileID: 4819300501041328564}
   groundLayer:
@@ -651,7 +653,7 @@ MonoBehaviour:
   projectileOriginTop: {fileID: 92545464}
   projectileOriginBottom: {fileID: 692619718}
   meleeInstancesParent: {fileID: 4809942442862245372}
-  <NimbusInstancesParent>k__BackingField: {fileID: 0}
+  <NimbusInstancesParent>k__BackingField: {fileID: 68904670617449014}
   <MeleeSlashPrefab>k__BackingField: {fileID: 5239689112579095281, guid: 1593f3e23ce15c1458aa8dc70897c5e8, type: 3}
   spellSlot1: {fileID: 0}
   spellSlot2: {fileID: 0}
