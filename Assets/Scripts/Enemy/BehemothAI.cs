@@ -1,5 +1,7 @@
 using DG.Tweening;
 using System;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BehemothAI : MonoBehaviour
@@ -25,7 +27,7 @@ public class BehemothAI : MonoBehaviour
     private float meleeDetectionRadius;
 
     private float timeBetweenMelee;
-    private float meleeCooldownCounter;
+    [SerializeField] private float meleeCooldownCounter;
 
     private void OnDrawGizmos()
     {
@@ -63,8 +65,6 @@ public class BehemothAI : MonoBehaviour
                 {
                     currentState = BehemothStateType.Ranged;
                 }
-
-                TurnHandler();
                 break;
 
             case BehemothStateType.Ranged:
@@ -72,13 +72,17 @@ public class BehemothAI : MonoBehaviour
                 if (!IsPlayerInRangedRange())
                 {
                     currentState = BehemothStateType.Guard;
+                    rb.DOMoveX(startingPosition.x, 0.5f).SetLoops(0);
                 }
                 else if (IsPlayerInMeleeRange())
                 {
                     currentState = BehemothStateType.Melee;
+                    meleeCooldownCounter = timeBetweenMelee;
+                    IsChargingTowardsPlayer = false;
                 }
+                rb.velocity = Vector2.zero;
                 RangedAttack();
-                TurnHandler();
+
                 break;
 
             case BehemothStateType.Melee:
@@ -86,9 +90,15 @@ public class BehemothAI : MonoBehaviour
                 if (!IsPlayerInMeleeRange())
                 {
                     currentState = BehemothStateType.Ranged;
+                    IsChargingTowardsPlayer = false;
+                    rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+                    rb.DOMoveX(startingPosition.x, 0.5f).SetLoops(0);
+                    meleeCooldownCounter = timeBetweenMelee;
                 }
-                MeleeAttack();
-                TurnHandler();
+                if (IsPlayerInMeleeRange())
+                {
+                    MeleeHandler();
+                }
                 break;
 
             default:
@@ -96,11 +106,12 @@ public class BehemothAI : MonoBehaviour
         }
 
         ProjectileCooldownHandler();
+        TurnHandler();
     }
 
     private void FixedUpdate()
     {
-        if (meleeCooldownCounter <= 0)
+        if (IsPlayerInMeleeRange() && IsChargingTowardsPlayer)
         {
             ChargePlayer();
         }
@@ -115,22 +126,23 @@ public class BehemothAI : MonoBehaviour
         }
     }
 
-    private void MeleeAttack()
+    private void MeleeHandler()
     {
-        meleeCooldownCounter -= Time.deltaTime;
-
-        if (meleeCooldownCounter <= 0)
+        if (meleeCooldownCounter > 0)
         {
-            // ChargePlayer is in FixedUpdate           
+            meleeCooldownCounter -= Time.deltaTime;
+            if (meleeCooldownCounter <= 0)
+            {
+                IsChargingTowardsPlayer = true;
+            }
         }
     }
 
     private void ChargePlayer()
     {
-        IsChargingTowardsPlayer = true;
-        playerDirection = playerGameObject.transform.position - transform.position;
-        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * Time.deltaTime * 300;        
-        meleeCooldownCounter = timeBetweenMelee;
+        if (!IsPlayerInMeleeRange()) return;
+        playerDirection = (playerGameObject.transform.position - transform.position).normalized;
+        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * Time.deltaTime * 1000f;        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -138,6 +150,15 @@ public class BehemothAI : MonoBehaviour
         if (collision.gameObject.CompareTag("Tilemap"))
         {
             rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (IsChargingTowardsPlayer)
+            {
+                IsChargingTowardsPlayer = false;
+                meleeCooldownCounter = timeBetweenMelee;
+            }
         }
     }
 
@@ -147,22 +168,12 @@ public class BehemothAI : MonoBehaviour
         {
             if (!IsChargingTowardsPlayer)
             {
-                rb.constraints |= RigidbodyConstraints2D.FreezePositionX;               
+                rb.constraints |= RigidbodyConstraints2D.FreezePositionX;
             }
             else
             {
                 rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
             }
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (IsChargingTowardsPlayer)
-        {
-            IsChargingTowardsPlayer = false;
-            rb.velocity = Vector2.zero;
-            rb.DOMoveX(startingPosition.x, 0.5f).SetLoops(0).SetEase(Ease.OutCubic);
         }
     }
 

@@ -8,7 +8,7 @@ public class MeleeSlash : MonoBehaviour
 
     private void Update()
     {
-        UnstuckPlayer();
+        //UnstuckPlayer();
     }
 
     private async void UnstuckPlayer()
@@ -24,8 +24,8 @@ public class MeleeSlash : MonoBehaviour
     {
         if (shouldPush)
         {
-            PlayerController.Instance.PushPlayerAgainstDirection(enemyDirection);
             shouldPush = false;
+            PlayerController.Instance.PushPlayerAgainstDirection(enemyDirection);
             await Task.Delay(100);
             PlayerController.Instance.SetIsControllable(true);
         }

@@ -91,6 +91,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void MeleeSlash()
     {
+        if (!PlayerController.Instance.IsControllable) return;
         if (meleeCooldownCounter <= 0)
         {
             if (PlayerController.Instance.IsGrounded && Input.GetKey(KeyCode.DownArrow)) return;

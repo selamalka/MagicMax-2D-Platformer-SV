@@ -3706,7 +3706,7 @@ MonoBehaviour:
   <TargetExp>k__BackingField: 10
   <TargetExpMultiplier>k__BackingField: 1.2
   <SpellPoints>k__BackingField: 1
-  <MaxHealth>k__BackingField: 5
+  <MaxHealth>k__BackingField: 5000
   <CurrentHealth>k__BackingField: 0
   <MaxMana>k__BackingField: 5
   <CurrentMana>k__BackingField: 0
@@ -3756,14 +3756,14 @@ MonoBehaviour:
   <ShadowDemonMaxDistanceFromPlayer>k__BackingField: 15
   <ShadowDemonDetectionRadius>k__BackingField: 20
   <ShadowDemonProjetilePrefab>k__BackingField: {fileID: 102004324205810066, guid: 0517d414b6012304a965f50ef2f8aa94, type: 3}
-  <BehemothMaxHealth>k__BackingField: 20
+  <BehemothMaxHealth>k__BackingField: 2000
   <BehemothSpeed>k__BackingField: 2
   <BehemothExpValue>k__BackingField: 10
   <BehemothSoulValue>k__BackingField: 1
   <BehemothTimeBetweenProjectiles>k__BackingField: 1.5
-  <BehemothTimeBetweenMelee>k__BackingField: 2
+  <BehemothTimeBetweenMelee>k__BackingField: 1
   <BehemothRangedDetectionRadius>k__BackingField: 25
-  <BehemothMeleeDetectionRadius>k__BackingField: 10
+  <BehemothMeleeDetectionRadius>k__BackingField: 8
   <BehemothProjetilePrefab>k__BackingField: {fileID: 3775555820293171531, guid: 17779603ee4b8184fb09092717ef37c9, type: 3}
 --- !u!114 &1012876929
 MonoBehaviour:
