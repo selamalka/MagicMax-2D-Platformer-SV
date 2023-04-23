@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 4990479817821054167}
   - component: {fileID: 4319603042726514684}
   - component: {fileID: 8213855696328409443}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Behemoth
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &4990479817821054167
 CapsuleCollider2D:

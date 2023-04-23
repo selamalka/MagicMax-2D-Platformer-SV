@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpTime;
     [SerializeField] private float speed;
     [SerializeField] private float fallMultiplier;
+    [SerializeField] private int sidePushForce;
+    [SerializeField] private int upPushForce;
 
     [SerializeField] private GameObject body;
     [SerializeField] Transform groundCheckTransform;
@@ -102,6 +105,24 @@ public class PlayerController : MonoBehaviour
             SetGravityScale(0);
             rb.mass = 0f;
         }
+
+        if (collision.gameObject.GetComponent<BehemothAI>() != null)
+        {
+            BehemothAI behemoth = collision.gameObject.GetComponent<BehemothAI>();
+            if (behemoth.IsChargingTowardsPlayer)
+            {
+                Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
+                Knockback(collisionDirection);
+            }
+        }
+    }
+
+    private async void Knockback(Vector2 collisionDirection)
+    {
+        IsControllable = false;
+        rb.velocity = new Vector2(-collisionDirection.x * 50, 20);
+        await Task.Delay(500);
+        IsControllable = true;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -126,6 +147,25 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
         rb.AddForce(Vector2.down * 20);
+    }
+
+    public void PushPlayerAgainstDirection(Vector2 enemyDirection)
+    {
+        if (Input.GetKey(KeyCode.UpArrow)) return;
+
+        if (enemyDirection.x > 0)
+        {
+            rb.velocity = Vector2.left * sidePushForce;
+        }
+        else if (enemyDirection.x < 0)
+        {
+            rb.velocity = Vector2.right * sidePushForce;
+        }
+
+        if (!IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
+        {
+            rb.velocity = Vector2.up * upPushForce;
+        }
     }
 
     private void SetGravityScale(float value)
