@@ -380,9 +380,9 @@ GameObject:
   - component: {fileID: 4990479817821054167}
   - component: {fileID: 4319603042726514684}
   - component: {fileID: 8213855696328409443}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Behemoth
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,8 +466,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePointTransform: {fileID: 5476537975931995361}
-  pointA: {fileID: 0}
-  pointB: {fileID: 0}
   body: {fileID: 1094824921617678864}
 --- !u!1 &7936575940077150952
 GameObject:

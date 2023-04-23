@@ -3212,6 +3212,7 @@ MonoBehaviour:
   <BehemothExpValue>k__BackingField: 10
   <BehemothSoulValue>k__BackingField: 1
   <BehemothTimeBetweenProjectiles>k__BackingField: 1
+  <BehemothTimeBetweenMelee>k__BackingField: 3
   <BehemothRangedDetectionRadius>k__BackingField: 25
   <BehemothMeleeDetectionRadius>k__BackingField: 10
   <BehemothProjetilePrefab>k__BackingField: {fileID: 3775555820293171531, guid: 17779603ee4b8184fb09092717ef37c9, type: 3}
