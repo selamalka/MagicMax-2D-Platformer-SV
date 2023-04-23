@@ -135,11 +135,39 @@ public class BehemothAI : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Tilemap"))
+        {
+            rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
+        }
+
         if (collision.gameObject.CompareTag("Player"))
+        {
+            //IsChargingTowardsPlayer = false;            
+            //rb.DOMoveX(startingPosition.x, 1f).SetLoops(0).SetEase(Ease.OutQuart);            
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (!IsChargingTowardsPlayer)
+            {
+                rb.constraints |= RigidbodyConstraints2D.FreezePositionX;               
+            }
+            else
+            {
+                rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (IsChargingTowardsPlayer)
         {
             IsChargingTowardsPlayer = false;
             rb.velocity = Vector2.zero;
-            rb.DOMoveX(startingPosition.x, 1f).SetLoops(0).SetEase(Ease.OutQuart);
         }
     }
 
