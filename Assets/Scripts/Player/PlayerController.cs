@@ -117,20 +117,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private async void Knockback(Vector2 collisionDirection)
-    {
-        IsControllable = false;
-        rb.velocity = new Vector2(-collisionDirection.x * 50, 20);
-        await Task.Delay(500);
-        IsControllable = true;
-    }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Nimbus"))
         {
             Vector2 nimbusVelocity = FindObjectOfType<Nimbus>().GetComponent<Rigidbody2D>().velocity;
             rb.velocity = nimbusVelocity;
+        }
+
+        if (collision.gameObject.GetComponent<BehemothAI>() != null)
+        {
+            BehemothAI behemoth = collision.gameObject.GetComponent<BehemothAI>();
+            if (behemoth.IsChargingTowardsPlayer)
+            {
+                Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
+                Knockback(collisionDirection);
+            }
         }
     }
 
@@ -143,6 +145,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private async void Knockback(Vector2 collisionDirection)
+    {
+        IsControllable = false;
+        rb.velocity = new Vector2(-collisionDirection.x * 50, 20);
+        await Task.Delay(500);
+        IsControllable = true;
+    }
     private void PushPlayerDown()
     {
         rb.velocity = Vector2.zero;
