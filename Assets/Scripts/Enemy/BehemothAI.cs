@@ -142,7 +142,7 @@ public class BehemothAI : MonoBehaviour
     {
         if (!IsPlayerInMeleeRange()) return;
         playerDirection = (playerGameObject.transform.position - transform.position).normalized;
-        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * Time.deltaTime * 1000f;        
+        rb.velocity += new Vector2(playerDirection.x, playerDirection.y) * Time.deltaTime * 800;        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
