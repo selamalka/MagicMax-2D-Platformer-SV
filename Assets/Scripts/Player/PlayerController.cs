@@ -147,11 +147,12 @@ public class PlayerController : MonoBehaviour
 
     private async void Knockback(Vector2 collisionDirection)
     {
+        rb.velocity += new Vector2(-collisionDirection.x * UnityEngine.Random.Range(20,25), 20);
         IsControllable = false;
-        rb.velocity = new Vector2(-collisionDirection.x * 50, 20);
-        await Task.Delay(500);
+        await Task.Delay(700);
         IsControllable = true;
     }
+
     private void PushPlayerDown()
     {
         rb.velocity = Vector2.zero;
