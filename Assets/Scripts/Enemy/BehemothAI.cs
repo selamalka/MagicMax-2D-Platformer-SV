@@ -20,6 +20,9 @@ public class BehemothAI : MonoBehaviour
     private float rangedDetectionRadius;
     private float meleeDetectionRadius;
 
+    private float timeBetweenMelee;
+    private float meleeCooldownCounter;
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -30,13 +33,15 @@ public class BehemothAI : MonoBehaviour
     private void Start()
     {
         playerGameObject = GameObject.FindWithTag("Player");
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();   
         speed = EnemyManager.Instance.BehemothSpeed;
         timeBetweenProjectiles = EnemyManager.Instance.BehemothTimeBetweenProjectiles;
+        timeBetweenMelee = EnemyManager.Instance.BehemothTimeBetweenMelee;
         projectilePrefab = EnemyManager.Instance.BehemothProjetilePrefab;
         rangedDetectionRadius = EnemyManager.Instance.BehemothRangedDetectionRadius;
         meleeDetectionRadius = EnemyManager.Instance.BehemothMeleeDetectionRadius;
         projectileCooldownCounter = timeBetweenProjectiles;
+        meleeCooldownCounter = timeBetweenMelee;
 
         currentState = BehemothStateType.Guard;
         print(currentState);
@@ -53,7 +58,6 @@ public class BehemothAI : MonoBehaviour
                 if (IsPlayerInRangedRange())
                 {
                     currentState = BehemothStateType.Ranged;
-                    print(currentState);
                 }
 
                 TurnHandler();
@@ -64,12 +68,10 @@ public class BehemothAI : MonoBehaviour
                 if (!IsPlayerInRangedRange())
                 {
                     currentState = BehemothStateType.Guard;
-                    print(currentState);
                 }
-                else if (IsPlayerInMeleeRange()) 
+                else if (IsPlayerInMeleeRange())
                 {
                     currentState = BehemothStateType.Melee;
-                    print(currentState);
                 }
                 RangedAttack();
                 TurnHandler();
@@ -80,9 +82,8 @@ public class BehemothAI : MonoBehaviour
                 if (!IsPlayerInMeleeRange())
                 {
                     currentState = BehemothStateType.Ranged;
-                    print(currentState);
                 }
-
+                MeleeAttack();
                 TurnHandler();
                 break;
 
@@ -100,6 +101,21 @@ public class BehemothAI : MonoBehaviour
             InstantiateProjectile();
             projectileCooldownCounter = timeBetweenProjectiles;
         }
+    }
+
+    private void MeleeAttack()
+    {
+        if (meleeCooldownCounter <= 0)
+        {
+            ChargePlayer();
+            meleeCooldownCounter = timeBetweenMelee;
+        }
+    }
+
+    private void ChargePlayer()
+    {
+        print("Charging player");
+
     }
 
     private void ProjectileCooldownHandler()
@@ -129,9 +145,9 @@ public class BehemothAI : MonoBehaviour
     {
         isTurning = true;
         rb.velocity = Vector3.zero;
-        Vector3 scale = body.transform.localScale;
-        scale.x *= -1;
-        body.transform.localScale = scale;
+        Quaternion rotation = body.transform.rotation;
+        rotation.y = isFacingRight ? 0f : 180f;
+        body.transform.rotation = rotation;
         isFacingRight = !isFacingRight;
         isTurning = false;
     }

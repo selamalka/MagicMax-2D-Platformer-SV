@@ -29,6 +29,7 @@ public class EnemyManager : MonoBehaviour
     [field: SerializeField] public float BehemothExpValue { get; private set; }
     [field: SerializeField] public int BehemothSoulValue { get; private set; }
     [field: SerializeField] public float BehemothTimeBetweenProjectiles { get; private set; }
+    [field: SerializeField] public float BehemothTimeBetweenMelee { get; private set; }
     [field: SerializeField] public float BehemothRangedDetectionRadius { get; private set; }
     [field: SerializeField] public float BehemothMeleeDetectionRadius { get; private set; }
     [field: SerializeField] public GameObject BehemothProjetilePrefab { get; private set; }
