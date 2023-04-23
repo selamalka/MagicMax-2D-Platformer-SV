@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -80,7 +79,6 @@ public class UIManager : MonoBehaviour
     {
         for (int i = PlayerStatsManager.Instance.CurrentHealth; i <= healthPoints.Length; i--)
         {
-            if (healthPoints[i] == null) break;
             if (healthPoints[i].color.a > 0)
             {
                 healthPoints[i].DOFade(0, 0.2f);
@@ -93,7 +91,6 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < manaPoints.Length; i++)
         {
-            if (manaPoints[i] == null) break;
             if (manaPoints[i].color.a == 0)
             {
                 manaPoints[i].DOFade(1, 0.2f);
@@ -105,7 +102,6 @@ public class UIManager : MonoBehaviour
     {
         for (int i = PlayerStatsManager.Instance.CurrentMana; i <= manaPoints.Length; i--)
         {
-            if (manaPoints[i] == null) break;
             if (manaPoints[i].color.a > 0)
             {
                 manaPoints[i].DOFade(0, 0.2f);

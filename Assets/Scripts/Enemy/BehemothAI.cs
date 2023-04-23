@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BehemothAI : MonoBehaviour
@@ -16,7 +17,15 @@ public class BehemothAI : MonoBehaviour
     private BehemothStateType currentState;
 
     private GameObject playerGameObject;
-    private float detectionRadius;
+    private float rangedDetectionRadius;
+    private float meleeDetectionRadius;
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, rangedDetectionRadius);
+        Gizmos.DrawWireSphere(transform.position, meleeDetectionRadius);
+    }
 
     private void Start()
     {
@@ -25,10 +34,12 @@ public class BehemothAI : MonoBehaviour
         speed = EnemyManager.Instance.BehemothSpeed;
         timeBetweenProjectiles = EnemyManager.Instance.BehemothTimeBetweenProjectiles;
         projectilePrefab = EnemyManager.Instance.BehemothProjetilePrefab;
-        detectionRadius = EnemyManager.Instance.BehemothDetectionRadius;
+        rangedDetectionRadius = EnemyManager.Instance.BehemothRangedDetectionRadius;
+        meleeDetectionRadius = EnemyManager.Instance.BehemothMeleeDetectionRadius;
         projectileCooldownCounter = timeBetweenProjectiles;
 
         currentState = BehemothStateType.Guard;
+        print(currentState);
     }
 
     private void Update()
@@ -38,22 +49,40 @@ public class BehemothAI : MonoBehaviour
         switch (currentState)
         {
             case BehemothStateType.Guard:
-                
-                if (IsPlayerInAttackRange())
+
+                if (IsPlayerInRangedRange())
                 {
-                    currentState = BehemothStateType.Attack;
+                    currentState = BehemothStateType.Ranged;
+                    print(currentState);
                 }
 
+                TurnHandler();
                 break;
 
-            case BehemothStateType.Attack:
+            case BehemothStateType.Ranged:
 
-                if (!IsPlayerInAttackRange())
+                if (!IsPlayerInRangedRange())
                 {
                     currentState = BehemothStateType.Guard;
+                    print(currentState);
+                }
+                else if (IsPlayerInMeleeRange()) 
+                {
+                    currentState = BehemothStateType.Melee;
+                    print(currentState);
+                }
+                RangedAttack();
+                TurnHandler();
+                break;
+
+            case BehemothStateType.Melee:
+
+                if (!IsPlayerInMeleeRange())
+                {
+                    currentState = BehemothStateType.Ranged;
+                    print(currentState);
                 }
 
-                //AttackPlayer();
                 TurnHandler();
                 break;
 
@@ -64,6 +93,14 @@ public class BehemothAI : MonoBehaviour
         ProjectileCooldownHandler();
     }
 
+    private void RangedAttack()
+    {
+        if (projectileCooldownCounter <= 0)
+        {
+            InstantiateProjectile();
+            projectileCooldownCounter = timeBetweenProjectiles;
+        }
+    }
 
     private void ProjectileCooldownHandler()
     {
@@ -73,9 +110,14 @@ public class BehemothAI : MonoBehaviour
         }
     }
 
-    private bool IsPlayerInAttackRange()
+    private bool IsPlayerInRangedRange()
     {
-        return GetDistanceFromPlayer() <= detectionRadius;
+        return GetDistanceFromPlayer() <= rangedDetectionRadius;
+    }
+
+    private bool IsPlayerInMeleeRange()
+    {
+        return GetDistanceFromPlayer() <= meleeDetectionRadius;
     }
 
     private float GetDistanceFromPlayer()

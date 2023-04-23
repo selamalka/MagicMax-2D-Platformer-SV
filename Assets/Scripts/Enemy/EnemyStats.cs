@@ -31,6 +31,12 @@ public class EnemyStats : MonoBehaviour, IDamageable
                 soulValue = EnemyManager.Instance.ShadowDemonSoulValue;
                 break;
 
+            case EnemyType.Behemoth:
+                currentHealth = EnemyManager.Instance.BehemothMaxHealth;
+                expValue = EnemyManager.Instance.BehemothExpValue;
+                soulValue = EnemyManager.Instance.BehemothSoulValue;
+                break;
+
             default:
                 break;
         }

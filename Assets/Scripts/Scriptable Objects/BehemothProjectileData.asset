@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcb07a75a04bd164290d23cba10d2256, type: 3}
-  m_Name: ShadowDemonProjectile
+  m_Name: BehemothProjectileData
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Shadow Projectile
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 18add6d80ac928d459479e243d0547a7, type: 3}
-  <Speed>k__BackingField: 10
+  <Name>k__BackingField: Behemoth Projectile
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 0b09c96930b94154397ebe0c7cc5fa4c, type: 3}
+  <Speed>k__BackingField: 5
   <ManaCost>k__BackingField: 0
   <Damage>k__BackingField: 1
-  <Lifespan>k__BackingField: 4
+  <Lifespan>k__BackingField: 5

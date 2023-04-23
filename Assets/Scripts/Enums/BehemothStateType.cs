@@ -1,5 +1,6 @@
 public enum BehemothStateType
 {
     Guard,
-    Attack
+    Ranged,
+    Melee
 }
