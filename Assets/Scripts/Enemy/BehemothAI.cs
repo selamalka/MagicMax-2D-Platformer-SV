@@ -129,7 +129,7 @@ public class BehemothAI : MonoBehaviour
     {
         IsChargingTowardsPlayer = true;
         playerDirection = playerGameObject.transform.position - transform.position;
-        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * Time.deltaTime * 300;
+        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * Time.deltaTime * 300;        
         meleeCooldownCounter = timeBetweenMelee;
     }
 
@@ -138,12 +138,6 @@ public class BehemothAI : MonoBehaviour
         if (collision.gameObject.CompareTag("Tilemap"))
         {
             rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
-        }
-
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            //IsChargingTowardsPlayer = false;            
-            //rb.DOMoveX(startingPosition.x, 1f).SetLoops(0).SetEase(Ease.OutQuart);            
         }
     }
 
@@ -168,6 +162,7 @@ public class BehemothAI : MonoBehaviour
         {
             IsChargingTowardsPlayer = false;
             rb.velocity = Vector2.zero;
+            rb.DOMoveX(startingPosition.x, 0.5f).SetLoops(0).SetEase(Ease.OutCubic);
         }
     }
 

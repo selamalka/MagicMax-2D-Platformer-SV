@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class MeleeSlash : MonoBehaviour
 {
-    [SerializeField] private int sidePushForce;
-    [SerializeField] private int upPushForce;
     private Vector2 enemyDirection;
     private bool shouldPush;
 
