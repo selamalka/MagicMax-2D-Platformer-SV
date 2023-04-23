@@ -8,15 +8,17 @@ public class MeleeSlash : MonoBehaviour
     private Vector2 enemyDirection;
     private bool shouldPush;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.CompareTag("Enemy"))
+        UnstuckPlayer();
+    }
+
+    private async void UnstuckPlayer()
+    {
+        if (shouldPush == false && PlayerController.Instance.IsControllable == false)
         {
-            shouldPush = true;
-            collision.GetComponent<IDamageable>().TakeDamage(PlayerStatsManager.Instance.MeleeDamage);
-            GetComponent<Collider2D>().enabled = false;
-            PlayerController.Instance.SetIsControllable(false);
-            enemyDirection = collision.gameObject.transform.position - transform.position;
+            await Task.Delay(50);
+            PlayerController.Instance.SetIsControllable(true);
         }
     }
 
@@ -28,6 +30,18 @@ public class MeleeSlash : MonoBehaviour
             shouldPush = false;
             await Task.Delay(100);
             PlayerController.Instance.SetIsControllable(true);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            shouldPush = true;
+            PlayerController.Instance.SetIsControllable(false);
+            collision.GetComponent<IDamageable>().TakeDamage(PlayerStatsManager.Instance.MeleeDamage);
+            GetComponent<Collider2D>().enabled = false;
+            enemyDirection = collision.gameObject.transform.position - transform.position;
         }
     }
 }

@@ -12,7 +12,7 @@ public class BehemothAI : MonoBehaviour
     private float speed;
     private bool isFacingRight = true;
     private bool isTurning;
-    public bool IsChargingTowardsPlayer { get; private set; }
+    [field: SerializeField] public bool IsChargingTowardsPlayer { get; private set; }
 
     private GameObject projectilePrefab;
     private float timeBetweenProjectiles;
