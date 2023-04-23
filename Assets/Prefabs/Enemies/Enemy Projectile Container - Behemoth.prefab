@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1055543106633698426
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4234354377402885425, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+      propertyPath: m_Name
+      value: Enemy Projectile Container - Behemoth
+      objectReference: {fileID: 0}
+    - target: {fileID: 6960494728180651875, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+      propertyPath: childObject
+      value: 
+      objectReference: {fileID: 3580642754921645480}
+    - target: {fileID: 7044037382709468814, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044037382709468814, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044037382709468814, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044037382709468814, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044037382709468814, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044037382709468814, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044037382709468814, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044037382709468814, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044037382709468814, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044037382709468814, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044037382709468814, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+--- !u!4 &8027517288896516852 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7044037382709468814, guid: 292028f533d205b44a09dde36a112fda, type: 3}
+  m_PrefabInstance: {fileID: 1055543106633698426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2407035809568048431
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8027517288896516852}
+    m_Modifications:
+    - target: {fileID: 1213576946242060423, guid: 37b270a9519e258479bf75ee855fe449, type: 3}
+      propertyPath: m_Name
+      value: Behemoth Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213576946242060425, guid: 37b270a9519e258479bf75ee855fe449, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213576946242060425, guid: 37b270a9519e258479bf75ee855fe449, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213576946242060425, guid: 37b270a9519e258479bf75ee855fe449, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213576946242060425, guid: 37b270a9519e258479bf75ee855fe449, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213576946242060425, guid: 37b270a9519e258479bf75ee855fe449, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213576946242060425, guid: 37b270a9519e258479bf75ee855fe449, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213576946242060425, guid: 37b270a9519e258479bf75ee855fe449, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213576946242060425, guid: 37b270a9519e258479bf75ee855fe449, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213576946242060425, guid: 37b270a9519e258479bf75ee855fe449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213576946242060425, guid: 37b270a9519e258479bf75ee855fe449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213576946242060425, guid: 37b270a9519e258479bf75ee855fe449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37b270a9519e258479bf75ee855fe449, type: 3}
+--- !u!1 &3580642754921645480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1213576946242060423, guid: 37b270a9519e258479bf75ee855fe449, type: 3}
+  m_PrefabInstance: {fileID: 2407035809568048431}
+  m_PrefabAsset: {fileID: 0}
