@@ -124,9 +124,9 @@ public class ImpAI : MonoBehaviour
     {
         isTurning = true;
         rb.velocity = Vector3.zero;
-        Vector3 scale = body.transform.localScale;
-        scale.x *= -1;
-        body.transform.localScale = scale;
+        Quaternion rotation = body.transform.rotation;
+        rotation.y = isFacingRight ? 180f : 0f;
+        body.transform.rotation = rotation;
         isFacingRight = !isFacingRight;
         isTurning = false;
     }

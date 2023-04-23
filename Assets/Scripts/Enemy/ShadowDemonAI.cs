@@ -148,9 +148,10 @@ public class ShadowDemonAI : MonoBehaviour
     private void Turn()
     {
         isTurning = true;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        rb.velocity = Vector3.zero;
+        Quaternion rotation = body.transform.rotation;
+        rotation.y = isFacingRight ? 180f : 0f;
+        body.transform.rotation = rotation;
         isFacingRight = !isFacingRight;
         isTurning = false;
     }

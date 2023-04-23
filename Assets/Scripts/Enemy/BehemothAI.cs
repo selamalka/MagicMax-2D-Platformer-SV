@@ -146,7 +146,7 @@ public class BehemothAI : MonoBehaviour
         isTurning = true;
         rb.velocity = Vector3.zero;
         Quaternion rotation = body.transform.rotation;
-        rotation.y = isFacingRight ? 0f : 180f;
+        rotation.y = isFacingRight ? 180f : 0f;
         body.transform.rotation = rotation;
         isFacingRight = !isFacingRight;
         isTurning = false;
