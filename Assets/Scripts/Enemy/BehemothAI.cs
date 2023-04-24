@@ -159,7 +159,6 @@ public class BehemothAI : MonoBehaviour
         else
         {
             IsChargingTowardsPlayer = false;
-            canChargeTowardsPlayer = false;
             PlayerController.Instance.Knockback(-playerDirection);
         }
     }
