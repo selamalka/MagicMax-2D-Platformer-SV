@@ -15,6 +15,8 @@ public class BehemothAI : MonoBehaviour
     private bool isFacingRight = true;
     private bool isTurning;
     [field: SerializeField] public bool IsChargingTowardsPlayer { get; private set; }
+    [SerializeField] private bool canChargeTowardsPlayer;
+    private bool isPlayerHit;
 
     private GameObject projectilePrefab;
     private float timeBetweenProjectiles;
@@ -78,7 +80,6 @@ public class BehemothAI : MonoBehaviour
                 {
                     currentState = BehemothStateType.Melee;
                     meleeCooldownCounter = timeBetweenMelee;
-                    IsChargingTowardsPlayer = false;
                 }
                 rb.velocity = Vector2.zero;
                 RangedAttack();
@@ -111,7 +112,7 @@ public class BehemothAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (IsPlayerInMeleeRange() && IsChargingTowardsPlayer)
+        if (IsPlayerInMeleeRange() && canChargeTowardsPlayer)
         {
             ChargePlayer();
         }
@@ -133,16 +134,34 @@ public class BehemothAI : MonoBehaviour
             meleeCooldownCounter -= Time.deltaTime;
             if (meleeCooldownCounter <= 0)
             {
-                IsChargingTowardsPlayer = true;
+                canChargeTowardsPlayer = true;
+            }
+            else
+            {
+                canChargeTowardsPlayer = false;
             }
         }
     }
 
     private void ChargePlayer()
     {
-        if (!IsPlayerInMeleeRange()) return;
+        IsChargingTowardsPlayer = true;
         playerDirection = (playerGameObject.transform.position - transform.position).normalized;
-        rb.velocity += new Vector2(playerDirection.x, playerDirection.y) * Time.deltaTime * 800;        
+        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * Time.deltaTime * 800;
+
+        if (isPlayerHit)
+        {
+            print(isPlayerHit);
+            isPlayerHit = false;
+            IsChargingTowardsPlayer = false;
+            meleeCooldownCounter = timeBetweenMelee;
+        }
+        else
+        {
+            IsChargingTowardsPlayer = false;
+            canChargeTowardsPlayer = false;
+            PlayerController.Instance.Knockback(-playerDirection);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -156,7 +175,7 @@ public class BehemothAI : MonoBehaviour
         {
             if (IsChargingTowardsPlayer)
             {
-                IsChargingTowardsPlayer = false;
+                isPlayerHit = true;
                 meleeCooldownCounter = timeBetweenMelee;
             }
         }
