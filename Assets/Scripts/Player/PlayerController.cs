@@ -266,6 +266,7 @@ public class PlayerController : MonoBehaviour
         body.transform.localScale = localScale;
 
         IsFacingRight = !IsFacingRight;
+
     }
 
     private void FacingHandler()

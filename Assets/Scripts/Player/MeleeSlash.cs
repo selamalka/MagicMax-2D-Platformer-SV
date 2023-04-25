@@ -39,7 +39,7 @@ public class MeleeSlash : MonoBehaviour
             PlayerController.Instance.SetIsControllable(false);
             collision.GetComponent<IDamageable>().TakeDamage(PlayerStatsManager.Instance.MeleeDamage);
             Transform enemyTransform = collision.gameObject.transform;
-            PlayerCombat.Instance.InstantiateHitEffect(enemyTransform);
+            PlayerCombat.Instance.InstantiateHitEffect(transform.position, enemyTransform);
             GetComponent<Collider2D>().enabled = false;
             enemyDirection = collision.gameObject.transform.position - transform.position;
         }

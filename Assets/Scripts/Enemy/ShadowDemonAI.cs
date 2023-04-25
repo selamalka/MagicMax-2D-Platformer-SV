@@ -4,7 +4,6 @@ public class ShadowDemonAI : MonoBehaviour
 {
     private ShadowDemonStateType currentState;
     [SerializeField] private Transform[] patrolPoints;
-    [SerializeField] private Transform body;
     [SerializeField] private Transform projectilePointTransform;
     private Rigidbody2D rb;
     private float speed;
@@ -149,9 +148,9 @@ public class ShadowDemonAI : MonoBehaviour
     {
         isTurning = true;
         rb.velocity = Vector3.zero;
-        Quaternion rotation = body.transform.rotation;
+        Quaternion rotation = transform.rotation;
         rotation.y = isFacingRight ? 180f : 0f;
-        body.transform.rotation = rotation;
+        transform.rotation = rotation;
         isFacingRight = !isFacingRight;
         isTurning = false;
     }
