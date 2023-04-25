@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     {
         if (pauseGameCounter <= 0)
         {
-            Time.timeScale = 0;
+            Time.timeScale = 0.05f;
             await Task.Delay(pauseTimeInMilliseconds);
             Time.timeScale = 1f;
             pauseGameCounter = pauseGameCounter = pauseGameCooldownTime;
