@@ -74,7 +74,7 @@ public class PlayerStatsManager : MonoBehaviour
 
     #endregion
 
-    public void AddMana(int manaValue)
+/*    public void AddMana(int manaValue)
     {
         if (CurrentMana == MaxMana) return;
 
@@ -83,7 +83,7 @@ public class PlayerStatsManager : MonoBehaviour
             CurrentMana++;
             UIManager.Instance.FillManaPoint(); 
         }
-    }
+    }*/
 
     public void UseMana(int manaCost)
     {
@@ -132,11 +132,13 @@ public class PlayerStatsManager : MonoBehaviour
 
         CurrentSouls += soulValue;
         UIManager.Instance.FillSoulPoint();
+
         if (CurrentSouls >= MaxSouls && CurrentMana < MaxMana)
         {
             await Task.Delay(300);
             CurrentSouls = 0;
             UIManager.Instance.ResetSoulPoints();
+            await Task.Delay(300);
             CurrentMana += 1;
             UIManager.Instance.FillManaPoint();
 

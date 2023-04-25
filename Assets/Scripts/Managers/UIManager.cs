@@ -88,9 +88,8 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public async void FillManaPoint()
+    public void FillManaPoint()
     {
-        await Task.Delay(100);
         for (int i = 0; i < manaPoints.Length; i++)
         {
             if (manaPoints[i].color.a == 0)
