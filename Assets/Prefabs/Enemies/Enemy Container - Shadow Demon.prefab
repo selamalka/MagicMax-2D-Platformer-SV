@@ -69,6 +69,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1284834233062613784}
     m_Modifications:
+    - target: {fileID: 73456916387935732, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 273212503044209485, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 4

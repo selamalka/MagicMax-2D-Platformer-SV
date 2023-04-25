@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -10,7 +11,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Transform projectileOriginBottom;
     [SerializeField] private Transform meleeInstancesParent;
     [field: SerializeField] public Transform NimbusInstancesParent { get; private set; }
-    [field: SerializeField] public GameObject MeleeSlashPrefab { get; private set; }
+    [SerializeField] private GameObject meleeSlashPrefab;
+    [SerializeField] private GameObject hitEffectPrefab;
     [SerializeField] private SpellSlot spellSlot1;
     [SerializeField] private SpellSlot spellSlot2;
     [SerializeField] private float meleeCooldownTime;
@@ -98,7 +100,7 @@ public class PlayerCombat : MonoBehaviour
             if (PlayerController.Instance.IsNimbusActive && Input.GetKey(KeyCode.DownArrow)) return;
 
             var origin = GetSpellOrigin();
-            var meleeInstance = Instantiate(MeleeSlashPrefab, GetSpellOrigin(), Quaternion.identity, meleeInstancesParent);
+            var meleeInstance = Instantiate(meleeSlashPrefab, GetSpellOrigin(), Quaternion.identity, meleeInstancesParent);
 
             meleeInstance.transform.localScale = body.localScale;
 
@@ -112,6 +114,13 @@ public class PlayerCombat : MonoBehaviour
             }
             meleeCooldownCounter = meleeCooldownTime;
         }
+    }
+
+    public async void InstantiateHitEffect(Transform enemyTransform)
+    {
+        var enemyColliderCenter = enemyTransform.GetComponent<Collider2D>().bounds.center;
+        await Task.Delay(50);
+        Instantiate(hitEffectPrefab, enemyColliderCenter, transform.rotation);
     }
 
     private Vector3 GetSpellOrigin()
