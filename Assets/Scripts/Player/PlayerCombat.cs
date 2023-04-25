@@ -116,11 +116,23 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    public async void InstantiateHitEffect(Transform enemyTransform)
+    public void InstantiateHitEffect(Vector3 origin, Transform enemyTransform)
     {
         var enemyColliderCenter = enemyTransform.GetComponent<Collider2D>().bounds.center;
-        await Task.Delay(50);
-        Instantiate(hitEffectPrefab, enemyColliderCenter, transform.rotation);
+        var hitEffect = Instantiate(hitEffectPrefab, enemyColliderCenter, PlayerController.Instance.IsFacingRight ? Quaternion.Euler(0, 0, 0) : Quaternion.Euler(0, 180, 0));
+
+        if (origin == projectileOriginTop.position)
+        {
+            hitEffect.transform.rotation *= PlayerController.Instance.IsFacingRight ? Quaternion.Euler(0, 0, 60) : Quaternion.Euler(0, 0, -60);
+        }
+        else if (origin == projectileOriginBottom.position)
+        {
+            hitEffect.transform.rotation *= PlayerController.Instance.IsFacingRight ? Quaternion.Euler(0, 0, -70) : Quaternion.Euler(0, 0, 70);
+        }
+
+        var newHitScale = hitEffect.transform.localScale;
+        newHitScale = new Vector3(newHitScale.x + Random.Range(-0.5f, 0.5f), newHitScale.y + Random.Range(-0.5f, 0.5f), newHitScale.z);
+        hitEffect.transform.localScale = newHitScale;
     }
 
     private Vector3 GetSpellOrigin()
