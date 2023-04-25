@@ -123,15 +123,15 @@ public class PlayerCombat : MonoBehaviour
 
         if (origin == projectileOriginTop.position)
         {
-            hitEffect.transform.rotation *= PlayerController.Instance.IsFacingRight ? Quaternion.Euler(0, 0, 60) : Quaternion.Euler(0, 0, -60);
+            hitEffect.transform.rotation *= PlayerController.Instance.IsFacingRight ? Quaternion.Euler(0, 0, 60) : Quaternion.Euler(0, 0, 60);
         }
         else if (origin == projectileOriginBottom.position)
         {
-            hitEffect.transform.rotation *= PlayerController.Instance.IsFacingRight ? Quaternion.Euler(0, 0, -70) : Quaternion.Euler(0, 0, 70);
+            hitEffect.transform.rotation *= PlayerController.Instance.IsFacingRight ? Quaternion.Euler(0, 0, -70) : Quaternion.Euler(0, 0, -70);
         }
 
         var newHitScale = hitEffect.transform.localScale;
-        newHitScale = new Vector3(newHitScale.x + Random.Range(-0.5f, 0.5f), newHitScale.y + Random.Range(-0.5f, 0.5f), newHitScale.z);
+        newHitScale = new Vector3(newHitScale.x + Random.Range(-0.1f, 0.2f), newHitScale.y + Random.Range(-0.1f, 0.2f), newHitScale.z);
         hitEffect.transform.localScale = newHitScale;
     }
 
