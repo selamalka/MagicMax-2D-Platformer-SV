@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -87,8 +88,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void FillManaPoint()
+    public async void FillManaPoint()
     {
+        await Task.Delay(100);
         for (int i = 0; i < manaPoints.Length; i++)
         {
             if (manaPoints[i].color.a == 0)
