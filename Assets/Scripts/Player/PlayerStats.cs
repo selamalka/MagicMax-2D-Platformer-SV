@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
             Vector2 enemyDirection = collision.gameObject.transform.position - transform.position;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             PlayerController.Instance.SetIsControllable(false);
-            PlayerController.Instance.PushPlayerAgainstDirection(enemyDirection, 20);
+            PlayerController.Instance.PushPlayerAgainstDirection(enemyDirection, 30);
             await Task.Delay(250);
             PlayerController.Instance.SetIsControllable(true);
         }
