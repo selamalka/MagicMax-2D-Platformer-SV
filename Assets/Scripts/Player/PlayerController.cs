@@ -121,8 +121,9 @@ public class PlayerController : MonoBehaviour
         {
             if (IsGrounded)
             {
-                ParticleManager.Instance.InstantiateDustCloud(groundCheckTransform); 
+                ParticleManager.Instance.InstantiateDustCloud(groundCheckTransform);
             }
+
         }
     }
 
