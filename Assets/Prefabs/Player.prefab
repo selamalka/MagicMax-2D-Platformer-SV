@@ -505,7 +505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4505071554451754095}
   - component: {fileID: 4202015092320789458}
-  - component: {fileID: 5176862171074552406}
+  - component: {fileID: 2955716152322352610}
   - component: {fileID: 8550203995976687189}
   - component: {fileID: 1081117674339621061}
   - component: {fileID: 8963468310251956158}
@@ -558,8 +558,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!70 &5176862171074552406
-CapsuleCollider2D:
+--- !u!61 &2955716152322352610
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -567,13 +567,23 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 3336361800321668108}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 896464b6e20195041a1a9c9022bda616, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08330536, y: 0.47167253}
-  m_Size: {x: 1.2654877, y: 2.7528753}
-  m_Direction: 0
+  m_Offset: {x: 0.023777008, y: 0.4325719}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7432022, y: 2.5305395}
+  m_EdgeRadius: 0
 --- !u!95 &8550203995976687189
 Animator:
   serializedVersion: 5
@@ -607,6 +617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2b0de82c27c0e4b8b9dc648ef66eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <IsGrounded>k__BackingField: 0
+  <IsControllable>k__BackingField: 0
   jumpForce: 15
   jumpTime: 0.3
   speed: 550
@@ -619,8 +631,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   groundCheckRadius: 1
-  <IsGrounded>k__BackingField: 0
-  <IsControllable>k__BackingField: 0
   dashForce: 35
   dashTime: 0.2
   dashCooldown: 0.01
@@ -654,7 +664,8 @@ MonoBehaviour:
   projectileOriginBottom: {fileID: 692619718}
   meleeInstancesParent: {fileID: 4809942442862245372}
   <NimbusInstancesParent>k__BackingField: {fileID: 68904670617449014}
-  <MeleeSlashPrefab>k__BackingField: {fileID: 5239689112579095281, guid: 1593f3e23ce15c1458aa8dc70897c5e8, type: 3}
+  meleeSlashPrefab: {fileID: 0}
+  hitEffectPrefab: {fileID: 0}
   spellSlot1: {fileID: 0}
   spellSlot2: {fileID: 0}
   meleeCooldownTime: 0.2

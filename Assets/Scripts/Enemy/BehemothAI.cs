@@ -215,6 +215,7 @@ public class BehemothAI : MonoBehaviour
 
     private float GetDistanceFromPlayer()
     {
+        if (playerGameObject == null) return Mathf.Infinity;
         return Vector2.Distance(transform.position, playerGameObject.transform.position);
     }
 
