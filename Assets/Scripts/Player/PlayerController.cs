@@ -7,25 +7,26 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
 
+    [field: SerializeField] public bool IsGrounded { get; private set; }
+    [field: SerializeField] public bool IsControllable { get; private set; }
+    public bool IsFacingRight { get; private set; }
+    public bool IsNimbusActive { get; private set; }
+
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpTime;
     [SerializeField] private float speed;
     [SerializeField] private float fallMultiplier;
     [SerializeField] private int sidePushForce;
     [SerializeField] private int upPushForce;
-
     [SerializeField] private GameObject body;
     [SerializeField] Transform groundCheckTransform;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float groundCheckRadius;
-    [field: SerializeField] public bool IsGrounded { get; private set; }
-    public bool IsFacingRight { get; private set; }
+
     private bool isJumping;
     private float jumpTimeCounter;
     private Vector2 gravityVector;
     private float inputX;
-    [field: SerializeField] public bool IsControllable { get; private set; }
-    public bool IsNimbusActive { get; private set; }
 
     [Header("Dashing")]
     [SerializeField] private float dashForce;
@@ -118,8 +119,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Tilemap"))
         {
-            // need to finish this
-            if (!IsGrounded)
+            if (IsGrounded)
             {
                 ParticleManager.Instance.InstantiateDustCloud(groundCheckTransform); 
             }
