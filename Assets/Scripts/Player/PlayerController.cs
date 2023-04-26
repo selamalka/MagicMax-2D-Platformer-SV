@@ -115,6 +115,15 @@ public class PlayerController : MonoBehaviour
                 Knockback(collisionDirection);
             }
         }
+
+        if (collision.gameObject.CompareTag("Tilemap"))
+        {
+            // need to finish this
+            if (!IsGrounded)
+            {
+                ParticleManager.Instance.InstantiateDustCloud(groundCheckTransform); 
+            }
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
