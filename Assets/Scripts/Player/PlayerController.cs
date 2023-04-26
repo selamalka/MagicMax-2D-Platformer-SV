@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
         {
             if (IsGrounded)
             {
-                ParticleManager.Instance.InstantiateDustCloud(groundCheckTransform);
+                FXManager.Instance.InstantiateDustCloud(groundCheckTransform);
             }
 
         }
@@ -186,6 +186,25 @@ public class PlayerController : MonoBehaviour
         if (!IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
         {
             rb.velocity = Vector2.up * upPushForce;
+        }
+    }
+
+    public void PushPlayerAgainstDirection(Vector2 enemyDirection, int force)
+    {
+        if (Input.GetKey(KeyCode.UpArrow)) return;
+
+        if (enemyDirection.x > 0)
+        {
+            rb.velocity = Vector2.left * force;
+        }
+        else if (enemyDirection.x < 0)
+        {
+            rb.velocity = Vector2.right * force;
+        }
+
+        if (!IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
+        {
+            rb.velocity = Vector2.up * force;
         }
     }
 

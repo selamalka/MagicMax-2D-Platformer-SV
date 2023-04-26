@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class ParticleManager : MonoBehaviour
+public class FXManager : MonoBehaviour
 {
-    public static ParticleManager Instance;
+    public static FXManager Instance;
     [SerializeField] private GameObject dustCloudPrefab;
+    [SerializeField] private Material whiteFlashMaterial;
 
     private void Awake()
     {
