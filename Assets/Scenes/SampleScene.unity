@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Container - Imp (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8720207877135626885, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
 --- !u!1 &18433914
@@ -934,7 +938,7 @@ RectTransform:
   - {fileID: 730853706}
   - {fileID: 545308037}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1290,6 +1294,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Container - Imp (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8720207877135626885, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
 --- !u!1 &367745859
@@ -1516,13 +1524,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408661629}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -72.81527, y: -6.495242, z: -10}
+  m_LocalPosition: {x: -72.81527, y: -6.9582424, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1289862620}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &408661632
 MonoBehaviour:
@@ -1590,6 +1598,10 @@ PrefabInstance:
     - target: {fileID: 1284834233062613785, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_Name
       value: Enemy Container - Shadow Demon (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284834233062613785, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
@@ -1915,7 +1927,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1995,12 +2007,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -72.81527, y: -6.495242, z: -10}
+  m_LocalPosition: {x: -72.81527, y: -6.9582424, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -24.64}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -2803,7 +2815,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &780077058
 GameObject:
@@ -2924,7 +2936,7 @@ Transform:
   m_Children:
   - {fileID: 1954984329}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &809662440
 PrefabInstance:
@@ -2980,6 +2992,10 @@ PrefabInstance:
     - target: {fileID: 1284834233062613785, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_Name
       value: Enemy Container - Shadow Demon (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284834233062613785, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
@@ -3232,7 +3248,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963407269
 GameObject:
@@ -3361,6 +3377,7 @@ GameObject:
   - component: {fileID: 1012876930}
   - component: {fileID: 1012876926}
   - component: {fileID: 1012876928}
+  - component: {fileID: 1012876932}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3406,7 +3423,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1012876928
 MonoBehaviour:
@@ -3500,6 +3517,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseGameCooldownTime: 0.5
+--- !u!114 &1012876932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012876925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2a2c08ff410aa41beae24c2d105f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dustCloudPrefab: {fileID: 1872423737458924549, guid: fbf1d3a58145aeb4c90ee85ca1b371be, type: 3}
 --- !u!1 &1015243582
 GameObject:
   m_ObjectHideFlags: 0
@@ -4325,6 +4355,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Container - Shadow Demon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1284834233062613785, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
 --- !u!1 &1248459484
@@ -4413,7 +4447,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1284834233062613784, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1284834233062613784, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4458,6 +4492,10 @@ PrefabInstance:
     - target: {fileID: 1284834233062613785, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_Name
       value: Enemy Container - Shadow Demon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284834233062613785, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
@@ -4516,6 +4554,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Container - Imp (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8720207877135626885, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
 --- !u!1001 &1259082665
@@ -4527,7 +4569,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8720207877135626884, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8720207877135626884, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4572,6 +4614,10 @@ PrefabInstance:
     - target: {fileID: 8720207877135626885, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
       propertyPath: m_Name
       value: Enemy Container - Imp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720207877135626885, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
@@ -4629,6 +4675,10 @@ PrefabInstance:
     - target: {fileID: 1284834233062613785, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_Name
       value: Enemy Container - Shadow Demon (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284834233062613785, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
@@ -5107,6 +5157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Container - Imp (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8720207877135626885, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
 --- !u!1 &1437371387
@@ -5316,6 +5370,10 @@ PrefabInstance:
     - target: {fileID: 1284834233062613785, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
       propertyPath: m_Name
       value: Enemy Container - Shadow Demon (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284834233062613785, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
@@ -5660,6 +5718,10 @@ PrefabInstance:
     - target: {fileID: 8720207877135626885, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
       propertyPath: m_Name
       value: Enemy Container - Imp (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720207877135626885, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
@@ -6025,6 +6087,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Container - Shadow Demon (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1284834233062613785, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
 --- !u!1 &1867404942
@@ -6159,6 +6225,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Container - Shadow Demon (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1284834233062613785, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
 --- !u!1001 &1892344992
@@ -6216,6 +6286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Container - Imp (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8720207877135626885, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
 --- !u!1001 &1918444692
@@ -6272,6 +6346,10 @@ PrefabInstance:
     - target: {fileID: 8720207877135626885, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
       propertyPath: m_Name
       value: Enemy Container - Imp (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720207877135626885, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
@@ -27180,6 +27258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Container - Imp (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8720207877135626885, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
 --- !u!1 &2133740387
@@ -27211,7 +27293,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4819300501451025363
 PrefabInstance:
@@ -27250,7 +27332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4505071554451754095, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4505071554451754095, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27258,7 +27340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4505071554451754095, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.2
+      value: -11.663
       objectReference: {fileID: 0}
     - target: {fileID: 4505071554451754095, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27292,6 +27374,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4819300501041328564, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.064
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819300501041328564, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.925
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819300501041328565, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
 --- !u!4 &8963468310251956156 stripped
