@@ -45,7 +45,7 @@ public class EnemyStats : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
+        FXManager.Instance.FlashWhite(gameObject);
         if (currentHealth <= 0)
         {
             PlayerStatsManager.Instance.GrantExp(expValue);

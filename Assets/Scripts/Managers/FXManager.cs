@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class FXManager : MonoBehaviour
@@ -5,6 +6,7 @@ public class FXManager : MonoBehaviour
     public static FXManager Instance;
     [SerializeField] private GameObject dustCloudPrefab;
     [SerializeField] private Material whiteFlashMaterial;
+    private Material originalMaterial;
 
     private void Awake()
     {
@@ -14,5 +16,23 @@ public class FXManager : MonoBehaviour
     public void InstantiateDustCloud(Transform transform)
     {
         Instantiate(dustCloudPrefab, transform.position, Quaternion.identity);
+    }
+
+    public async void FlashWhite(GameObject objectToFlash)
+    {
+        SpriteRenderer[] spriteRenderers = objectToFlash.GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (SpriteRenderer renderer in spriteRenderers)
+        {
+            originalMaterial = renderer.material;
+            renderer.material = whiteFlashMaterial;
+        }
+
+        await Task.Delay(1000);
+
+        foreach (SpriteRenderer renderer2 in spriteRenderers)
+        {
+            renderer2.material = originalMaterial;
+        }
     }
 }
