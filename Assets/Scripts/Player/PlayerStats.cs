@@ -1,19 +1,15 @@
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour, IDamageable
 {
-    private async void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(1);
             Vector2 enemyDirection = collision.gameObject.transform.position - transform.position;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            PlayerController.Instance.SetIsControllable(false);
-            PlayerController.Instance.PushPlayerAgainstDirection(enemyDirection, 30);
-            await Task.Delay(250);
-            PlayerController.Instance.SetIsControllable(true);
+            PlayerController.Instance.Knockback(enemyDirection, 30, 20, 500);
         }
     }
 
