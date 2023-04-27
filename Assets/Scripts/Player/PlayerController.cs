@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float fallMultiplier;
     [SerializeField] private int sidePushForce;
     [SerializeField] private int upPushForce;
+    [SerializeField] private float downPushForce;
     [SerializeField] private GameObject body;
     [SerializeField] Transform groundCheckTransform;
     [SerializeField] LayerMask groundLayer;
@@ -169,7 +170,17 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(Vector2.down * 20);
     }
     public void PushPlayerAgainstDirection(Vector2 enemyDirection)
-    {
+    {        
+        if (!IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
+        {
+            rb.velocity = Vector2.up * upPushForce;
+        }
+        else if (!IsGrounded && Input.GetKey(KeyCode.UpArrow) && enemyDirection.y > 0)
+        {            
+            rb.velocity = Vector2.zero;
+            rb.velocity = new Vector2(0, -downPushForce);
+        }
+
         if (Input.GetKey(KeyCode.UpArrow)) return;
 
         if (enemyDirection.x > 0)
@@ -181,10 +192,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.right * sidePushForce;
         }
 
-        if (!IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
-        {
-            rb.velocity = Vector2.up * upPushForce;
-        }
     }
 
     private void SetGravityScale(float value)

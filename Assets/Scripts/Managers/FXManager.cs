@@ -28,7 +28,7 @@ public class FXManager : MonoBehaviour
             renderer.material = whiteFlashMaterial;
         }
 
-        await Task.Delay(125);
+        await Task.Delay(150);
 
         foreach (SpriteRenderer renderer2 in spriteRenderers)
         {
