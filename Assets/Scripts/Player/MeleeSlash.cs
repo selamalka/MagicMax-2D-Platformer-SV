@@ -52,7 +52,7 @@ public class MeleeSlash : MonoBehaviour
             CameraShaker.Instance.Shake(5f, 0.1f);
             GetComponent<Collider2D>().enabled = false;
             enemyDirection = collision.gameObject.transform.position - transform.position;
-            PlayerController.Instance.PushPlayerAgainstDirection(enemyDirection);
+            PlayerController.Instance.PushPlayerAgainstEnemyDirectionOnMelee(enemyDirection);
             await Task.Delay(150);
             PlayerController.Instance.SetIsControllable(true);
         }
