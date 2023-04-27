@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class MeleeSlash : MonoBehaviour
 {
@@ -11,6 +10,20 @@ public class MeleeSlash : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            rb.velocity = new Vector2(0, 20);
+        }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            rb.velocity = new Vector2(0, -20);
+        }
+        else
+        {
+            rb.velocity = new Vector2(PlayerController.Instance.IsFacingRight ? 20 : -20, 0);
+        }
+
     }
 
     private void Update()
@@ -18,17 +31,8 @@ public class MeleeSlash : MonoBehaviour
         //UnstuckPlayer();
     }
 
-    private async void UnstuckPlayer()
-    {
-        if (shouldPush == true && PlayerController.Instance.IsControllable == false)
-        {
-            await Task.Delay(50);
-            PlayerController.Instance.SetIsControllable(true);
-        }
-    }
-
     private async void FixedUpdate()
-    {
+    {        
         if (shouldPush)
         {
             shouldPush = false;
@@ -36,6 +40,7 @@ public class MeleeSlash : MonoBehaviour
             await Task.Delay(100);
             PlayerController.Instance.SetIsControllable(true);
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,6 +55,15 @@ public class MeleeSlash : MonoBehaviour
             CameraShaker.Instance.Shake(5f, 0.1f);
             GetComponent<Collider2D>().enabled = false;
             enemyDirection = collision.gameObject.transform.position - transform.position;
+        }
+    }
+
+    private async void UnstuckPlayer()
+    {
+        if (shouldPush == true && PlayerController.Instance.IsControllable == false)
+        {
+            await Task.Delay(50);
+            PlayerController.Instance.SetIsControllable(true);
         }
     }
 }
