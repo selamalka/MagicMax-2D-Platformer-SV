@@ -101,9 +101,6 @@ public class PlayerCombat : MonoBehaviour
 
             var origin = GetSpellOrigin();
             var meleeInstance = Instantiate(meleeSlashPrefab, GetSpellOrigin(), Quaternion.identity, meleeInstancesParent);
-/*            var meleeInstanceVelocity = meleeInstance.GetComponent<Rigidbody2D>().velocity;
-            meleeInstanceVelocity.x = GetComponent<Rigidbody2D>().velocity.x + (PlayerController.Instance.IsFacingRight ? 15 : -15);
-            meleeInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(meleeInstanceVelocity.x, meleeInstanceVelocity.y);*/
 
             meleeInstance.transform.localScale = body.localScale;
 

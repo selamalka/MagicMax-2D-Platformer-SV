@@ -597,8 +597,9 @@ MonoBehaviour:
   jumpTime: 0.3
   speed: 550
   fallMultiplier: 1.2
-  sidePushForce: 5
-  upPushForce: 25
+  sidePushForce: 15
+  upPushForce: 28
+  downPushForce: 16
   body: {fileID: 3541108710210601035}
   groundCheckTransform: {fileID: 4819300501041328564}
   groundLayer:
@@ -607,7 +608,7 @@ MonoBehaviour:
   groundCheckRadius: 1
   dashForce: 35
   dashTime: 0.2
-  dashCooldown: 0.01
+  dashCooldown: 0.8
 --- !u!114 &8963468310251956158
 MonoBehaviour:
   m_ObjectHideFlags: 0
