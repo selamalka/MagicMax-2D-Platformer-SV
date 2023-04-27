@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
             if (behemoth.IsChargingTowardsPlayer)
             {
                 Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
-                Knockback(collisionDirection);
+                Knockback(collisionDirection, 30, 20, 700);
             }
         }
 
@@ -123,7 +123,6 @@ public class PlayerController : MonoBehaviour
             {
                 FXManager.Instance.InstantiateDustCloud(groundCheckTransform);
             }
-
         }
     }
 
@@ -141,7 +140,7 @@ public class PlayerController : MonoBehaviour
             if (behemoth.IsChargingTowardsPlayer)
             {
                 Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
-                Knockback(collisionDirection);
+                Knockback(collisionDirection, 30, 20, 700);
             }
         }
     }
@@ -155,12 +154,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public async void Knockback(Vector2 collisionDirection)
+    public async void Knockback(Vector2 collisionDirection, int horizontalForce, int verticalForce, int isControllableDelay)
     {        
         IsControllable = false;
         rb.velocity = Vector2.zero;
-        rb.velocity = new Vector2(-collisionDirection.x * UnityEngine.Random.Range(30,40), 20);
-        await Task.Delay(700);
+        rb.velocity = new Vector2(-collisionDirection.x * horizontalForce, verticalForce);
+        await Task.Delay(isControllableDelay);
         IsControllable = true;
     }
 
@@ -169,7 +168,6 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.AddForce(Vector2.down * 20);
     }
-
     public void PushPlayerAgainstDirection(Vector2 enemyDirection)
     {
         if (Input.GetKey(KeyCode.UpArrow)) return;
@@ -186,25 +184,6 @@ public class PlayerController : MonoBehaviour
         if (!IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
         {
             rb.velocity = Vector2.up * upPushForce;
-        }
-    }
-
-    public void PushPlayerAgainstDirection(Vector2 enemyDirection, int force)
-    {
-        if (Input.GetKey(KeyCode.UpArrow)) return;
-
-        if (enemyDirection.x > 0)
-        {
-            rb.velocity = Vector2.left * force;
-        }
-        else if (enemyDirection.x < 0)
-        {
-            rb.velocity = Vector2.right * force;
-        }
-
-        if (!IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
-        {
-            rb.velocity = Vector2.up * force;
         }
     }
 
