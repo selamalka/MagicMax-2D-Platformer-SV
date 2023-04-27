@@ -21,7 +21,9 @@ public class PlayerStats : MonoBehaviour, IDamageable
     private void InvulnerableHandler()
     {
         if (!isInvulnerable) return;
+
         Physics2D.IgnoreLayerCollision(7, 8);
+
         if (invulnerableCounter > 0)
         {
             invulnerableCounter -= Time.deltaTime;
