@@ -169,11 +169,15 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.AddForce(Vector2.down * 20);
     }
-    public void PushPlayerAgainstEnemyDirectionOnMelee(Vector2 enemyDirection)
+
+    public async void PushPlayerAgainstEnemyDirectionOnMelee(Vector2 enemyDirection)
     {        
         if (!IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
         {
-            rb.velocity = Vector2.up * upPushForce;
+            SetGravityScale(2);
+            rb.velocity = new Vector2(rb.velocity.x, upPushForce * Time.deltaTime);
+            await Task.Delay(200);
+            SetGravityScale(8);
         }
         else if (!IsGrounded && Input.GetKey(KeyCode.UpArrow) && enemyDirection.y > 0)
         {            
