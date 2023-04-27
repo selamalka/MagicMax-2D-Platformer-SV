@@ -16,6 +16,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         PlayerStatsManager.Instance.SetCurrentHealth(PlayerStatsManager.Instance.CurrentHealth - damage);
+        FXManager.Instance.FlashWhite(gameObject);
         GameManager.Instance.PauseGameEffect(100);
         CameraShaker.Instance.Shake(3f, 0.15f);
         EventManager.OnPlayerGetHit?.Invoke();

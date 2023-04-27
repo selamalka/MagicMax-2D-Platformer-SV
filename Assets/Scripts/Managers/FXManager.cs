@@ -32,6 +32,7 @@ public class FXManager : MonoBehaviour
 
         foreach (SpriteRenderer renderer2 in spriteRenderers)
         {
+            if (renderer2 != null)
             renderer2.material = originalMaterial;
         }
     }
