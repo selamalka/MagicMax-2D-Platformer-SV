@@ -598,7 +598,7 @@ MonoBehaviour:
   speed: 550
   fallMultiplier: 1.2
   sidePushForce: 15
-  upPushForce: 28
+  upPushForce: 1300
   downPushForce: 16
   body: {fileID: 3541108710210601035}
   groundCheckTransform: {fileID: 4819300501041328564}
@@ -621,6 +621,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2966023db1bd6147aa6e3102244734d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <InvulnerableStartTime>k__BackingField: 2
+  isInvulnerable: 0
 --- !u!114 &2608739400377468351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,7 +672,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 3336361800321668108}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3c5fb28d5b313c74295b2685deb420ba, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

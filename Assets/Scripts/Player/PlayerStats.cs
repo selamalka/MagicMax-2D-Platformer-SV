@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float invulnerableStartTime;
+    public static PlayerStats Instance;
+
+    [field: SerializeField] public float InvulnerableStartTime { get; private set; }
     [SerializeField] private bool isInvulnerable;
     private float invulnerableCounter;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {
@@ -14,14 +20,17 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     private void InvulnerableHandler()
     {
+        if (!isInvulnerable) return;
+        Physics2D.IgnoreLayerCollision(7, 8);
         if (invulnerableCounter > 0)
         {
             invulnerableCounter -= Time.deltaTime;
         }
         else
         {
+            Physics2D.IgnoreLayerCollision(7, 8, false);
             isInvulnerable = false;
-            invulnerableCounter = invulnerableStartTime;
+            invulnerableCounter = InvulnerableStartTime;
         }
     }
 
@@ -48,7 +57,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     {
         if (isInvulnerable) return;
         isInvulnerable = true;
-        invulnerableCounter = invulnerableStartTime;
+        invulnerableCounter = InvulnerableStartTime;
         PlayerStatsManager.Instance.SetCurrentHealth(PlayerStatsManager.Instance.CurrentHealth - damage);
         FXManager.Instance.FlashWhite(gameObject);
         GameManager.Instance.PauseGameEffect(100);

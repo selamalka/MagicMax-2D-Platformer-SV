@@ -24,8 +24,8 @@ public class FXManager : MonoBehaviour
 
         foreach (SpriteRenderer renderer in spriteRenderers)
         {
-            originalMaterial = renderer.material;
-            renderer.material = whiteFlashMaterial;
+            originalMaterial = renderer.sharedMaterial;
+            renderer.sharedMaterial = whiteFlashMaterial;
         }
 
         await Task.Delay(150);
@@ -33,7 +33,9 @@ public class FXManager : MonoBehaviour
         foreach (SpriteRenderer renderer2 in spriteRenderers)
         {
             if (renderer2 != null)
-            renderer2.material = originalMaterial;
+            {
+                renderer2.sharedMaterial = originalMaterial;
+            }
         }
     }
 }
