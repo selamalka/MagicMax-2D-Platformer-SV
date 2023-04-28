@@ -159,6 +159,7 @@ public class PlayerController : MonoBehaviour
             if (isDashPressed)
             {
                 Dash();
+                canDoubleJump = true;
             }
         }
         else if (!IsGrounded && !hasDashedAfterGrounded && isDashPressed)
@@ -226,6 +227,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce * 2.5f);
+            FXManager.Instance.InstantiateDustCloud(groundCheckTransform);
             canDoubleJump = false;
         }
 
