@@ -596,20 +596,21 @@ MonoBehaviour:
   jumpForce: 15
   jumpTime: 0.3
   speed: 550
-  fallMultiplier: 1.2
+  fallMultiplier: -0.5
   sidePushForce: 15
-  upPushForce: 1300
+  upPushForce: 1500
   downPushForce: 16
   body: {fileID: 3541108710210601035}
   groundCheckTransform: {fileID: 4819300501041328564}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  groundCheckRayLength: 3
-  canDoubleJump: 0
+  groundCheckRayLength: 1
+  canDoubleJump: 1
   dashForce: 35
   dashTime: 0.2
   dashCooldown: 0.8
+  hasDashedAfterGrounded: 0
 --- !u!114 &8963468310251956158
 MonoBehaviour:
   m_ObjectHideFlags: 0
