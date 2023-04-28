@@ -12,9 +12,13 @@ public class PowerupManager : MonoBehaviour
         Instance = this;
     }
 
-    public void DropRandomPowerup(Transform transform)
+    public void DropRandomPowerup(Transform transform, int dropChance)
     {
-        Instantiate(GetRandomPowerup(), transform.position + new Vector3(0,1,0), Quaternion.identity);
+        var randomRoll = Random.Range(0, 100);
+        if (randomRoll <= dropChance)
+        {
+            Instantiate(GetRandomPowerup(), transform.position + new Vector3(0, 1, 0), Quaternion.identity); 
+        }
     }
 
     public GameObject GetRandomPowerup()

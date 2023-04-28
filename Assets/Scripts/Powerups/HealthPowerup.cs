@@ -12,7 +12,7 @@ public class HealthPowerup : PowerupBase
         }
         else
         {
-            print("heatlh is full");
+            print("health is full");
             Destroy(gameObject);
         }
     }
