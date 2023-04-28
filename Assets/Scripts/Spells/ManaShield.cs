@@ -5,6 +5,8 @@ public class ManaShield : MonoBehaviour
     [field: SerializeField] public SpellData SpellData { get; private set; }
     private float lifespanCounter;
     private Transform playerTransform;
+    private int maxProjectilesDefelected;
+    private int deflectedProjectilesCounter;
 
     private void Awake()
     {
@@ -20,6 +22,24 @@ public class ManaShield : MonoBehaviour
         lifespanCounter = SpellData.Lifespan;
         playerTransform = GameObject.FindWithTag("Player").transform;
         transform.parent.SetParent(playerTransform);
+
+        switch (SpellData.Level)
+        {
+            case 1:
+                maxProjectilesDefelected = 1;
+                break;
+
+            case 2:
+                maxProjectilesDefelected = 2;
+                break;
+
+            case 3:
+                maxProjectilesDefelected = 3;
+                break;
+
+            default:
+                break;
+        }
     }
 
     private void Update()
@@ -44,7 +64,11 @@ public class ManaShield : MonoBehaviour
         {
             Destroy(collision.GetComponent<EnemyProjectile>().gameObject);
             PlayerStatsManager.Instance.UseMana(1);
-            Destroy(gameObject);
+            deflectedProjectilesCounter++;
+            if (deflectedProjectilesCounter == maxProjectilesDefelected)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
