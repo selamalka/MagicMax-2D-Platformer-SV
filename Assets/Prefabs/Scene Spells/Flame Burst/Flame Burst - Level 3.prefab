@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8414455124025093512}
   - component: {fileID: 1956439434881851577}
   m_Layer: 0
-  m_Name: Flame Burst
+  m_Name: Flame Burst - Level 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1677414051
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 0.135849, b: 0.135849, a: 1}
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3edcbe96580cd42b1cca40c122ad24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <SpellData>k__BackingField: {fileID: 11400000, guid: 5052a363ba545bb458cf598374a4db3a, type: 2}
+  <SpellData>k__BackingField: {fileID: 11400000, guid: 47884b1abd39bdd47ba38622876c4c5d, type: 2}
 --- !u!114 &8414455124025093512
 MonoBehaviour:
   m_ObjectHideFlags: 0

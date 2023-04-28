@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7244422171669234964}
   - component: {fileID: 4221309619138347145}
   m_Layer: 0
-  m_Name: Mana Shield
+  m_Name: Mana Shield - Level 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7244422171669234961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -76.58, y: -10.56, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.7413104, y: 3.7268028, z: 4.0434012}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -136,3 +136,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465e79696d0564345a7a7682773113b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <SpellData>k__BackingField: {fileID: 11400000, guid: cef58021b39d6eb43a9fc365197d5ef0, type: 2}

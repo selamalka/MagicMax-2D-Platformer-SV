@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcb07a75a04bd164290d23cba10d2256, type: 3}
-  m_Name: FlameBurstData
+  m_Name: FlameBurstData - Level 1
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Flame Burst
   <Sprite>k__BackingField: {fileID: 21300000, guid: dd3885098198d104888439be4c590aba, type: 3}
+  <Level>k__BackingField: 1
   <Speed>k__BackingField: 0
   <ManaCost>k__BackingField: 1
   <Damage>k__BackingField: 5

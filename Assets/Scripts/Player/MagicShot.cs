@@ -4,10 +4,30 @@ public class MagicShot : MonoBehaviour
 {
     [field: SerializeField] public SpellData SpellData { get; private set; }
     private float lifespanCounter;
+    private int maxEnemiesHit;
+    private int enemiesHitCounter;
 
     private void Start()
     {
         lifespanCounter = SpellData.Lifespan;
+
+        switch (SpellData.Level)
+        {
+            case 1:
+                maxEnemiesHit = 1;
+                break;
+
+            case 2:
+                maxEnemiesHit = 2;
+                break;
+
+            case 3:
+                maxEnemiesHit = 3;
+                break;
+
+            default:
+                break;
+        }
     }
 
     private void Update()
@@ -27,7 +47,7 @@ public class MagicShot : MonoBehaviour
     }
 
     private void Fly()
-    {        
+    {
         transform.position += transform.up * SpellData.Speed * Time.deltaTime;
     }
 
@@ -36,7 +56,11 @@ public class MagicShot : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<IDamageable>().TakeDamage(SpellData.Damage);
-            Destroy(gameObject);
+            enemiesHitCounter++;
+            if (enemiesHitCounter == maxEnemiesHit)
+            {
+                Destroy(gameObject); 
+            }
         }
         else if (collision.CompareTag("Tilemap"))
         {

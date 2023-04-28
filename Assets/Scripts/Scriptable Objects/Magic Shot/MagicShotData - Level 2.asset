@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcb07a75a04bd164290d23cba10d2256, type: 3}
-  m_Name: NimbusData
+  m_Name: MagicShotData - Level 2
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Nimbus
-  <Sprite>k__BackingField: {fileID: 21300000, guid: bc9d74ee1266f9f4188f72f430621fea, type: 3}
-  <Speed>k__BackingField: 0
-  <ManaCost>k__BackingField: 0
-  <Damage>k__BackingField: 0
-  <Lifespan>k__BackingField: 5
+  <Name>k__BackingField: Magic Shot
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 4029a9cfeb86f134c9c5af05993eaac8, type: 3}
+  <Level>k__BackingField: 2
+  <Speed>k__BackingField: 40
+  <ManaCost>k__BackingField: 1
+  <Damage>k__BackingField: 3
+  <Lifespan>k__BackingField: 1

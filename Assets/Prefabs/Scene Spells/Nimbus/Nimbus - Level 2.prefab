@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8784039632046922735}
   - component: {fileID: 6346218614834938048}
   m_Layer: 9
-  m_Name: Nimbus
+  m_Name: Nimbus - Level 2
   m_TagString: Nimbus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6407637356864291984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -71.8, y: -8.95, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -200,5 +200,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7780714b6ac460643aeee41d287bdd09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <SpellData>k__BackingField: {fileID: 11400000, guid: 496d9a2a12ca66a469ebc34209ace717, type: 2}
+  <SpellData>k__BackingField: {fileID: 11400000, guid: fba384164bdabfd4887ae985d6fd57f2, type: 2}
   speed: 800

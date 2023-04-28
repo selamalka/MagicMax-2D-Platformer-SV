@@ -9,8 +9,6 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     [field: SerializeField] public SpellData SpellData { get; private set; }
     [SerializeField] private TextMeshProUGUI levelValue;
     [SerializeField] private Image blockedImage;
-    [SerializeField] private int maxLevel;
-    [SerializeField] private int level;
     private GameObject draggedIcon;
     private Button button;
 
@@ -21,12 +19,12 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 
     private void OnEnable()
     {
-        button.onClick.AddListener(AddLevel);
+        button.onClick.AddListener(UnlockSpell);
     }
 
     private void OnDisable()
     {
-        button.onClick.RemoveListener(AddLevel);
+        button.onClick.RemoveListener(UnlockSpell);
     }
 
     private void Start()
@@ -34,30 +32,20 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         GetComponent<Image>().sprite = SpellData.Sprite;
     }
 
-    private void AddLevel()
+    private void UnlockSpell()
     {
         if (PlayerStatsManager.Instance.SpellPoints == 0) print("Not enough available spell points");
         else
         {
             blockedImage.color = blockedImage.color.a > 0 ? new Color(0, 0, 0, 0) : blockedImage.color;
-
-            if (level < maxLevel)
-            {
-                PlayerStatsManager.Instance.SetSpellPoints(PlayerStatsManager.Instance.SpellPoints - 1);
-                UIManager.Instance.UpdateSpellPoints();
-                level++;
-                levelValue.text = level.ToString();
-            }
-            else
-            {
-                print("spell is at max level");
-            }
+            PlayerStatsManager.Instance.SetSpellPoints(PlayerStatsManager.Instance.SpellPoints - 1);
+            UIManager.Instance.UpdateSpellPoints();
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (level == 0) return;
+        if (SpellData.Level == 0) return;
         draggedIcon = new GameObject(SpellData.Name);
         Image iconImage = draggedIcon.AddComponent<Image>();
         iconImage.sprite = GetComponent<Image>().sprite;
@@ -67,13 +55,13 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (level == 0) return;
+        if (SpellData.Level == 0) return;
         draggedIcon.transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (level == 0) return;
+        if (SpellData.Level == 0) return;
         SpellSlot spellSlot = eventData.pointerEnter.GetComponent<SpellSlot>();
 
         if (spellSlot != null)
