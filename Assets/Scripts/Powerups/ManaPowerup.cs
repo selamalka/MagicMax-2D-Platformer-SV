@@ -1,15 +1,7 @@
 using UnityEngine;
 
-public class ManaPowerup : PowerupAbstract
+public class ManaPowerup : PowerupBase
 {
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            ActivatePowerup();
-        }
-    }
-
     public override void ActivatePowerup()
     {
         if (PlayerStatsManager.Instance.CurrentMana < PlayerStatsManager.Instance.MaxMana)
