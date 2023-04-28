@@ -1,15 +1,7 @@
 using UnityEngine;
 
-public class HealthPowerup : PowerupAbstract
+public class HealthPowerup : PowerupBase
 {
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            ActivatePowerup();
-        }
-    }
-
     public override void ActivatePowerup()
     {
         if (PlayerStatsManager.Instance.CurrentHealth < PlayerStatsManager.Instance.MaxHealth)
