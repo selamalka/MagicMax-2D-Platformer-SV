@@ -15,6 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Mana Shield
   <Sprite>k__BackingField: {fileID: 21300000, guid: 8a96b38c76be79946a150249547b07bc, type: 3}
   <Level>k__BackingField: 2
+  <SpellPointCost>k__BackingField: 2
   <Speed>k__BackingField: 0
   <ManaCost>k__BackingField: 0
   <Damage>k__BackingField: 0

@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -7,7 +6,7 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 {
     [field: SerializeField] public GameObject SpellPrefab { get; private set; }
     [field: SerializeField] public SpellData SpellData { get; private set; }
-    [SerializeField] private TextMeshProUGUI levelValue;
+
     [SerializeField] private Image blockedImage;
     private GameObject draggedIcon;
     private Button button;
@@ -15,6 +14,7 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     private void Awake()
     {
         button = GetComponent<Button>();
+        SpellData.SetIsSpellUnlocked(false);
     }
 
     private void OnEnable()
@@ -34,13 +34,15 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 
     private void UnlockSpell()
     {
-        if (PlayerStatsManager.Instance.SpellPoints == 0) print("Not enough available spell points");
-        else
+        if (SpellData.Level == 1)
         {
             blockedImage.color = blockedImage.color.a > 0 ? new Color(0, 0, 0, 0) : blockedImage.color;
-            PlayerStatsManager.Instance.SetSpellPoints(PlayerStatsManager.Instance.SpellPoints - 1);
+            SpellData.SetIsSpellUnlocked(true);
+            SpellbookManager.Instance.UnlockedSpells.Add(SpellData);
+            PlayerStatsManager.Instance.SetSpellPoints(PlayerStatsManager.Instance.SpellPoints - SpellData.SpellPointCost);
             UIManager.Instance.UpdateSpellPoints();
         }
+         // NEED TO MAKE CONDITIONS FOR NEXT LEVEL
     }
 
     public void OnBeginDrag(PointerEventData eventData)
