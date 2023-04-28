@@ -66,7 +66,6 @@ public class PlayerStatsManager : MonoBehaviour
         CurrentHealth = value;
     }
 
-
     public void SetSpellPoints(int value)
     {
         SpellPoints = value;
@@ -74,19 +73,21 @@ public class PlayerStatsManager : MonoBehaviour
 
     #endregion
 
-/*    public void AddMana(int manaValue)
+    public void AddMana(int manaValue)
     {
         if (CurrentMana == MaxMana) return;
 
         for (int i = 1; i <= manaValue; i++)
         {
             CurrentMana++;
-            UIManager.Instance.FillManaPoint(); 
+            UIManager.Instance.FillManaPoint();
         }
-    }*/
+    }
 
     public void UseMana(int manaCost)
     {
+        if (CurrentMana == 0) return;
+
         for (int i = 1; i <= manaCost; i++)
         {
             CurrentMana--;
