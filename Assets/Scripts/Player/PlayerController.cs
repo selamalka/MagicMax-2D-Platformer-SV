@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float groundCheckRadius;
 
     private bool isJumping;
+    [SerializeField] private bool canDoubleJump;
     private float jumpTimeCounter;
     private Vector2 gravityVector;
     private float inputX;
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
         IsControllable = true;
         gravityVector = new Vector2(0, -Physics2D.gravity.y);
         IsFacingRight = true;
+        canDoubleJump = true;
         ghostScript = GetComponent<Ghost>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -210,23 +212,31 @@ public class PlayerController : MonoBehaviour
         IsControllable = value;
     }
 
-    private void JumpHandler()
+    private async void JumpHandler()
     {
         if (IsNimbusActive) return;
 
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded)
         {
             isJumping = true;
+            canDoubleJump = true;
             jumpTimeCounter = jumpTime;
             SetGravityScale(2);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && !IsGrounded && canDoubleJump)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce * 2.5f);
+            canDoubleJump = false;
         }
 
         if (Input.GetKey(KeyCode.Space) && isJumping)
         {
             if (jumpTimeCounter > 0)
             {
-                rb.velocity = new Vector2(inputX, jumpForce * 2f);
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce * 2f);
                 jumpTimeCounter -= Time.deltaTime;
                 jumpTimeCounter = jumpTimeCounter < 0 ? 0 : jumpTimeCounter;
             }
@@ -242,6 +252,8 @@ public class PlayerController : MonoBehaviour
         {
             jumpTimeCounter = 0;
             isJumping = false;
+            SetGravityScale(0);
+            await Task.Delay(100);
             SetGravityScale(8);
             rb.AddForce(Vector2.down * 10, ForceMode2D.Impulse);
         }
