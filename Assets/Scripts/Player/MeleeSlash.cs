@@ -17,7 +17,7 @@ public class MeleeSlash : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            rb.velocity = new Vector2(0, -20);
+            rb.velocity = new Vector2(0, -50);
         }
         else
         {

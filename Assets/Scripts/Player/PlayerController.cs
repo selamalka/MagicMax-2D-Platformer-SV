@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 dashDirection;
     private bool canDash = true;
     private bool isDashing;
+    [SerializeField] private bool hasDashedAfterGrounded;
 
     private Ghost ghostScript;
     private Rigidbody2D rb;
@@ -45,17 +46,14 @@ public class PlayerController : MonoBehaviour
     {
         Instance = this;
     }
-
     private void OnEnable()
     {
         EventManager.OnNimbusIsActive += PushPlayerDown;
     }
-
     private void OnDisable()
     {
         EventManager.OnNimbusIsActive -= PushPlayerDown;
     }
-
     private void Start()
     {
         IsControllable = true;
@@ -65,7 +63,6 @@ public class PlayerController : MonoBehaviour
         ghostScript = GetComponent<Ghost>();
         rb = GetComponent<Rigidbody2D>();
     }
-
     private void Update()
     {
         if (!IsControllable) return;
@@ -76,8 +73,6 @@ public class PlayerController : MonoBehaviour
         if (IsNimbusActive) return;
         DashHandler();
     }
-
-
     private void FixedUpdate()
     {
         if (!IsControllable) return;
@@ -126,7 +121,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Nimbus"))
@@ -145,7 +139,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Nimbus"))
@@ -157,8 +150,50 @@ public class PlayerController : MonoBehaviour
 
     private void DashHandler()
     {
-        var isDashPressed = Input.GetKeyDown(KeyCode.LeftShift);
-        Dash(isDashPressed);
+        bool isDashPressed = Input.GetKeyDown(KeyCode.LeftShift);
+
+        if (IsGrounded)
+        {
+            hasDashedAfterGrounded = false;
+
+            if (isDashPressed)
+            {
+                Dash();
+            }
+        }
+        else if (!IsGrounded && !hasDashedAfterGrounded && isDashPressed)
+        {
+            Dash();
+            hasDashedAfterGrounded = true;
+        }
+    }
+    private void Dash()
+    {
+        if (canDash)
+        {
+            isDashing = true;
+            canDash = false;
+            ghostScript.SetShouldCreateGhost(true);
+
+            dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+            if (dashDirection == Vector2.zero)
+            {
+                dashDirection = new Vector2(body.transform.localScale.x, 0);
+            }
+
+            CameraShaker.Instance.Shake(1f, 0.2f);
+
+            StartCoroutine(StopDashing());
+        }
+    }
+    private IEnumerator StopDashing()
+    {
+        yield return new WaitForSeconds(dashTime);
+        isDashing = false;
+        ghostScript.SetShouldCreateGhost(false);
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 
     private void IsGroundedHandler()
@@ -174,62 +209,6 @@ public class PlayerController : MonoBehaviour
             IsGrounded = false;
         }
     }
-
-    public async void Knockback(Vector2 collisionDirection, int horizontalForce, int verticalForce, int isControllableDelay)
-    {        
-        IsControllable = false;
-        rb.velocity = Vector2.zero;
-        rb.velocity = new Vector2(-collisionDirection.x * horizontalForce, verticalForce);
-        await Task.Delay(isControllableDelay);
-        IsControllable = true;
-    }
-
-    private void PushPlayerDown()
-    {
-        rb.velocity = Vector2.zero;
-        rb.AddForce(Vector2.down * 20);
-    }
-
-    public async void PushPlayerAgainstEnemyDirectionOnMelee(Vector2 enemyDirection)
-    {        
-        if (!IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
-        {
-            SetGravityScale(2);
-            rb.velocity = new Vector2(rb.velocity.x, upPushForce * Time.deltaTime);
-            await Task.Delay(200);
-            SetGravityScale(8);
-        }
-        else if (!IsGrounded && Input.GetKey(KeyCode.UpArrow) && enemyDirection.y > 0)
-        {            
-            rb.velocity = Vector2.zero;
-            rb.velocity = new Vector2(0, -downPushForce);
-        }
-
-        if (Input.GetKey(KeyCode.UpArrow)) return;
-
-        if (enemyDirection.x > 0)
-        {
-            rb.velocity = Vector2.left * sidePushForce;
-        }
-        else if (enemyDirection.x < 0)
-        {
-            rb.velocity = Vector2.right * sidePushForce;
-        }
-    }
-
-    private void SetGravityScale(float value)
-    {
-        rb.gravityScale = value;
-    }
-    public void SetIsNimbusActive(bool value)
-    {
-        IsNimbusActive = value;
-    }
-    public void SetIsControllable(bool value)
-    {
-        IsControllable = value;
-    }
-
     private async void JumpHandler()
     {
         if (IsNimbusActive) return;
@@ -277,44 +256,57 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Dash(bool isDashPressed)
+    public async void Knockback(Vector2 collisionDirection, int horizontalForce, int verticalForce, int isControllableDelay)
     {
-        if (isDashPressed && canDash)
+        IsControllable = false;
+        rb.velocity = Vector2.zero;
+        rb.velocity = new Vector2(-collisionDirection.x * horizontalForce, verticalForce);
+        await Task.Delay(isControllableDelay);
+        IsControllable = true;
+    }
+    public async void PushPlayerAgainstEnemyDirectionOnMelee(Vector2 enemyDirection)
+    {
+        if (!IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
         {
-            isDashing = true;
-            canDash = false;
-            ghostScript.SetShouldCreateGhost(true);
+            SetGravityScale(2);
+            rb.velocity = new Vector2(rb.velocity.x, upPushForce * Time.deltaTime);
+            await Task.Delay(200);
+            SetGravityScale(8);
+        }
+        else if (!IsGrounded && Input.GetKey(KeyCode.UpArrow) && enemyDirection.y > 0)
+        {
+            rb.velocity = Vector2.zero;
+            rb.velocity = new Vector2(0, -downPushForce);
+        }
 
-            dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (Input.GetKey(KeyCode.UpArrow)) return;
 
-            if (dashDirection == Vector2.zero)
-            {
-                dashDirection = new Vector2(body.transform.localScale.x, 0);
-            }
-
-            CameraShaker.Instance.Shake(1f, 0.2f);
-
-            StartCoroutine(StopDashing());
+        if (enemyDirection.x > 0)
+        {
+            rb.velocity = Vector2.left * sidePushForce;
+        }
+        else if (enemyDirection.x < 0)
+        {
+            rb.velocity = Vector2.right * sidePushForce;
         }
     }
-
-    private IEnumerator StopDashing()
+    private void PushPlayerDown()
     {
-        yield return new WaitForSeconds(dashTime);
-        isDashing = false;
-        ghostScript.SetShouldCreateGhost(false);
-        yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
+        rb.velocity = Vector2.zero;
+        rb.AddForce(Vector2.down * 20);
     }
 
-    private void Turn()
+    private void SetGravityScale(float value)
     {
-        Vector3 localScale = body.transform.localScale;
-        localScale.x *= -1;
-        body.transform.localScale = localScale;
-
-        IsFacingRight = !IsFacingRight;
-
+        rb.gravityScale = value;
+    }
+    public void SetIsNimbusActive(bool value)
+    {
+        IsNimbusActive = value;
+    }
+    public void SetIsControllable(bool value)
+    {
+        IsControllable = value;
     }
 
     private void FacingHandler()
@@ -327,5 +319,14 @@ public class PlayerController : MonoBehaviour
         {
             Turn();
         }
+    }
+    private void Turn()
+    {
+        Vector3 localScale = body.transform.localScale;
+        localScale.x *= -1;
+        body.transform.localScale = localScale;
+
+        IsFacingRight = !IsFacingRight;
+
     }
 }
