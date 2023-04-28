@@ -62,7 +62,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
         invulnerableCounter = InvulnerableStartTime;
         PlayerStatsManager.Instance.SetCurrentHealth(PlayerStatsManager.Instance.CurrentHealth - damage);
         FXManager.Instance.FlashWhite(gameObject);
-        GameManager.Instance.PauseGameEffect(100);
+        FXManager.Instance.PauseGameEffect(100);
         CameraShaker.Instance.Shake(3f, 0.15f);
         EventManager.OnPlayerGetHit?.Invoke();
         if (PlayerStatsManager.Instance.CurrentHealth <= 0)

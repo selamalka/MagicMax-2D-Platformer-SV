@@ -8,9 +8,34 @@ public class FXManager : MonoBehaviour
     [SerializeField] private Material whiteFlashMaterial;
     private Material originalMaterial;
 
+    [SerializeField] private float pauseGameCooldownTime;
+    private float pauseGameCounter;
+
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        pauseGameCounter = pauseGameCooldownTime;
+    }
+
+    private void Update()
+    {
+        PauseGameHandler();
+    }
+
+    private void PauseGameHandler()
+    {
+        if (pauseGameCounter > 0)
+        {
+            pauseGameCounter -= Time.deltaTime;
+        }
+        else
+        {
+            pauseGameCounter = 0;
+        }
     }
 
     public void InstantiateDustCloud(Transform transform)
@@ -36,6 +61,17 @@ public class FXManager : MonoBehaviour
             {
                 renderer2.sharedMaterial = originalMaterial;
             }
+        }
+    }
+
+    public async void PauseGameEffect(int pauseTimeInMilliseconds)
+    {
+        if (pauseGameCounter <= 0)
+        {
+            Time.timeScale = 0.05f;
+            await Task.Delay(pauseTimeInMilliseconds);
+            Time.timeScale = 1f;
+            pauseGameCounter = pauseGameCounter = pauseGameCooldownTime;
         }
     }
 }
