@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &732397697013284396
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 30985307196650053}
+    m_Modifications:
+    - target: {fileID: 9118514163419071649, guid: 39fc3708654375949a4197ffac242b36, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118514163419071649, guid: 39fc3708654375949a4197ffac242b36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118514163419071649, guid: 39fc3708654375949a4197ffac242b36, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118514163419071649, guid: 39fc3708654375949a4197ffac242b36, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118514163419071649, guid: 39fc3708654375949a4197ffac242b36, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118514163419071649, guid: 39fc3708654375949a4197ffac242b36, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118514163419071649, guid: 39fc3708654375949a4197ffac242b36, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118514163419071649, guid: 39fc3708654375949a4197ffac242b36, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118514163419071649, guid: 39fc3708654375949a4197ffac242b36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118514163419071649, guid: 39fc3708654375949a4197ffac242b36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118514163419071649, guid: 39fc3708654375949a4197ffac242b36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118514163419071661, guid: 39fc3708654375949a4197ffac242b36, type: 3}
+      propertyPath: m_Name
+      value: Flame Burst - Level 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 39fc3708654375949a4197ffac242b36, type: 3}
+--- !u!1 &8404428850821085825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9118514163419071661, guid: 39fc3708654375949a4197ffac242b36, type: 3}
+  m_PrefabInstance: {fileID: 732397697013284396}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2580726883360558167
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2575638511129968146, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575638511129968146, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575638511129968146, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575638511129968146, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575638511129968146, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575638511129968146, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575638511129968146, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575638511129968146, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575638511129968146, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575638511129968146, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575638511129968146, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822268140030766065, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+      propertyPath: childSpell
+      value: 
+      objectReference: {fileID: 8404428850821085825}
+    - target: {fileID: 3527644742189078306, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+      propertyPath: m_Name
+      value: Spell Container - Flame Burst - Level 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+--- !u!4 &30985307196650053 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2575638511129968146, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
+  m_PrefabInstance: {fileID: 2580726883360558167}
+  m_PrefabAsset: {fileID: 0}
