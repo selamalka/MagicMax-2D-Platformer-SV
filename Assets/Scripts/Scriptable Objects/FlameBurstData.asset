@@ -15,6 +15,6 @@ MonoBehaviour:
   <Name>k__BackingField: Flame Burst
   <Sprite>k__BackingField: {fileID: 21300000, guid: dd3885098198d104888439be4c590aba, type: 3}
   <Speed>k__BackingField: 0
-  <ManaCost>k__BackingField: 0
+  <ManaCost>k__BackingField: 1
   <Damage>k__BackingField: 5
   <Lifespan>k__BackingField: 2

@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject body;
     [SerializeField] Transform groundCheckTransform;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] float groundCheckRadius;
+    [SerializeField] float groundCheckRayLength;
 
     private bool isJumping;
     [SerializeField] private bool canDoubleJump;
@@ -70,15 +70,13 @@ public class PlayerController : MonoBehaviour
     {
         if (!IsControllable) return;
         FacingHandler();
-
-        IsGrounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);
-
+        IsGroundedHandler();
         JumpHandler();
 
         if (IsNimbusActive) return;
-        var isDashPressed = Input.GetKeyDown(KeyCode.LeftShift);
-        Dash(isDashPressed);
+        DashHandler();
     }
+
 
     private void FixedUpdate()
     {
@@ -154,6 +152,26 @@ public class PlayerController : MonoBehaviour
         {
             SetGravityScale(8);
             rb.mass = 1f;
+        }
+    }
+
+    private void DashHandler()
+    {
+        var isDashPressed = Input.GetKeyDown(KeyCode.LeftShift);
+        Dash(isDashPressed);
+    }
+
+    private void IsGroundedHandler()
+    {
+        RaycastHit2D raycastHit = Physics2D.Raycast(groundCheckTransform.position, Vector2.down, groundCheckRayLength, groundLayer);
+
+        if (raycastHit.collider != null)
+        {
+            IsGrounded = true;
+        }
+        else
+        {
+            IsGrounded = false;
         }
     }
 
