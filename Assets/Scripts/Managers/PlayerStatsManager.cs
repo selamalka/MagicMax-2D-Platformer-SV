@@ -131,20 +131,26 @@ public class PlayerStatsManager : MonoBehaviour
             return;
         }
 
-        CurrentSouls += soulValue;
-        UIManager.Instance.FillSoulPoint();
-
-        if (CurrentSouls >= MaxSouls && CurrentMana < MaxMana)
+        if (CurrentSouls < MaxSouls)
         {
-            await Task.Delay(300);
-            CurrentSouls = 0;
-            UIManager.Instance.ResetSoulPoints();
-            await Task.Delay(300);
-            CurrentMana += 1;
-            UIManager.Instance.FillManaPoint();
+            CurrentSouls += soulValue;
+            UIManager.Instance.FillSoulPoint();
 
-            if (CurrentMana >= MaxMana) CurrentMana = MaxMana;
-        }
+            if (CurrentSouls >= MaxSouls)
+            {
+                await Task.Delay(200);
+                CurrentSouls = 0;
+                UIManager.Instance.ResetSoulPoints();
+
+                if (CurrentMana < MaxMana)
+                {
+                    await Task.Delay(200);
+                    CurrentMana++;
+                    UIManager.Instance.FillManaPoint();
+                    if (CurrentMana >= MaxMana) CurrentMana = MaxMana;
+                }
+            }
+        }    
     }
 
     public void HealthRegenHandler()
