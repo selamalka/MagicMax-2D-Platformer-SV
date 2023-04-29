@@ -171,6 +171,7 @@ public class PlayerStatsManager : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.F))
         {
             PlayerController.Instance.SetIsControllable(true);
+            manaFillCounter = ManaFillTime;
         }
     }
 
