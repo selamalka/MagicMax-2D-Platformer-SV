@@ -14,7 +14,7 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     private void Awake()
     {
         button = GetComponent<Button>();
-        SpellData.SetIsSpellUnlocked(false);
+        SpellData.SetIsUnlocked(false);
     }
 
     private void OnEnable()
@@ -37,12 +37,25 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         if (SpellData.Level == 1)
         {
             blockedImage.color = blockedImage.color.a > 0 ? new Color(0, 0, 0, 0) : blockedImage.color;
-            SpellData.SetIsSpellUnlocked(true);
-            SpellbookManager.Instance.UnlockedSpells.Add(SpellData);
+            SpellData.SetIsUnlocked(true);
             PlayerStatsManager.Instance.SetSpellPoints(PlayerStatsManager.Instance.SpellPoints - SpellData.SpellPointCost);
             UIManager.Instance.UpdateSpellPoints();
+            print(SpellData.Name + " " + SpellData.Level);
         }
-         // NEED TO MAKE CONDITIONS FOR NEXT LEVEL
+        else if (GetPreviousSpellTier().IsUnlocked)
+        {
+            blockedImage.color = blockedImage.color.a > 0 ? new Color(0, 0, 0, 0) : blockedImage.color;
+            SpellData.SetIsUnlocked(true);
+            PlayerStatsManager.Instance.SetSpellPoints(PlayerStatsManager.Instance.SpellPoints - SpellData.SpellPointCost);
+            UIManager.Instance.UpdateSpellPoints();
+            print(SpellData.Name + " " + SpellData.Level);
+        }
+    }
+
+    private SpellData GetPreviousSpellTier()
+    {
+        var spell = SpellManager.Instance.FindSpellByNameAndLevel(SpellData.Name, SpellData.Level - 1);
+        return spell;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
