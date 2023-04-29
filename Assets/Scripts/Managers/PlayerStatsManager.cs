@@ -158,6 +158,8 @@ public class PlayerStatsManager : MonoBehaviour
     {
         if (InputManager.Instance.IsFPressed() && CurrentMana > 0 && CurrentHealth < MaxHealth)
         {
+            PlayerController.Instance.SetIsControllable(false);
+            PlayerController.Instance.Rb.velocity = new Vector2(0, PlayerController.Instance.Rb.velocity.y);
             manaFillCounter -= Time.deltaTime;
 
             if (manaFillCounter <= 0)
@@ -165,6 +167,10 @@ public class PlayerStatsManager : MonoBehaviour
                 RegenerateHealthPoint();
                 manaFillCounter = ManaFillTime;
             }
+        }
+        else if (Input.GetKeyUp(KeyCode.F))
+        {
+            PlayerController.Instance.SetIsControllable(true);
         }
     }
 

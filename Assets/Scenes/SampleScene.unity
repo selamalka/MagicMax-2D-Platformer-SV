@@ -461,6 +461,10 @@ PrefabInstance:
       propertyPath: spellSlot2
       value: 
       objectReference: {fileID: 430608055}
+    - target: {fileID: 2608739400377468351, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
+      propertyPath: meleeCooldownTime
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 3336361800321668108, guid: d9257cd7680a6264d82a42bd7a3f4a51, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5411,7 +5415,7 @@ MonoBehaviour:
   powerups:
   - {fileID: 7721148815597658549, guid: eebd4baf86f925c4abebd81c3456f83b, type: 3}
   - {fileID: 8671604351437798901, guid: fc7d194e5fdb15e49bfdba9699f179d6, type: 3}
-  <DropChance>k__BackingField: 15
+  <DropChance>k__BackingField: 100
 --- !u!114 &1012876934
 MonoBehaviour:
   m_ObjectHideFlags: 0

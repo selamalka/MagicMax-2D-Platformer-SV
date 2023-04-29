@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool hasDashedAfterGrounded;
 
     private Ghost ghostScript;
-    private Rigidbody2D rb;
+    public Rigidbody2D Rb { get; private set; }
 
     private void Awake()
     {
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         IsFacingRight = true;
         canDoubleJump = true;
         ghostScript = GetComponent<Ghost>();
-        rb = GetComponent<Rigidbody2D>();
+        Rb = GetComponent<Rigidbody2D>();
     }
     private void Update()
     {
@@ -79,18 +79,18 @@ public class PlayerController : MonoBehaviour
 
         inputX = Input.GetAxisRaw("Horizontal");
 
-        if (rb.velocity.y < 0)
+        if (Rb.velocity.y < 0)
         {
-            rb.velocity -= gravityVector * fallMultiplier * Time.deltaTime;
+            Rb.velocity -= gravityVector * fallMultiplier * Time.deltaTime;
         }
 
         if (IsNimbusActive) return;
 
-        rb.velocity = new Vector2(inputX * speed * Time.deltaTime, rb.velocity.y);
+        Rb.velocity = new Vector2(inputX * speed * Time.deltaTime, Rb.velocity.y);
 
         if (isDashing)
         {
-            rb.velocity = dashDirection.normalized * dashForce;
+            Rb.velocity = dashDirection.normalized * dashForce;
             return;
         }
     }
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Nimbus"))
         {
             SetGravityScale(0);
-            rb.mass = 0f;
+            Rb.mass = 0f;
         }
 
         if (collision.gameObject.GetComponent<BehemothAI>() != null)
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Nimbus"))
         {
             Vector2 nimbusVelocity = FindObjectOfType<Nimbus>().GetComponent<Rigidbody2D>().velocity;
-            rb.velocity = nimbusVelocity;
+            Rb.velocity = nimbusVelocity;
         }
 
         if (collision.gameObject.GetComponent<BehemothAI>() != null)
@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Nimbus"))
         {
             SetGravityScale(8);
-            rb.mass = 1f;
+            Rb.mass = 1f;
         }
     }
 
@@ -220,13 +220,13 @@ public class PlayerController : MonoBehaviour
             canDoubleJump = true;
             jumpTimeCounter = jumpTime;
             SetGravityScale(2);
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            Rb.velocity = new Vector2(Rb.velocity.x, jumpForce);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && !IsGrounded && canDoubleJump)
         {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce * 2.5f);
+            Rb.velocity = new Vector2(Rb.velocity.x, 0);
+            Rb.velocity = new Vector2(Rb.velocity.x, jumpForce * 2.5f);
             FXManager.Instance.InstantiateDustCloud(groundCheckTransform);
             canDoubleJump = false;
         }
@@ -235,7 +235,7 @@ public class PlayerController : MonoBehaviour
         {
             if (jumpTimeCounter > 0)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce * 2f);
+                Rb.velocity = new Vector2(Rb.velocity.x, jumpForce * 2f);
                 jumpTimeCounter -= Time.deltaTime;
                 jumpTimeCounter = jumpTimeCounter < 0 ? 0 : jumpTimeCounter;
             }
@@ -243,7 +243,7 @@ public class PlayerController : MonoBehaviour
             {
                 isJumping = false;
                 SetGravityScale(8);
-                rb.AddForce(Vector2.down * 10, ForceMode2D.Impulse);
+                Rb.AddForce(Vector2.down * 10, ForceMode2D.Impulse);
             }
         }
 
@@ -254,15 +254,15 @@ public class PlayerController : MonoBehaviour
             SetGravityScale(0);
             await Task.Delay(100);
             SetGravityScale(8);
-            rb.AddForce(Vector2.down * 10, ForceMode2D.Impulse);
+            Rb.AddForce(Vector2.down * 10, ForceMode2D.Impulse);
         }
     }
 
     public async void Knockback(Vector2 collisionDirection, int horizontalForce, int verticalForce, int isControllableDelay)
     {
         IsControllable = false;
-        rb.velocity = Vector2.zero;
-        rb.velocity = new Vector2(-collisionDirection.x * horizontalForce, verticalForce);
+        Rb.velocity = Vector2.zero;
+        Rb.velocity = new Vector2(-collisionDirection.x * horizontalForce, verticalForce);
         await Task.Delay(isControllableDelay);
         IsControllable = true;
     }
@@ -271,36 +271,36 @@ public class PlayerController : MonoBehaviour
         if (!IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
         {
             SetGravityScale(2);
-            rb.velocity = new Vector2(rb.velocity.x, upPushForce * Time.deltaTime);
+            Rb.velocity = new Vector2(Rb.velocity.x, upPushForce * Time.deltaTime);
             await Task.Delay(200);
             SetGravityScale(8);
         }
         else if (!IsGrounded && Input.GetKey(KeyCode.UpArrow) && enemyDirection.y > 0)
         {
-            rb.velocity = Vector2.zero;
-            rb.velocity = new Vector2(0, -downPushForce);
+            Rb.velocity = Vector2.zero;
+            Rb.velocity = new Vector2(0, -downPushForce);
         }
 
         if (Input.GetKey(KeyCode.UpArrow)) return;
 
         if (enemyDirection.x > 0)
         {
-            rb.velocity = Vector2.left * sidePushForce;
+            Rb.velocity = Vector2.left * sidePushForce;
         }
         else if (enemyDirection.x < 0)
         {
-            rb.velocity = Vector2.right * sidePushForce;
+            Rb.velocity = Vector2.right * sidePushForce;
         }
     }
     private void PushPlayerDown()
     {
-        rb.velocity = Vector2.zero;
-        rb.AddForce(Vector2.down * 20);
+        Rb.velocity = Vector2.zero;
+        Rb.AddForce(Vector2.down * 20);
     }
 
     private void SetGravityScale(float value)
     {
-        rb.gravityScale = value;
+        Rb.gravityScale = value;
     }
     public void SetIsNimbusActive(bool value)
     {
