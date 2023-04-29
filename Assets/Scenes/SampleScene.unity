@@ -4123,7 +4123,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d27c2c0ae5118a4e93a21406a605ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnlockedSpells: []
+  Spells:
+  - {fileID: 11400000, guid: 3a96e59b1d42307469357c1fa5b813ab, type: 2}
+  - {fileID: 11400000, guid: 7d7f856f7e1297e439a8ee691cb3575a, type: 2}
+  - {fileID: 11400000, guid: cbd0ac18cccd0e44c8bd2e00177e018c, type: 2}
+  - {fileID: 11400000, guid: cef58021b39d6eb43a9fc365197d5ef0, type: 2}
+  - {fileID: 11400000, guid: d481d388ec3060c4ea07b722127c5945, type: 2}
+  - {fileID: 11400000, guid: 11410fbc85ee1984dbef46325ef5c2d3, type: 2}
+  - {fileID: 11400000, guid: 5052a363ba545bb458cf598374a4db3a, type: 2}
+  - {fileID: 11400000, guid: db6f1963df421b14885c3bb19ae580af, type: 2}
+  - {fileID: 11400000, guid: 47884b1abd39bdd47ba38622876c4c5d, type: 2}
+  - {fileID: 11400000, guid: 496d9a2a12ca66a469ebc34209ace717, type: 2}
+  - {fileID: 11400000, guid: fba384164bdabfd4887ae985d6fd57f2, type: 2}
+  - {fileID: 11400000, guid: 0fa83386a4d008c419203d0db8224972, type: 2}
 --- !u!1001 &1014702872
 PrefabInstance:
   m_ObjectHideFlags: 0
