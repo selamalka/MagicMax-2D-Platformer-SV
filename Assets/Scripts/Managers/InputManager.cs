@@ -4,9 +4,9 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
 
-    //[SerializeField] private Camera cam;
-    //[SerializeField] private GameObject crosshair;
-    //public Vector2 MousePosition { get; private set; }
+/*    [SerializeField] private Camera cam;
+    [SerializeField] private GameObject crosshair;
+    public Vector2 MousePosition { get; private set; }*/
 
 
     private void Awake()
