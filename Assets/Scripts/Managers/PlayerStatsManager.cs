@@ -105,6 +105,7 @@ public class PlayerStatsManager : MonoBehaviour
         if (CurrentExp >= TargetExp)
         {
             LevelUp();
+            EventManager.OnPlayerLevelUp?.Invoke();
         }
     }
 
@@ -114,7 +115,7 @@ public class PlayerStatsManager : MonoBehaviour
         TargetExp *= TargetExpMultiplier;
         CurrentLevel++;
         SpellPoints++;
-        UIManager.Instance.UpdateSpellPoints();
+        //UIManager.Instance.UpdateSpellPoints();
     }
 
     public void GrantExp(float expValue)

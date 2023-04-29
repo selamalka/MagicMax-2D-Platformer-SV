@@ -611,7 +611,7 @@ MonoBehaviour:
   <IsControllable>k__BackingField: 0
   jumpForce: 15
   jumpTime: 0.3
-  speed: 550
+  speed: 500
   fallMultiplier: -0.5
   sidePushForce: 15
   upPushForce: 1500

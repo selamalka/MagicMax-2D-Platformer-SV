@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image expBarFull;
     [SerializeField] private TextMeshProUGUI spellPointsValue;
     [SerializeField] private GameObject spellbookPanel;
+    [SerializeField] private TextMeshProUGUI levelUpAnnouncement;
 
     private void Awake()
     {
@@ -25,6 +26,9 @@ public class UIManager : MonoBehaviour
         EventManager.OnPlayerGetHit += DecreaseHealthPoint;
         EventManager.OnEnemyDeath += UpdateExpBar;
         EventManager.OnTPressed += ToggleSpellbook;
+        EventManager.OnPlayerLevelUp += UpdateSpellPoints;
+        EventManager.OnPlayerLevelUp += AnnounceLevelUp;
+        
     }
 
     private void OnDisable()
@@ -32,6 +36,8 @@ public class UIManager : MonoBehaviour
         EventManager.OnPlayerGetHit -= DecreaseHealthPoint;
         EventManager.OnEnemyDeath -= UpdateExpBar;
         EventManager.OnTPressed -= ToggleSpellbook;
+        EventManager.OnPlayerLevelUp -= UpdateSpellPoints;
+        EventManager.OnPlayerLevelUp -= AnnounceLevelUp;
     }
 
     private void Start()
@@ -39,16 +45,6 @@ public class UIManager : MonoBehaviour
         spellbookPanel.SetActive(false);
         UpdateExpBar();
         UpdateSpellPoints();
-    }
-
-    private void UpdateExpBar()
-    {
-        expBarFull.DOFillAmount(PlayerStatsManager.Instance.CurrentExp / PlayerStatsManager.Instance.TargetExp, 0.2f);
-    }
-
-    public void UpdateSpellPoints()
-    {
-        spellPointsValue.text = PlayerStatsManager.Instance.SpellPoints.ToString();
     }
 
     private void ToggleSpellbook()
@@ -63,6 +59,15 @@ public class UIManager : MonoBehaviour
             GameManager.Instance.ResumeGame();
             spellbookPanel.gameObject.SetActive(false);
         }
+    }
+
+    private void UpdateExpBar()
+    {
+        expBarFull.DOFillAmount(PlayerStatsManager.Instance.CurrentExp / PlayerStatsManager.Instance.TargetExp, 0.2f);
+    }
+    public void UpdateSpellPoints()
+    {
+        spellPointsValue.text = PlayerStatsManager.Instance.SpellPoints.ToString();
     }
 
     public void FillHealthPoint()
@@ -128,5 +133,14 @@ public class UIManager : MonoBehaviour
         {
             soulPoint.DOFade(0, 0.2f);
         }
+    }
+
+    private void AnnounceLevelUp()
+    {
+        levelUpAnnouncement.gameObject.SetActive(true);
+        levelUpAnnouncement.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
+        levelUpAnnouncement.transform.DOLocalMoveY(100, 2).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
+            .OnComplete(() => levelUpAnnouncement.DOFade(0, 1).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
+            .OnComplete(()=> levelUpAnnouncement.gameObject.SetActive(false)));
     }
 }
