@@ -86,6 +86,7 @@ public class BehemothAI : MonoBehaviour
                 if (!IsPlayerInMeleeRange())
                 {
                     currentState = BehemothStateType.Ranged;
+                    rb.velocity = Vector2.zero;
                     IsChargingTowardsPlayer = false;
                     rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
                     rb.DOMoveX(startingPosition.x, 0.5f).SetLoops(0);
