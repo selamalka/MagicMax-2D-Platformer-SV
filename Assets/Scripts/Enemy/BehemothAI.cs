@@ -112,6 +112,8 @@ public class BehemothAI : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (playerGameObject == null) return;
+
         if (IsPlayerInMeleeRange() && canChargeTowardsPlayer)
         {
             ChargePlayer();

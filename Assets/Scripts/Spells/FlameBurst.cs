@@ -43,11 +43,14 @@ public class FlameBurst : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<IDamageable>().TakeDamage(SpellData.Damage);
-            enemiesHitCounter++;
-            if (enemiesHitCounter == maxEnemiesHit)
+            if (enemiesHitCounter < maxEnemiesHit)
             {
-                Destroy(gameObject);
+                collision.gameObject.GetComponent<IDamageable>().TakeDamage(SpellData.Damage);
+                enemiesHitCounter++;
+                if (enemiesHitCounter == maxEnemiesHit)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
