@@ -1,7 +1,4 @@
 using DG.Tweening;
-using System;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BehemothAI : MonoBehaviour
@@ -11,7 +8,6 @@ public class BehemothAI : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector3 startingPosition;
-    private float speed;
     private bool isFacingRight = true;
     private bool isTurning;
     [field: SerializeField] public bool IsChargingTowardsPlayer { get; private set; }
@@ -43,7 +39,6 @@ public class BehemothAI : MonoBehaviour
         startingPosition = transform.position;
         playerGameObject = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
-        speed = EnemyManager.Instance.BehemothSpeed;
         timeBetweenProjectiles = EnemyManager.Instance.BehemothTimeBetweenProjectiles;
         timeBetweenMelee = EnemyManager.Instance.BehemothTimeBetweenMelee;
         projectilePrefab = EnemyManager.Instance.BehemothProjetilePrefab;
@@ -112,56 +107,15 @@ public class BehemothAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (playerGameObject == null) return;
+        if (playerGameObject == null)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
 
         if (IsPlayerInMeleeRange() && canChargeTowardsPlayer)
         {
             ChargePlayer();
-        }
-    }
-
-    private void RangedAttack()
-    {
-        if (projectileCooldownCounter <= 0)
-        {
-            InstantiateProjectile();
-            projectileCooldownCounter = timeBetweenProjectiles;
-        }
-    }
-
-    private void MeleeHandler()
-    {
-        if (meleeCooldownCounter > 0)
-        {
-            meleeCooldownCounter -= Time.deltaTime;
-            if (meleeCooldownCounter <= 0)
-            {
-                canChargeTowardsPlayer = true;
-            }
-            else
-            {
-                canChargeTowardsPlayer = false;
-            }
-        }
-    }
-
-    private void ChargePlayer()
-    {
-        IsChargingTowardsPlayer = true;
-        playerDirection = (playerGameObject.transform.position - transform.position).normalized;
-        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * Time.deltaTime * 800;
-
-        if (isPlayerHit)
-        {
-            print(isPlayerHit);
-            isPlayerHit = false;
-            IsChargingTowardsPlayer = false;
-            meleeCooldownCounter = timeBetweenMelee;
-        }
-        else
-        {
-            IsChargingTowardsPlayer = false;
-            PlayerController.Instance.Knockback(-playerDirection, 30, 20, 700);
         }
     }
 
@@ -194,6 +148,54 @@ public class BehemothAI : MonoBehaviour
             {
                 rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
             }
+        }
+    }
+
+    private void RangedAttack()
+    {
+        if (projectileCooldownCounter <= 0)
+        {
+            InstantiateProjectile();
+            projectileCooldownCounter = timeBetweenProjectiles;
+        }
+    }
+
+    private void MeleeHandler()
+    {
+        if (meleeCooldownCounter > 0)
+        {
+            meleeCooldownCounter -= Time.deltaTime;
+            if (meleeCooldownCounter <= 0)
+            {
+                canChargeTowardsPlayer = true;
+            }
+            else
+            {
+                canChargeTowardsPlayer = false;
+            }
+        }
+    }
+
+    private void ChargePlayer()
+    {
+        if (playerGameObject == null) return;
+
+        IsChargingTowardsPlayer = true;
+        playerDirection = (playerGameObject.transform.position - transform.position).normalized;
+        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * Time.deltaTime * 800;
+
+        if (isPlayerHit)
+        {
+            print(isPlayerHit);
+            isPlayerHit = false;
+            IsChargingTowardsPlayer = false;
+            meleeCooldownCounter = timeBetweenMelee;
+        }
+        else
+        {
+            IsChargingTowardsPlayer = false;
+            PlayerController.Instance.Knockback(-playerDirection, 30, 20, 700);
+            meleeCooldownCounter = timeBetweenMelee;
         }
     }
 
