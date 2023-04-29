@@ -22,4 +22,7 @@ public class EventManager : MonoBehaviour
 
     public delegate void NimbusIsActiveAction();
     public static NimbusIsActiveAction OnNimbusIsActive;
+
+    public delegate void PlayerLevelUpAction();
+    public static PlayerLevelUpAction OnPlayerLevelUp;
 }
