@@ -210,7 +210,7 @@ public class PlayerController : MonoBehaviour
             IsGrounded = false;
         }
     }
-    private async void JumpHandler()
+    private void JumpHandler()
     {
         if (IsNimbusActive) return;
 
@@ -298,6 +298,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetGravityScale(float value)
     {
+        if (Rb == null) return;
         Rb.gravityScale = value;
     }
     public void SetIsNimbusActive(bool value)
