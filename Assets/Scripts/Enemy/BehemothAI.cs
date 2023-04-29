@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class BehemothAI : MonoBehaviour
@@ -12,7 +13,6 @@ public class BehemothAI : MonoBehaviour
     private bool isTurning;
     [field: SerializeField] public bool IsChargingTowardsPlayer { get; private set; }
     [SerializeField] private bool canChargeTowardsPlayer;
-    private bool isPlayerHit;
 
     private GameObject projectilePrefab;
     private float timeBetweenProjectiles;
@@ -86,7 +86,6 @@ public class BehemothAI : MonoBehaviour
                 if (!IsPlayerInMeleeRange())
                 {
                     currentState = BehemothStateType.Ranged;
-                    rb.velocity = Vector2.zero;
                     IsChargingTowardsPlayer = false;
                     rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
                     rb.DOMoveX(startingPosition.x, 0.5f).SetLoops(0);
@@ -131,7 +130,6 @@ public class BehemothAI : MonoBehaviour
         {
             if (IsChargingTowardsPlayer)
             {
-                isPlayerHit = true;
                 meleeCooldownCounter = timeBetweenMelee;
             }
         }
@@ -177,26 +175,20 @@ public class BehemothAI : MonoBehaviour
         }
     }
 
-    private void ChargePlayer()
+    private async void ChargePlayer()
     {
         if (playerGameObject == null) return;
 
         IsChargingTowardsPlayer = true;
         playerDirection = (playerGameObject.transform.position - transform.position).normalized;
-        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * Time.deltaTime * 800;
+        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * Time.deltaTime * 2000;
 
-        if (isPlayerHit)
-        {
-            print(isPlayerHit);
-            isPlayerHit = false;
-            IsChargingTowardsPlayer = false;
-            meleeCooldownCounter = timeBetweenMelee;
-        }
-        else
+        if (Vector2.Distance(transform.position, playerGameObject.transform.position) <= 3f)
         {
             IsChargingTowardsPlayer = false;
-            PlayerController.Instance.Knockback(-playerDirection, 30, 20, 700);
+            PlayerController.Instance.Knockback(-playerDirection, 30, 20, 500); 
             meleeCooldownCounter = timeBetweenMelee;
+            rb.velocity = Vector2.zero;
         }
     }
 
