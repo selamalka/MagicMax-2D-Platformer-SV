@@ -151,7 +151,7 @@ public class PlayerStatsManager : MonoBehaviour
                     if (CurrentMana >= MaxMana) CurrentMana = MaxMana;
                 }
             }
-        }    
+        }
     }
 
     public void HealthRegenHandler()
@@ -159,7 +159,10 @@ public class PlayerStatsManager : MonoBehaviour
         if (InputManager.Instance.IsFPressed() && CurrentMana > 0 && CurrentHealth < MaxHealth)
         {
             PlayerController.Instance.SetIsControllable(false);
-            PlayerController.Instance.Rb.velocity = new Vector2(0, PlayerController.Instance.Rb.velocity.y);
+            if (PlayerController.Instance.Rb != null)
+            {
+                PlayerController.Instance.Rb.velocity = new Vector2(0, PlayerController.Instance.Rb.velocity.y);
+            }
             manaFillCounter -= Time.deltaTime;
 
             if (manaFillCounter <= 0)

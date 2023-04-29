@@ -31,7 +31,7 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 
     private void UnlockSpell()
     {
-        if (PlayerStatsManager.Instance.SpellPoints - SpellData.SpellPointCost < 0) return;
+        if (PlayerStatsManager.Instance.SpellPoints - SpellData.SpellPointCost < 0 || SpellData.IsUnlocked) return;
         if (SpellData.Level == 1)
         {
             blockedImage.color = blockedImage.color.a > 0 ? new Color(0, 0, 0, 0) : blockedImage.color;

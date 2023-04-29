@@ -251,8 +251,6 @@ public class PlayerController : MonoBehaviour
         {
             jumpTimeCounter = 0;
             isJumping = false;
-            SetGravityScale(0);
-            await Task.Delay(100);
             SetGravityScale(8);
             Rb.AddForce(Vector2.down * 10, ForceMode2D.Impulse);
         }
