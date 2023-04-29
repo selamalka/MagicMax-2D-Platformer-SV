@@ -16,17 +16,14 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         button = GetComponent<Button>();
         SpellData.SetIsUnlocked(false);
     }
-
     private void OnEnable()
     {
         button.onClick.AddListener(UnlockSpell);
     }
-
     private void OnDisable()
     {
         button.onClick.RemoveListener(UnlockSpell);
     }
-
     private void Start()
     {
         GetComponent<Image>().sprite = SpellData.Sprite;
@@ -41,7 +38,6 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
             SpellData.SetIsUnlocked(true);
             PlayerStatsManager.Instance.SetSpellPoints(PlayerStatsManager.Instance.SpellPoints - SpellData.SpellPointCost);
             UIManager.Instance.UpdateSpellPoints();
-            print(SpellData.Name + " " + SpellData.Level);
         }
         else if (GetPreviousSpellTier().IsUnlocked)
         {
@@ -49,10 +45,8 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
             SpellData.SetIsUnlocked(true);
             PlayerStatsManager.Instance.SetSpellPoints(PlayerStatsManager.Instance.SpellPoints - SpellData.SpellPointCost);
             UIManager.Instance.UpdateSpellPoints();
-            print(SpellData.Name + " " + SpellData.Level);
         }
     }
-
     private SpellData GetPreviousSpellTier()
     {
         var spell = SpellManager.Instance.FindSpellByNameAndLevel(SpellData.Name, SpellData.Level - 1);
@@ -61,23 +55,21 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (SpellData.Level == 0) return;
+        if (SpellData.Level == 0 || !SpellData.IsUnlocked) return;
         draggedIcon = new GameObject(SpellData.Name);
         Image iconImage = draggedIcon.AddComponent<Image>();
         iconImage.sprite = GetComponent<Image>().sprite;
         iconImage.raycastTarget = false;
         draggedIcon.transform.SetParent(transform.root, false);
     }
-
     public void OnDrag(PointerEventData eventData)
     {
-        if (SpellData.Level == 0) return;
+        if (SpellData.Level == 0 || !SpellData.IsUnlocked) return;
         draggedIcon.transform.position = Input.mousePosition;
     }
-
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (SpellData.Level == 0) return;
+        if (SpellData.Level == 0 || !SpellData.IsUnlocked) return;
         SpellSlot spellSlot = eventData.pointerEnter.GetComponent<SpellSlot>();
 
         if (spellSlot != null)
