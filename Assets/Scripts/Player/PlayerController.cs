@@ -108,8 +108,9 @@ public class PlayerController : MonoBehaviour
             BehemothAI behemoth = collision.gameObject.GetComponent<BehemothAI>();
             if (behemoth.IsChargingTowardsPlayer)
             {
+                Rb.velocity = Vector2.zero;
                 Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
-                Knockback(collisionDirection, 30, 20, 700);
+                Knockback(collisionDirection, 30, 20, 500);
             }
         }
 
@@ -127,16 +128,6 @@ public class PlayerController : MonoBehaviour
         {
             Vector2 nimbusVelocity = FindObjectOfType<Nimbus>().GetComponent<Rigidbody2D>().velocity;
             Rb.velocity = nimbusVelocity;
-        }
-
-        if (collision.gameObject.GetComponent<BehemothAI>() != null)
-        {
-            BehemothAI behemoth = collision.gameObject.GetComponent<BehemothAI>();
-            if (behemoth.IsChargingTowardsPlayer)
-            {
-                Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
-                Knockback(collisionDirection, 30, 20, 700);
-            }
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
