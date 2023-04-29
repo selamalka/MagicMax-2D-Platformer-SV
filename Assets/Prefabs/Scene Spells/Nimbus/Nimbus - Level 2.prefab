@@ -201,4 +201,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SpellData>k__BackingField: {fileID: 11400000, guid: fba384164bdabfd4887ae985d6fd57f2, type: 2}
-  speed: 800
+  speed: 900

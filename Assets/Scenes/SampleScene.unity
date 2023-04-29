@@ -5415,7 +5415,7 @@ MonoBehaviour:
   powerups:
   - {fileID: 7721148815597658549, guid: eebd4baf86f925c4abebd81c3456f83b, type: 3}
   - {fileID: 8671604351437798901, guid: fc7d194e5fdb15e49bfdba9699f179d6, type: 3}
-  <DropChance>k__BackingField: 100
+  <DropChance>k__BackingField: 20
 --- !u!114 &1012876934
 MonoBehaviour:
   m_ObjectHideFlags: 0
