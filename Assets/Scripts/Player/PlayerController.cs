@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 dashDirection;
     private bool canDash = true;
     private bool isDashing;
-    [SerializeField] private bool hasDashedAfterGrounded;
+    private bool hasDashedAfterGrounded;
 
     private Ghost ghostScript;
     public Rigidbody2D Rb { get; private set; }
@@ -68,9 +68,9 @@ public class PlayerController : MonoBehaviour
         if (!IsControllable) return;
         FacingHandler();
         IsGroundedHandler();
-        JumpHandler();
 
         if (IsNimbusActive) return;
+        JumpHandler();
         DashHandler();
     }
     private void FixedUpdate()
@@ -203,8 +203,6 @@ public class PlayerController : MonoBehaviour
     }
     private void JumpHandler()
     {
-        if (IsNimbusActive) return;
-
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded)
         {
             isJumping = true;
