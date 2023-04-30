@@ -55,11 +55,14 @@ public class MagicShot : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<IDamageable>().TakeDamage(SpellData.Damage);
-            enemiesHitCounter++;
-            if (enemiesHitCounter == maxEnemiesHit)
+            if (enemiesHitCounter < maxEnemiesHit)
             {
-                Destroy(gameObject); 
+                collision.GetComponent<IDamageable>().TakeDamage(SpellData.Damage);
+                enemiesHitCounter++;
+                if (enemiesHitCounter == maxEnemiesHit)
+                {
+                    Destroy(gameObject);
+                } 
             }
         }
         else if (collision.CompareTag("Tilemap"))
