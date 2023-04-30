@@ -11,6 +11,8 @@ public class MeleeSlash : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
+        transform.localScale = new Vector3(PlayerController.Instance.IsFacingRight ? 1 : -1, 1, 1);
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
             rb.velocity = new Vector2(0, 20);
