@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     [field: SerializeField] public bool IsGrounded { get; private set; }
     [field: SerializeField] public bool IsControllable { get; private set; }
-    public bool IsFacingRight { get; private set; }
+    [field: SerializeField] public bool IsFacingRight { get; private set; }
     public bool IsNimbusActive { get; private set; }
 
     [SerializeField] private float jumpForce;
@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private bool isDashing;
     private bool hasDashedAfterGrounded;
 
+    private Animator animator;
     private Ghost ghostScript;
     public Rigidbody2D Rb { get; private set; }
 
@@ -62,6 +63,7 @@ public class PlayerController : MonoBehaviour
         canDoubleJump = true;
         ghostScript = GetComponent<Ghost>();
         Rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -87,7 +89,14 @@ public class PlayerController : MonoBehaviour
         if (IsNimbusActive) return;
 
         Rb.velocity = new Vector2(inputX * speed * Time.deltaTime, Rb.velocity.y);
-
+        if (Rb.velocity.x != 0f)
+        {
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
         if (isDashing)
         {
             Rb.velocity = dashDirection.normalized * dashForce;
@@ -171,7 +180,7 @@ public class PlayerController : MonoBehaviour
 
             if (dashDirection == Vector2.zero)
             {
-                dashDirection = new Vector2(body.transform.localScale.x, 0);
+                dashDirection = new Vector2(transform.localScale.x, 0);
             }
 
             CameraShaker.Instance.Shake(1f, 0.2f);
@@ -312,11 +321,9 @@ public class PlayerController : MonoBehaviour
     }
     private void Turn()
     {
-        Vector3 localScale = body.transform.localScale;
-        localScale.x *= -1;
-        body.transform.localScale = localScale;
-
+        Quaternion rotation = transform.rotation;
+        rotation.y = IsFacingRight ? 180f : 0f;
+        transform.rotation = rotation;
         IsFacingRight = !IsFacingRight;
-
     }
 }

@@ -147,10 +147,7 @@ public class ShadowDemonAI : MonoBehaviour
     private void Turn()
     {
         isTurning = true;
-        rb.velocity = Vector3.zero;
-        Quaternion rotation = transform.rotation;
-        rotation.y = isFacingRight ? 180f : 0f;
-        transform.rotation = rotation;
+        transform.rotation = Quaternion.Euler(0, isFacingRight ? 180f : 0, 0);
         isFacingRight = !isFacingRight;
         isTurning = false;
     }
