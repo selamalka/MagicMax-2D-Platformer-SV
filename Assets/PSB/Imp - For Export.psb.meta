@@ -139,8 +139,8 @@ ScriptedImporter:
     spritePosition: {x: 281, y: 306}
   - name: Arm Right
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.03613236, y: 0.26534086}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -161,8 +161,8 @@ ScriptedImporter:
     spritePosition: {x: 280, y: 150}
   - name: Arm Left
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.9732731, y: 0.06213976}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
