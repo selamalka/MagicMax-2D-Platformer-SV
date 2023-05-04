@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class BehemothAI : MonoBehaviour
@@ -175,7 +174,7 @@ public class BehemothAI : MonoBehaviour
         }
     }
 
-    private async void ChargePlayer()
+    private void ChargePlayer()
     {
         if (playerGameObject == null) return;
 

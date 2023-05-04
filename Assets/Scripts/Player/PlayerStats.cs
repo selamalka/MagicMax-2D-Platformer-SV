@@ -12,10 +12,19 @@ public class PlayerStats : MonoBehaviour, IDamageable
     {
         Instance = this;
     }
-
     private void Update()
     {
         InvulnerableHandler();
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            if (!isInvulnerable)
+            {
+                TakeDamageOnEnemyCollision(collision);
+            }
+        }
     }
 
     private void InvulnerableHandler()
@@ -36,25 +45,6 @@ public class PlayerStats : MonoBehaviour, IDamageable
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            if (!isInvulnerable)
-            {
-                TakeDamageOnEnemyCollision(collision);
-            }
-        }
-    }
-
-    private void TakeDamageOnEnemyCollision(Collision2D collision)
-    {
-        TakeDamage(1);
-        Vector2 enemyDirection = collision.gameObject.transform.position - transform.position;
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        PlayerController.Instance.Knockback(enemyDirection, 30, 20, 500);
-    }
-
     public void TakeDamage(int damage)
     {
         if (isInvulnerable) return;
@@ -70,5 +60,16 @@ public class PlayerStats : MonoBehaviour, IDamageable
             Destroy(gameObject);
             GameManager.Instance.ResumeGame();
         }
+    }
+
+    private void TakeDamageOnEnemyCollision(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<BehemothAI>() == null)
+        {
+            TakeDamage(1);
+        }
+        Vector2 enemyDirection = collision.gameObject.transform.position - transform.position;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        PlayerController.Instance.Knockback(enemyDirection, 30, 20, 500);
     }
 }
