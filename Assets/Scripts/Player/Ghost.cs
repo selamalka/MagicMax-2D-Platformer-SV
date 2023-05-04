@@ -37,7 +37,7 @@ public class Ghost : MonoBehaviour
     private void InstantiateGhost()
     {
         var newPos = new Vector3(ghostOriginTransform.transform.position.x, ghostOriginTransform.transform.position.y, ghostOriginTransform.transform.position.z);
-        var currentGhost = Instantiate(ghostPrefab, newPos, Quaternion.identity);
+        var currentGhost = Instantiate(ghostPrefab, newPos, transform.rotation);
         currentGhost.transform.localScale = body.localScale;
         Destroy(currentGhost, ghostDestructionTime);
     }

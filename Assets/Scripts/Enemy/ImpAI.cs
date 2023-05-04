@@ -5,12 +5,11 @@ public class ImpAI : MonoBehaviour
     [SerializeField] private Transform projectilePointTransform;
     [SerializeField] private Transform pointA;
     [SerializeField] private Transform pointB;
-    [SerializeField] private Transform body;
 
     private Rigidbody2D rb;
     private float speed;
-    private bool isFacingRight = true;
-    private bool isTurning;
+    [SerializeField] private bool isFacingRight = true;
+    [SerializeField] private bool isTurning;
 
     private GameObject projectilePrefab;
     private float timeBetweenProjectiles;
@@ -66,21 +65,16 @@ public class ImpAI : MonoBehaviour
         ProjectileCooldownHandler();
     }
 
-    private void ProjectileCooldownHandler()
-    {
-        if (projectileCooldownCounter > 0)
-        {
-            projectileCooldownCounter -= Time.deltaTime;
-        }
-    }
-
     private void FixedUpdate()
     {
         if (playerGameObject == null) return;
 
         if (currentState == ImpStateType.Patrol)
         {
-            Patrol();
+            if (!isTurning)
+            {
+                Patrol(); 
+            }
         }
     }
 
@@ -90,6 +84,7 @@ public class ImpAI : MonoBehaviour
         {
             if (currentState == ImpStateType.Patrol)
             {
+                rb.velocity = Vector3.zero;
                 Turn();
             }
         }
@@ -109,6 +104,13 @@ public class ImpAI : MonoBehaviour
             projectileCooldownCounter = timeBetweenProjectiles;
         }
     }
+    private void ProjectileCooldownHandler()
+    {
+        if (projectileCooldownCounter > 0)
+        {
+            projectileCooldownCounter -= Time.deltaTime;
+        }
+    }
 
     private bool IsPlayerInAttackRange()
     {
@@ -123,10 +125,7 @@ public class ImpAI : MonoBehaviour
     private void Turn()
     {
         isTurning = true;
-        rb.velocity = Vector3.zero;
-        Quaternion rotation = body.transform.rotation;
-        rotation.y = isFacingRight ? 180f : 0f;
-        body.transform.rotation = rotation;
+        transform.rotation = Quaternion.Euler(0, isFacingRight ? 180f : 0, 0);
         isFacingRight = !isFacingRight;
         isTurning = false;
     }
@@ -154,14 +153,7 @@ public class ImpAI : MonoBehaviour
 
     private void Patrol()
     {
-        if (isFacingRight)
-        {
-            rb.velocity = new Vector2(transform.right.x * Time.deltaTime * speed, 0);
-        }
-        else
-        {
-            rb.velocity = new Vector2(-transform.right.x * Time.deltaTime * speed, 0);
-        }
+        rb.velocity = new Vector2(transform.right.x * Time.deltaTime * speed, 0);
     }
 
     private void InstantiateProjectile()
