@@ -6,10 +6,11 @@ public class ImpAI : MonoBehaviour
     [SerializeField] private Transform pointA;
     [SerializeField] private Transform pointB;
 
+    private Animator animator;
     private Rigidbody2D rb;
     private float speed;
-    [SerializeField] private bool isFacingRight = true;
-    [SerializeField] private bool isTurning;
+    private bool isFacingRight = true;
+    private bool isTurning;
 
     private GameObject projectilePrefab;
     private float timeBetweenProjectiles;
@@ -23,6 +24,7 @@ public class ImpAI : MonoBehaviour
     {
         playerGameObject = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         speed = EnemyManager.Instance.ImpSpeed;
         timeBetweenProjectiles = EnemyManager.Instance.ImpTimeBetweenProjectiles;
         projectilePrefab = EnemyManager.Instance.ImpProjetilePrefab;
@@ -30,6 +32,7 @@ public class ImpAI : MonoBehaviour
         projectileCooldownCounter = timeBetweenProjectiles;
 
         currentState = ImpStateType.Patrol;
+        animator.SetBool("isWalking", true);
     }
 
     private void Update()
@@ -43,6 +46,7 @@ public class ImpAI : MonoBehaviour
                 if (IsPlayerInAttackRange())
                 {
                     currentState = ImpStateType.Attack;
+                    animator.SetBool("isWalking", false);
                 }
 
                 break;
@@ -52,6 +56,7 @@ public class ImpAI : MonoBehaviour
                 if (!IsPlayerInAttackRange())
                 {
                     currentState = ImpStateType.Patrol;
+                    animator.SetBool("isWalking", true);
                 }
 
                 AttackPlayer();
@@ -73,7 +78,7 @@ public class ImpAI : MonoBehaviour
         {
             if (!isTurning)
             {
-                Patrol(); 
+                Patrol();
             }
         }
     }
@@ -84,7 +89,6 @@ public class ImpAI : MonoBehaviour
         {
             if (currentState == ImpStateType.Patrol)
             {
-                rb.velocity = Vector3.zero;
                 Turn();
             }
         }
@@ -100,7 +104,8 @@ public class ImpAI : MonoBehaviour
 
         if (projectileCooldownCounter <= 0)
         {
-            InstantiateProjectile();
+            //InstantiateProjectile();
+            animator.SetTrigger("attack");
             projectileCooldownCounter = timeBetweenProjectiles;
         }
     }
@@ -138,8 +143,8 @@ public class ImpAI : MonoBehaviour
         if (angle > 90f || angle < -90f)
         {
             if (isFacingRight && !isTurning)
-            {             
-                Turn();    
+            {
+                Turn();
             }
         }
         else if (angle < 90 || angle > -90)
@@ -156,7 +161,8 @@ public class ImpAI : MonoBehaviour
         rb.velocity = new Vector2(transform.right.x * Time.deltaTime * speed, 0);
     }
 
-    private void InstantiateProjectile()
+    //Animation Event
+    public void InstantiateProjectile()
     {
         Instantiate(projectilePrefab, projectilePointTransform.position, Quaternion.identity);
     }
