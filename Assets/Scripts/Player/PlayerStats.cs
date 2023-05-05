@@ -74,7 +74,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
         if (collision.gameObject.GetComponent<BehemothAI>() == null)
         {
-            PlayerController.Instance.Knockback(enemyDirection, 30, 20, 500); 
+            PlayerController.Instance.Knockback(enemyDirection, 10, 10, 250); 
         }
     }
 }
