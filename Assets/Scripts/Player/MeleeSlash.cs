@@ -4,7 +4,6 @@ using UnityEngine;
 public class MeleeSlash : MonoBehaviour
 {
     private Vector2 enemyDirection;
-    private bool shouldPush;
     private Rigidbody2D rb;
 
     private void Start()
@@ -31,7 +30,6 @@ public class MeleeSlash : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            shouldPush = true;
             PlayerController.Instance.SetIsControllable(false);
 
             collision.GetComponent<IDamageable>().TakeDamage(PlayerStatsManager.Instance.MeleeDamage);
@@ -42,6 +40,7 @@ public class MeleeSlash : MonoBehaviour
 
             enemyDirection = collision.gameObject.transform.position - transform.position;
             PlayerController.Instance.PushPlayerAgainstEnemyDirectionOnMelee(enemyDirection);
+
             await Task.Delay(150);
             PlayerController.Instance.SetIsControllable(true);
         }

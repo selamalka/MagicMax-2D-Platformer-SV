@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     [field: SerializeField] public bool IsGrounded { get; private set; }
     [field: SerializeField] public bool IsControllable { get; private set; }
+    [field: SerializeField] public bool IsKnocked { get; private set; }
     [field: SerializeField] public bool IsFacingRight { get; private set; }
     public bool IsNimbusActive { get; private set; }
 
@@ -112,7 +113,7 @@ public class PlayerController : MonoBehaviour
             Rb.mass = 0f;
         }
 
-        if (collision.gameObject.GetComponent<BehemothAI>() != null)
+/*        if (collision.gameObject.GetComponent<BehemothAI>() != null)
         {
             BehemothAI behemoth = collision.gameObject.GetComponent<BehemothAI>();
             if (behemoth.IsChargingTowardsPlayer)
@@ -121,7 +122,7 @@ public class PlayerController : MonoBehaviour
                 Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
                 Knockback(collisionDirection, 50, 20, 1000);
             }
-        }
+        }*/
 
         if (collision.gameObject.CompareTag("Tilemap"))
         {

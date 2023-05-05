@@ -35,6 +35,8 @@ public class PlayerCombat : MonoBehaviour
             meleeCooldownCounter -= Time.deltaTime;
         }
 
+        if (!PlayerController.Instance.IsControllable) return;
+
         if (InputManager.Instance.IsWPressed())
         {
             MeleeSlash();
@@ -98,8 +100,6 @@ public class PlayerCombat : MonoBehaviour
 
     private void MeleeSlash()
     {
-        print("player controlable:" + PlayerController.Instance.IsControllable);
-        if (!PlayerController.Instance.IsControllable) return;
         if (meleeCooldownCounter <= 0)
         {
             if (PlayerController.Instance.IsGrounded && Input.GetKey(KeyCode.DownArrow)) return;
