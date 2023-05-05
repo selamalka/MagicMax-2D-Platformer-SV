@@ -24,10 +24,12 @@ public class InputManager : MonoBehaviour
             EventManager.OnQPressed?.Invoke();
         }
 
-        if (IsWPressed())
-        {
-            EventManager.OnWPressed?.Invoke();
-        }
+        /*        if (IsWPressed())
+                {
+                    EventManager.OnWPressed?.Invoke();
+                }*/
+
+        IsWPressed();
 
         if (IsEPressed())
         {
@@ -45,7 +47,7 @@ public class InputManager : MonoBehaviour
         return Input.GetKeyDown(KeyCode.Q);
     }
 
-    private bool IsWPressed()
+    public bool IsWPressed()
     {
         return Input.GetKeyDown(KeyCode.W);
     }

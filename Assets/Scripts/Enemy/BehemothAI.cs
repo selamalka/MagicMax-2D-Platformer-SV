@@ -180,14 +180,16 @@ public class BehemothAI : MonoBehaviour
 
         IsChargingTowardsPlayer = true;
         playerDirection = (playerGameObject.transform.position - transform.position).normalized;
-        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * Time.deltaTime * 2000;
+        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * 60;
 
-        if (Vector2.Distance(transform.position, playerGameObject.transform.position) <= 3f)
+        if (Vector2.Distance(transform.position, playerGameObject.transform.position) <= 5f)
         {
-            IsChargingTowardsPlayer = false;
-            PlayerController.Instance.Knockback(-playerDirection, 30, 20, 500); 
-            meleeCooldownCounter = timeBetweenMelee;
             rb.velocity = Vector2.zero;
+            PlayerController.Instance.Knockback(-playerDirection, 50, 20, 1000);
+            rb.DOMoveX(startingPosition.x, 0.5f).SetLoops(0);
+            meleeCooldownCounter = timeBetweenMelee;
+            IsChargingTowardsPlayer = false;
+            canChargeTowardsPlayer = false;
         }
     }
 

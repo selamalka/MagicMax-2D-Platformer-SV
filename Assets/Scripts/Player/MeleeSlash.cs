@@ -27,44 +27,22 @@ public class MeleeSlash : MonoBehaviour
         }
     }
 
-    /*    private async void FixedUpdate()
-        {        
-            if (shouldPush)
-            {
-                shouldPush = false;
-                PlayerController.Instance.PushPlayerAgainstDirection(enemyDirection);
-                await Task.Delay(100);
-                PlayerController.Instance.SetIsControllable(true);
-            }
-            else
-            {
-                UnstuckPlayer();
-            }
-        }*/
-
     private async void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
             shouldPush = true;
             PlayerController.Instance.SetIsControllable(false);
+
             collision.GetComponent<IDamageable>().TakeDamage(PlayerStatsManager.Instance.MeleeDamage);
             Transform enemyTransform = collision.gameObject.transform;
             PlayerCombat.Instance.InstantiateHitEffect(transform.position, enemyTransform);
             CameraShaker.Instance.Shake(5f, 0.1f);
             GetComponent<Collider2D>().enabled = false;
+
             enemyDirection = collision.gameObject.transform.position - transform.position;
             PlayerController.Instance.PushPlayerAgainstEnemyDirectionOnMelee(enemyDirection);
             await Task.Delay(150);
-            PlayerController.Instance.SetIsControllable(true);
-        }
-    }
-
-    private async void UnstuckPlayer()
-    {
-        if (shouldPush && PlayerController.Instance.IsControllable == false)
-        {
-            await Task.Delay(100);
             PlayerController.Instance.SetIsControllable(true);
         }
     }
