@@ -9,7 +9,7 @@ public class PowerupBase : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Nimbus"))
         {
             ActivatePowerup();
         }
