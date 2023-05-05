@@ -7,11 +7,10 @@ public class BehemothAI : MonoBehaviour
     [SerializeField] private Transform body;
 
     private Rigidbody2D rb;
-    private Vector3 startingPosition;
     private bool isFacingRight = true;
     private bool isTurning;
     [field: SerializeField] public bool IsChargingTowardsPlayer { get; private set; }
-    [SerializeField] private bool canChargeTowardsPlayer;
+    [SerializeField] private bool canKnockPlayer;
 
     private GameObject projectilePrefab;
     private float timeBetweenProjectiles;
@@ -23,8 +22,8 @@ public class BehemothAI : MonoBehaviour
     private float rangedDetectionRadius;
     private float meleeDetectionRadius;
 
-    private float timeBetweenCharges;
-    [SerializeField] private float chargeCooldownCounter;
+    private float timeBetweenKnocks;
+    [SerializeField] private float knockCooldownCounter;
 
     private void OnDrawGizmos()
     {
@@ -35,16 +34,15 @@ public class BehemothAI : MonoBehaviour
 
     private void Start()
     {
-        startingPosition = transform.position;
         playerGameObject = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         timeBetweenProjectiles = EnemyManager.Instance.BehemothTimeBetweenProjectiles;
-        timeBetweenCharges = EnemyManager.Instance.BehemothTimeBetweenMelee;
+        timeBetweenKnocks = EnemyManager.Instance.BehemothTimeBetweenMelee;
         projectilePrefab = EnemyManager.Instance.BehemothProjetilePrefab;
         rangedDetectionRadius = EnemyManager.Instance.BehemothRangedDetectionRadius;
         meleeDetectionRadius = EnemyManager.Instance.BehemothMeleeDetectionRadius;
         projectileCooldownCounter = timeBetweenProjectiles;
-        chargeCooldownCounter = timeBetweenCharges;
+        knockCooldownCounter = timeBetweenKnocks;
 
         currentState = BehemothStateType.Guard;
     }
@@ -68,14 +66,12 @@ public class BehemothAI : MonoBehaviour
                 if (!IsPlayerInRangedRange())
                 {
                     currentState = BehemothStateType.Guard;
-                    rb.DOMoveX(startingPosition.x, 0.5f).SetLoops(0);
                 }
                 else if (IsPlayerInMeleeRange())
                 {
                     currentState = BehemothStateType.Melee;
-                    chargeCooldownCounter = timeBetweenCharges;
+                    knockCooldownCounter = timeBetweenKnocks;
                 }
-                rb.velocity = Vector2.zero;
                 RangedAttack();
 
                 break;
@@ -85,14 +81,16 @@ public class BehemothAI : MonoBehaviour
                 if (!IsPlayerInMeleeRange())
                 {
                     currentState = BehemothStateType.Ranged;
-                    IsChargingTowardsPlayer = false;
-                    rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
-                    rb.DOMoveX(startingPosition.x, 0.5f).SetLoops(0);
-                    chargeCooldownCounter = timeBetweenCharges;
+                    knockCooldownCounter = timeBetweenKnocks;
                 }
                 if (IsPlayerInMeleeRange())
                 {
-                    MeleeHandler();
+                    KnockHandler();
+
+                    if (IsPlayerInMeleeRange() && canKnockPlayer)
+                    {
+                        KnockPlayer();
+                    }
                 }
                 break;
 
@@ -104,51 +102,6 @@ public class BehemothAI : MonoBehaviour
         TurnHandler();
     }
 
-    private void FixedUpdate()
-    {
-        if (playerGameObject == null)
-        {
-            rb.velocity = Vector2.zero;
-            return;
-        }
-
-        if (IsPlayerInMeleeRange() && canChargeTowardsPlayer)
-        {
-            ChargePlayer();
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Tilemap"))
-        {
-            rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
-        }
-
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            if (IsChargingTowardsPlayer)
-            {
-                chargeCooldownCounter = timeBetweenCharges;
-            }
-        }
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            if (!IsChargingTowardsPlayer)
-            {
-                rb.constraints |= RigidbodyConstraints2D.FreezePositionX;
-            }
-            else
-            {
-                rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
-            }
-        }
-    }
-
     private void RangedAttack()
     {
         if (projectileCooldownCounter <= 0)
@@ -158,39 +111,29 @@ public class BehemothAI : MonoBehaviour
         }
     }
 
-    private void MeleeHandler()
+    private void KnockHandler()
     {
-        if (chargeCooldownCounter > 0)
+        if (knockCooldownCounter > 0)
         {
-            chargeCooldownCounter -= Time.deltaTime;
-            if (chargeCooldownCounter <= 0)
+            knockCooldownCounter -= Time.deltaTime;
+            if (knockCooldownCounter <= 0)
             {
-                canChargeTowardsPlayer = true;
+                canKnockPlayer = true;
             }
             else
             {
-                canChargeTowardsPlayer = false;
+                canKnockPlayer = false;
             }
         }
     }
 
-    private void ChargePlayer()
+    private void KnockPlayer()
     {
         if (playerGameObject == null) return;
 
-        IsChargingTowardsPlayer = true;
-        playerDirection = (playerGameObject.transform.position - transform.position).normalized;
-        rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * 60;
-
-        if (Vector2.Distance(transform.position, playerGameObject.transform.position) <= 10f)
-        {
-            rb.velocity = Vector2.zero;
-            PlayerController.Instance.Knockback(-playerDirection, 50, 20, 500);
-            rb.DOMoveX(startingPosition.x, 0.5f).SetLoops(0);
-            chargeCooldownCounter = timeBetweenCharges;
-            IsChargingTowardsPlayer = false;
-            canChargeTowardsPlayer = false;
-        }
+        PlayerController.Instance.Knockback(playerDirection, 500, 30, 500);
+        knockCooldownCounter = timeBetweenKnocks;
+        canKnockPlayer = false;
     }
 
     private void ProjectileCooldownHandler()
