@@ -241,7 +241,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 isJumping = false;
-                SetGravityScale(8);
+                SetGravityScale(10);
                 Rb.AddForce(Vector2.down * 10, ForceMode2D.Impulse);
             }
         }
