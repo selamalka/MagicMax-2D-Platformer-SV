@@ -68,8 +68,13 @@ public class PlayerStats : MonoBehaviour, IDamageable
         {
             TakeDamage(1);
         }
+
         Vector2 enemyDirection = collision.gameObject.transform.position - transform.position;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        PlayerController.Instance.Knockback(enemyDirection, 30, 20, 500);
+
+        if (collision.gameObject.GetComponent<BehemothAI>() == null)
+        {
+            PlayerController.Instance.Knockback(enemyDirection, 30, 20, 500); 
+        }
     }
 }

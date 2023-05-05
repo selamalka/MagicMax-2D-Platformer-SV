@@ -25,7 +25,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Start()
     {
-        meleeCooldownCounter = meleeCooldownTime;
+        meleeCooldownCounter = 0;
     }
 
     private void Update()
@@ -34,18 +34,23 @@ public class PlayerCombat : MonoBehaviour
         {
             meleeCooldownCounter -= Time.deltaTime;
         }
+
+        if (InputManager.Instance.IsWPressed())
+        {
+            MeleeSlash();
+        }
     }
 
     private void OnEnable()
     {
-        EventManager.OnWPressed += MeleeSlash;
+        //EventManager.OnWPressed += MeleeSlash;
         EventManager.OnQPressed += UseSpellSlot1;
         EventManager.OnEPressed += UseSpellSlot2;
     }
 
     private void OnDisable()
     {
-        EventManager.OnWPressed -= MeleeSlash;
+        //EventManager.OnWPressed -= MeleeSlash;
         EventManager.OnQPressed -= UseSpellSlot1;
         EventManager.OnEPressed -= UseSpellSlot2;
     }
@@ -93,6 +98,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void MeleeSlash()
     {
+        print("player controlable:" + PlayerController.Instance.IsControllable);
         if (!PlayerController.Instance.IsControllable) return;
         if (meleeCooldownCounter <= 0)
         {

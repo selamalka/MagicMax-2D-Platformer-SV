@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
             {
                 Rb.velocity = Vector2.zero;
                 Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
-                Knockback(collisionDirection, 30, 20, 500);
+                Knockback(collisionDirection, 50, 20, 1000);
             }
         }
 
