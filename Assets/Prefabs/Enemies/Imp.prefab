@@ -1009,10 +1009,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dark Aura Particle - Cone
       objectReference: {fileID: 0}
-    - target: {fileID: 8502016502697119217, guid: 754e6e08a61526643854d2f24c4845b0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 754e6e08a61526643854d2f24c4845b0, type: 3}
 --- !u!4 &8520766104773683816 stripped
@@ -1030,10 +1026,6 @@ PrefabInstance:
     - target: {fileID: 4402306332165071543, guid: 8903bfd5788fca0489beddb1d0e3d552, type: 3}
       propertyPath: m_Name
       value: Dark Aura Particle - Sphere
-      objectReference: {fileID: 0}
-    - target: {fileID: 4402306332165071543, guid: 8903bfd5788fca0489beddb1d0e3d552, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8986725922329598887, guid: 8903bfd5788fca0489beddb1d0e3d552, type: 3}
       propertyPath: m_RootOrder
@@ -1096,10 +1088,6 @@ PrefabInstance:
     - target: {fileID: 2495012757307425591, guid: 754f79e04a8424b4087ae867537f3954, type: 3}
       propertyPath: m_Name
       value: Dark Aura Particle - Small Cone
-      objectReference: {fileID: 0}
-    - target: {fileID: 2495012757307425591, guid: 754f79e04a8424b4087ae867537f3954, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7138048411181677095, guid: 754f79e04a8424b4087ae867537f3954, type: 3}
       propertyPath: m_RootOrder
