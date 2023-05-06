@@ -40,6 +40,11 @@ public class MeleeSlash : MonoBehaviour
             enemyDirection = collision.gameObject.transform.position - transform.position;
             PlayerController.Instance.PushPlayerAgainstEnemyDirectionOnMelee(enemyDirection);
 
+            if (collision.gameObject.GetComponent<ImpAI>() != null)
+            {
+                collision.gameObject.GetComponent<ImpAI>().Knockback(); 
+            }
+
             await Task.Delay(150);
             PlayerController.Instance.SetIsControllable(true);
         }

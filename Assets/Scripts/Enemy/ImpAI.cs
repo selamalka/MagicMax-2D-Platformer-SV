@@ -166,4 +166,16 @@ public class ImpAI : MonoBehaviour
     {
         Instantiate(projectilePrefab, projectilePointTransform.position, Quaternion.identity);
     }
+
+    public void Knockback()
+    {
+        if (isFacingRight)
+        {
+            rb.AddForce(Vector2.left * 5, ForceMode2D.Impulse);
+        }
+        else
+        {
+            rb.AddForce(Vector2.right * 5, ForceMode2D.Impulse);
+        }
+    }
 }
