@@ -3362,7 +3362,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 111.5
+  field of view: 90
   orthographic: 0
   orthographic size: 14
   m_Depth: -1
@@ -13048,7 +13048,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1081117674339621061, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
       propertyPath: speed
-      value: 800
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 1081117674339621061, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
       propertyPath: upPushForce
