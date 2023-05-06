@@ -249,13 +249,13 @@ ScriptedImporter:
     spritePosition: {x: 20, y: 231}
   - name: Head
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.68622434, y: 0.029156873}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 5
       width: 411
       height: 308
     spriteID: b2cae8757fd44394e82b1443111829f7
@@ -293,8 +293,8 @@ ScriptedImporter:
     spritePosition: {x: 221, y: 134}
   - name: Arm Left
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.809872, y: 0.90867096}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -359,8 +359,8 @@ ScriptedImporter:
     spritePosition: {x: 391, y: 147}
   - name: Arm Right
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.14192708, y: 0.90402085}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2

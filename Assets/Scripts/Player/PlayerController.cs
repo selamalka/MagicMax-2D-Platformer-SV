@@ -1,5 +1,3 @@
-using MilkShake;
-using System;
 using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -41,7 +39,7 @@ public class PlayerController : MonoBehaviour
     private bool isDashing;
     private bool hasDashedAfterGrounded;
 
-    private Animator animator;
+    public Animator Animator { get; private set; }
     private Ghost ghostScript;
     public Rigidbody2D Rb { get; private set; }
 
@@ -65,7 +63,7 @@ public class PlayerController : MonoBehaviour
         canDoubleJump = true;
         ghostScript = GetComponent<Ghost>();
         Rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        Animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -93,11 +91,11 @@ public class PlayerController : MonoBehaviour
         Rb.velocity = new Vector2(inputX * speed * Time.deltaTime, Rb.velocity.y);
         if (Rb.velocity.x != 0f)
         {
-            animator.SetBool("isWalking", true);
+            Animator.SetBool("isWalking", true);
         }
         else
         {
-            animator.SetBool("isWalking", false);
+            Animator.SetBool("isWalking", false);
         }
         if (isDashing)
         {
@@ -114,19 +112,21 @@ public class PlayerController : MonoBehaviour
             Rb.mass = 0f;
         }
 
-/*        if (collision.gameObject.GetComponent<BehemothAI>() != null)
-        {
-            BehemothAI behemoth = collision.gameObject.GetComponent<BehemothAI>();
-            if (behemoth.IsChargingTowardsPlayer)
-            {
-                Rb.velocity = Vector2.zero;
-                Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
-                Knockback(collisionDirection, 50, 20, 1000);
-            }
-        }*/
+        /*        if (collision.gameObject.GetComponent<BehemothAI>() != null)
+                {
+                    BehemothAI behemoth = collision.gameObject.GetComponent<BehemothAI>();
+                    if (behemoth.IsChargingTowardsPlayer)
+                    {
+                        Rb.velocity = Vector2.zero;
+                        Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
+                        Knockback(collisionDirection, 50, 20, 1000);
+                    }
+                }*/
 
         if (collision.gameObject.CompareTag("Tilemap"))
         {
+            Animator.SetTrigger("land");
+
             if (IsGrounded)
             {
                 FXManager.Instance.InstantiateDustCloud(groundCheckTransform);
@@ -214,6 +214,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded)
         {
+            Animator.SetTrigger("jump");
             isJumping = true;
             canDoubleJump = true;
             jumpTimeCounter = jumpTime;
@@ -223,6 +224,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && !IsGrounded && canDoubleJump)
         {
+            Animator.SetTrigger("jump");
             Rb.velocity = new Vector2(Rb.velocity.x, 0);
             Rb.velocity = new Vector2(Rb.velocity.x, jumpForce * 2.5f);
             FXManager.Instance.InstantiateDustCloud(groundCheckTransform);
