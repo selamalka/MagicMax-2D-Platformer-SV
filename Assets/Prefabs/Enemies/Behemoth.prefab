@@ -423,7 +423,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!70 &4990479817821054167
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -467,7 +467,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePointTransform: {fileID: 5476537975931995361}
   body: {fileID: 1094824921617678864}
-  <IsChargingTowardsPlayer>k__BackingField: 0
   canKnockPlayer: 0
   knockCooldownCounter: 0
 --- !u!1 &7936575940077150952

@@ -41,7 +41,6 @@ public class PlayerCombat : MonoBehaviour
         {
             //MeleeSlash();
             PlayerController.Instance.Animator.SetTrigger("meleeAttack");
-
         }
     }
 
