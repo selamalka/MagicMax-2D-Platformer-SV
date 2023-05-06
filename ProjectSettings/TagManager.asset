@@ -57,14 +57,17 @@ TagManager:
   - name: Ghost
     uniqueID: 155784953
     locked: 0
+  - name: Spells
+    uniqueID: 2617553245
+    locked: 0
   - name: Enemies
     uniqueID: 3944737629
     locked: 0
   - name: Player
     uniqueID: 1909678611
     locked: 0
-  - name: Spells
-    uniqueID: 2617553245
+  - name: Nimbus
+    uniqueID: 2576572629
     locked: 0
   - name: Crosshair
     uniqueID: 911880285

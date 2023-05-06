@@ -14,17 +14,17 @@ public class PlayerStatsManager : MonoBehaviour
     [field: Header("Health")]
     [field: SerializeField] public int MaxHealth { get; private set; }
     [field: SerializeField] public int CurrentHealth { get; private set; }
+    [field: SerializeField] public float HealthRegenFillTime { get; private set; }
     [field: Header("Mana")]
     [field: SerializeField] public int MaxMana { get; private set; }
     [field: SerializeField] public int CurrentMana { get; private set; }
-    [field: SerializeField] public float ManaFillTime { get; private set; }
     [field: Header("Souls")]
     [field: SerializeField] public int MaxSouls { get; private set; }
     [field: SerializeField] public int CurrentSouls { get; private set; }
     [field: Header("Melee")]
     [field: SerializeField] public int MeleeDamage { get; private set; }
 
-    private float manaFillCounter;
+    private float healthRegenFillCounter;
 
     private void Awake()
     {
@@ -36,7 +36,7 @@ public class PlayerStatsManager : MonoBehaviour
         CurrentLevel = 1;
         CurrentHealth = MaxHealth;
         CurrentMana = MaxMana;
-        manaFillCounter = ManaFillTime;
+        healthRegenFillCounter = HealthRegenFillTime;
     }
 
     private void Update()
@@ -163,18 +163,18 @@ public class PlayerStatsManager : MonoBehaviour
             {
                 PlayerController.Instance.Rb.velocity = new Vector2(0, PlayerController.Instance.Rb.velocity.y);
             }
-            manaFillCounter -= Time.deltaTime;
+            healthRegenFillCounter -= Time.deltaTime;
 
-            if (manaFillCounter <= 0)
+            if (healthRegenFillCounter <= 0)
             {
                 RegenerateHealthPoint();
-                manaFillCounter = ManaFillTime;
+                healthRegenFillCounter = HealthRegenFillTime;
             }
         }
         else if (Input.GetKeyUp(KeyCode.F))
         {
             PlayerController.Instance.SetIsControllable(true);
-            manaFillCounter = ManaFillTime;
+            healthRegenFillCounter = HealthRegenFillTime;
         }
     }
 
