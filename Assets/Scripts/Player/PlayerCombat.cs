@@ -39,7 +39,9 @@ public class PlayerCombat : MonoBehaviour
 
         if (InputManager.Instance.IsWPressed())
         {
-            MeleeSlash();
+            //MeleeSlash();
+            PlayerController.Instance.Animator.SetTrigger("meleeAttack");
+
         }
     }
 
@@ -98,7 +100,8 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    private void MeleeSlash()
+    //Animation Event
+    public void MeleeSlash()
     {
         if (meleeCooldownCounter <= 0)
         {

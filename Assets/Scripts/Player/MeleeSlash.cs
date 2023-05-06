@@ -15,15 +15,20 @@ public class MeleeSlash : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow))
         {
             rb.velocity = new Vector2(0, 20);
+            rb.velocity += new Vector2(0, PlayerController.Instance.Rb.velocity.y);
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             rb.velocity = new Vector2(0, -50);
+            rb.velocity += new Vector2(0, PlayerController.Instance.Rb.velocity.y);
         }
         else
         {
             rb.velocity = new Vector2(PlayerController.Instance.IsFacingRight ? 20 : -20, 0);
+            rb.velocity += new Vector2(PlayerController.Instance.Rb.velocity.x , 0);
         }
+
+        
     }
 
     private async void OnTriggerEnter2D(Collider2D collision)
