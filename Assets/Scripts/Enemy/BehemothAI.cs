@@ -25,13 +25,6 @@ public class BehemothAI : MonoBehaviour
     private float timeBetweenKnocks;
     [SerializeField] private float knockCooldownCounter;
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, rangedDetectionRadius);
-        Gizmos.DrawWireSphere(transform.position, meleeDetectionRadius);
-    }
-
     private void Start()
     {
         playerGameObject = GameObject.FindWithTag("Player");
@@ -138,10 +131,8 @@ public class BehemothAI : MonoBehaviour
     private void KnockPlayer()
     {
         if (playerGameObject == null) return;
-        PlayerController.Instance.Rb.velocity = Vector2.zero;
-        print(PlayerController.Instance.Rb.velocity);
         playerDirection = playerGameObject.transform.position - transform.position;
-        PlayerController.Instance.Knockback(-playerDirection, 5, 10, 500);
+        PlayerController.Instance.Knockback(-playerDirection, 9, 5, 250);
         knockCooldownCounter = timeBetweenKnocks;
         canKnockPlayer = false;
     }

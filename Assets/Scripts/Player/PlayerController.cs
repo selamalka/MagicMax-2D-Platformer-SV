@@ -112,16 +112,12 @@ public class PlayerController : MonoBehaviour
             Rb.mass = 0f;
         }
 
-        /*        if (collision.gameObject.GetComponent<BehemothAI>() != null)
-                {
-                    BehemothAI behemoth = collision.gameObject.GetComponent<BehemothAI>();
-                    if (behemoth.IsChargingTowardsPlayer)
-                    {
-                        Rb.velocity = Vector2.zero;
-                        Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
-                        Knockback(collisionDirection, 50, 20, 1000);
-                    }
-                }*/
+        if (collision.gameObject.CompareTag("Behemoth"))
+        {
+            Rb.velocity = Vector2.zero;
+            Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
+            Knockback(collisionDirection, 30, 20, 500);
+        }
 
         if (collision.gameObject.CompareTag("Tilemap"))
         {
@@ -262,6 +258,7 @@ public class PlayerController : MonoBehaviour
         Rb.velocity = Vector2.zero;
         Rb.velocity = new Vector2(-collisionDirection.x * horizontalForce, verticalForce);
         await Task.Delay(isControllableDelay);
+        SetGravityScale(8);
         IsControllable = true;
     }
     public async void PushPlayerAgainstEnemyDirectionOnMelee(Vector2 enemyDirection)
