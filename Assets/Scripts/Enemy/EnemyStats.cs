@@ -57,7 +57,7 @@ public class EnemyStats : MonoBehaviour, IDamageable
             {
                 FXManager.Instance.CameraShaker.Shake(FXManager.Instance.EnemyDeathShakePreset); 
             }
-            FXManager.Instance.PauseGameEffect(100);
+            FXManager.Instance.PauseGameEffect(60);
             Destroy(gameObject, 0.1f);
             PowerupManager.Instance.DropRandomPowerup(transform, PowerupManager.Instance.DropChance);
         }

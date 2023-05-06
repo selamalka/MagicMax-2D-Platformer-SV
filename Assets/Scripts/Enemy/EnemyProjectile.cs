@@ -8,10 +8,10 @@ public class EnemyProjectile : MonoBehaviour
 
     private void Start()
     {
-        if (player == null) return;
-
         lifespanCounter = data.Lifespan;
+
         player = GameObject.FindWithTag("Player");
+        if (player == null) return;
 
         Vector3 direction = player.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

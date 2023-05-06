@@ -3430,7 +3430,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 120
+  field of view: 125
   orthographic: 0
   orthographic size: 14
   m_Depth: -1
@@ -5907,7 +5907,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768679297}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.8836384, y: 1.1480489, z: -10}
+  m_LocalPosition: {x: 13.8, y: 1.1480489, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7687,7 +7687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CameraShaker>k__BackingField: {fileID: 519420033}
   <PlayerHitShakePreset>k__BackingField: {fileID: 11400000, guid: af0c90cdaa0575d43a5f0f842cb1d956, type: 2}
-  <EnemyHitShakePreset>k__BackingField: {fileID: 11400000, guid: f45ca622f45d11547963a80e2497e58f, type: 2}
+  <EnemyDeathShakePreset>k__BackingField: {fileID: 11400000, guid: f45ca622f45d11547963a80e2497e58f, type: 2}
   dustCloudPrefab: {fileID: 1872423737458924549, guid: fbf1d3a58145aeb4c90ee85ca1b371be, type: 3}
   whiteFlashMaterial: {fileID: 2100000, guid: 4611490e3aef76a4db7c77fd8b7f0082, type: 2}
   pauseGameCooldownTime: 0.5
