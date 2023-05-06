@@ -51,6 +51,9 @@ TagManager:
   - name: Parallax
     uniqueID: 3443449763
     locked: 0
+  - name: Dark Aura Particle
+    uniqueID: 2546538327
+    locked: 0
   - name: Tilemap
     uniqueID: 171355995
     locked: 0
