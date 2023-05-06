@@ -16,7 +16,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Parallax
   - Water
   - UI
   - Ground
@@ -24,7 +24,7 @@ TagManager:
   - Enemies
   - Nimbus
   - Behemoth
-  - 
+  - Tilemap
   - 
   - 
   - 
