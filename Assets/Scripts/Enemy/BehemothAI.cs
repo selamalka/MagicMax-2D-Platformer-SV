@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Microsoft.Win32.SafeHandles;
 using UnityEngine;
 
 public class BehemothAI : MonoBehaviour
@@ -9,7 +10,6 @@ public class BehemothAI : MonoBehaviour
     private Rigidbody2D rb;
     private bool isFacingRight = true;
     private bool isTurning;
-    [field: SerializeField] public bool IsChargingTowardsPlayer { get; private set; }
     [SerializeField] private bool canKnockPlayer;
 
     private GameObject projectilePrefab;
@@ -102,6 +102,14 @@ public class BehemothAI : MonoBehaviour
         TurnHandler();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Tilemap"))
+        {
+            rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
+        }
+    }
+
     private void RangedAttack()
     {
         if (projectileCooldownCounter <= 0)
@@ -130,8 +138,10 @@ public class BehemothAI : MonoBehaviour
     private void KnockPlayer()
     {
         if (playerGameObject == null) return;
-
-        PlayerController.Instance.Knockback(playerDirection, 500, 30, 500);
+        PlayerController.Instance.Rb.velocity = Vector2.zero;
+        print(PlayerController.Instance.Rb.velocity);
+        playerDirection = playerGameObject.transform.position - transform.position;
+        PlayerController.Instance.Knockback(-playerDirection, 5, 10, 500);
         knockCooldownCounter = timeBetweenKnocks;
         canKnockPlayer = false;
     }

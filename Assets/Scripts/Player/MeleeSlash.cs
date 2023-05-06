@@ -26,9 +26,7 @@ public class MeleeSlash : MonoBehaviour
         {
             rb.velocity = new Vector2(PlayerController.Instance.IsFacingRight ? 20 : -20, 0);
             rb.velocity += new Vector2(PlayerController.Instance.Rb.velocity.x , 0);
-        }
-
-        
+        }  
     }
 
     private async void OnTriggerEnter2D(Collider2D collision)
