@@ -1,9 +1,15 @@
+using MilkShake;
 using System.Threading.Tasks;
 using UnityEngine;
 
 public class FXManager : MonoBehaviour
 {
     public static FXManager Instance;
+
+    [field: SerializeField] public Shaker CameraShaker { get; private set; }
+    [field: SerializeField] public ShakePreset PlayerHitShakePreset { get; private set; }
+    [field: SerializeField] public ShakePreset EnemyDeathShakePreset { get; private set; }
+
     [SerializeField] private GameObject dustCloudPrefab;
     [SerializeField] private Material whiteFlashMaterial;
     private Material originalMaterial;

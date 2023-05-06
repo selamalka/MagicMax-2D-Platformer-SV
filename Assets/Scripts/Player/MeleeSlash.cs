@@ -35,7 +35,6 @@ public class MeleeSlash : MonoBehaviour
             collision.GetComponent<IDamageable>().TakeDamage(PlayerStatsManager.Instance.MeleeDamage);
             Transform enemyTransform = collision.gameObject.transform;
             PlayerCombat.Instance.InstantiateHitEffect(transform.position, enemyTransform);
-            CameraShaker.Instance.Shake(5f, 0.1f);
             GetComponent<Collider2D>().enabled = false;
 
             enemyDirection = collision.gameObject.transform.position - transform.position;

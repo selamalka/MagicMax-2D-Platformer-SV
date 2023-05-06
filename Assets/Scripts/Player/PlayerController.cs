@@ -1,3 +1,4 @@
+using MilkShake;
 using System;
 using System.Collections;
 using System.Threading.Tasks;
@@ -183,8 +184,6 @@ public class PlayerController : MonoBehaviour
             {
                 dashDirection = new Vector2(transform.localScale.x, 0);
             }
-
-            CameraShaker.Instance.Shake(1f, 0.2f);
 
             StartCoroutine(StopDashing());
         }

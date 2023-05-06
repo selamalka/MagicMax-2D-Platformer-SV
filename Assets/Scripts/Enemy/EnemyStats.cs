@@ -1,3 +1,4 @@
+using MilkShake;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour, IDamageable
@@ -52,7 +53,10 @@ public class EnemyStats : MonoBehaviour, IDamageable
             PlayerStatsManager.Instance.GrantExp(expValue);
             PlayerStatsManager.Instance.GrantSouls(soulValue);
             EventManager.OnEnemyDeath?.Invoke();
-            CameraShaker.Instance.Shake(8f, 0.3f);
+            if (FXManager.Instance.EnemyDeathShakePreset != null)
+            {
+                FXManager.Instance.CameraShaker.Shake(FXManager.Instance.EnemyDeathShakePreset); 
+            }
             FXManager.Instance.PauseGameEffect(100);
             Destroy(gameObject, 0.1f);
             PowerupManager.Instance.DropRandomPowerup(transform, PowerupManager.Instance.DropChance);
