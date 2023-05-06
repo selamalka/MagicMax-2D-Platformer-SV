@@ -1,4 +1,3 @@
-using MilkShake;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour, IDamageable
@@ -46,12 +45,12 @@ public class EnemyStats : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        PlayerStatsManager.Instance.GrantSouls(soulValue);
         FXManager.Instance.FlashWhite(gameObject);
 
         if (currentHealth <= 0)
         {
-            PlayerStatsManager.Instance.GrantExp(expValue);
-            PlayerStatsManager.Instance.GrantSouls(soulValue);
+            PlayerStatsManager.Instance.GrantExp(expValue);            
             EventManager.OnEnemyDeath?.Invoke();
             if (FXManager.Instance.EnemyDeathShakePreset != null)
             {
