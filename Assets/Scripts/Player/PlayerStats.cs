@@ -1,4 +1,3 @@
-using MilkShake;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour, IDamageable
@@ -51,6 +50,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
         if (isInvulnerable) return;
         isInvulnerable = true;
         invulnerableCounter = InvulnerableStartTime;
+        PlayerController.Instance.Knockback(PlayerController.Instance.IsFacingRight ? Vector2.right : Vector2.left, 15, 15, 250);
         PlayerStatsManager.Instance.SetCurrentHealth(PlayerStatsManager.Instance.CurrentHealth - damage);
         FXManager.Instance.FlashWhite(gameObject);
         FXManager.Instance.PauseGameEffect(100);
@@ -68,17 +68,12 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     private void TakeDamageOnEnemyCollision(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<BehemothAI>() == null)
-        {
-            TakeDamage(1);
-        }
-
         Vector2 enemyDirection = collision.gameObject.transform.position - transform.position;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
-        if (collision.gameObject.GetComponent<BehemothAI>() == null)
+        if (!collision.gameObject.CompareTag("Behemoth"))
         {
-            PlayerController.Instance.Knockback(enemyDirection, 10, 10, 250); 
+            TakeDamage(1);            
         }
     }
 }

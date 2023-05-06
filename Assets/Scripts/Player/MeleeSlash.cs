@@ -25,13 +25,20 @@ public class MeleeSlash : MonoBehaviour
         else
         {
             rb.velocity = new Vector2(PlayerController.Instance.IsFacingRight ? 20 : -20, 0);
-            rb.velocity += new Vector2(PlayerController.Instance.Rb.velocity.x , 0);
-        }  
+            rb.velocity += new Vector2(PlayerController.Instance.Rb.velocity.x, 0);
+        }
     }
 
     private async void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Behemoth"))
+        {
+            collision.GetComponent<IDamageable>().TakeDamage(PlayerStatsManager.Instance.MeleeDamage);
+            Transform enemyTransform = collision.gameObject.transform;
+            PlayerCombat.Instance.InstantiateHitEffect(transform.position, enemyTransform);
+            GetComponent<Collider2D>().enabled = false;
+        }
+        else if (collision.CompareTag("Enemy"))
         {
             PlayerController.Instance.SetIsControllable(false);
 
@@ -45,7 +52,7 @@ public class MeleeSlash : MonoBehaviour
 
             if (collision.gameObject.GetComponent<ImpAI>() != null)
             {
-                collision.gameObject.GetComponent<ImpAI>().Knockback(); 
+                collision.gameObject.GetComponent<ImpAI>().Knockback();
             }
 
             await Task.Delay(150);
