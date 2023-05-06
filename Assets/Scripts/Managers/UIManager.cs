@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    [SerializeField] private GameObject canvas;
     [SerializeField] private Image[] healthPoints;
     [SerializeField] private Image[] manaPoints;
     [SerializeField] private Image[] soulPoints;
@@ -42,6 +42,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        canvas.SetActive(true);
         spellbookPanel.SetActive(false);
         UpdateExpBar();
         UpdateSpellPoints();

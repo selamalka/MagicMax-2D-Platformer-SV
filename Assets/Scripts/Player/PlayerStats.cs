@@ -1,3 +1,4 @@
+using MilkShake;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour, IDamageable
@@ -53,7 +54,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
         PlayerStatsManager.Instance.SetCurrentHealth(PlayerStatsManager.Instance.CurrentHealth - damage);
         FXManager.Instance.FlashWhite(gameObject);
         FXManager.Instance.PauseGameEffect(100);
-        CameraShaker.Instance.Shake(3f, 0.15f);
+        if (FXManager.Instance.PlayerHitShakePreset != null)
+        {
+            FXManager.Instance.CameraShaker.Shake(FXManager.Instance.PlayerHitShakePreset); 
+        }
         EventManager.OnPlayerGetHit?.Invoke();
         if (PlayerStatsManager.Instance.CurrentHealth <= 0)
         {

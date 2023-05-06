@@ -8,6 +8,8 @@ public class EnemyProjectile : MonoBehaviour
 
     private void Start()
     {
+        if (player == null) return;
+
         lifespanCounter = data.Lifespan;
         player = GameObject.FindWithTag("Player");
 
