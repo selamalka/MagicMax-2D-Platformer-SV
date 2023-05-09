@@ -4687,12 +4687,12 @@ MonoBehaviour:
   <CurrentExp>k__BackingField: 0
   <TargetExp>k__BackingField: 10
   <TargetExpMultiplier>k__BackingField: 1.2
-  <SpellPoints>k__BackingField: 0
+  <SpellPoints>k__BackingField: 1
   <MaxHealth>k__BackingField: 5
   <CurrentHealth>k__BackingField: 0
   <HealthRegenFillTime>k__BackingField: 1
-  <MaxMana>k__BackingField: 5
-  <CurrentMana>k__BackingField: 0
+  <MaxMana>k__BackingField: 55
+  <CurrentMana>k__BackingField: 55
   <MaxSouls>k__BackingField: 3
   <CurrentSouls>k__BackingField: 0
   <MeleeDamage>k__BackingField: 1
