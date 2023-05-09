@@ -48,26 +48,47 @@ public class MagicShot : MonoBehaviour
 
     private void Fly()
     {
-        transform.position += transform.up * SpellData.Speed * Time.deltaTime;
+        transform.position += -transform.forward * SpellData.Speed * Time.deltaTime;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*    private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Enemy"))
+            {
+                if (enemiesHitCounter < maxEnemiesHit)
+                {
+                    collision.GetComponent<IDamageable>().TakeDamage(SpellData.Damage);
+                    enemiesHitCounter++;
+                    if (enemiesHitCounter == maxEnemiesHit)
+                    {
+                        Destroy(gameObject);
+                    } 
+                }
+            }
+            else if (collision.CompareTag("Tilemap"))
+            {
+                Destroy(gameObject);
+            }
+        }*/
+
+    private void OnParticleCollision(GameObject other)
     {
-        if (collision.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
             if (enemiesHitCounter < maxEnemiesHit)
             {
-                collision.GetComponent<IDamageable>().TakeDamage(SpellData.Damage);
+                other.GetComponent<IDamageable>().TakeDamage(SpellData.Damage);
                 enemiesHitCounter++;
                 if (enemiesHitCounter == maxEnemiesHit)
                 {
                     Destroy(gameObject);
-                } 
+                }
             }
         }
-        else if (collision.CompareTag("Tilemap"))
+        else if (other.CompareTag("Tilemap"))
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 1f);
         }
     }
+
 }
