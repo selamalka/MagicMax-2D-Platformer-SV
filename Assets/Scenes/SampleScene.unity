@@ -4691,8 +4691,8 @@ MonoBehaviour:
   <MaxHealth>k__BackingField: 5
   <CurrentHealth>k__BackingField: 0
   <HealthRegenFillTime>k__BackingField: 1
-  <MaxMana>k__BackingField: 55
-  <CurrentMana>k__BackingField: 55
+  <MaxMana>k__BackingField: 5
+  <CurrentMana>k__BackingField: 0
   <MaxSouls>k__BackingField: 3
   <CurrentSouls>k__BackingField: 0
   <MeleeDamage>k__BackingField: 1
