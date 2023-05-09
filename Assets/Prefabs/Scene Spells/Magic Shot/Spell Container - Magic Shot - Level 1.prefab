@@ -1,74 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6437017486220447557
+--- !u!1001 &4155568239957054899
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 5541735338275452389}
     m_Modifications:
-    - target: {fileID: 6151851385008733506, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
+    - target: {fileID: 5467141181297658142, guid: df04103a2d9e8dc488138844cef61a30, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6151851385008733506, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
+    - target: {fileID: 5467141181297658142, guid: df04103a2d9e8dc488138844cef61a30, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6151851385008733506, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
+    - target: {fileID: 5467141181297658142, guid: df04103a2d9e8dc488138844cef61a30, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6151851385008733506, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
+    - target: {fileID: 5467141181297658142, guid: df04103a2d9e8dc488138844cef61a30, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6151851385008733506, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
+    - target: {fileID: 5467141181297658142, guid: df04103a2d9e8dc488138844cef61a30, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 6151851385008733506, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
+    - target: {fileID: 5467141181297658142, guid: df04103a2d9e8dc488138844cef61a30, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.70710677
       objectReference: {fileID: 0}
-    - target: {fileID: 6151851385008733506, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
+    - target: {fileID: 5467141181297658142, guid: df04103a2d9e8dc488138844cef61a30, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6151851385008733506, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
+    - target: {fileID: 5467141181297658142, guid: df04103a2d9e8dc488138844cef61a30, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6151851385008733506, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
+    - target: {fileID: 5467141181297658142, guid: df04103a2d9e8dc488138844cef61a30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 6151851385008733506, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
+    - target: {fileID: 5467141181297658142, guid: df04103a2d9e8dc488138844cef61a30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6151851385008733506, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
+    - target: {fileID: 5467141181297658142, guid: df04103a2d9e8dc488138844cef61a30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6151851385008733508, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
-      propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6151851385008733508, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1677414051
-      objectReference: {fileID: 0}
-    - target: {fileID: 6151851385008733511, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
+    - target: {fileID: 8359016642981647797, guid: df04103a2d9e8dc488138844cef61a30, type: 3}
       propertyPath: m_Name
-      value: Magic Shot - Level 1
+      value: Magic Shot Particle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
---- !u!1 &867828521086841346 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: df04103a2d9e8dc488138844cef61a30, type: 3}
+--- !u!1 &5596490087441809414 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6151851385008733511, guid: 1a8c3df8d0e79b2448785f8de5fc549b, type: 3}
-  m_PrefabInstance: {fileID: 6437017486220447557}
+  m_CorrespondingSourceObject: {fileID: 8359016642981647797, guid: df04103a2d9e8dc488138844cef61a30, type: 3}
+  m_PrefabInstance: {fileID: 4155568239957054899}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8022797121039404023
 PrefabInstance:
@@ -124,7 +116,7 @@ PrefabInstance:
     - target: {fileID: 2822268140030766065, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
       propertyPath: childSpell
       value: 
-      objectReference: {fileID: 867828521086841346}
+      objectReference: {fileID: 5596490087441809414}
     - target: {fileID: 2822268140030766065, guid: 54ebf2eb930f7584eaa4940792c1d027, type: 3}
       propertyPath: childProjectile
       value: 

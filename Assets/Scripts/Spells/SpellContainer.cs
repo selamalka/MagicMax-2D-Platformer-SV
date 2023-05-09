@@ -7,8 +7,8 @@ public class SpellContainer : MonoBehaviour
     private void Update()
     {
         if (childSpell == null)
-        { 
-            Destroy(gameObject); 
+        {
+            Destroy(gameObject, 1f);
         }
     }
 }
