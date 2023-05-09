@@ -51,25 +51,25 @@ public class MagicShot : MonoBehaviour
         transform.position += -transform.forward * SpellData.Speed * Time.deltaTime;
     }
 
-    /*    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
         {
-            if (collision.CompareTag("Enemy"))
+            if (enemiesHitCounter < maxEnemiesHit)
             {
-                if (enemiesHitCounter < maxEnemiesHit)
+                collision.GetComponent<IDamageable>().TakeDamage(SpellData.Damage);
+                enemiesHitCounter++;
+                if (enemiesHitCounter == maxEnemiesHit)
                 {
-                    collision.GetComponent<IDamageable>().TakeDamage(SpellData.Damage);
-                    enemiesHitCounter++;
-                    if (enemiesHitCounter == maxEnemiesHit)
-                    {
-                        Destroy(gameObject);
-                    } 
+                    Destroy(gameObject);
                 }
             }
-            else if (collision.CompareTag("Tilemap"))
-            {
-                Destroy(gameObject);
-            }
-        }*/
+        }
+        else if (collision.CompareTag("Tilemap"))
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnParticleCollision(GameObject other)
     {
@@ -87,7 +87,7 @@ public class MagicShot : MonoBehaviour
         }
         else if (other.CompareTag("Tilemap"))
         {
-            Destroy(gameObject, 1f);
+            Destroy(gameObject);
         }
     }
 

@@ -169,6 +169,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.06
       objectReference: {fileID: 0}
+    - target: {fileID: 6885348692916944948, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8498534185121773998, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1

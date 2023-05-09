@@ -4885,6 +4885,7 @@ GameObject:
   - component: {fileID: 1293274356045859618}
   - component: {fileID: 738756427682687549}
   - component: {fileID: 694030739342715725}
+  - component: {fileID: 8149187885487186583}
   m_Layer: 0
   m_Name: Magic Shot Particle
   m_TagString: Untagged
@@ -9724,6 +9725,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SpellData>k__BackingField: {fileID: 11400000, guid: 3a96e59b1d42307469357c1fa5b813ab, type: 2}
+--- !u!58 &8149187885487186583
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8359016642981647797}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.049726605, y: 0.07086718}
+  serializedVersion: 2
+  m_Radius: 0.49
 --- !u!1 &8415690157317507487
 GameObject:
   m_ObjectHideFlags: 0
