@@ -17,7 +17,7 @@ MonoBehaviour:
   <Level>k__BackingField: 1
   <SpellPointCost>k__BackingField: 1
   <IsUnlocked>k__BackingField: 1
-  <Speed>k__BackingField: 10
+  <Speed>k__BackingField: 20
   <ManaCost>k__BackingField: 1
   <Damage>k__BackingField: 3
   <Lifespan>k__BackingField: 3
