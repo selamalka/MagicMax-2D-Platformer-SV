@@ -23,6 +23,7 @@ public class FXManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        DOTween.SetTweensCapacity(10000, 50);
     }
 
     private void Start()
