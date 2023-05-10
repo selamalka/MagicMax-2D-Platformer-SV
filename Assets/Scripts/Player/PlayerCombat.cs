@@ -5,12 +5,12 @@ public class PlayerCombat : MonoBehaviour
 {
     public static PlayerCombat Instance;
 
+    [field: SerializeField] public Transform NimbusInstancesParent { get; private set; }
+
     [SerializeField] private Transform body;
     [SerializeField] private Transform projectileOriginSide;
     [SerializeField] private Transform projectileOriginTop;
     [SerializeField] private Transform projectileOriginBottom;
-    [SerializeField] private Transform meleeInstancesParent;
-    [field: SerializeField] public Transform NimbusInstancesParent { get; private set; }
     [SerializeField] private GameObject meleeSlashPrefab;
     [SerializeField] private GameObject hitEffectPrefab;
     [SerializeField] private SpellSlot spellSlot1;
@@ -108,7 +108,7 @@ public class PlayerCombat : MonoBehaviour
             if (PlayerController.Instance.IsNimbusActive && Input.GetKey(KeyCode.DownArrow)) return;
 
             var origin = GetSpellOrigin();
-            var meleeInstance = Instantiate(meleeSlashPrefab, GetSpellOrigin(), Quaternion.identity, meleeInstancesParent);
+            var meleeInstance = Instantiate(meleeSlashPrefab, GetSpellOrigin(), Quaternion.identity);
 
             meleeInstance.transform.localScale = body.localScale;
 

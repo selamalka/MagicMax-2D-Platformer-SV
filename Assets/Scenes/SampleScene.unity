@@ -493,6 +493,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420028}
   parallaxEffect: 0.2
+--- !u!212 &155007743 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5213875848970736083, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
+  m_PrefabInstance: {fileID: 2013540448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &163793764
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +971,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!212 &242891310 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3720621474388513054, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
+  m_PrefabInstance: {fileID: 2013540448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &299537105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1376,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323468734}
   m_CullTransparentMesh: 1
+--- !u!212 &325418710 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7952110198568536139, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
+  m_PrefabInstance: {fileID: 2013540448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &331160524 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2163963715908893082, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
+  m_PrefabInstance: {fileID: 2013540448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &345688242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4109,6 +4129,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780077058}
   m_CullTransparentMesh: 1
+--- !u!212 &823554519 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5737911676604294388, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
+  m_PrefabInstance: {fileID: 2013540448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &829257168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4256,6 +4281,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &859032436 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1704949556397982465, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
+  m_PrefabInstance: {fileID: 2013540448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &875949907
 GameObject:
   m_ObjectHideFlags: 0
@@ -4822,6 +4852,16 @@ MonoBehaviour:
   dustCloudPrefab: {fileID: 1872423737458924549, guid: fbf1d3a58145aeb4c90ee85ca1b371be, type: 3}
   whiteFlashMaterial: {fileID: 2100000, guid: 4611490e3aef76a4db7c77fd8b7f0082, type: 2}
   pauseGameCooldownTime: 0.5
+  playerSpriteRenderers:
+  - {fileID: 1690801138}
+  - {fileID: 1224915451}
+  - {fileID: 155007743}
+  - {fileID: 823554519}
+  - {fileID: 859032436}
+  - {fileID: 1284611536}
+  - {fileID: 325418710}
+  - {fileID: 242891310}
+  - {fileID: 331160524}
 --- !u!114 &1012876933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6129,6 +6169,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214751389}
   m_CullTransparentMesh: 1
+--- !u!212 &1224915451 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 596314260973357356, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
+  m_PrefabInstance: {fileID: 2013540448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1248459484
 GameObject:
   m_ObjectHideFlags: 0
@@ -6206,6 +6251,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248459484}
   m_CullTransparentMesh: 1
+--- !u!212 &1284611536 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1327829984269522962, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
+  m_PrefabInstance: {fileID: 2013540448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1323337907
 GameObject:
   m_ObjectHideFlags: 0
@@ -7396,6 +7446,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670259747}
   m_CullTransparentMesh: 1
+--- !u!212 &1690801138 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5594706868404365124, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
+  m_PrefabInstance: {fileID: 2013540448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1699860409
 GameObject:
   m_ObjectHideFlags: 0
