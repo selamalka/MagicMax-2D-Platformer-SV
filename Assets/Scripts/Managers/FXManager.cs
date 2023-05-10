@@ -1,3 +1,4 @@
+using DG.Tweening;
 using MilkShake;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class FXManager : MonoBehaviour
 
     [SerializeField] private float pauseGameCooldownTime;
     private float pauseGameCounter;
+
+    [SerializeField] private SpriteRenderer[] playerSpriteRenderers;
 
     private void Awake()
     {
@@ -78,6 +81,14 @@ public class FXManager : MonoBehaviour
             await Task.Delay(pauseTimeInMilliseconds);
             Time.timeScale = 1f;
             pauseGameCounter = pauseGameCounter = pauseGameCooldownTime;
+        }
+    }
+
+    public void ChangePlayerTransparency(float alpha)
+    {
+        foreach (var renderer in playerSpriteRenderers)
+        {
+            renderer.DOFade(alpha, 0.3f).SetLoops(0);
         }
     }
 }

@@ -25,8 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float groundCheckRayLength;
 
     private bool isJumping;
-    [SerializeField] private int numberOfJumps;
-    [SerializeField] private bool canDoubleJump;
+    [SerializeField] private int numberOfJumps;    
     private float jumpTimeCounter;
     private Vector2 gravityVector;
     private float inputX;
@@ -61,7 +60,6 @@ public class PlayerController : MonoBehaviour
         IsControllable = true;
         gravityVector = new Vector2(0, -Physics2D.gravity.y);
         IsFacingRight = true;
-        canDoubleJump = true;
         numberOfJumps = 2;
         ghostScript = GetComponent<Ghost>();
         Rb = GetComponent<Rigidbody2D>();
@@ -160,7 +158,6 @@ public class PlayerController : MonoBehaviour
             if (isDashPressed)
             {
                 Dash();
-                canDoubleJump = true;
             }
         }
         else if (!IsGrounded && !hasDashedAfterGrounded && isDashPressed)
@@ -215,21 +212,19 @@ public class PlayerController : MonoBehaviour
         {
             Animator.SetTrigger("jump");
             isJumping = true;
-            //canDoubleJump = true;
             jumpTimeCounter = jumpTime;
             SetGravityScale(2);
             Rb.velocity = new Vector2(Rb.velocity.x, jumpForce);
             numberOfJumps--;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && numberOfJumps > 0 && !IsGrounded /*&& !IsGrounded && canDoubleJump*/)
+        if (Input.GetKeyDown(KeyCode.Space) && numberOfJumps > 0 && !IsGrounded)
         {
             Animator.SetTrigger("jump");
             Rb.velocity = new Vector2(Rb.velocity.x, 0);
             Rb.velocity = new Vector2(Rb.velocity.x, jumpForce * 2.5f);
             numberOfJumps--;
             FXManager.Instance.InstantiateDustCloud(groundCheckTransform);
-            //canDoubleJump = false;
         }
 
         if (Input.GetKey(KeyCode.Space) && isJumping)
