@@ -71,7 +71,7 @@ public class MagicShot : MonoBehaviour
         }
     }
 
-    private void OnParticleCollision(GameObject other)
+/*    private void OnParticleCollision(GameObject other)
     {
         if (other.CompareTag("Enemy"))
         {
@@ -89,6 +89,5 @@ public class MagicShot : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
+    }*/
 }
