@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour, IDamageable
@@ -36,9 +37,19 @@ public class PlayerStats : MonoBehaviour, IDamageable
         if (invulnerableCounter > 0)
         {
             invulnerableCounter -= Time.deltaTime;
+            var allSpriteRenderers = GetAllSpriteRenderers();
+            foreach (var sprite in allSpriteRenderers)
+            {
+                sprite.DOFade(0.6f, 0.3f).SetLoops(0);
+            }
         }
         else
         {
+            var allSpriteRenderers = GetAllSpriteRenderers();
+            foreach (var sprite in allSpriteRenderers)
+            {
+                sprite.DOFade(1f, 0.3f).SetLoops(0);
+            }
             Physics2D.IgnoreLayerCollision(7, 8, false);
             isInvulnerable = false;
             invulnerableCounter = InvulnerableStartTime;
@@ -75,5 +86,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
         {
             TakeDamage(1);            
         }
+    }
+
+    private SpriteRenderer[] GetAllSpriteRenderers()
+    {
+        return GetComponentsInChildren<SpriteRenderer>();
     }
 }
