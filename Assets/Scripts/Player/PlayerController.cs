@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector2 nimbusVelocity = FindObjectOfType<Nimbus>().GetComponent<Rigidbody2D>().velocity;
             Rb.velocity = nimbusVelocity;
-        }
+        }    
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -146,6 +146,7 @@ public class PlayerController : MonoBehaviour
             Rb.mass = 1f;
         }
     }
+
 
     private void DashHandler()
     {
