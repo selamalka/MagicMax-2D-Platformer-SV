@@ -15011,12 +15011,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d516903c0733b4bb5785f437a9050f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <NimbusInstancesParent>k__BackingField: {fileID: 68904670617449014}
   body: {fileID: 7746609091588951394}
   projectileOriginSide: {fileID: 1674376650813895656}
   projectileOriginTop: {fileID: 3505135375669746821}
   projectileOriginBottom: {fileID: 3051121971054318537}
-  meleeInstancesParent: {fileID: 0}
-  <NimbusInstancesParent>k__BackingField: {fileID: 68904670617449014}
   meleeSlashPrefab: {fileID: 5239689112579095281, guid: 1593f3e23ce15c1458aa8dc70897c5e8, type: 3}
   hitEffectPrefab: {fileID: 4139729474805399306, guid: 7295c6d1fbb21fd469a13197571aeac0, type: 3}
   spellSlot1: {fileID: 0}
@@ -34513,7 +34512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4819300501041328565}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.04, y: -0.52, z: 0}
+  m_LocalPosition: {x: 0.14, y: -0.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
