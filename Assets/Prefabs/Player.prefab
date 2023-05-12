@@ -15114,7 +15114,7 @@ MonoBehaviour:
   projectileOriginSide: {fileID: 1674376650813895656}
   projectileOriginTop: {fileID: 3505135375669746821}
   projectileOriginBottom: {fileID: 3051121971054318537}
-  meleeSlashPrefab: {fileID: 5239689112579095281, guid: 1593f3e23ce15c1458aa8dc70897c5e8, type: 3}
+  meleeSlashPrefab: {fileID: 184801367029357935, guid: c7279cce88357dc40be77975f6913552, type: 3}
   hitEffectPrefab: {fileID: 4139729474805399306, guid: 7295c6d1fbb21fd469a13197571aeac0, type: 3}
   spellSlot1: {fileID: 0}
   spellSlot2: {fileID: 0}
