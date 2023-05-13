@@ -51,6 +51,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         if (isInvulnerable) return;
+        PlayerController.Instance.Animator.SetTrigger("getHit");
         isInvulnerable = true;
         invulnerableCounter = InvulnerableStartTime;
         PlayerController.Instance.Knockback(PlayerController.Instance.IsFacingRight ? Vector2.right : Vector2.left, 15, 15, 250);
