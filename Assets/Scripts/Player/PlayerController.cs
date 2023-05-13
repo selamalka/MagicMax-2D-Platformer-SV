@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float groundCheckRayLength;
 
     private bool isJumping;
-    [SerializeField] private int numberOfJumps;    
+    [SerializeField] private int extraJumps;
     private float jumpTimeCounter;
     private Vector2 gravityVector;
     private float inputX;
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         IsControllable = true;
         gravityVector = new Vector2(0, -Physics2D.gravity.y);
         IsFacingRight = true;
-        numberOfJumps = 2;
+        extraJumps = 1;
         ghostScript = GetComponent<Ghost>();
         Rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
@@ -122,7 +122,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             Animator.SetTrigger("land");
-            numberOfJumps = 2;
 
             if (IsGrounded)
             {                
@@ -136,7 +135,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector2 nimbusVelocity = FindObjectOfType<Nimbus>().GetComponent<Rigidbody2D>().velocity;
             Rb.velocity = nimbusVelocity;
-        }    
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -200,6 +199,7 @@ public class PlayerController : MonoBehaviour
         if (raycastHit.collider != null)
         {
             IsGrounded = true;
+            extraJumps = 1;
         }
         else
         {
@@ -215,15 +215,15 @@ public class PlayerController : MonoBehaviour
             jumpTimeCounter = jumpTime;
             SetGravityScale(2);
             Rb.velocity = new Vector2(Rb.velocity.x, jumpForce);
-            numberOfJumps--;
+            extraJumps--;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && numberOfJumps > 0 && !IsGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0 && !IsGrounded)
         {
             Animator.SetTrigger("jump");
             Rb.velocity = new Vector2(Rb.velocity.x, 0);
             Rb.velocity = new Vector2(Rb.velocity.x, jumpForce * 2.5f);
-            numberOfJumps--;
+            extraJumps--;
             FXManager.Instance.InstantiateDustCloud(groundCheckTransform);
         }
 
