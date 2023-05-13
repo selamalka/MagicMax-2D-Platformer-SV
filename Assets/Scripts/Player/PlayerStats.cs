@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
         if (invulnerableCounter > 0)
         {
             invulnerableCounter -= Time.deltaTime;
-            FXManager.Instance.ChangePlayerTransparency(0.6f);
+            FXManager.Instance.ChangePlayerTransparency(0.4f);
         }
         else
         {
