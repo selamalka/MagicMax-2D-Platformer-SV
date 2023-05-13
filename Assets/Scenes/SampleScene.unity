@@ -5858,7 +5858,7 @@ MonoBehaviour:
   <TargetExp>k__BackingField: 10
   <TargetExpMultiplier>k__BackingField: 1.2
   <SpellPoints>k__BackingField: 1
-  <MaxHealth>k__BackingField: 55555
+  <MaxHealth>k__BackingField: 5
   <CurrentHealth>k__BackingField: 0
   <HealthRegenFillTime>k__BackingField: 1
   <MaxMana>k__BackingField: 5
@@ -10389,6 +10389,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 251648325, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
+      propertyPath: m_Radius
+      value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033319396, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
+      propertyPath: m_Radius
+      value: 0.27
+      objectReference: {fileID: 0}
     - target: {fileID: 2608739400377468351, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
       propertyPath: spellSlot1
       value: 
@@ -10411,7 +10419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4505071554451754095, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.3
+      value: -13.79
       objectReference: {fileID: 0}
     - target: {fileID: 4505071554451754095, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
       propertyPath: m_LocalPosition.z

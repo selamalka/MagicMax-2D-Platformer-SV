@@ -8,9 +8,7 @@ public class MeleeSlash : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-
-        transform.localScale = new Vector3(PlayerController.Instance.IsFacingRight ? 1 : -1, 1, 1);
+        rb = GetComponent<Rigidbody2D>();    
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
