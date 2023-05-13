@@ -16,9 +16,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject spellbookPanel;
     [SerializeField] private TextMeshProUGUI levelUpAnnouncement;
 
+    private Image backgroundPanelImage;
+
     private void Awake()
     {
-        Instance = this;
+        Instance = this;        
+        canvas.SetActive(true);
+        backgroundPanelImage = GameObject.Find("Background Panel").GetComponent<Image>();
     }
 
     private void OnEnable()
@@ -38,14 +42,22 @@ public class UIManager : MonoBehaviour
         EventManager.OnTPressed -= ToggleSpellbook;
         EventManager.OnPlayerLevelUp -= UpdateSpellPoints;
         EventManager.OnPlayerLevelUp -= AnnounceLevelUp;
-    }
+    }    
 
     private void Start()
     {
-        canvas.SetActive(true);
+        FadeFromBlack(2);       
         spellbookPanel.SetActive(false);
         UpdateExpBar();
         UpdateSpellPoints();
+    }
+
+    private void Update()
+    {
+/*        if (backgroundPanelImage.color.a == 1)
+        {
+            FadeFromBlack(2);
+        }*/
     }
 
     private void ToggleSpellbook()
@@ -60,6 +72,17 @@ public class UIManager : MonoBehaviour
             GameManager.Instance.ResumeGame();
             spellbookPanel.gameObject.SetActive(false);
         }
+    }
+
+    public void FadeToBlack(float duration)
+    {
+        print("Fade To Black");
+        backgroundPanelImage.DOColor(new Color(0, 0, 0, 1), duration);
+    }
+    public void FadeFromBlack(float duration)
+    {
+        print("Fade From Black");
+        backgroundPanelImage.DOColor(new Color(0,0,0,0), duration);
     }
 
     private void UpdateExpBar()

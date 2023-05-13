@@ -9315,6 +9315,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene Loader
       objectReference: {fileID: 0}
+    - target: {fileID: 229080517492695499, guid: 05b27c883a6f73e42acb4bfc918888a9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 229080517492695499, guid: 05b27c883a6f73e42acb4bfc918888a9, type: 3}
+      propertyPath: m_Color.r
+      value: 0.25444794
+      objectReference: {fileID: 0}
     - target: {fileID: 229080517492695508, guid: 05b27c883a6f73e42acb4bfc918888a9, type: 3}
       propertyPath: m_RootOrder
       value: 11
