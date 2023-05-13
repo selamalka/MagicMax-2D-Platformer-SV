@@ -65,7 +65,7 @@ public class MagicShot : MonoBehaviour
                 }
             }
         }
-        else if (collision.CompareTag("Tilemap"))
+        else if (collision.CompareTag("Ground"))
         {
             Destroy(gameObject);
         }

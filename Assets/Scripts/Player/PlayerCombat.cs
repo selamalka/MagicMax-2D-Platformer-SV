@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -42,20 +41,16 @@ public class PlayerCombat : MonoBehaviour
             //MeleeSlash();
             PlayerController.Instance.Animator.SetTrigger("meleeAttack");
         }
-    }
 
-    private void OnEnable()
-    {
-        //EventManager.OnWPressed += MeleeSlash;
-        EventManager.OnQPressed += UseSpellSlot1;
-        EventManager.OnEPressed += UseSpellSlot2;
-    }
+        if (InputManager.Instance.IsQPressed()) 
+        {
+            UseSpellSlot1();
+        }
 
-    private void OnDisable()
-    {
-        //EventManager.OnWPressed -= MeleeSlash;
-        EventManager.OnQPressed -= UseSpellSlot1;
-        EventManager.OnEPressed -= UseSpellSlot2;
+        if (InputManager.Instance.IsEPressed())
+        {
+            UseSpellSlot2();
+        }
     }
 
     private void UseSpellSlot1()

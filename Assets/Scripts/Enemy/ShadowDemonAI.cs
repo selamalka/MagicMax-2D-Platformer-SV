@@ -172,7 +172,7 @@ public class ShadowDemonAI : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {        
-        if (collision.CompareTag("Tilemap"))
+        if (collision.CompareTag("Ground"))
         {
             if (playerGameObject == null) return;
             transform.position = Vector2.MoveTowards(transform.position, playerGameObject.transform.position, speed * 1.2f * Time.deltaTime);
