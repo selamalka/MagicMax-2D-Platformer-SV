@@ -5,13 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Tilemap
   - PatrolPoint
   - BlockedSpell
   - Canvas
   - Nimbus
   - EnemyBody
   - Behemoth
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -23,8 +23,8 @@ TagManager:
   - Player
   - Enemies
   - Nimbus
-  - Behemoth
-  - Tilemap
+  - 
+  - 
   - Spacer
   - 
   - 

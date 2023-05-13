@@ -16,25 +16,11 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-/*        MousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
-        crosshair.transform.position = MousePosition;*/
-
-        if (IsQPressed())
-        {
-            EventManager.OnQPressed?.Invoke();
-        }
-
-        /*        if (IsWPressed())
-                {
-                    EventManager.OnWPressed?.Invoke();
-                }*/
-
+        /*        MousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+                crosshair.transform.position = MousePosition;*/
+        IsQPressed();
         IsWPressed();
-
-        if (IsEPressed())
-        {
-            EventManager.OnEPressed?.Invoke();
-        }
+        IsEPressed();
 
         if (IsTPressed())
         {
@@ -42,7 +28,7 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    private bool IsQPressed()
+    public bool IsQPressed()
     {
         return Input.GetKeyDown(KeyCode.Q);
     }
@@ -52,7 +38,7 @@ public class InputManager : MonoBehaviour
         return Input.GetKeyDown(KeyCode.W);
     }
 
-    private bool IsEPressed()
+    public bool IsEPressed()
     {
         return Input.GetKeyDown(KeyCode.E);
     }

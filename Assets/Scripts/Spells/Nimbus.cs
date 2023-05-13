@@ -24,6 +24,8 @@ public class Nimbus : MonoBehaviour
             print("Cannot cast Nimbus while grounded");
             Destroy(gameObject);
         }
+
+        GetComponentInParent<Transform>().rotation = Quaternion.Euler(0f, 0f, 0f);
     }
 
     private void Start()
@@ -36,7 +38,7 @@ public class Nimbus : MonoBehaviour
 
         spellContainerParent = PlayerCombat.Instance.NimbusInstancesParent;
         transform.parent.SetParent(spellContainerParent);
-        spellContainerParent.GetComponentInChildren<SpellContainer>().transform.rotation = Quaternion.Euler(0,0,0);        
+        spellContainerParent.GetComponentInChildren<SpellContainer>().transform.rotation = Quaternion.Euler(0, 0, 0);
         transform.position = spellContainerParent.transform.position;
 
         lifespanCounter = SpellData.Lifespan;

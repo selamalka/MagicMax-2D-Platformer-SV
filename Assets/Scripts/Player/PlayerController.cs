@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
             Knockback(collisionDirection, 30, 20, 500);
         }
 
-        if (collision.gameObject.CompareTag("Tilemap"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             Animator.SetTrigger("land");
             numberOfJumps = 2;
@@ -146,7 +146,6 @@ public class PlayerController : MonoBehaviour
             Rb.mass = 1f;
         }
     }
-
 
     private void DashHandler()
     {

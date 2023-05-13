@@ -31,7 +31,7 @@ public class EnemyProjectile : MonoBehaviour
             collision.GetComponent<IDamageable>().TakeDamage(data.Damage);
             Destroy(gameObject);
         }
-        else if (collision.CompareTag("Tilemap"))
+        else if (collision.CompareTag("Ground"))
         {
             Destroy(gameObject);
         }

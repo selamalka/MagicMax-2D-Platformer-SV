@@ -380,9 +380,9 @@ GameObject:
   - component: {fileID: 4990479817821054167}
   - component: {fileID: 4319603042726514684}
   - component: {fileID: 8213855696328409443}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Behemoth
-  m_TagString: Behemoth
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
