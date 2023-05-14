@@ -52,13 +52,6 @@ public class UIManager : MonoBehaviour
         UpdateSpellPoints();
     }
 
-    private void Update()
-    {
-/*        if (backgroundPanelImage.color.a == 1)
-        {
-            FadeFromBlack(2);
-        }*/
-    }
 
     private void ToggleSpellbook()
     {
