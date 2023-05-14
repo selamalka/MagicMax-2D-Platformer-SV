@@ -114,7 +114,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 123, y: 918}
-    spritePosition: {x: 266, y: 408}
+    spritePosition: {x: 163, y: 408}
   - name: Eye Right
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -136,11 +136,11 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 932}
-    spritePosition: {x: 192, y: 402}
+    spritePosition: {x: 220, y: 402}
   - name: Head
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5485329, y: 0.06304471}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -158,11 +158,11 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 145, y: 316}
+    spritePosition: {x: 98, y: 316}
   - name: Arm Left
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.8623792, y: 0.84480035}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -180,11 +180,11 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 179, y: 316}
-    spritePosition: {x: 306, y: 161}
+    spritePosition: {x: 124, y: 161}
   - name: Arm Right
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.30279133, y: 0.8212363}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -202,7 +202,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 195, y: 755}
-    spritePosition: {x: 148, y: 129}
+    spritePosition: {x: 292, y: 129}
   - name: Body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -224,11 +224,11 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 755}
-    spritePosition: {x: 190, y: 152}
+    spritePosition: {x: 180, y: 152}
   - name: Wing Left
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.85791296, y: 0.7395053}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -246,11 +246,11 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 250, y: 4}
-    spritePosition: {x: 326, y: 36}
+    spritePosition: {x: 13, y: 36}
   - name: Wing Right
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.11958363, y: 0.6983205}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -268,11 +268,11 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 316}
-    spritePosition: {x: 13, y: 24}
+    spritePosition: {x: 301, y: 24}
   - name: Leg Left
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.77072215, y: 0.9024162}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -290,11 +290,11 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 123, y: 755}
-    spritePosition: {x: 263, y: 11}
+    spritePosition: {x: 154, y: 11}
   - name: Leg Right
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.19318151, y: 0.9247724}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -312,7 +312,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 250, y: 393}
-    spritePosition: {x: 180, y: 10}
+    spritePosition: {x: 237, y: 10}
   characterData:
     bones: []
     parts: []
