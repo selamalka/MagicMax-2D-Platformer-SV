@@ -95,8 +95,8 @@ ScriptedImporter:
   rigSpriteImportData:
   - name: Eye Left
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5945151, y: 0.34060034}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -117,8 +117,8 @@ ScriptedImporter:
     spritePosition: {x: 156, y: 223}
   - name: Eye Right
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.48268974, y: 0.3071131}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -139,12 +139,12 @@ ScriptedImporter:
     spritePosition: {x: 199, y: 258}
   - name: Head
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.4454884, y: 0.042258047}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 5
       y: 4
       width: 322
       height: 264
@@ -161,8 +161,8 @@ ScriptedImporter:
     spritePosition: {x: 19, y: 156}
   - name: Body
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.46841618, y: 0.2941753}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -183,8 +183,8 @@ ScriptedImporter:
     spritePosition: {x: 36, y: 75}
   - name: Leg Front Top
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.28903008, y: 0.73827285}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -205,8 +205,8 @@ ScriptedImporter:
     spritePosition: {x: 188, y: 52}
   - name: Leg Front Bottom
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.3972669, y: 0.9094909}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -227,8 +227,8 @@ ScriptedImporter:
     spritePosition: {x: 146, y: 11}
   - name: Leg Back
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.73827255, y: 0.7893321}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
