@@ -10150,8 +10150,8 @@ MonoBehaviour:
   <IsFacingRight>k__BackingField: 0
   jumpForce: 15
   jumpTime: 0.3
-  speed: 500
-  fallMultiplier: 1.5
+  speed: 12
+  fallMultiplier: 0.1
   sidePushForce: 3
   upPushForce: 1350
   downPushForce: 16
@@ -15256,7 +15256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4819300501041328565}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14, y: -0.81, z: 0}
+  m_LocalPosition: {x: 0.14, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

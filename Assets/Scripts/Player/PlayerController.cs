@@ -83,12 +83,12 @@ public class PlayerController : MonoBehaviour
 
         if (Rb.velocity.y < 0)
         {
-            Rb.velocity -= gravityVector * fallMultiplier * Time.deltaTime;
+            Rb.velocity -= gravityVector * fallMultiplier;
         }
 
         if (IsNimbusActive) return;
 
-        Rb.velocity = new Vector2(inputX * speed * Time.deltaTime, Rb.velocity.y);
+        Rb.velocity = new Vector2(inputX * speed, Rb.velocity.y);
         if (Rb.velocity.x != 0f)
         {
             Animator.SetBool("isWalking", true);
