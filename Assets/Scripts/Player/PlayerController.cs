@@ -106,6 +106,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (Rb == null) return;
+
         if (collision.gameObject.CompareTag("Nimbus"))
         {
             SetGravityScale(0);
