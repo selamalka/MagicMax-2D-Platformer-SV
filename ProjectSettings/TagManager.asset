@@ -76,3 +76,6 @@ TagManager:
   - name: Crosshair
     uniqueID: 911880285
     locked: 0
+  - name: Story Teller
+    uniqueID: 3168338567
+    locked: 0
