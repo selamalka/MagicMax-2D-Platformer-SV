@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI spellPointsValue;
     [SerializeField] private GameObject spellbookPanel;
     [SerializeField] private TextMeshProUGUI levelUpAnnouncement;
+    [SerializeField] private TextMeshProUGUI announcement;
 
     private Image backgroundPanelImage;
 
@@ -51,7 +52,6 @@ public class UIManager : MonoBehaviour
         UpdateExpBar();
         UpdateSpellPoints();
     }
-
 
     private void ToggleSpellbook()
     {
@@ -150,6 +150,16 @@ public class UIManager : MonoBehaviour
         {
             soulPoint.DOFade(0, 0.2f);
         }
+    }
+
+    public void Announcement(string message, float duration)
+    {
+        announcement.gameObject.SetActive(true);
+        announcement.text = message;
+        announcement.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
+        announcement.transform.DOLocalMoveY(100, duration).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
+            .OnComplete(() => announcement.DOFade(0, 1).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
+            .OnComplete(() => announcement.gameObject.SetActive(false)));
     }
 
     private void AnnounceLevelUp()
