@@ -128,6 +128,7 @@ public class PlayerController : MonoBehaviour
             if (IsGrounded)
             {                
                 FXManager.Instance.InstantiateDustCloud(groundCheckTransform);
+                FXManager.Instance.CameraShaker.Shake(FXManager.Instance.PlayerLandShakePreset);
             }
         }
     }

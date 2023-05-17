@@ -152,6 +152,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void AnnounceLevelUp()
+    {
+        levelUpAnnouncement.gameObject.SetActive(true);
+        levelUpAnnouncement.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
+        levelUpAnnouncement.transform.DOLocalMoveY(100, 2).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
+            .OnComplete(() => levelUpAnnouncement.DOFade(0, 1).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
+            .OnComplete(()=> levelUpAnnouncement.gameObject.SetActive(false)));
+    }
     public void Announcement(string message, float duration)
     {
         announcement.gameObject.SetActive(true);
@@ -160,14 +168,5 @@ public class UIManager : MonoBehaviour
         announcement.transform.DOLocalMoveY(100, duration).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
             .OnComplete(() => announcement.DOFade(0, 1).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
             .OnComplete(() => announcement.gameObject.SetActive(false)));
-    }
-
-    private void AnnounceLevelUp()
-    {
-        levelUpAnnouncement.gameObject.SetActive(true);
-        levelUpAnnouncement.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
-        levelUpAnnouncement.transform.DOLocalMoveY(100, 2).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
-            .OnComplete(() => levelUpAnnouncement.DOFade(0, 1).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
-            .OnComplete(()=> levelUpAnnouncement.gameObject.SetActive(false)));
     }
 }
