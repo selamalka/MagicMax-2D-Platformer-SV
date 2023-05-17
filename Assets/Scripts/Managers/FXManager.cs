@@ -9,6 +9,7 @@ public class FXManager : MonoBehaviour
 
     [field: SerializeField] public Shaker CameraShaker { get; private set; }
     [field: SerializeField] public ShakePreset PlayerHitShakePreset { get; private set; }
+    [field: SerializeField] public ShakePreset PlayerLandShakePreset { get; private set; }
     [field: SerializeField] public ShakePreset EnemyDeathShakePreset { get; private set; }
 
     [SerializeField] private GameObject dustCloudPrefab;
