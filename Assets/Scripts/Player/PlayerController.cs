@@ -180,7 +180,7 @@ public class PlayerController : MonoBehaviour
 
             if (dashDirection == Vector2.zero)
             {
-                dashDirection = new Vector2(transform.localScale.x, 0);
+                dashDirection = IsFacingRight ? Vector2.right : Vector2.left;
             }
 
             StartCoroutine(StopDashing());
