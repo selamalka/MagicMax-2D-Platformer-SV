@@ -36,7 +36,7 @@ public class PlayerCombat : MonoBehaviour
 
         if (!PlayerController.Instance.IsControllable) return;
 
-        if (InputManager.Instance.IsWPressed())
+        if (InputManager.Instance.IsEPressed())
         {
             //MeleeSlash();
             PlayerController.Instance.Animator.SetTrigger("meleeAttack");
@@ -47,7 +47,7 @@ public class PlayerCombat : MonoBehaviour
             UseSpellSlot1();
         }
 
-        if (InputManager.Instance.IsEPressed())
+        if (InputManager.Instance.IsWPressed())
         {
             UseSpellSlot2();
         }
@@ -144,26 +144,21 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                //print("top");
                 return projectileOriginTop.position;
             }
             else if (Input.GetKey(KeyCode.DownArrow))
             {
-                //print("bottom");
                 return projectileOriginBottom.position;
             }
 
-            //print("side");
             return projectileOriginSide.position;
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
-            //print("top");
             return projectileOriginTop.position;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            //print("bottom");
             return projectileOriginBottom.position;
         }
 

@@ -25,6 +25,7 @@ public class PlayerStatsManager : MonoBehaviour
     [field: SerializeField] public int MeleeDamage { get; private set; }
 
     private float healthRegenFillCounter;
+    private bool isChargingHealthActivated = false;
 
     private void Awake()
     {
@@ -35,7 +36,7 @@ public class PlayerStatsManager : MonoBehaviour
     {
         CurrentLevel = 1;
         CurrentHealth = MaxHealth;
-        CurrentMana = MaxMana;
+        CurrentMana = 0;
         healthRegenFillCounter = HealthRegenFillTime;
     }
 
@@ -156,13 +157,22 @@ public class PlayerStatsManager : MonoBehaviour
 
     public void HealthRegenHandler()
     {
-        if (InputManager.Instance.IsFPressed() && CurrentMana > 0 && CurrentHealth < MaxHealth)
+        if (Input.GetKey(KeyCode.F) && CurrentMana > 0 && CurrentHealth < MaxHealth)
         {
             PlayerController.Instance.SetIsControllable(false);
+
+            if (!isChargingHealthActivated)
+            {
+                PlayerController.Instance.Animator.SetTrigger("triggerChargeHealth");
+                PlayerController.Instance.Animator.SetBool("isChargingHealth", true);
+                isChargingHealthActivated = true;
+            }
+
             if (PlayerController.Instance.Rb != null)
             {
                 PlayerController.Instance.Rb.velocity = new Vector2(0, PlayerController.Instance.Rb.velocity.y);
             }
+
             healthRegenFillCounter -= Time.deltaTime;
 
             if (healthRegenFillCounter <= 0)
@@ -174,6 +184,8 @@ public class PlayerStatsManager : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.F))
         {
             PlayerController.Instance.SetIsControllable(true);
+            PlayerController.Instance.Animator.SetBool("isChargingHealth", false);
+            isChargingHealthActivated = false;
             healthRegenFillCounter = HealthRegenFillTime;
         }
     }
