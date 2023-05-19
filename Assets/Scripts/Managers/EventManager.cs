@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    public delegate void TPressedAction();
-    public static TPressedAction OnTPressed;
+    public delegate void SPressedAction();
+    public static SPressedAction OnSPressed;
 
     public delegate void PlayerGetHitAction();
     public static PlayerGetHitAction OnPlayerGetHit;

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI announcement;
 
     private Image backgroundPanelImage;
+    private Coroutine currentAnnouncementCoroutine;
 
     private void Awake()
     {
@@ -30,7 +32,7 @@ public class UIManager : MonoBehaviour
     {
         EventManager.OnPlayerGetHit += DecreaseHealthPoint;
         EventManager.OnEnemyDeath += UpdateExpBar;
-        EventManager.OnTPressed += ToggleSpellbook;
+        EventManager.OnSPressed += ToggleSpellbook;
         EventManager.OnPlayerLevelUp += UpdateSpellPoints;
         EventManager.OnPlayerLevelUp += AnnounceLevelUp;
         
@@ -40,7 +42,7 @@ public class UIManager : MonoBehaviour
     {
         EventManager.OnPlayerGetHit -= DecreaseHealthPoint;
         EventManager.OnEnemyDeath -= UpdateExpBar;
-        EventManager.OnTPressed -= ToggleSpellbook;
+        EventManager.OnSPressed -= ToggleSpellbook;
         EventManager.OnPlayerLevelUp -= UpdateSpellPoints;
         EventManager.OnPlayerLevelUp -= AnnounceLevelUp;
     }    
@@ -160,7 +162,7 @@ public class UIManager : MonoBehaviour
             .OnComplete(() => levelUpAnnouncement.DOFade(0, 1).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
             .OnComplete(()=> levelUpAnnouncement.gameObject.SetActive(false)));
     }
-    public void Announcement(string message, float duration)
+/*    public void Announcement(string message, float duration)
     {
         announcement.gameObject.SetActive(true);
         announcement.text = message;
@@ -168,5 +170,36 @@ public class UIManager : MonoBehaviour
         announcement.transform.DOLocalMoveY(100, duration).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
             .OnComplete(() => announcement.DOFade(0, 1).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
             .OnComplete(() => announcement.gameObject.SetActive(false)));
+    }*/
+
+    // Declare a private variable to store the current announcement coroutine
+
+    public void Announcement(string message, float duration)
+    {
+        // If there is a currently active announcement, stop its coroutine
+        if (currentAnnouncementCoroutine != null)
+        {
+            StopCoroutine(currentAnnouncementCoroutine);
+            currentAnnouncementCoroutine = null;
+        }
+
+        announcement.gameObject.SetActive(true);
+        announcement.text = message;
+
+        currentAnnouncementCoroutine = StartCoroutine(DisplayAnnouncement(duration));
+    }
+
+    private IEnumerator DisplayAnnouncement(float duration)
+    {
+        announcement.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
+        announcement.transform.DOLocalMoveY(100, duration).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
+
+        yield return new WaitForSeconds(duration);
+
+        announcement.DOFade(0, 1).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
+        yield return new WaitForSeconds(1);
+
+        announcement.gameObject.SetActive(false);
+        currentAnnouncementCoroutine = null;
     }
 }

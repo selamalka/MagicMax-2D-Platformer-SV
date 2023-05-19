@@ -22,9 +22,9 @@ public class InputManager : MonoBehaviour
         IsWPressed();
         IsEPressed();
 
-        if (IsTPressed())
+        if (IsSPressed())
         {
-            EventManager.OnTPressed?.Invoke();
+            EventManager.OnSPressed?.Invoke();
         }
     }
 
@@ -43,13 +43,8 @@ public class InputManager : MonoBehaviour
         return Input.GetKeyDown(KeyCode.E);
     }
 
-    public bool IsTPressed()
+    public bool IsSPressed()
     {
-        return Input.GetKeyDown(KeyCode.T);
-    }
-
-    public bool IsFPressed()
-    {
-        return Input.GetKey(KeyCode.F);
+        return Input.GetKeyDown(KeyCode.S);
     }
 }
