@@ -8,7 +8,7 @@ public class MeleeSlash : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();    
+        rb = GetComponent<Rigidbody2D>();
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
@@ -39,8 +39,8 @@ public class MeleeSlash : MonoBehaviour
         else if (collision.CompareTag("Enemy"))
         {
             PlayerController.Instance.SetIsControllable(false);
-
             collision.GetComponent<IDamageable>().TakeDamage(PlayerStatsManager.Instance.MeleeDamage);
+
             Transform enemyTransform = collision.gameObject.transform;
             PlayerCombat.Instance.InstantiateHitEffect(transform.position, enemyTransform);
             GetComponent<Collider2D>().enabled = false;
@@ -53,6 +53,17 @@ public class MeleeSlash : MonoBehaviour
                 collision.gameObject.GetComponent<ImpAI>().Knockback();
             }
 
+            await Task.Delay(150);
+            PlayerController.Instance.SetIsControllable(true);
+        }
+        else if (collision.CompareTag("Thorns"))
+        {
+            PlayerController.Instance.SetIsControllable(false);
+            GetComponent<Collider2D>().enabled = false;
+            Transform enemyTransform = collision.gameObject.transform;
+            PlayerCombat.Instance.InstantiateHitEffect(transform.position, enemyTransform);
+            enemyDirection = collision.gameObject.transform.position - transform.position;
+            PlayerController.Instance.PushPlayerAgainstEnemyDirectionOnMelee(-enemyDirection);
             await Task.Delay(150);
             PlayerController.Instance.SetIsControllable(true);
         }
