@@ -341,7 +341,7 @@ public class PlayerController : MonoBehaviour
         {
             isZooming = true;
             Animator.SetBool("isWalking", false);
-            Rb.velocity = Vector2.zero;
+            Rb.velocity = new Vector2(0, Rb.velocity.y);
 
             if (cam.orthographicSize < 25)
             {
