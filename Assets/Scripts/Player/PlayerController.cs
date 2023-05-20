@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
     public Animator Animator { get; private set; }
     private Ghost ghostScript;
     public Rigidbody2D Rb { get; private set; }
+    private bool isZooming;
 
     private void Awake()
     {
@@ -70,7 +72,7 @@ public class PlayerController : MonoBehaviour
         if (!IsControllable) return;
         FacingHandler();
         IsGroundedHandler();
-
+        ZoomHandler();
         if (IsNimbusActive) return;
         JumpHandler();
         DashHandler();
@@ -78,6 +80,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         if (!IsControllable) return;
+        if (isZooming) return;
 
         inputX = Input.GetAxisRaw("Horizontal");
 
@@ -126,7 +129,7 @@ public class PlayerController : MonoBehaviour
             Animator.SetTrigger("land");
 
             if (IsGrounded)
-            {                
+            {
                 FXManager.Instance.InstantiateDustCloud(groundCheckTransform);
                 FXManager.Instance.CameraShaker.Shake(FXManager.Instance.PlayerLandShakePreset);
             }
@@ -264,7 +267,6 @@ public class PlayerController : MonoBehaviour
         SetGravityScale(8);
         IsControllable = true;
     }
-
     public async void PushPlayerAgainstEnemyDirectionOnMelee(Vector2 enemyDirection)
     {
         if (!IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
@@ -293,7 +295,6 @@ public class PlayerController : MonoBehaviour
             Rb.velocity = Vector2.right * sidePushForce;
         }
     }
-
     private void PushPlayerDown()
     {
         Rb.velocity = Vector2.zero;
@@ -331,5 +332,27 @@ public class PlayerController : MonoBehaviour
         rotation.y = IsFacingRight ? 180f : 0f;
         transform.rotation = rotation;
         IsFacingRight = !IsFacingRight;
+    }
+    private void ZoomHandler()
+    {
+        Camera cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+
+        if (Input.GetKey(KeyCode.Z))
+        {
+            isZooming = true;
+            Animator.SetBool("isWalking", false);
+            Rb.velocity = Vector2.zero;
+
+            if (cam.orthographicSize < 25)
+            {
+                cam.orthographicSize += 0.075f;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Z))
+        {
+            isZooming = false;
+            cam.DOOrthoSize(16, 0.6f);
+        }
     }
 }
