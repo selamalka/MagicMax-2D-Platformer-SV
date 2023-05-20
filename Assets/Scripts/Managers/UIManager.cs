@@ -172,8 +172,6 @@ public class UIManager : MonoBehaviour
             .OnComplete(() => announcement.gameObject.SetActive(false)));
     }*/
 
-    // Declare a private variable to store the current announcement coroutine
-
     public void Announcement(string message, float duration)
     {
         // If there is a currently active announcement, stop its coroutine
@@ -192,7 +190,7 @@ public class UIManager : MonoBehaviour
     private IEnumerator DisplayAnnouncement(float duration)
     {
         announcement.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
-        announcement.transform.DOLocalMoveY(100, duration).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
+        announcement.transform.DOLocalMoveY(260, duration).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
 
         yield return new WaitForSeconds(duration);
 
