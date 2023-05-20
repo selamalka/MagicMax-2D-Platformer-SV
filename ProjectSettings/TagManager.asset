@@ -12,6 +12,7 @@ TagManager:
   - EnemyBody
   - Behemoth
   - Ground
+  - Thorns
   layers:
   - Default
   - TransparentFX

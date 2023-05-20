@@ -264,12 +264,13 @@ public class PlayerController : MonoBehaviour
         SetGravityScale(8);
         IsControllable = true;
     }
+
     public async void PushPlayerAgainstEnemyDirectionOnMelee(Vector2 enemyDirection)
     {
         if (!IsGrounded && Input.GetKey(KeyCode.DownArrow) && enemyDirection.y < 0)
         {
             SetGravityScale(2);
-            Rb.velocity = new Vector2(Rb.velocity.x, upPushForce * Time.deltaTime);
+            Rb.velocity = new Vector2(Rb.velocity.x, upPushForce);
             await Task.Delay(200);
             SetGravityScale(8);
         }
@@ -283,13 +284,16 @@ public class PlayerController : MonoBehaviour
 
         if (enemyDirection.x > 0)
         {
+            print("suppose to push left");
             Rb.velocity = Vector2.left * sidePushForce;
         }
         else if (enemyDirection.x < 0)
         {
+            print("suppose to push right");
             Rb.velocity = Vector2.right * sidePushForce;
         }
     }
+
     private void PushPlayerDown()
     {
         Rb.velocity = Vector2.zero;
