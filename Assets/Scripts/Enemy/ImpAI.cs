@@ -171,11 +171,11 @@ public class ImpAI : MonoBehaviour
     {
         if (isFacingRight)
         {
-            rb.AddForce(Vector2.left * 5, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
         }
         else
         {
-            rb.AddForce(Vector2.right * 5, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
         }
     }
 }
