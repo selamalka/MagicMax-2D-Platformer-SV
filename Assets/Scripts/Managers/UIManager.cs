@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image[] manaPoints;
     [SerializeField] private Image[] soulPoints;
     [SerializeField] private Image expBarFull;
+    [SerializeField] private GameObject key;
     [SerializeField] private TextMeshProUGUI spellPointsValue;
     [SerializeField] private GameObject spellbookPanel;
     [SerializeField] private TextMeshProUGUI levelUpAnnouncement;
@@ -49,10 +50,16 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        SetKeyDisplay(false);
         FadeFromBlack(2);       
         spellbookPanel.SetActive(false);
         UpdateExpBar();
         UpdateSpellPoints();
+    }
+
+    public void SetKeyDisplay(bool value)
+    {
+        key.SetActive(value);
     }
 
     private void ToggleSpellbook()
@@ -189,12 +196,12 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator DisplayAnnouncement(float duration)
     {
-        announcement.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
-        announcement.transform.DOLocalMoveY(260, duration).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
+        announcement.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(false);
+        announcement.transform.DOLocalMoveY(260, duration).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(false);
 
         yield return new WaitForSeconds(duration);
 
-        announcement.DOFade(0, 1).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
+        announcement.DOFade(0, 1).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(false);
         yield return new WaitForSeconds(1);
 
         announcement.gameObject.SetActive(false);
