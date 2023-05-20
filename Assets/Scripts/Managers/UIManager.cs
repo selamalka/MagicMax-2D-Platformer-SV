@@ -19,14 +19,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelUpAnnouncement;
     [SerializeField] private TextMeshProUGUI announcement;
 
-    private Image backgroundPanelImage;
+    private Image masterPanelImage;
     private Coroutine currentAnnouncementCoroutine;
 
     private void Awake()
     {
         Instance = this;        
         canvas.SetActive(true);
-        backgroundPanelImage = GameObject.Find("Background Panel").GetComponent<Image>();
+        masterPanelImage = GameObject.Find("Master Panel").GetComponent<Image>();
     }
 
     private void OnEnable()
@@ -79,12 +79,12 @@ public class UIManager : MonoBehaviour
     public void FadeToBlack(float duration)
     {
         print("Fade To Black");
-        backgroundPanelImage.DOColor(new Color(0, 0, 0, 1), duration);
+        masterPanelImage.DOColor(new Color(0, 0, 0, 1), duration);
     }
     public void FadeFromBlack(float duration)
     {
         print("Fade From Black");
-        backgroundPanelImage.DOColor(new Color(0,0,0,0), duration);
+        masterPanelImage.DOColor(new Color(0,0,0,0), duration);
     }
 
     private void UpdateExpBar()
