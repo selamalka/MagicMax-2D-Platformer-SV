@@ -17,14 +17,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI spellPointsValue;
     [SerializeField] private GameObject spellbookPanel;
     [SerializeField] private TextMeshProUGUI levelUpAnnouncement;
+    [SerializeField] private TextMeshProUGUI tipText;
 
-    private TextMeshProUGUI announcement;
     private Image masterPanelImage;
-    private Coroutine currentAnnouncementCoroutine;
 
     private void Awake()
     {
-        Instance = this;        
+        Instance = this;
         canvas.SetActive(true);
         masterPanelImage = GameObject.Find("Master Panel").GetComponent<Image>();
     }
@@ -36,7 +35,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnSPressed += ToggleSpellbook;
         EventManager.OnPlayerLevelUp += UpdateSpellPoints;
         EventManager.OnPlayerLevelUp += AnnounceLevelUp;
-        
+
     }
 
     private void OnDisable()
@@ -46,12 +45,12 @@ public class UIManager : MonoBehaviour
         EventManager.OnSPressed -= ToggleSpellbook;
         EventManager.OnPlayerLevelUp -= UpdateSpellPoints;
         EventManager.OnPlayerLevelUp -= AnnounceLevelUp;
-    }    
+    }
 
     private void Start()
     {
         SetKeyDisplay(false);
-        FadeFromBlack(2);       
+        FadeFromBlack(2);
         spellbookPanel.SetActive(false);
         UpdateExpBar();
         UpdateSpellPoints();
@@ -84,7 +83,7 @@ public class UIManager : MonoBehaviour
     public void FadeFromBlack(float duration)
     {
         print("Fade From Black");
-        masterPanelImage.DOColor(new Color(0,0,0,0), duration);
+        masterPanelImage.DOColor(new Color(0, 0, 0, 0), duration);
     }
 
     private void UpdateExpBar()
@@ -167,44 +166,19 @@ public class UIManager : MonoBehaviour
         levelUpAnnouncement.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
         levelUpAnnouncement.transform.DOLocalMoveY(100, 2).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
             .OnComplete(() => levelUpAnnouncement.DOFade(0, 1).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
-            .OnComplete(()=> levelUpAnnouncement.gameObject.SetActive(false)));
-    }
-/*    public void Announcement(string message, float duration)
-    {
-        announcement.gameObject.SetActive(true);
-        announcement.text = message;
-        announcement.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
-        announcement.transform.DOLocalMoveY(100, duration).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
-            .OnComplete(() => announcement.DOFade(0, 1).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
-            .OnComplete(() => announcement.gameObject.SetActive(false)));
-    }*/
-
-    public void Announcement(string message, float duration)
-    {
-        // If there is a currently active announcement, stop its coroutine
-        if (currentAnnouncementCoroutine != null)
-        {
-            StopCoroutine(currentAnnouncementCoroutine);
-            currentAnnouncementCoroutine = null;
-        }
-
-        announcement.gameObject.SetActive(true);
-        announcement.text = message;
-
-        currentAnnouncementCoroutine = StartCoroutine(DisplayAnnouncement(duration));
+            .OnComplete(() => levelUpAnnouncement.gameObject.SetActive(false)));
     }
 
-    private IEnumerator DisplayAnnouncement(float duration)
+    public void ShowTip(string message)
     {
-        announcement.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(false);
-        announcement.transform.DOLocalMoveY(260, duration).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(false);
+        tipText.gameObject.SetActive(true);
+        tipText.text = message;
+        tipText.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
+    }
 
-        yield return new WaitForSeconds(duration);
-
-        announcement.DOFade(0, 1).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(false);
-        yield return new WaitForSeconds(1);
-
-        announcement.gameObject.SetActive(false);
-        currentAnnouncementCoroutine = null;
+    public void HideTip()
+    {
+        tipText.DOFade(0, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
+        .OnComplete(()=> tipText.gameObject.SetActive(false));
     }
 }
