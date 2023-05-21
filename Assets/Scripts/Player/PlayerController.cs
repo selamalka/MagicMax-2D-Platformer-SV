@@ -343,7 +343,7 @@ public class PlayerController : MonoBehaviour
         {
             cameraContainer = GameObject.Find("Camera Container");
             cameraController = cameraContainer.GetComponent<CameraController>();
-            cameraController.followTargetPosition = false;          
+            cameraController.followTargetPosition = false;
         }
 
         if (Input.GetKey(KeyCode.Z))
@@ -357,29 +357,16 @@ public class PlayerController : MonoBehaviour
                 cameraController.GetComponentInChildren<Camera>().orthographicSize += 0.08f;
             }
 
-            //Look Up
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                oldCameraPosition = cameraContainer.transform.position;
-                Vector3 newCameraPosition = new Vector3(cameraContainer.transform.position.x, cameraContainer.transform.position.y + 15, cameraContainer.transform.position.z);
-                cameraContainer.transform.DOMove(newCameraPosition, 0.3f);
-            }
-            if (Input.GetKeyUp(KeyCode.UpArrow))
-            {
-                cameraContainer.transform.DOMove(oldCameraPosition, 0.2f).SetEase(Ease.OutSine)
-                    .OnComplete(() => cameraController.followTargetPosition = true);
-            }
-
             //Look Down
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                Vector3 newCameraPosition = new Vector3(cameraContainer.transform.position.x, cameraContainer.transform.position.y - 15, cameraContainer.transform.position.z);
+                oldCameraPosition = cameraController.transform.position;
+                Vector3 newCameraPosition = new Vector3(cameraContainer.transform.position.x, cameraContainer.transform.position.y - 25, cameraContainer.transform.position.z);
                 cameraContainer.transform.DOMove(newCameraPosition, 0.3f);
             }
             if (Input.GetKeyUp(KeyCode.DownArrow))
             {
-                cameraContainer.transform.DOMove(oldCameraPosition, 0.2f).SetEase(Ease.OutSine)
-                    .OnComplete(() => cameraController.followTargetPosition = true);
+                cameraContainer.transform.DOMove(oldCameraPosition, 0.2f).SetEase(Ease.OutSine);
             }
         }
 
@@ -390,14 +377,10 @@ public class PlayerController : MonoBehaviour
                 cameraContainer.transform.DOMove(oldCameraPosition, 0.2f).SetEase(Ease.OutSine)
                     .OnComplete(() => cameraController.followTargetPosition = true);
             }
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                cameraContainer.transform.DOMove(oldCameraPosition, 0.2f).SetEase(Ease.OutSine)
-                    .OnComplete(() => cameraController.followTargetPosition = true);
-            }
 
             isZooming = false;
             cameraController.GetComponentInChildren<Camera>().DOOrthoSize(16, 0.5f).SetEase(Ease.OutSine);
+            cameraController.followTargetPosition = true;
         }
     }
 }
