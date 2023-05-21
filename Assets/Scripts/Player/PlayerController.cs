@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Threading.Tasks;
+using UltimateCameraController.Cameras.Controllers;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -44,6 +45,9 @@ public class PlayerController : MonoBehaviour
     private Ghost ghostScript;
     public Rigidbody2D Rb { get; private set; }
     private bool isZooming;
+    private GameObject cameraContainer;
+    private CameraController cameraController;
+    private Vector3 oldCameraPosition;
 
     private void Awake()
     {
@@ -335,7 +339,12 @@ public class PlayerController : MonoBehaviour
     }
     private void ZoomHandler()
     {
-        Camera cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            cameraContainer = GameObject.Find("Camera Container");
+            cameraController = cameraContainer.GetComponent<CameraController>();
+            cameraController.followTargetPosition = false;          
+        }
 
         if (Input.GetKey(KeyCode.Z))
         {
@@ -343,16 +352,52 @@ public class PlayerController : MonoBehaviour
             Animator.SetBool("isWalking", false);
             Rb.velocity = new Vector2(0, Rb.velocity.y);
 
-            if (cam.orthographicSize < 25)
+            if (cameraController.GetComponentInChildren<Camera>().orthographicSize < 33)
             {
-                cam.orthographicSize += 0.075f;
+                cameraController.GetComponentInChildren<Camera>().orthographicSize += 0.08f;
+            }
+
+            //Look Up
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                oldCameraPosition = cameraContainer.transform.position;
+                Vector3 newCameraPosition = new Vector3(cameraContainer.transform.position.x, cameraContainer.transform.position.y + 15, cameraContainer.transform.position.z);
+                cameraContainer.transform.DOMove(newCameraPosition, 0.3f);
+            }
+            if (Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                cameraContainer.transform.DOMove(oldCameraPosition, 0.2f).SetEase(Ease.OutSine)
+                    .OnComplete(() => cameraController.followTargetPosition = true);
+            }
+
+            //Look Down
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                Vector3 newCameraPosition = new Vector3(cameraContainer.transform.position.x, cameraContainer.transform.position.y - 15, cameraContainer.transform.position.z);
+                cameraContainer.transform.DOMove(newCameraPosition, 0.3f);
+            }
+            if (Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                cameraContainer.transform.DOMove(oldCameraPosition, 0.2f).SetEase(Ease.OutSine)
+                    .OnComplete(() => cameraController.followTargetPosition = true);
             }
         }
 
         if (Input.GetKeyUp(KeyCode.Z))
         {
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                cameraContainer.transform.DOMove(oldCameraPosition, 0.2f).SetEase(Ease.OutSine)
+                    .OnComplete(() => cameraController.followTargetPosition = true);
+            }
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                cameraContainer.transform.DOMove(oldCameraPosition, 0.2f).SetEase(Ease.OutSine)
+                    .OnComplete(() => cameraController.followTargetPosition = true);
+            }
+
             isZooming = false;
-            cam.DOOrthoSize(16, 0.6f);
+            cameraController.GetComponentInChildren<Camera>().DOOrthoSize(16, 0.5f).SetEase(Ease.OutSine);
         }
     }
 }
