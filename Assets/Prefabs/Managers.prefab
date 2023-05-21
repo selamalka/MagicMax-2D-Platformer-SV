@@ -94,9 +94,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   expBarFull: {fileID: 0}
+  key: {fileID: 0}
   spellPointsValue: {fileID: 0}
   spellbookPanel: {fileID: 0}
   levelUpAnnouncement: {fileID: 0}
+  announcement: {fileID: 0}
 --- !u!114 &3691343324569232587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,14 +138,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ImpMaxHealth>k__BackingField: 3
   <ImpSpeed>k__BackingField: 100
-  <ImpExpValue>k__BackingField: 10
+  <ImpExpValue>k__BackingField: 1
   <ImpSoulValue>k__BackingField: 1
   <ImpTimeBetweenProjectiles>k__BackingField: 1.2
   <ImpDetectionRadius>k__BackingField: 20
   <ImpProjetilePrefab>k__BackingField: {fileID: 4834836055424860735, guid: 9a599141bf3725a408c246bc23626799, type: 3}
   <ShadowDemonMaxHealth>k__BackingField: 3
   <ShadowDemonSpeed>k__BackingField: 3
-  <ShadowDemonExpValue>k__BackingField: 5
+  <ShadowDemonExpValue>k__BackingField: 2
   <ShadowDemonSoulValue>k__BackingField: 1
   <ShadowDemonTimeBetweenProjectiles>k__BackingField: 3
   <ShadowDemonMaxDistanceFromPlayer>k__BackingField: 15
@@ -172,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CameraShaker>k__BackingField: {fileID: 0}
   <PlayerHitShakePreset>k__BackingField: {fileID: 11400000, guid: af0c90cdaa0575d43a5f0f842cb1d956, type: 2}
+  <PlayerLandShakePreset>k__BackingField: {fileID: 11400000, guid: 4c32d6971e1687644a79b71b6c8247db, type: 2}
   <EnemyDeathShakePreset>k__BackingField: {fileID: 11400000, guid: f45ca622f45d11547963a80e2497e58f, type: 2}
   dustCloudPrefab: {fileID: 1872423737458924549, guid: fbf1d3a58145aeb4c90ee85ca1b371be, type: 3}
   whiteFlashMaterial: {fileID: 2100000, guid: 4611490e3aef76a4db7c77fd8b7f0082, type: 2}
