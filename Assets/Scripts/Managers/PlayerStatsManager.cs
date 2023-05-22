@@ -74,85 +74,13 @@ public class PlayerStatsManager : MonoBehaviour
 
     #endregion
 
-    public void AddMana(int manaValue)
+    private void RegenerateHealthPoint()
     {
-        if (CurrentMana == MaxMana) return;
-
-        for (int i = 1; i <= manaValue; i++)
-        {
-            CurrentMana++;
-            UIManager.Instance.FillManaPoint();
-        }
+        CurrentHealth++;
+        UIManager.Instance.FillHealthPoint();
+        CurrentMana--;
+        UIManager.Instance.DecreaseManaPoint();
     }
-
-    public void UseMana(int manaCost)
-    {
-        if (CurrentMana == 0) return;
-
-        for (int i = 1; i <= manaCost; i++)
-        {
-            CurrentMana--;
-            UIManager.Instance.DecreaseManaPoint();
-        }
-    }
-
-    public bool IsEnoughMana(int manaCost)
-    {
-        return CurrentMana - manaCost >= 0;
-    }
-
-    public void CheckExpToLevelUp()
-    {
-        if (CurrentExp >= TargetExp)
-        {
-            LevelUp();
-            EventManager.OnPlayerLevelUp?.Invoke();
-        }
-    }
-
-    private void LevelUp()
-    {
-        CurrentExp = 0;
-        TargetExp *= TargetExpMultiplier;
-        CurrentLevel++;
-        SpellPoints++;
-        //UIManager.Instance.UpdateSpellPoints();
-    }
-
-    public void GrantExp(float expValue)
-    {
-        SetCurrentExp(CurrentExp + expValue);
-        CheckExpToLevelUp();
-    }
-
-    public async void GrantSouls(int soulValue)
-    {
-        if (CurrentMana >= MaxMana)
-        {
-            CurrentMana = MaxMana;
-            return;
-        }
-
-        if (CurrentSouls < MaxSouls)
-        {
-            CurrentSouls += soulValue;
-            UIManager.Instance.FillSoulPoint();
-
-            if (CurrentSouls >= MaxSouls)
-            {
-                await Task.Delay(200);
-                CurrentSouls = 0;
-                UIManager.Instance.ResetSoulPoints();
-
-                if (CurrentMana < MaxMana)
-                {
-                    CurrentMana++;
-                    UIManager.Instance.FillManaPoint();
-                }
-            }
-        }
-    }
-
     public void HealthRegenHandler()
     {
         if (Input.GetKey(KeyCode.F) && CurrentMana > 0 && CurrentHealth < MaxHealth)
@@ -188,11 +116,77 @@ public class PlayerStatsManager : MonoBehaviour
         }
     }
 
-    private void RegenerateHealthPoint()
+    public void AddMana(int manaValue)
     {
-        CurrentHealth++;
-        UIManager.Instance.FillHealthPoint();
-        CurrentMana--;
-        UIManager.Instance.DecreaseManaPoint();
+        if (CurrentMana == MaxMana) return;
+
+        for (int i = 1; i <= manaValue; i++)
+        {
+            CurrentMana++;
+            UIManager.Instance.FillManaPoint();
+        }
+    }
+    public void UseMana(int manaCost)
+    {
+        if (CurrentMana == 0) return;
+
+        for (int i = 1; i <= manaCost; i++)
+        {
+            CurrentMana--;
+            UIManager.Instance.DecreaseManaPoint();
+        }
+    }
+    public bool IsEnoughMana(int manaCost)
+    {
+        return CurrentMana - manaCost >= 0;
+    }
+    public async void GrantSouls(int soulValue)
+    {
+        if (CurrentMana >= MaxMana)
+        {
+            CurrentMana = MaxMana;
+            return;
+        }
+
+        if (CurrentSouls < MaxSouls)
+        {
+            CurrentSouls += soulValue;
+            UIManager.Instance.FillSoulPoint();
+
+            if (CurrentSouls >= MaxSouls)
+            {
+                await Task.Delay(200);
+                CurrentSouls = 0;
+                UIManager.Instance.ResetSoulPoints();
+
+                if (CurrentMana < MaxMana)
+                {
+                    CurrentMana++;
+                    UIManager.Instance.FillManaPoint();
+                }
+            }
+        }
+    }
+
+    private void LevelUp()
+    {
+        CurrentExp = 0;
+        TargetExp *= TargetExpMultiplier;
+        CurrentLevel++;
+        SpellPoints++;
+        //UIManager.Instance.UpdateSpellPoints();
+    }
+    public void CheckExpToLevelUp()
+    {
+        if (CurrentExp >= TargetExp)
+        {
+            LevelUp();
+            EventManager.OnPlayerLevelUp?.Invoke();
+        }
+    }
+    public void GrantExp(float expValue)
+    {
+        SetCurrentExp(CurrentExp + expValue);
+        CheckExpToLevelUp();
     }
 }
