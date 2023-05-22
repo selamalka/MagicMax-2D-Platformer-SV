@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -102,7 +101,7 @@ public class UIManager : MonoBehaviour
         {
             if (healthPoints[i].color.a == 0)
             {
-                healthPoints[i].DOFade(1, 0.2f);
+                healthPoints[i].DOFade(1, 0.2f).OnComplete(() => UpdateHealthPoints());
                 break;
             }
         }
@@ -113,7 +112,7 @@ public class UIManager : MonoBehaviour
         {
             if (healthPoints[i].color.a > 0)
             {
-                healthPoints[i].DOFade(0, 0.2f);
+                healthPoints[i].DOFade(0, 0.2f).OnComplete(() => UpdateHealthPoints());
                 break;
             }
         }
@@ -125,7 +124,7 @@ public class UIManager : MonoBehaviour
         {
             if (manaPoints[i].color.a == 0)
             {
-                manaPoints[i].DOFade(1, 0.2f);
+                manaPoints[i].DOFade(1, 0.2f).OnComplete(() => UpdateManaPoints());
                 break;
             }
         }
@@ -136,7 +135,7 @@ public class UIManager : MonoBehaviour
         {
             if (manaPoints[i].color.a > 0)
             {
-                manaPoints[i].DOFade(0, 0.2f);
+                manaPoints[i].DOFade(0, 0.2f).OnComplete(() => UpdateManaPoints());
                 break;
             }
         }
@@ -148,7 +147,7 @@ public class UIManager : MonoBehaviour
         {
             if (soulPoints[i].color.a == 0)
             {
-                soulPoints[i].DOFade(1, 0.2f);
+                soulPoints[i].DOFade(1, 0.2f).OnComplete(()=> UpdateSoulPoints());
                 break;
             }
         }
@@ -157,7 +156,44 @@ public class UIManager : MonoBehaviour
     {
         foreach (var soulPoint in soulPoints)
         {
-            soulPoint.DOFade(0, 0.2f);
+            soulPoint.DOFade(0, 0.2f).OnComplete(() => UpdateSoulPoints());
+        }
+    }
+
+    private void UpdateHealthPoints()
+    {
+        foreach (var point in healthPoints)
+        {
+            point.color = new Color(point.color.r, point.color.g, point.color.b, 0);
+        }
+
+        for (int i = 0; i < PlayerStatsManager.Instance.CurrentHealth; i++)
+        {
+            healthPoints[i].color = new Color(healthPoints[i].color.r, healthPoints[i].color.g, healthPoints[i].color.b, 1);
+        }
+    }
+    private void UpdateManaPoints()
+    {
+        foreach (var point in manaPoints)
+        {
+            point.color = new Color(point.color.r, point.color.g, point.color.b, 0);
+        }
+
+        for (int i = 0; i < PlayerStatsManager.Instance.CurrentMana; i++)
+        {
+            manaPoints[i].color = new Color(manaPoints[i].color.r, manaPoints[i].color.g, manaPoints[i].color.b, 1);
+        }
+    }
+    private void UpdateSoulPoints()
+    {
+        foreach (var point in soulPoints)
+        {
+            point.color = new Color(point.color.r, point.color.g, point.color.b, 0);
+        }
+
+        for (int i = 0; i < PlayerStatsManager.Instance.CurrentSouls; i++)
+        {
+            soulPoints[i].color = new Color(soulPoints[i].color.r, soulPoints[i].color.g, soulPoints[i].color.b, 1);
         }
     }
 
@@ -176,13 +212,11 @@ public class UIManager : MonoBehaviour
         tipText.text = message;
         tipTween = tipText.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
     }
-
     public void HideTip()
     {
         tipTween = tipText.DOFade(0, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
-        .OnComplete(()=> tipText.gameObject.SetActive(false));
+        .OnComplete(() => tipText.gameObject.SetActive(false));
     }
-
     public void KillTip()
     {
         tipTween.Kill();

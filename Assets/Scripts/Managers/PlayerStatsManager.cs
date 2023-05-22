@@ -146,10 +146,8 @@ public class PlayerStatsManager : MonoBehaviour
 
                 if (CurrentMana < MaxMana)
                 {
-                    await Task.Delay(200);
                     CurrentMana++;
                     UIManager.Instance.FillManaPoint();
-                    if (CurrentMana >= MaxMana) CurrentMana = MaxMana;
                 }
             }
         }
