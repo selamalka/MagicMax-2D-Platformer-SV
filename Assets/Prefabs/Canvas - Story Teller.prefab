@@ -813,7 +813,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Max is a retired wizard, but he hasn''t practiced magic for a long time.
+  m_text: 'Max is a retired wizard, and hasn''t practiced magic for a long time.
 
     He
     enjoys the simple life now..'
