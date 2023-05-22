@@ -8,6 +8,7 @@ public class Tip : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            UIManager.Instance.KillTip();
             UIManager.Instance.ShowTip(message);
         }
     }

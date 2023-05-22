@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tipText;
 
     private Image masterPanelImage;
+    private Tween tipTween;
 
     private void Awake()
     {
@@ -173,12 +174,17 @@ public class UIManager : MonoBehaviour
     {
         tipText.gameObject.SetActive(true);
         tipText.text = message;
-        tipText.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
+        tipTween = tipText.DOFade(1, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true);
     }
 
     public void HideTip()
     {
-        tipText.DOFade(0, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
+        tipTween = tipText.DOFade(0, 1f).SetLoops(0).SetEase(Ease.OutQuart).SetUpdate(true)
         .OnComplete(()=> tipText.gameObject.SetActive(false));
+    }
+
+    public void KillTip()
+    {
+        tipTween.Kill();
     }
 }
