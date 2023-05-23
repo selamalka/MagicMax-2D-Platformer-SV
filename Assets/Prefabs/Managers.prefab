@@ -274,3 +274,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba8ac8bee940344288f45f7b80d7ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Progression>k__BackingField: {fileID: 11400000, guid: 131db4c0106e22e489721c5ea5583264, type: 2}

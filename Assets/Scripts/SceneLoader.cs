@@ -13,6 +13,8 @@ public class SceneLoader : MonoBehaviour
             UIManager.Instance.SetKeyDisplay(false);
             UIManager.Instance.FadeToBlack(2);
             await Task.Delay(2000);
+            ProgressionManager.Instance.Progression.SetLastCheckpoint(new (103,-14,0));
+            ProgressionManager.Instance.Progression.SetSpellPoints(PlayerStatsManager.Instance.SpellPoints);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else
