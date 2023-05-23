@@ -14,7 +14,14 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     private void Awake()
     {
         button = GetComponent<Button>();
+
         SpellData.SetIsUnlocked(false);
+
+        if (ProgressionManager.Instance.Progression.UnlockedSpellsList.Contains(SpellData))
+        {
+            SpellData.SetIsUnlocked(true);
+            blockedImage.color = new Color(0, 0, 0, 0);
+        }
     }
     private void OnEnable()
     {
@@ -36,6 +43,7 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         {
             blockedImage.color = blockedImage.color.a > 0 ? new Color(0, 0, 0, 0) : blockedImage.color;
             SpellData.SetIsUnlocked(true);
+            ProgressionManager.Instance.Progression.UnlockedSpellsList.Add(SpellData);
             PlayerStatsManager.Instance.SetSpellPoints(PlayerStatsManager.Instance.SpellPoints - SpellData.SpellPointCost);
             UIManager.Instance.UpdateSpellPoints();
         }
@@ -43,13 +51,14 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         {
             blockedImage.color = blockedImage.color.a > 0 ? new Color(0, 0, 0, 0) : blockedImage.color;
             SpellData.SetIsUnlocked(true);
+            ProgressionManager.Instance.Progression.UnlockedSpellsList.Add(SpellData);
             PlayerStatsManager.Instance.SetSpellPoints(PlayerStatsManager.Instance.SpellPoints - SpellData.SpellPointCost);
             UIManager.Instance.UpdateSpellPoints();
         }
     }
     private SpellData GetPreviousSpellTier()
     {
-        var spell = SpellManager.Instance.FindSpellByNameAndLevel(SpellData.Name, SpellData.Level - 1);
+        SpellData spell = SpellManager.Instance.FindSpellByNameAndLevel(SpellData.Name, SpellData.Level - 1);
         return spell;
     }
 

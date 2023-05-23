@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1136577216174134822}
   - component: {fileID: 1136577216174134823}
+  - component: {fileID: 782333540}
   m_Layer: 0
   m_Name: Camera Container
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136577216174134821}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.7999954, y: -7.8000007, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -51,6 +52,18 @@ MonoBehaviour:
   orbitAroundTarget: 0
   rotationSpeed: 0
   mouseButton: 0
+--- !u!114 &782333540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136577216174134821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2eebc968380f74092194c049fc468e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1136577216998028248
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,8 +126,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 110
-  orthographic: 0
-  orthographic size: 14
+  orthographic: 1
+  orthographic size: 16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
