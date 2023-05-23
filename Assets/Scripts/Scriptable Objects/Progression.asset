@@ -16,5 +16,5 @@ MonoBehaviour:
   <UnlockedSpellsList>k__BackingField: []
   <LastCheckpoint>k__BackingField: {x: 103, y: -14, z: 0}
   <SpellPoints>k__BackingField: 0
-  <SpellSlot1>k__BackingField: {fileID: 0}
-  <SpellSlot2>k__BackingField: {fileID: 0}
+  <SpellSlot1Spell>k__BackingField: {fileID: 0}
+  <SpellSlot2Spell>k__BackingField: {fileID: 0}

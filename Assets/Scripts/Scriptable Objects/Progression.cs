@@ -9,8 +9,8 @@ public class Progression : ScriptableObject
     [field: SerializeField] public Vector3 LastCheckpoint { get; private set; }
     [field: SerializeField] public int SpellPoints { get; private set; }
 
-    [field: SerializeField] public GameObject SpellSlot1 { get; private set; }
-    [field: SerializeField] public GameObject SpellSlot2 { get; private set; }
+    [field: SerializeField] public UISpell SpellSlot1Spell { get; private set; }
+    [field: SerializeField] public UISpell SpellSlot2Spell { get; private set; }
 
     public void SetLastCheckpoint(Vector3 lastCheckpoint)
     {
@@ -25,5 +25,14 @@ public class Progression : ScriptableObject
     public void SetIsNewGame(bool value)
     {
         IsNewGame = value;
+    }
+
+    public void SetSpellSlot1Spell(UISpell uISpell)
+    {
+        SpellSlot1Spell = uISpell;
+    }
+    public void SetSpellSlot2Spell(UISpell uISpell)
+    {
+        SpellSlot2Spell = uISpell;
     }
 }
