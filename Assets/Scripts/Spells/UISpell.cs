@@ -85,7 +85,16 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         {
             draggedIcon.transform.SetParent(spellSlot.transform, false);
             draggedIcon.transform.position = spellSlot.transform.position;
-            spellSlot.SetCurrentSpell(this);            
+            spellSlot.SetCurrentSpell(this);
+
+            if (GameObject.Find("Spell Slot 1").GetComponent<SpellSlot>().SpellSlotNumber == 1)
+            {
+                ProgressionManager.Instance.Progression.SetSpellSlot1Spell(this);
+            }
+            else if (GameObject.Find("Spell Slot 2").GetComponent<SpellSlot>().SpellSlotNumber == 2)
+            {
+                ProgressionManager.Instance.Progression.SetSpellSlot2Spell(this);
+            }
         }
         else
         {
