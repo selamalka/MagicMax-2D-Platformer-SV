@@ -1,5 +1,7 @@
 using DG.Tweening;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour, IDamageable
 {
@@ -48,7 +50,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDamage(int damage)
+    public async void TakeDamage(int damage)
     {
         if (isInvulnerable) return;
         PlayerController.Instance.Animator.SetTrigger("getHit");
@@ -67,6 +69,9 @@ public class PlayerStats : MonoBehaviour, IDamageable
         {
             Destroy(gameObject);
             GameManager.Instance.ResumeGame();
+            UIManager.Instance.FadeToBlack(2);
+            await Task.Delay(2000);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3691343324569232586}
+  - component: {fileID: 621817581}
   - component: {fileID: 3691343324569232438}
   - component: {fileID: 3691343324569232436}
   - component: {fileID: 3691343324569232439}
@@ -17,7 +18,7 @@ GameObject:
   - component: {fileID: 3691343324569232433}
   - component: {fileID: 3691343324569232432}
   - component: {fileID: 3691343324569232435}
-  - component: {fileID: 621817581}
+  - component: {fileID: 5786555264823782904}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -40,6 +41,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &621817581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691343324569232584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: b828f32149e2d3140b1acb45b42ca33b, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3691343324569232439}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: FadeToBlack
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 3
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &3691343324569232438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +129,7 @@ MonoBehaviour:
   spellPointsValue: {fileID: 0}
   spellbookPanel: {fileID: 0}
   levelUpAnnouncement: {fileID: 0}
-  announcement: {fileID: 0}
+  tipText: {fileID: 0}
 --- !u!114 &3691343324569232587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +262,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 496d9a2a12ca66a469ebc34209ace717, type: 2}
   - {fileID: 11400000, guid: fba384164bdabfd4887ae985d6fd57f2, type: 2}
   - {fileID: 11400000, guid: 0fa83386a4d008c419203d0db8224972, type: 2}
---- !u!114 &621817581
+--- !u!114 &5786555264823782904
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,24 +271,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3691343324569232584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ba8ac8bee940344288f45f7b80d7ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: b828f32149e2d3140b1acb45b42ca33b, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3691343324569232439}
-          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-          m_MethodName: FadeToBlack
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 3
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
