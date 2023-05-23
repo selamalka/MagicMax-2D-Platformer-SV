@@ -10150,10 +10150,10 @@ MonoBehaviour:
   <IsFacingRight>k__BackingField: 0
   jumpForce: 15
   jumpTime: 0.3
-  speed: 12
+  speed: 14
   fallMultiplier: 0.1
   sidePushForce: 3
-  upPushForce: 1350
+  upPushForce: 20
   downPushForce: 16
   body: {fileID: 2266815369892315448}
   groundCheckTransform: {fileID: 4819300501041328564}
@@ -10198,8 +10198,8 @@ MonoBehaviour:
   projectileOriginBottom: {fileID: 3051121971054318537}
   meleeSlashPrefab: {fileID: 184801367029357935, guid: c7279cce88357dc40be77975f6913552, type: 3}
   hitEffectPrefab: {fileID: 4139729474805399306, guid: 7295c6d1fbb21fd469a13197571aeac0, type: 3}
-  spellSlot1: {fileID: 0}
-  spellSlot2: {fileID: 0}
+  <SpellSlot1>k__BackingField: {fileID: 0}
+  <SpellSlot2>k__BackingField: {fileID: 0}
   meleeCooldownTime: 0.2
 --- !u!114 &8963468310251956163
 MonoBehaviour:

@@ -85,7 +85,7 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         {
             draggedIcon.transform.SetParent(spellSlot.transform, false);
             draggedIcon.transform.position = spellSlot.transform.position;
-            spellSlot.SetCurrentSpell(this);
+            spellSlot.SetCurrentSpell(this);            
         }
         else
         {
