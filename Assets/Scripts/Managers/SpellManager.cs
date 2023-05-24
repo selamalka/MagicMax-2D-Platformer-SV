@@ -8,6 +8,7 @@ public class SpellManager : MonoBehaviour
 
     [field: SerializeField] public List<SpellData> Spells = new List<SpellData>();
 
+
     private void Awake()
     {
         Instance = this;
