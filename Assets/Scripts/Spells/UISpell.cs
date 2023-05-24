@@ -6,6 +6,8 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 {
     [field: SerializeField] public GameObject SpellPrefab { get; private set; }
     [field: SerializeField] public SpellData SpellData { get; private set; }
+    [field: SerializeField] public string SpellName { get; private set; }
+
 
     [SerializeField] private Image blockedImage;
     private GameObject draggedIcon;
@@ -14,14 +16,8 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     private void Awake()
     {
         button = GetComponent<Button>();
-
         SpellData.SetIsUnlocked(false);
-
-        if (ProgressionManager.Instance.Progression.UnlockedSpellsList.Contains(SpellData))
-        {
-            SpellData.SetIsUnlocked(true);
-            blockedImage.color = new Color(0, 0, 0, 0);
-        }
+        SpellName = SpellData.Name;
     }
     private void OnEnable()
     {
@@ -33,7 +29,13 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     }
     private void Start()
     {
-        GetComponent<Image>().sprite = SpellData.Sprite;
+        if (ProgressionManager.Instance.Progression.UnlockedSpellsList.Contains(SpellData))
+        {
+            SpellData.SetIsUnlocked(true);
+            blockedImage.color = new Color(0, 0, 0, 0);
+        }
+
+        GetComponent<Image>().sprite = SpellData.Sprite;        
     }
 
     private void UnlockSpell()
@@ -93,7 +95,7 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         {
             draggedIcon.transform.SetParent(spellSlot.transform, false);
             draggedIcon.transform.position = spellSlot.transform.position;
-            spellSlot.SetCurrentSpell(this);
+            spellSlot.SetCurrentSpell(this);            
             PlayerCombat.Instance.SpellSlot1.SaveSpellSlotInfo(1);
             PlayerCombat.Instance.SpellSlot2.SaveSpellSlotInfo(2);
         }

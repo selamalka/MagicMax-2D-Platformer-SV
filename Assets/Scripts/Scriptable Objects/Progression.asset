@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33115e948d52007459fe3b84e353fa9b, type: 3}
   m_Name: Progression
   m_EditorClassIdentifier: 
-  <IsNewGame>k__BackingField: 1
+  <IsNewGame>k__BackingField: 0
   <UnlockedSpellsList>k__BackingField:
   - {fileID: 11400000, guid: 3a96e59b1d42307469357c1fa5b813ab, type: 2}
   <LastCheckpoint>k__BackingField: {x: 103, y: -14, z: 0}

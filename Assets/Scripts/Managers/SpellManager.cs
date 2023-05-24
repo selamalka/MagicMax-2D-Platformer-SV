@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpellManager : MonoBehaviour
@@ -8,17 +7,21 @@ public class SpellManager : MonoBehaviour
     public static SpellManager Instance;
 
     [field: SerializeField] public List<SpellData> Spells = new List<SpellData>();
-    [field: SerializeField] public List<GameObject> UISpellsPrefabs = new List<GameObject>();
-
+    [field: SerializeField] public List<UISpell> UISpells = new List<UISpell>();
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public GameObject FindUISpellPrefabByName(string name)
+    private void Start()
     {
-        GameObject spell = UISpellsPrefabs.FirstOrDefault(s => s.name == name);
+        PlayerCombat.Instance.LoadSpellSlotsInfo();
+    }
+
+    public UISpell FindUISpellByName(string name)
+    {
+        UISpell spell = UISpells.FirstOrDefault(s => s.SpellName == name);
         return spell;
     }
 
