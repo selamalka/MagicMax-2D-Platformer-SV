@@ -68,8 +68,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
         EventManager.OnPlayerGetHit?.Invoke();
 
         if (PlayerStatsManager.Instance.CurrentHealth <= 0)
-        {
-
+        {            
             Destroy(gameObject);
             GameManager.Instance.ResumeGame();
             UIManager.Instance.FadeToBlack(2);

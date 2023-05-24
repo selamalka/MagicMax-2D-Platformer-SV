@@ -9,22 +9,23 @@ public class ProgressionManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
-        if (Progression.IsNewGame)
-        {
-            PlayerCombat.Instance.ClearSpellSlots();
-            Progression.UnlockedSpellsList.Clear();
-            Progression.UnlockedUISpellsList.Clear();
-            Progression.SetLastCheckpoint(new Vector3(103,-14,0));
-            Progression.SetIsNewGame(false);
-        }
     }
 
     private void Start()
     {
+        if (Progression.IsNewGame)
+        {
+            Progression.UnlockedSpellsList.Clear();
+            Progression.SetSpellSlot1Info(null, null);
+            Progression.SetSpellSlot2Info(null, null);
+            Progression.SetLastCheckpoint(new Vector3(103, -14, 0));
+            PlayerStatsManager.Instance.SetSpellPoints(1);
+            Progression.SetIsNewGame(false);
+        }
+
         if (!isTesting)
         {
-            GameObject.Find("Player").transform.position = Progression.LastCheckpoint; 
+            GameObject.Find("Player").transform.position = Progression.LastCheckpoint;
         }
         FindObjectOfType<PositonCameraToPlayer>().SetCameraToPlayer();
     }
