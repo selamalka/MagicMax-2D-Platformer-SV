@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpellSlot : MonoBehaviour
 {
@@ -30,14 +31,17 @@ public class SpellSlot : MonoBehaviour
             CurrentSpell = spell;
             CurrentSpell.SetSpellPrefab(ProgressionManager.Instance.Progression.SpellSlot1Prefab);
             CurrentSpell.SetSpellData(ProgressionManager.Instance.Progression.SpellSlot1Data);
+            gameObject.GetComponent<Image>().sprite = CurrentSpell.GetComponent<Image>().sprite;
+            gameObject.GetComponent<Image>().color = new Color(1,1,1,1);
         }
         else if (number == 2)
         {
             var spell = SpellManager.Instance.FindUISpellByName(ProgressionManager.Instance.Progression.SpellSlot2Data.Name);
-            print(spell);
             CurrentSpell = spell;
             CurrentSpell.SetSpellPrefab(ProgressionManager.Instance.Progression.SpellSlot2Prefab);
             CurrentSpell.SetSpellData(ProgressionManager.Instance.Progression.SpellSlot2Data);
+            gameObject.GetComponent<Image>().sprite = CurrentSpell.GetComponent<Image>().sprite;
+            gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 1);
         }
     }
 }
