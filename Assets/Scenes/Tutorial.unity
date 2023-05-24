@@ -41173,10 +41173,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 436240196829482209, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
-      propertyPath: <CurrentSpell>k__BackingField
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 436240197293962439, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

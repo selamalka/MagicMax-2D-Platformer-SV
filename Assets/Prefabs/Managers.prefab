@@ -262,11 +262,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 496d9a2a12ca66a469ebc34209ace717, type: 2}
   - {fileID: 11400000, guid: fba384164bdabfd4887ae985d6fd57f2, type: 2}
   - {fileID: 11400000, guid: 0fa83386a4d008c419203d0db8224972, type: 2}
-  UISpellsPrefabs:
-  - {fileID: 1874609972153624224, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
-  - {fileID: 1596816345454689834, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
-  - {fileID: 8812991018689947466, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
-  - {fileID: 5238163605019011511, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
+  UISpells:
+  - {fileID: 1874609972153624235, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
+  - {fileID: 1596816345454689825, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
+  - {fileID: 8812991018689947457, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
+  - {fileID: 5238163605019011516, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
 --- !u!114 &5786555264823782904
 MonoBehaviour:
   m_ObjectHideFlags: 0
