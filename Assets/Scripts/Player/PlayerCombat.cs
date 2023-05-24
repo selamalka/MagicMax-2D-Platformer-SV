@@ -20,10 +20,12 @@ public class PlayerCombat : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        SpellSlot1 = GameObject.Find("Spell Slot 1").GetComponent<SpellSlot>();
+        SpellSlot2 = GameObject.Find("Spell Slot 2").GetComponent<SpellSlot>();
     }
 
     private void Start()
-    {
+    { 
         meleeCooldownCounter = 0;
     }
 
@@ -92,6 +94,11 @@ public class PlayerCombat : MonoBehaviour
                 print("not enough mana");
             }
         }
+    }
+    public void LoadSpellSlotsInfo()
+    {
+        SpellSlot1.LoadSpellSlotInfo(1);
+        SpellSlot2.LoadSpellSlotInfo(2);
     }
 
     //Animation Event
@@ -163,11 +170,5 @@ public class PlayerCombat : MonoBehaviour
         }
 
         else return projectileOriginSide.position;
-    }
-
-    public void ClearSpellSlots()
-    {
-        SpellSlot1.SetCurrentSpell(null);
-        SpellSlot2.SetCurrentSpell(null);
     }
 }

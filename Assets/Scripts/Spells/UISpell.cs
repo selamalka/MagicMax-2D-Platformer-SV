@@ -58,8 +58,16 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     }
     private SpellData GetPreviousSpellTier()
     {
-        SpellData spell = SpellManager.Instance.FindSpellByNameAndLevel(SpellData.Name, SpellData.Level - 1);
+        SpellData spell = SpellManager.Instance.FindSpellDataByNameAndLevel(SpellData.Name, SpellData.Level - 1);
         return spell;
+    }
+    public void SetSpellPrefab(GameObject prefab)
+    {
+        SpellPrefab = prefab;
+    }
+    public void SetSpellData(SpellData data)
+    {
+        SpellData = data;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -86,16 +94,8 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
             draggedIcon.transform.SetParent(spellSlot.transform, false);
             draggedIcon.transform.position = spellSlot.transform.position;
             spellSlot.SetCurrentSpell(this);
-
-            if (GameObject.Find("Spell Slot 1").GetComponent<SpellSlot>().SpellSlotNumber == 1)
-            {
-                ProgressionManager.Instance.Progression.UnlockedUISpellsList.Add(this);
-                // need to add the latest equipped spell. not a whole list of everything that's been unlocked
-            }
-            else if (GameObject.Find("Spell Slot 2").GetComponent<SpellSlot>().SpellSlotNumber == 2)
-            {
-                
-            }
+            PlayerCombat.Instance.SpellSlot1.SaveSpellSlotInfo(1);
+            PlayerCombat.Instance.SpellSlot2.SaveSpellSlotInfo(2);
         }
         else
         {
