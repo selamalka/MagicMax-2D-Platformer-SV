@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Progression
   m_EditorClassIdentifier: 
   <IsNewGame>k__BackingField: 0
-  <UnlockedSpellsList>k__BackingField: []
+  <UnlockedSpellsList>k__BackingField:
+  - {fileID: 11400000, guid: 3a96e59b1d42307469357c1fa5b813ab, type: 2}
   <LastCheckpoint>k__BackingField: {x: 103, y: -14, z: 0}
   <SpellPoints>k__BackingField: 0
-  <SpellSlot1Spell>k__BackingField: {fileID: 0}
-  <SpellSlot2Spell>k__BackingField: {fileID: 0}

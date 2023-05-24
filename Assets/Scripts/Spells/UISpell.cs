@@ -89,11 +89,12 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 
             if (GameObject.Find("Spell Slot 1").GetComponent<SpellSlot>().SpellSlotNumber == 1)
             {
-                ProgressionManager.Instance.Progression.SetSpellSlot1Spell(this);
+                ProgressionManager.Instance.Progression.UnlockedUISpellsList.Add(this);
+                // need to add the latest equipped spell. not a whole list of everything that's been unlocked
             }
             else if (GameObject.Find("Spell Slot 2").GetComponent<SpellSlot>().SpellSlotNumber == 2)
             {
-                ProgressionManager.Instance.Progression.SetSpellSlot2Spell(this);
+                
             }
         }
         else

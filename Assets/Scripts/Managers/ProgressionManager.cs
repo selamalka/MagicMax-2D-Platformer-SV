@@ -14,6 +14,7 @@ public class ProgressionManager : MonoBehaviour
         {
             PlayerCombat.Instance.ClearSpellSlots();
             Progression.UnlockedSpellsList.Clear();
+            Progression.UnlockedUISpellsList.Clear();
             Progression.SetLastCheckpoint(new Vector3(103,-14,0));
             Progression.SetIsNewGame(false);
         }
