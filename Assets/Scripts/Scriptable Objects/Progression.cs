@@ -10,6 +10,7 @@ public class Progression : ScriptableObject
     [field: SerializeField] public int SpellPoints { get; private set; }
     [field: SerializeField] public int HealthPoints { get; private set; }
     [field: SerializeField] public int ManaPoints { get; private set; }
+    [field: SerializeField] public int SoulPoints { get; private set; }
 
     [field: SerializeField] public GameObject SpellSlot1Prefab { get; private set; }
     [field: SerializeField] public SpellData SpellSlot1Data { get; private set; }
@@ -35,6 +36,10 @@ public class Progression : ScriptableObject
     public void SetManaPoints(int value)
     {
         ManaPoints = value;
+    }
+    public void SetSoulPoints(int value)
+    {
+        SoulPoints = value;
     }
 
     public void SetSpellSlot1Info(GameObject prefab, SpellData data)
