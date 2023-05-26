@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2460709807467563807}
   - component: {fileID: 2460709807467563806}
+  - component: {fileID: 2460709807779877429}
   m_Layer: 0
   m_Name: Cutscene
   m_TagString: Untagged
@@ -66,3 +67,15 @@ PlayableDirector:
     - 5a6ebe0e57878b142bc44500260c825d: {fileID: 0}
     - 3f6611304ce59964c9adc5617b6321c0: {fileID: 0}
     - 324785cc57382714e9c0659db9dfd2a1: {fileID: 0}
+--- !u!114 &2460709807779877429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2460709807467563800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b47441fb4a06e443acab1276a755b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

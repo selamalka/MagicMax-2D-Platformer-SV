@@ -39,6 +39,6 @@ public class ProgressionManager : MonoBehaviour
         {
             GameObject.Find("Player").transform.position = Progression.LastCheckpoint;
         }
-        FindObjectOfType<PositonCameraToPlayer>().SetCameraToPlayer();
+        FindObjectOfType<PositionCameraToPlayer>().SetCameraToPlayer();
     }
 }
