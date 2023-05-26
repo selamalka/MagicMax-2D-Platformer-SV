@@ -160,7 +160,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void UpdateHealthPoints()
+    public void UpdateHealthPoints()
     {
         foreach (var point in healthPoints)
         {
@@ -172,7 +172,7 @@ public class UIManager : MonoBehaviour
             healthPoints[i].color = new Color(healthPoints[i].color.r, healthPoints[i].color.g, healthPoints[i].color.b, 1);
         }
     }
-    private void UpdateManaPoints()
+    public void UpdateManaPoints()
     {
         foreach (var point in manaPoints)
         {
@@ -184,7 +184,7 @@ public class UIManager : MonoBehaviour
             manaPoints[i].color = new Color(manaPoints[i].color.r, manaPoints[i].color.g, manaPoints[i].color.b, 1);
         }
     }
-    private void UpdateSoulPoints()
+    public void UpdateSoulPoints()
     {
         foreach (var point in soulPoints)
         {

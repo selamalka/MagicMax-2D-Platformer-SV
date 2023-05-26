@@ -15,11 +15,18 @@ public class ProgressionManager : MonoBehaviour
     {
         if (Progression.IsNewGame)
         {
+            Progression.SetHealthPoints(5);
+            UIManager.Instance.UpdateHealthPoints();
+
+            Progression.SetManaPoints(0);
+            UIManager.Instance.UpdateManaPoints();
+
+            Progression.SetSoulPoints(0);
+            UIManager.Instance.UpdateSoulPoints();
+
             Progression.UnlockedSpellsList.Clear();
             Progression.SetSpellSlot1Info(null, null);
             Progression.SetSpellSlot2Info(null, null);
-            Progression.SetHealthPoints(5);
-            Progression.SetManaPoints(0);
             Progression.SetLastCheckpoint(new Vector3(103, -14, 0));
             Progression.SetIsNewGame(false);
         }

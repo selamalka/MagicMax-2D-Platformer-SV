@@ -6,7 +6,7 @@ public class PlayerStatsManager : MonoBehaviour
     public static PlayerStatsManager Instance;
 
     [field: Header("Exp")]
-    [field: SerializeField] public int CurrentLevel { get; private set; }
+    //[field: SerializeField] public int CurrentLevel { get; private set; }
     [field: SerializeField] public float CurrentExp { get; private set; }
     [field: SerializeField] public float TargetExp { get; private set; }
     [field: SerializeField] public float TargetExpMultiplier { get; private set; }
@@ -34,9 +34,13 @@ public class PlayerStatsManager : MonoBehaviour
 
     private void Start()
     {
-        CurrentLevel = 1;
-        CurrentHealth = MaxHealth;
-        CurrentMana = 0;
+        //CurrentLevel = 1;
+        CurrentHealth = ProgressionManager.Instance.Progression.HealthPoints;
+        UIManager.Instance.UpdateHealthPoints();
+        CurrentMana = ProgressionManager.Instance.Progression.ManaPoints;
+        UIManager.Instance.UpdateManaPoints();
+        CurrentSouls = ProgressionManager.Instance.Progression.SoulPoints;
+        UIManager.Instance.UpdateSoulPoints();
     }
 
     private void Update()
@@ -56,10 +60,10 @@ public class PlayerStatsManager : MonoBehaviour
         TargetExp = value;
     }
 
-    public void SetCurrentLevel(int value)
-    {
-        CurrentLevel = value;
-    }
+    /*    public void SetCurrentLevel(int value)
+        {
+            CurrentLevel = value;
+        }*/
 
     public void SetCurrentHealth(int value)
     {
@@ -123,6 +127,7 @@ public class PlayerStatsManager : MonoBehaviour
         {
             CurrentMana++;
             UIManager.Instance.FillManaPoint();
+            ProgressionManager.Instance.Progression.SetManaPoints(CurrentMana);
         }
     }
     public void UseMana(int manaCost)
@@ -133,6 +138,7 @@ public class PlayerStatsManager : MonoBehaviour
         {
             CurrentMana--;
             UIManager.Instance.DecreaseManaPoint();
+            ProgressionManager.Instance.Progression.SetManaPoints(CurrentMana);
         }
     }
     public bool IsEnoughMana(int manaCost)
@@ -151,6 +157,7 @@ public class PlayerStatsManager : MonoBehaviour
         {
             CurrentSouls += soulValue;
             UIManager.Instance.FillSoulPoint();
+            ProgressionManager.Instance.Progression.SetSoulPoints(CurrentSouls);
 
             if (CurrentSouls >= MaxSouls)
             {
@@ -171,7 +178,7 @@ public class PlayerStatsManager : MonoBehaviour
     {
         CurrentExp = 0;
         TargetExp *= TargetExpMultiplier;
-        CurrentLevel++;
+        //CurrentLevel++;
         SpellPoints++;
         //UIManager.Instance.UpdateSpellPoints();
     }
