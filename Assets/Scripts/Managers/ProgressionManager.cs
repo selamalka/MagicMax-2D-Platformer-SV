@@ -24,6 +24,10 @@ public class ProgressionManager : MonoBehaviour
             Progression.SetSoulPoints(0);
             UIManager.Instance.UpdateSoulPoints();
 
+            Progression.SetTargetExp(10f);
+            Progression.SetCurrentExpPoints(0);
+            UIManager.Instance.UpdateExpBar();
+
             Progression.UnlockedSpellsList.Clear();
             Progression.SetSpellSlot1Info(null, null);
             Progression.SetSpellSlot2Info(null, null);

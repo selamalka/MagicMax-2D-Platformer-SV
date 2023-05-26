@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 621817581}
   - component: {fileID: 3691343324569232438}
   - component: {fileID: 3691343324569232436}
+  - component: {fileID: 5786555264823782904}
   - component: {fileID: 3691343324569232439}
   - component: {fileID: 3691343324569232587}
   - component: {fileID: 3691343324569232437}
   - component: {fileID: 3691343324569232433}
   - component: {fileID: 3691343324569232432}
   - component: {fileID: 3691343324569232435}
-  - component: {fileID: 5786555264823782904}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -95,6 +95,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36cf422c43646a745a2af5cfbb9307e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5786555264823782904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691343324569232584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba8ac8bee940344288f45f7b80d7ebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Progression>k__BackingField: {fileID: 11400000, guid: 131db4c0106e22e489721c5ea5583264, type: 2}
+  isTesting: 0
 --- !u!114 &3691343324569232439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,10 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15144e6c117b53945919065c6f86d046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CurrentLevel>k__BackingField: 1
   <CurrentExp>k__BackingField: 0
   <TargetExp>k__BackingField: 10
-  <TargetExpMultiplier>k__BackingField: 1.2
+  <TargetExpMultiplier>k__BackingField: 3
   <SpellPoints>k__BackingField: 0
   <MaxHealth>k__BackingField: 5
   <CurrentHealth>k__BackingField: 0
@@ -267,17 +280,3 @@ MonoBehaviour:
   - {fileID: 1596816345454689825, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
   - {fileID: 8812991018689947457, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
   - {fileID: 5238163605019011516, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
---- !u!114 &5786555264823782904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3691343324569232584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba8ac8bee940344288f45f7b80d7ebe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Progression>k__BackingField: {fileID: 11400000, guid: 131db4c0106e22e489721c5ea5583264, type: 2}
-  isTesting: 1
