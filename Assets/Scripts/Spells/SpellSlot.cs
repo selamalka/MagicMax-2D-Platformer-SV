@@ -15,10 +15,12 @@ public class SpellSlot : MonoBehaviour
     {
         if (number == 1)
         {
+            if (CurrentSpell == null) return;
             ProgressionManager.Instance.Progression.SetSpellSlot1Info(CurrentSpell.SpellPrefab, CurrentSpell.SpellData);
         }
         else if (number == 2)
         {
+            if (CurrentSpell == null) return;
             ProgressionManager.Instance.Progression.SetSpellSlot2Info(CurrentSpell.SpellPrefab, CurrentSpell.SpellData);
         }
     }

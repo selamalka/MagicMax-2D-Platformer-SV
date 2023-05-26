@@ -21,7 +21,6 @@ public class ProgressionManager : MonoBehaviour
             Progression.SetHealthPoints(5);
             Progression.SetManaPoints(0);
             Progression.SetLastCheckpoint(new Vector3(103, -14, 0));
-            PlayerStatsManager.Instance.SetSpellPoints(1);
             Progression.SetIsNewGame(false);
         }
 

@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ImpMaxHealth>k__BackingField: 3
   <ImpSpeed>k__BackingField: 100
-  <ImpExpValue>k__BackingField: 1
+  <ImpExpValue>k__BackingField: 10
   <ImpSoulValue>k__BackingField: 1
   <ImpTimeBetweenProjectiles>k__BackingField: 1.2
   <ImpDetectionRadius>k__BackingField: 20
