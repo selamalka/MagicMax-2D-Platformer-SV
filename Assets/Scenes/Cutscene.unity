@@ -5341,7 +5341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 436240197566341485, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 436240197618691396, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
       propertyPath: m_IsActive
@@ -15892,6 +15892,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3192079772694711517, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 351
+      objectReference: {fileID: 0}
+    - target: {fileID: 3192079773211673704, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 16777215
+      objectReference: {fileID: 0}
     - target: {fileID: 3192079773826955268, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
       propertyPath: m_Name
       value: Canvas - Story Teller
@@ -15984,6 +15992,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 3192079774065391271, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 16777215
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
 --- !u!1 &3336361798845539436
