@@ -71,6 +71,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
         if (PlayerStatsManager.Instance.CurrentHealth <= 0)
         {            
             Destroy(gameObject);
+            ProgressionManager.Instance.Progression.SetHealthPoints(5);
             GameManager.Instance.ResumeGame();
             UIManager.Instance.FadeToBlack(2);
             await Task.Delay(2000);
