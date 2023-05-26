@@ -35,7 +35,7 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
             blockedImage.color = new Color(0, 0, 0, 0);
         }
 
-        GetComponent<Image>().sprite = SpellData.Sprite;        
+        GetComponent<Image>().sprite = SpellData.Sprite;
     }
 
     private void UnlockSpell()
@@ -95,9 +95,16 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         {
             draggedIcon.transform.SetParent(spellSlot.transform, false);
             draggedIcon.transform.position = spellSlot.transform.position;
-            spellSlot.SetCurrentSpell(this);            
-            PlayerCombat.Instance.SpellSlot1.SaveSpellSlotInfo(1);
-            PlayerCombat.Instance.SpellSlot2.SaveSpellSlotInfo(2);
+            spellSlot.SetCurrentSpell(this);
+
+            if (PlayerCombat.Instance.SpellSlot1 != null)
+            {
+                PlayerCombat.Instance.SpellSlot1.SaveSpellSlotInfo(1); 
+            }
+            if (PlayerCombat.Instance.SpellSlot2 != null)
+            {
+                PlayerCombat.Instance.SpellSlot2.SaveSpellSlotInfo(2); 
+            }
         }
         else
         {
