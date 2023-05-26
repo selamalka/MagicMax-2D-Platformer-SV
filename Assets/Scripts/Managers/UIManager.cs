@@ -86,7 +86,7 @@ public class UIManager : MonoBehaviour
         masterPanelImage.DOColor(new Color(0, 0, 0, 0), duration);
     }
 
-    private void UpdateExpBar()
+    public void UpdateExpBar()
     {
         expBarFull.DOFillAmount(PlayerStatsManager.Instance.CurrentExp / PlayerStatsManager.Instance.TargetExp, 0.2f);
     }

@@ -37,10 +37,16 @@ public class PlayerStatsManager : MonoBehaviour
         //CurrentLevel = 1;
         CurrentHealth = ProgressionManager.Instance.Progression.HealthPoints;
         UIManager.Instance.UpdateHealthPoints();
+
         CurrentMana = ProgressionManager.Instance.Progression.ManaPoints;
         UIManager.Instance.UpdateManaPoints();
+
         CurrentSouls = ProgressionManager.Instance.Progression.SoulPoints;
         UIManager.Instance.UpdateSoulPoints();
+
+        TargetExp = ProgressionManager.Instance.Progression.TargetExp;
+        CurrentExp = ProgressionManager.Instance.Progression.ExpPoints;
+        UIManager.Instance.UpdateExpBar();
     }
 
     private void Update()
@@ -178,8 +184,9 @@ public class PlayerStatsManager : MonoBehaviour
     {
         CurrentExp = 0;
         TargetExp *= TargetExpMultiplier;
-        //CurrentLevel++;
+        ProgressionManager.Instance.Progression.SetTargetExp(TargetExp);
         SpellPoints++;
+        //CurrentLevel++;
         //UIManager.Instance.UpdateSpellPoints();
     }
     public void CheckExpToLevelUp()
@@ -193,6 +200,7 @@ public class PlayerStatsManager : MonoBehaviour
     public void GrantExp(float expValue)
     {
         SetCurrentExp(CurrentExp + expValue);
+        ProgressionManager.Instance.Progression.SetCurrentExpPoints(CurrentExp);
         CheckExpToLevelUp();
     }
 }
