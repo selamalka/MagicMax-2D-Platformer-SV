@@ -58,6 +58,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
         invulnerableCounter = InvulnerableStartTime;
         PlayerController.Instance.Knockback(PlayerController.Instance.IsFacingRight ? Vector2.right : Vector2.left, 15, 15, 250);
         PlayerStatsManager.Instance.SetCurrentHealth(PlayerStatsManager.Instance.CurrentHealth - damage);
+        ProgressionManager.Instance.Progression.SetHealthPoints(PlayerStatsManager.Instance.CurrentHealth);
         FXManager.Instance.FlashWhite(gameObject);
         FXManager.Instance.PauseGameEffect(100);
 

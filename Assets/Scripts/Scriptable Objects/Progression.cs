@@ -8,6 +8,8 @@ public class Progression : ScriptableObject
     [field: SerializeField] public List<SpellData> UnlockedSpellsList { get; private set; } = new List<SpellData>();
     [field: SerializeField] public Vector3 LastCheckpoint { get; private set; }
     [field: SerializeField] public int SpellPoints { get; private set; }
+    [field: SerializeField] public int HealthPoints { get; private set; }
+    [field: SerializeField] public int ManaPoints { get; private set; }
 
     [field: SerializeField] public GameObject SpellSlot1Prefab { get; private set; }
     [field: SerializeField] public SpellData SpellSlot1Data { get; private set; }
@@ -18,15 +20,21 @@ public class Progression : ScriptableObject
     {
         LastCheckpoint = lastCheckpoint;
     }
-
     public void SetSpellPoints(int spellPoints)
     {
         SpellPoints = spellPoints;
     }
-
     public void SetIsNewGame(bool value)
     {
         IsNewGame = value;
+    }
+    public void SetHealthPoints(int value)
+    {
+        HealthPoints = value;
+    }
+    public void SetManaPoints(int value)
+    {
+        ManaPoints = value;
     }
 
     public void SetSpellSlot1Info(GameObject prefab, SpellData data)

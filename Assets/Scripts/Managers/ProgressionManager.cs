@@ -18,6 +18,8 @@ public class ProgressionManager : MonoBehaviour
             Progression.UnlockedSpellsList.Clear();
             Progression.SetSpellSlot1Info(null, null);
             Progression.SetSpellSlot2Info(null, null);
+            Progression.SetHealthPoints(5);
+            Progression.SetManaPoints(0);
             Progression.SetLastCheckpoint(new Vector3(103, -14, 0));
             PlayerStatsManager.Instance.SetSpellPoints(1);
             Progression.SetIsNewGame(false);

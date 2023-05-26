@@ -20,12 +20,14 @@ public class PlayerCombat : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        if (GameObject.Find("Spell Slot 1") == null) return;
         SpellSlot1 = GameObject.Find("Spell Slot 1").GetComponent<SpellSlot>();
         SpellSlot2 = GameObject.Find("Spell Slot 2").GetComponent<SpellSlot>();
     }
 
     private void Start()
-    { 
+    {
         meleeCooldownCounter = 0;
     }
 
@@ -44,7 +46,7 @@ public class PlayerCombat : MonoBehaviour
             PlayerController.Instance.Animator.SetTrigger("meleeAttack");
         }
 
-        if (InputManager.Instance.IsQPressed()) 
+        if (InputManager.Instance.IsQPressed())
         {
             UseSpellSlot1();
         }
