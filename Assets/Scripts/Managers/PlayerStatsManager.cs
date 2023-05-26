@@ -37,7 +37,6 @@ public class PlayerStatsManager : MonoBehaviour
         CurrentLevel = 1;
         CurrentHealth = MaxHealth;
         CurrentMana = 0;
-        healthRegenFillCounter = HealthRegenFillTime;
     }
 
     private void Update()

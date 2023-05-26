@@ -16,7 +16,10 @@ public class SpellManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerCombat.Instance.LoadSpellSlotsInfo();
+        if (PlayerCombat.Instance.SpellSlot1 != null)
+        {
+            PlayerCombat.Instance.LoadSpellSlotsInfo(); 
+        }
     }
 
     public UISpell FindUISpellByName(string name)

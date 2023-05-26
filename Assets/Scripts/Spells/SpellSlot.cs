@@ -27,6 +27,7 @@ public class SpellSlot : MonoBehaviour
     {
         if (number == 1)
         {
+            if (ProgressionManager.Instance.Progression.SpellSlot1Data == null) return;
             var spell = SpellManager.Instance.FindUISpellByName(ProgressionManager.Instance.Progression.SpellSlot1Data.Name);
             CurrentSpell = spell;
             CurrentSpell.SetSpellPrefab(ProgressionManager.Instance.Progression.SpellSlot1Prefab);
@@ -36,6 +37,7 @@ public class SpellSlot : MonoBehaviour
         }
         else if (number == 2)
         {
+            if (ProgressionManager.Instance.Progression.SpellSlot2Data == null) return;
             var spell = SpellManager.Instance.FindUISpellByName(ProgressionManager.Instance.Progression.SpellSlot2Data.Name);
             CurrentSpell = spell;
             CurrentSpell.SetSpellPrefab(ProgressionManager.Instance.Progression.SpellSlot2Prefab);
