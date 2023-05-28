@@ -117,12 +117,12 @@ ScriptedImporter:
     spritePosition: {x: 587, y: 662}
   - name: Head
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.59565514, y: 0.1337191}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 7
       y: 539
       width: 367
       height: 376
@@ -139,8 +139,8 @@ ScriptedImporter:
     spritePosition: {x: 380, y: 563}
   - name: Arm Left
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.89343876, y: 0.749461}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -161,8 +161,8 @@ ScriptedImporter:
     spritePosition: {x: 11, y: 273}
   - name: Arm Right
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.2977657, y: 0.8694737}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -188,7 +188,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 9
       y: 4
       width: 545
       height: 527
@@ -205,8 +205,8 @@ ScriptedImporter:
     spritePosition: {x: 240, y: 316}
   - name: Leg Left
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.3832249, y: 0.8267405}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -227,8 +227,8 @@ ScriptedImporter:
     spritePosition: {x: 431, y: 29}
   - name: Leg Right
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.8782082, y: 0.7858051}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
