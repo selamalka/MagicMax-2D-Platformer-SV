@@ -11,14 +11,15 @@ public class PositionCameraToPlayer : MonoBehaviour
     private void Start()
     {
         SetCameraToPlayer();
-        if (ProgressionManager.Instance.IsTesting)
-        {
-            transform.position = GameObject.FindWithTag("Player").transform.position + new Vector3(12f, 8.4f, -10f);
-        }
     }
 
     public void SetCameraToPlayer()
     {
         GetComponent<CameraController>().targetObject = GameObject.FindWithTag("Player").transform;
+
+        if (ProgressionManager.Instance.IsTesting || ProgressionManager.Instance.IsCheckpointSaved)
+        {
+            transform.position = GameObject.FindWithTag("Player").transform.position + new Vector3(12f, 8.4f, -10f);
+        }
     }
 }

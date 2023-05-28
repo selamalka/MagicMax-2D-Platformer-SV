@@ -47,6 +47,8 @@ public class PlayerStatsManager : MonoBehaviour
         TargetExp = ProgressionManager.Instance.Progression.TargetExp;
         CurrentExp = ProgressionManager.Instance.Progression.ExpPoints;
         UIManager.Instance.UpdateExpBar();
+
+        SpellPoints = ProgressionManager.Instance.Progression.SpellPoints;
     }
 
     private void Update()

@@ -72,6 +72,9 @@ public class PlayerStats : MonoBehaviour, IDamageable
         {            
             Destroy(gameObject);
             ProgressionManager.Instance.Progression.SetHealthPoints(5);
+            ProgressionManager.Instance.Progression.SetManaPoints(0);
+            ProgressionManager.Instance.Progression.SetSoulPoints(0);
+            ProgressionManager.Instance.Progression.SetSpellPoints(PlayerStatsManager.Instance.SpellPoints);
             GameManager.Instance.ResumeGame();
             UIManager.Instance.FadeToBlack(2);
             await Task.Delay(2000);

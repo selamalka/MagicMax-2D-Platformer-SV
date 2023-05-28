@@ -8,6 +8,7 @@ public class Checkpoint : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             print("checkpoint updated");
+            ProgressionManager.Instance.SetIsCheckpointSaved(true);
             ProgressionManager.Instance.Progression.SetLastCheckpoint(transform.position);
             UIManager.Instance.ShowTip("Checkpoint Saved");
         }
