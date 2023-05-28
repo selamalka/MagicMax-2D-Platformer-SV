@@ -1862,7 +1862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768679297}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.76, y: -5.41, z: -10}
+  m_LocalPosition: {x: 115, y: -5.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10747,7 +10747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2eebc968380f74092194c049fc468e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 4, y: 5, z: -10}
 --- !u!95 &1136577216187792833
 Animator:
   serializedVersion: 5
@@ -15759,12 +15758,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2460709807467563806, guid: 47cbd34acf1c283469e5c7a0f67e1e76, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 2460709807467563806, guid: 47cbd34acf1c283469e5c7a0f67e1e76, type: 3}
-      propertyPath: m_SceneBindings.Array.data[6].key
-      value: 
-      objectReference: {fileID: -6492506287333266876, guid: b829b353f1d59604f9608f13d1a29be4, type: 2}
     - target: {fileID: 2460709807467563806, guid: 47cbd34acf1c283469e5c7a0f67e1e76, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
