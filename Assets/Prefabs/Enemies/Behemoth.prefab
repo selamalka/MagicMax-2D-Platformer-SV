@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6352820215621103929}
   - component: {fileID: 8579549818702335582}
   m_Layer: 0
-  m_Name: Leg Left
+  m_Name: Leg Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -350229667
   m_SortingLayer: 6
   m_SortingOrder: 1
-  m_Sprite: {fileID: 136153495326189473, guid: 567efee5a08044042b875a0ed089deac, type: 3}
+  m_Sprite: {fileID: 7691115073031924987, guid: 567efee5a08044042b875a0ed089deac, type: 3}
   m_Color: {r: 1, g: 0.44195643, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4325399077630222539}
   - component: {fileID: 1676032010755157992}
   m_Layer: 0
-  m_Name: Leg Right
+  m_Name: Leg Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,12 +157,12 @@ SpriteRenderer:
   m_SortingLayerID: -350229667
   m_SortingLayer: 6
   m_SortingOrder: 2
-  m_Sprite: {fileID: -3733974515057998756, guid: 567efee5a08044042b875a0ed089deac, type: 3}
+  m_Sprite: {fileID: -4554678240118834828, guid: 567efee5a08044042b875a0ed089deac, type: 3}
   m_Color: {r: 1, g: 0.44195643, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.85, y: 2.81}
+  m_Size: {x: 2.66, y: 3.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 1616501236954941375}
   - component: {fileID: 6274269780457479788}
   m_Layer: 0
-  m_Name: Arm Right
+  m_Name: Arm Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,7 +193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4529052874404296932}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4299998, y: -3.1849997, z: 0}
+  m_LocalPosition: {x: 2.4300032, y: -3.185, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -241,12 +241,12 @@ SpriteRenderer:
   m_SortingLayerID: -350229667
   m_SortingLayer: 6
   m_SortingOrder: 4
-  m_Sprite: {fileID: -9011779412011494102, guid: 567efee5a08044042b875a0ed089deac, type: 3}
+  m_Sprite: {fileID: -7636975676725976025, guid: 567efee5a08044042b875a0ed089deac, type: 3}
   m_Color: {r: 1, g: 0.44195643, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.27, y: 4.94}
+  m_Size: {x: 3.02, y: 4.33}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 4882608353450457440}
   - component: {fileID: 8565148087629354848}
   m_Layer: 0
-  m_Name: Arm Left
+  m_Name: Arm Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -356,12 +356,12 @@ SpriteRenderer:
   m_SortingLayerID: -350229667
   m_SortingLayer: 6
   m_SortingOrder: 5
-  m_Sprite: {fileID: -6617812008056672491, guid: 567efee5a08044042b875a0ed089deac, type: 3}
+  m_Sprite: {fileID: -4636527192139724663, guid: 567efee5a08044042b875a0ed089deac, type: 3}
   m_Color: {r: 1, g: 0.44195643, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.02, y: 4.17}
+  m_Size: {x: 2.27, y: 4.97}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 4990479817821054167}
   - component: {fileID: 4319603042726514684}
   - component: {fileID: 8213855696328409443}
+  - component: {fileID: 7660031528684654084}
   m_Layer: 8
   m_Name: Behemoth
   m_TagString: Enemy
@@ -469,6 +470,32 @@ MonoBehaviour:
   body: {fileID: 1094824921617678864}
   canKnockPlayer: 0
   knockCooldownCounter: 0
+--- !u!61 &7660031528684654084
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254193952139581965}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.23169708, y: 4.6173396}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.55365, y: 8.976911}
+  m_EdgeRadius: 0
 --- !u!1 &7936575940077150952
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,12 +570,12 @@ SpriteRenderer:
   m_SortingLayerID: -350229667
   m_SortingLayer: 6
   m_SortingOrder: 7
-  m_Sprite: {fileID: -1063041576514581820, guid: 567efee5a08044042b875a0ed089deac, type: 3}
+  m_Sprite: {fileID: -2507680527945282132, guid: 567efee5a08044042b875a0ed089deac, type: 3}
   m_Color: {r: 1, g: 0.44195643, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.56, y: 1.07}
+  m_Size: {x: 1.38, y: 0.95}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -628,7 +655,7 @@ SpriteRenderer:
   m_SortingLayerID: -350229667
   m_SortingLayer: 6
   m_SortingOrder: 6
-  m_Sprite: {fileID: -3009406451847015625, guid: 567efee5a08044042b875a0ed089deac, type: 3}
+  m_Sprite: {fileID: -7106011015457689772, guid: 567efee5a08044042b875a0ed089deac, type: 3}
   m_Color: {r: 1, g: 0.44195643, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -717,7 +744,7 @@ SpriteRenderer:
   m_SortingLayerID: -350229667
   m_SortingLayer: 6
   m_SortingOrder: 3
-  m_Sprite: {fileID: -7962049702824531026, guid: 567efee5a08044042b875a0ed089deac, type: 3}
+  m_Sprite: {fileID: -1874229694997289302, guid: 567efee5a08044042b875a0ed089deac, type: 3}
   m_Color: {r: 1, g: 0.44195643, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
