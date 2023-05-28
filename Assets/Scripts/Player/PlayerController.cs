@@ -355,7 +355,7 @@ public class PlayerController : MonoBehaviour
 
             if (cameraController.GetComponentInChildren<Camera>().orthographicSize < 35)
             {
-                cameraController.GetComponentInChildren<Camera>().orthographicSize += 0.4f;
+                cameraController.GetComponentInChildren<Camera>().orthographicSize += 0.2f;
             }
         }
 

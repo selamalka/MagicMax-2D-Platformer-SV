@@ -4,7 +4,7 @@ public class ProgressionManager : MonoBehaviour
 {
     public static ProgressionManager Instance;
     [field: SerializeField] public Progression Progression { get; private set; }
-    [SerializeField] private bool isTesting;
+    [field: SerializeField] public bool IsTesting { get; private set; }
 
     private void Awake()
     {
@@ -35,7 +35,7 @@ public class ProgressionManager : MonoBehaviour
             Progression.SetIsNewGame(false);
         }
 
-        if (!isTesting)
+        if (!IsTesting)
         {
             GameObject.Find("Player").transform.position = Progression.LastCheckpoint;
         }
