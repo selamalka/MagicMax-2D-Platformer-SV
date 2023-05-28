@@ -8,6 +8,7 @@ public class BehemothAI : MonoBehaviour
     [SerializeField] private Transform body;
 
     private Rigidbody2D rb;
+    private Animator animator;
     private bool isFacingRight = true;
     private bool isTurning;
     [SerializeField] private bool canKnockPlayer;
@@ -29,6 +30,7 @@ public class BehemothAI : MonoBehaviour
     {
         playerGameObject = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         timeBetweenProjectiles = EnemyManager.Instance.BehemothTimeBetweenProjectiles;
         timeBetweenKnocks = EnemyManager.Instance.BehemothTimeBetweenMelee;
         projectilePrefab = EnemyManager.Instance.BehemothProjetilePrefab;
@@ -107,7 +109,8 @@ public class BehemothAI : MonoBehaviour
     {
         if (projectileCooldownCounter <= 0)
         {
-            InstantiateProjectile();
+            //InstantiateProjectile();
+            animator.SetTrigger("throwProjectile");
             projectileCooldownCounter = timeBetweenProjectiles;
         }
     }
@@ -120,6 +123,7 @@ public class BehemothAI : MonoBehaviour
             if (knockCooldownCounter <= 0)
             {
                 canKnockPlayer = true;
+                animator.SetTrigger("pushPlayer");
             }
             else
             {

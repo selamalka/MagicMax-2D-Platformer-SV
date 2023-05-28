@@ -34,7 +34,6 @@ Transform:
   - {fileID: 1616501236954941375}
   - {fileID: 4325399077630222539}
   - {fileID: 6352820215621103929}
-  - {fileID: 5476537975931995361}
   m_Father: {fileID: 8386840654337688174}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -230,8 +229,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4529052874404296932}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9099998, y: 4.2, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.91, y: 4.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -313,13 +312,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5736291373382048756}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.6800003, y: 7.9500003, z: 0}
+  m_LocalRotation: {x: -0.9858315, y: -0.16773862, z: -0.00000039992096, w: 0.0000023504083}
+  m_LocalPosition: {x: 6.442222, y: 0.21255827, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7520190803266690044}
-  m_RootOrder: 6
+  m_Father: {fileID: 4882608353450457440}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6140738922009865347
 GameObject:
@@ -345,11 +344,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6140738922009865347}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.47, y: 6.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5476537975931995361}
   m_Father: {fileID: 7520190803266690044}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePointTransform: {fileID: 5476537975931995361}
-  body: {fileID: 1094824921617678864}
+  body: {fileID: 7520190803266690044}
   canKnockPlayer: 0
   knockCooldownCounter: 0
 --- !u!95 &4293818853169033877
