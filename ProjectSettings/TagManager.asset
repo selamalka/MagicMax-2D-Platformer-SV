@@ -13,6 +13,7 @@ TagManager:
   - Behemoth
   - Ground
   - Thorns
+  - CameraContainer
   layers:
   - Default
   - TransparentFX
