@@ -108,7 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Progression>k__BackingField: {fileID: 11400000, guid: 131db4c0106e22e489721c5ea5583264, type: 2}
-  isTesting: 0
+  <IsTesting>k__BackingField: 1
+  <IsCheckpointSaved>k__BackingField: 0
 --- !u!114 &3691343324569232439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +205,11 @@ MonoBehaviour:
   <BehemothRangedDetectionRadius>k__BackingField: 27
   <BehemothMeleeDetectionRadius>k__BackingField: 10
   <BehemothProjetilePrefab>k__BackingField: {fileID: 3775555820293171531, guid: 17779603ee4b8184fb09092717ef37c9, type: 3}
+  <ZulMaxHealth>k__BackingField: 50
+  <ZulSpeed>k__BackingField: 50
+  <ZulTimeBetweenProjectiles>k__BackingField: 5
+  <ZulTimeBetweenSummons>k__BackingField: 10
+  <ZulProjectilePrefab>k__BackingField: {fileID: 7247966296244393618, guid: c12a786a4fdaaa34e8a56a63b5f335f4, type: 3}
 --- !u!114 &3691343324569232433
 MonoBehaviour:
   m_ObjectHideFlags: 0

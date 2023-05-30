@@ -4,21 +4,35 @@ using UnityEngine;
 public class ZulAI : MonoBehaviour
 {
     [SerializeField] private Transform bodyContainerTransform;
+    private Vector3 leftFlyingBorder;
+    private Vector3 rightFlyingBorder;
     private ZulStateType currentState;
     private Vector3 playerPosition;
     private bool isTurning;
     private bool isFacingRight;
     private Rigidbody2D rb;
 
+    private float speed;
+    private float currentLerpValue;
+    private float targetLerpValue;
+
     private void Start()
     {
         playerPosition = PlayerController.Instance.transform.position;
         rb = GetComponent<Rigidbody2D>();
         currentState = ZulStateType.Fly;
+        speed = EnemyManager.Instance.ZulSpeed;
     }
 
     private void Update()
     {
+        if (currentLerpValue == targetLerpValue)
+        {
+            targetLerpValue = targetLerpValue == 0 ? 1 : 0;
+        }
+
+        currentLerpValue = Mathf.MoveTowards(currentLerpValue, targetLerpValue, speed * Time.deltaTime);
+
         TurnHandler();
 
         switch (currentState)
@@ -40,7 +54,12 @@ public class ZulAI : MonoBehaviour
 
     private void Fly()
     {
-        transform.position = playerPosition + new Vector3(0, 6, 0);
+        Vector3 aboveThePlayerPosition = playerPosition + new Vector3(0, 6, 0);
+        transform.position = aboveThePlayerPosition;
+        leftFlyingBorder = aboveThePlayerPosition + new Vector3(-5, 0, 0);
+        rightFlyingBorder = aboveThePlayerPosition + new Vector3(5, 0, 0);
+
+
     }
 
     private void Turn()
