@@ -32445,7 +32445,7 @@ PrefabInstance:
       objectReference: {fileID: 331160524}
     - target: {fileID: 3691343324569232437, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
       propertyPath: <ZulSpeed>k__BackingField
-      value: 50
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3691343324569232437, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
       propertyPath: <ZulMaxHealth>k__BackingField

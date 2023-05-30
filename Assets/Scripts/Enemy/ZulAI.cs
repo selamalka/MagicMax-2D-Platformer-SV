@@ -26,6 +26,8 @@ public class ZulAI : MonoBehaviour
 
     private void Update()
     {
+        playerPosition = PlayerController.Instance.transform.position;
+
         if (currentLerpValue == targetLerpValue)
         {
             targetLerpValue = targetLerpValue == 0 ? 1 : 0;
@@ -59,7 +61,7 @@ public class ZulAI : MonoBehaviour
         leftFlyingBorder = aboveThePlayerPosition + new Vector3(-5, 0, 0);
         rightFlyingBorder = aboveThePlayerPosition + new Vector3(5, 0, 0);
 
-
+        transform.position = Vector3.Lerp(leftFlyingBorder, rightFlyingBorder, currentLerpValue);
     }
 
     private void Turn()
