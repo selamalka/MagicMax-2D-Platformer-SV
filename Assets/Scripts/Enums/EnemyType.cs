@@ -4,5 +4,6 @@ public enum EnemyType
     None,
     Imp,
     ShadowDemon,
-    Behemoth
+    Behemoth,
+    Zul
 }
