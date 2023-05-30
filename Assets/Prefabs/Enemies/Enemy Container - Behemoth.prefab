@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6642309843346648721}
     m_Modifications:
+    - target: {fileID: 5736291373382048756, guid: 0a1aeb5e79c96f64b89da9d75be1746d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7254193952139581965, guid: 0a1aeb5e79c96f64b89da9d75be1746d, type: 3}
       propertyPath: m_Name
       value: Behemoth

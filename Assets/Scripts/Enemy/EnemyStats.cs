@@ -37,6 +37,10 @@ public class EnemyStats : MonoBehaviour, IDamageable
                 soulValue = EnemyManager.Instance.BehemothSoulValue;
                 break;
 
+            case EnemyType.Zul:
+                currentHealth = EnemyManager.Instance.ZulMaxHealth;
+                break;
+
             default:
                 break;
         }
