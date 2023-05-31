@@ -7,6 +7,7 @@ public class ZulTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             FindObjectOfType<ZulAI>().SetIsTriggered(true);
+            Destroy(gameObject);
         }
     }
 }
