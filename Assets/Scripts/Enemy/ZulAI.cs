@@ -5,25 +5,36 @@ public class ZulAI : MonoBehaviour
 {
     [SerializeField] private Transform bodyContainerTransform;
     [SerializeField] private Transform[] patrolPoints;
+    [SerializeField] private GameObject projectilePrefab;
     private int currentPatrolPointIndex;
     private ZulStateType currentState;
     private Vector3 playerPosition;
     private bool isTurning;
     private bool isFacingRight;
-    private Rigidbody2D rb;
-
     private float speed;
-    private float currentLerpValue;
-    private float targetLerpValue;
+    private Rigidbody2D rb;
+    private Animator animator;
 
+    [SerializeField] private float flyStateStartTime;
+    private float flyStateCounter;
+    [SerializeField] private float AttackStateStartTime;
+    private float AttackStateCounter;
 
+    private float startTimeBetweenProjectiles;
+    private float projectileCooldownCounter;
 
     private void Start()
     {
         playerPosition = PlayerController.Instance.transform.position;
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
+        flyStateCounter = flyStateStartTime;
         currentState = ZulStateType.Fly;
         speed = EnemyManager.Instance.ZulSpeed;
+        startTimeBetweenProjectiles = EnemyManager.Instance.ZulTimeBetweenProjectiles;
+        projectileCooldownCounter = startTimeBetweenProjectiles;
+
     }
 
     private void Update()
@@ -35,10 +46,32 @@ public class ZulAI : MonoBehaviour
         switch (currentState)
         {
             case ZulStateType.Fly:
-                Fly();
+
+                if (flyStateCounter <= 0)
+                {
+                    AttackStateCounter = AttackStateStartTime;
+                    projectileCooldownCounter = startTimeBetweenProjectiles;
+                    currentState = ZulStateType.Attack;
+                }
+                else
+                {
+                    flyStateCounter -= Time.deltaTime;
+                    Fly();
+                }
+
                 break;
 
             case ZulStateType.Attack:
+                if (AttackStateCounter <= 0)
+                {
+                    flyStateCounter = flyStateStartTime;
+                    currentState = ZulStateType.Fly;
+                }
+                else
+                {
+                    AttackStateCounter -= Time.deltaTime;
+                    ProjectileHandler();
+                }
                 break;
 
             case ZulStateType.Summon:
@@ -46,6 +79,19 @@ public class ZulAI : MonoBehaviour
 
             default:
                 break;
+        }
+    }
+
+    private void ProjectileHandler()
+    {
+        if (projectileCooldownCounter <= 0)
+        {
+            Attack();
+            projectileCooldownCounter = startTimeBetweenProjectiles;
+        }
+        else
+        {
+            projectileCooldownCounter -= Time.deltaTime;
         }
     }
 
@@ -59,6 +105,19 @@ public class ZulAI : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPatrolPointIndex].position, speed * Time.deltaTime);
     }
 
+    private void Attack()
+    {
+        Vector3 direction = playerPosition - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        animator.SetTrigger("castSpell");
+        InstantiateProjectile();
+    }
+
+    private void InstantiateProjectile()
+    {
+        Instantiate(projectilePrefab, transform.position, transform.rotation);
+    }
+
     private void Turn()
     {
         isTurning = true;
@@ -69,7 +128,6 @@ public class ZulAI : MonoBehaviour
         isFacingRight = !isFacingRight;
         isTurning = false;
     }
-
     private void TurnHandler()
     {
         Vector3 direction = playerPosition - transform.position;
