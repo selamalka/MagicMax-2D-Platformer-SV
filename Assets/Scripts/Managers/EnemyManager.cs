@@ -4,6 +4,10 @@ public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance;
 
+    [field: SerializeField] public GameObject ImpPrefab { get; private set; }
+    [field: SerializeField] public GameObject ShadowDemonPrefab { get; private set; }
+    [field: SerializeField] public GameObject BehemothPrefab { get; private set; }
+
     [field: Header("Imp")]
     [field: SerializeField] public float ImpMaxHealth { get; private set; }
     [field: SerializeField] public float ImpSpeed { get; private set; }
@@ -39,6 +43,7 @@ public class EnemyManager : MonoBehaviour
     [field: SerializeField] public float ZulSpeed { get; private set; }
     [field: SerializeField] public float ZulTimeBetweenProjectiles { get; private set; }
     [field: SerializeField] public GameObject ZulProjectilePrefab { get; private set; }
+    [field: SerializeField] public Transform[] ZulSpawnPoints { get; private set; }
 
     private void Awake()
     {

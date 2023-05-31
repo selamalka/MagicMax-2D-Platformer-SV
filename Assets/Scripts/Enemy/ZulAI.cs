@@ -22,6 +22,7 @@ public class ZulAI : MonoBehaviour
 
     private float startTimeBetweenProjectiles;
     private float projectileCooldownCounter;
+    [SerializeField] private int amountOfEnemies;
 
     private void Start()
     {
@@ -65,6 +66,7 @@ public class ZulAI : MonoBehaviour
                 if (AttackStateCounter <= 0)
                 {
                     flyStateCounter = flyStateStartTime;
+                    SummonMinions();
                     currentState = ZulStateType.Fly;
                 }
                 else
@@ -75,11 +77,26 @@ public class ZulAI : MonoBehaviour
                 break;
 
             case ZulStateType.Summon:
+
                 break;
 
             default:
                 break;
         }
+    }
+
+    private void SummonMinions()
+    {
+        for (int i = 0; i < amountOfEnemies; i++)
+        {
+            Transform randomSpawnPointTransform = GetRandomSpawnPoint();
+            Instantiate(EnemyManager.Instance.ImpPrefab, randomSpawnPointTransform.position, Quaternion.identity);
+        }
+    }
+
+    private Transform GetRandomSpawnPoint()
+    {
+        return EnemyManager.Instance.ZulSpawnPoints[UnityEngine.Random.Range(0, EnemyManager.Instance.ZulSpawnPoints.Length)];
     }
 
     private void ProjectileHandler()
@@ -108,7 +125,7 @@ public class ZulAI : MonoBehaviour
     public void Attack()
     {
         Vector3 direction = playerPosition - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;       
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         InstantiateProjectile();
     }
 
