@@ -86,7 +86,7 @@ public class ZulAI : MonoBehaviour
     {
         if (projectileCooldownCounter <= 0)
         {
-            Attack();
+            animator.SetTrigger("castSpell");
             projectileCooldownCounter = startTimeBetweenProjectiles;
         }
         else
@@ -105,17 +105,16 @@ public class ZulAI : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPatrolPointIndex].position, speed * Time.deltaTime);
     }
 
-    private void Attack()
+    public void Attack()
     {
         Vector3 direction = playerPosition - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        animator.SetTrigger("castSpell");
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;       
         InstantiateProjectile();
     }
 
     private void InstantiateProjectile()
     {
-        Instantiate(projectilePrefab, transform.position, transform.rotation);
+        Instantiate(projectilePrefab, transform.position, Quaternion.identity);
     }
 
     private void Turn()
