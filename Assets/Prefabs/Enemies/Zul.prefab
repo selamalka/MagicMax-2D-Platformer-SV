@@ -731,6 +731,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyContainerTransform: {fileID: 7035931199127655252}
   patrolPoints: []
+  projectilePrefab: {fileID: 1706736428268941315, guid: 2ce45692cd9cf7a46a8cf51a7de36390, type: 3}
+  flyStateStartTime: 2
+  AttackStateStartTime: 10
 --- !u!95 &1334093336540059888
 Animator:
   serializedVersion: 5

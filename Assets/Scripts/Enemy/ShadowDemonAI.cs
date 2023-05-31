@@ -15,7 +15,7 @@ public class ShadowDemonAI : MonoBehaviour
     private float detectionRadius;
     private float maxDistanceFromPlayer;
     private bool isTurning;
-    private float timeBetweenProjectiles;
+    private float startTimeBetweenProjectiles;
     private float projectileCooldownCounter;
     private Vector3 directionToPlayer;
 
@@ -27,11 +27,11 @@ public class ShadowDemonAI : MonoBehaviour
         speed = EnemyManager.Instance.ShadowDemonSpeed;
         projectilePrefab = EnemyManager.Instance.ShadowDemonProjetilePrefab;
         maxDistanceFromPlayer = EnemyManager.Instance.ShadowDemonMaxDistanceFromPlayer;
-        timeBetweenProjectiles = EnemyManager.Instance.ShadowDemonTimeBetweenProjectiles;
+        startTimeBetweenProjectiles = EnemyManager.Instance.ShadowDemonTimeBetweenProjectiles;
         detectionRadius = EnemyManager.Instance.ShadowDemonDetectionRadius;
 
         transform.position = patrolPoints[0].position;
-        projectileCooldownCounter = timeBetweenProjectiles;
+        projectileCooldownCounter = startTimeBetweenProjectiles;
 
         currentState = ShadowDemonStateType.Patrol;
     }
@@ -110,7 +110,7 @@ public class ShadowDemonAI : MonoBehaviour
             if (projectileCooldownCounter <= 0)
             {
                 InstantiateProjectile();
-                projectileCooldownCounter = timeBetweenProjectiles;
+                projectileCooldownCounter = startTimeBetweenProjectiles;
             }
         }
     }
