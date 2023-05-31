@@ -636,7 +636,7 @@ GameObject:
   - component: {fileID: 1334093336540059888}
   m_Layer: 0
   m_Name: Zul
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -730,6 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyContainerTransform: {fileID: 7035931199127655252}
+  patrolPoints: []
 --- !u!95 &1334093336540059888
 Animator:
   serializedVersion: 5
