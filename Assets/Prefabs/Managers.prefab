@@ -181,6 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fab48f7422962d43a4c27bee3ca3958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ImpPrefab>k__BackingField: {fileID: 8720207877135626885, guid: a212964d1b2468945b1a78150f26a9dd, type: 3}
+  <ShadowDemonPrefab>k__BackingField: {fileID: 1284834233062613785, guid: 4f1efc7896a63bd4b802261907a8afd6, type: 3}
+  <BehemothPrefab>k__BackingField: {fileID: 6642309843346648720, guid: af35283ace47d0440847dc52d3743420, type: 3}
   <ImpMaxHealth>k__BackingField: 3
   <ImpSpeed>k__BackingField: 100
   <ImpExpValue>k__BackingField: 10
@@ -206,10 +209,10 @@ MonoBehaviour:
   <BehemothMeleeDetectionRadius>k__BackingField: 10
   <BehemothProjetilePrefab>k__BackingField: {fileID: 3775555820293171531, guid: 17779603ee4b8184fb09092717ef37c9, type: 3}
   <ZulMaxHealth>k__BackingField: 50
-  <ZulSpeed>k__BackingField: 50
-  <ZulTimeBetweenProjectiles>k__BackingField: 5
-  <ZulTimeBetweenSummons>k__BackingField: 10
+  <ZulSpeed>k__BackingField: 20
+  <ZulTimeBetweenProjectiles>k__BackingField: 1
   <ZulProjectilePrefab>k__BackingField: {fileID: 7247966296244393618, guid: c12a786a4fdaaa34e8a56a63b5f335f4, type: 3}
+  <ZulSpawnPoints>k__BackingField: []
 --- !u!114 &3691343324569232433
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour, IDamageable
 {
     [SerializeField] private EnemyType type;
-    private float currentHealth;
+    [SerializeField] private float currentHealth;
     private float expValue;
     private int soulValue;
 
