@@ -14,6 +14,7 @@ public class ZulAI : MonoBehaviour
     private float speed;
     private Rigidbody2D rb;
     private Animator animator;
+    public bool IsTriggered { get; private set; }
 
     [SerializeField] private float flyStateStartTime;
     private float flyStateCounter;
@@ -40,6 +41,8 @@ public class ZulAI : MonoBehaviour
 
     private void Update()
     {
+        if (IsTriggered == false) return;
+
         playerPosition = PlayerController.Instance.transform.position;
 
         TurnHandler();
@@ -163,5 +166,10 @@ public class ZulAI : MonoBehaviour
                 Turn();
             }
         }
+    }
+
+    public void SetIsTriggered(bool value)
+    {
+        IsTriggered = value;
     }
 }
