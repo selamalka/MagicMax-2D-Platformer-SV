@@ -4,8 +4,8 @@ using UnityEngine;
 public class ZulAI : MonoBehaviour
 {
     [SerializeField] private Transform bodyContainerTransform;
-    private Vector3 leftFlyingBorder;
-    private Vector3 rightFlyingBorder;
+    [SerializeField] private Transform[] patrolPoints;
+    private int currentPatrolPointIndex;
     private ZulStateType currentState;
     private Vector3 playerPosition;
     private bool isTurning;
@@ -15,6 +15,8 @@ public class ZulAI : MonoBehaviour
     private float speed;
     private float currentLerpValue;
     private float targetLerpValue;
+
+
 
     private void Start()
     {
@@ -27,13 +29,6 @@ public class ZulAI : MonoBehaviour
     private void Update()
     {
         playerPosition = PlayerController.Instance.transform.position;
-
-        if (currentLerpValue == targetLerpValue)
-        {
-            targetLerpValue = targetLerpValue == 0 ? 1 : 0;
-        }
-
-        currentLerpValue = Mathf.MoveTowards(currentLerpValue, targetLerpValue, speed * Time.deltaTime);
 
         TurnHandler();
 
@@ -56,12 +51,12 @@ public class ZulAI : MonoBehaviour
 
     private void Fly()
     {
-        Vector3 aboveThePlayerPosition = playerPosition + new Vector3(0, 6, 0);
-        transform.position = aboveThePlayerPosition;
-        leftFlyingBorder = aboveThePlayerPosition + new Vector3(-5, 0, 0);
-        rightFlyingBorder = aboveThePlayerPosition + new Vector3(5, 0, 0);
+        if (Vector2.Distance(transform.position, patrolPoints[currentPatrolPointIndex].position) < 0.1f)
+        {
+            currentPatrolPointIndex = (currentPatrolPointIndex + 1) % patrolPoints.Length;
+        }
 
-        transform.position = Vector3.Lerp(leftFlyingBorder, rightFlyingBorder, currentLerpValue);
+        transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPatrolPointIndex].position, speed * Time.deltaTime);
     }
 
     private void Turn()
@@ -77,7 +72,7 @@ public class ZulAI : MonoBehaviour
 
     private void TurnHandler()
     {
-        Vector3 direction = PlayerController.Instance.gameObject.transform.position - transform.position;
+        Vector3 direction = playerPosition - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         if (angle > 90f || angle < -90f)
