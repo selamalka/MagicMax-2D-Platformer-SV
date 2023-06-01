@@ -5046,6 +5046,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UISpell - Magic Shot - Level 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1596816345454689836, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 00e7ab4a80b989d4bacbc6cda1bd1db3, type: 3}
     - target: {fileID: 1596816345454689837, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5266,6 +5270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UISpell - Magic Shot - Level 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1596816345454689836, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 00e7ab4a80b989d4bacbc6cda1bd1db3, type: 3}
     - target: {fileID: 1596816345454689837, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5486,6 +5494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UISpell - Magic Shot - Level 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1596816345454689836, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 00e7ab4a80b989d4bacbc6cda1bd1db3, type: 3}
     - target: {fileID: 1596816345454689837, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
