@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] private AudioSource musicPlayer;
-    [SerializeField] private AudioSource sfxPlayer;
+    [SerializeField] private AudioSource musicAudioSource;
+    [SerializeField] private AudioSource playerSFX;
 
     [SerializeField] private AudioClip musicClip;
+    [SerializeField] AudioClip[] footsteps;
 
     private void Awake()
     {
@@ -14,7 +15,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        musicPlayer.clip = musicClip;
-        musicPlayer.Play();
+        musicAudioSource.clip = musicClip;
+        musicAudioSource.Play();
     }
 }
