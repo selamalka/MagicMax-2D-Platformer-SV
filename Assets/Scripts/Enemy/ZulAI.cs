@@ -42,6 +42,7 @@ public class ZulAI : MonoBehaviour
     private void Update()
     {
         if (IsTriggered == false) return;
+        if (PlayerController.Instance == null) return;
 
         playerPosition = PlayerController.Instance.transform.position;
 

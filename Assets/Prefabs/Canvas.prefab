@@ -6981,6 +6981,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UISpell - Nimbus - Level 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5238163605019011516, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
+      propertyPath: <SpellData>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 496d9a2a12ca66a469ebc34209ace717, type: 2}
+    - target: {fileID: 5238163605019011516, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
+      propertyPath: <SpellPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: 3631402563533277038, guid: 1c17a9ae98dde5c44b37ee1ca99f74db, type: 3}
     - target: {fileID: 5238163605073078340, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
       propertyPath: m_Color.a
       value: 0.7607843

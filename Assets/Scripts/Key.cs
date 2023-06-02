@@ -14,6 +14,7 @@ public class Key : MonoBehaviour, ICollectable
     public void GetCollected()
     {
         GameObject.Find("Scene Loader").GetComponent<SceneLoader>().SetIsKeyCollected(true);
+        AudioManager.Instance.PlayPickupPowerup();
         UIManager.Instance.SetKeyDisplay(true);
     }
 }

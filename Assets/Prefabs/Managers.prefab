@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Progression>k__BackingField: {fileID: 11400000, guid: 131db4c0106e22e489721c5ea5583264, type: 2}
-  <IsTesting>k__BackingField: 0
+  <IsTesting>k__BackingField: 1
   <IsCheckpointSaved>k__BackingField: 0
 --- !u!114 &3691343324569232439
 MonoBehaviour:
@@ -200,16 +200,16 @@ MonoBehaviour:
   <ShadowDemonMaxDistanceFromPlayer>k__BackingField: 15
   <ShadowDemonDetectionRadius>k__BackingField: 30
   <ShadowDemonProjetilePrefab>k__BackingField: {fileID: 102004324205810066, guid: 0517d414b6012304a965f50ef2f8aa94, type: 3}
-  <BehemothMaxHealth>k__BackingField: 10
+  <BehemothMaxHealth>k__BackingField: 30
   <BehemothSpeed>k__BackingField: 2
   <BehemothExpValue>k__BackingField: 50
   <BehemothSoulValue>k__BackingField: 1
-  <BehemothTimeBetweenProjectiles>k__BackingField: 1.3
-  <BehemothTimeBetweenMelee>k__BackingField: 1.5
-  <BehemothRangedDetectionRadius>k__BackingField: 27
-  <BehemothMeleeDetectionRadius>k__BackingField: 10
+  <BehemothTimeBetweenProjectiles>k__BackingField: 1
+  <BehemothTimeBetweenMelee>k__BackingField: 1
+  <BehemothRangedDetectionRadius>k__BackingField: 30
+  <BehemothMeleeDetectionRadius>k__BackingField: 15
   <BehemothProjetilePrefab>k__BackingField: {fileID: 3775555820293171531, guid: 17779603ee4b8184fb09092717ef37c9, type: 3}
-  <ZulMaxHealth>k__BackingField: 20
+  <ZulMaxHealth>k__BackingField: 60
   <ZulSpeed>k__BackingField: 20
   <ZulTimeBetweenProjectiles>k__BackingField: 1
   <ZulProjectilePrefab>k__BackingField: {fileID: 7247966296244393618, guid: c12a786a4fdaaa34e8a56a63b5f335f4, type: 3}
@@ -239,7 +239,6 @@ MonoBehaviour:
   whiteFlashMaterial: {fileID: 2100000, guid: 4611490e3aef76a4db7c77fd8b7f0082, type: 2}
   pauseGameCooldownTime: 0.5
   playerSpriteRenderers:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

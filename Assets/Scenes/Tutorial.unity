@@ -3971,7 +3971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4505071554451754095, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 103
+      value: 462.7
       objectReference: {fileID: 0}
     - target: {fileID: 4505071554451754095, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4008,10 +4008,6 @@ PrefabInstance:
     - target: {fileID: 4505071554451754095, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8963468310251956158, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
-      propertyPath: <InvulnerableStartTime>k__BackingField
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
@@ -37311,6 +37307,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 865771404}
     - target: {fileID: 3691343324569232439, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
+      propertyPath: soulPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3691343324569232439, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
       propertyPath: manaPoints.Array.data[0]
       value: 
       objectReference: {fileID: 780077060}
@@ -37340,6 +37340,18 @@ PrefabInstance:
       objectReference: {fileID: 2055926383}
     - target: {fileID: 3691343324569232439, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
       propertyPath: soulPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1807936059}
+    - target: {fileID: 3691343324569232439, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
+      propertyPath: soulPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 533807312}
+    - target: {fileID: 3691343324569232439, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
+      propertyPath: soulPoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 2055926383}
+    - target: {fileID: 3691343324569232439, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
+      propertyPath: soulPoints.Array.data[5]
       value: 
       objectReference: {fileID: 1807936059}
     - target: {fileID: 3691343324569232439, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
