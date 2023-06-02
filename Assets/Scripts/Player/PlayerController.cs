@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             Animator.SetTrigger("land");
-            AudioManager.Instance.PlayRandomLandOnGround();
+            AudioManager.Instance.PlayLandOnGround();
 
             if (IsGrounded)
             {
@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayRandomFootstep()
     {
-        AudioManager.Instance.PlayRandomFootstep();
+        AudioManager.Instance.PlayFootstep();
     }
 
     private void DashHandler()
@@ -229,6 +229,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded)
         {
             Animator.SetTrigger("jump");
+            AudioManager.Instance.PlayJump();
+
             isJumping = true;
             jumpTimeCounter = jumpTime;
             SetGravityScale(2);
@@ -239,6 +241,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0 && !IsGrounded)
         {
             Animator.SetTrigger("jump");
+            AudioManager.Instance.PlayJump();
+
             Rb.velocity = new Vector2(Rb.velocity.x, 0);
             Rb.velocity = new Vector2(Rb.velocity.x, jumpForce * 2.5f);
             extraJumps--;

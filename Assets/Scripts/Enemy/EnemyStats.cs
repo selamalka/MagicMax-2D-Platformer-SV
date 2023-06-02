@@ -49,11 +49,47 @@ public class EnemyStats : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+
+        switch (type)
+        {
+            case EnemyType.None:
+                break;
+            case EnemyType.Imp:
+                AudioManager.Instance.PlayImpGetHit();
+                break;
+            case EnemyType.ShadowDemon:
+                break;
+            case EnemyType.Behemoth:
+                break;
+            case EnemyType.Zul:
+                break;
+            default:
+                break;
+        }
+
+        AudioManager.Instance.PlayEnemyImpact();
         PlayerStatsManager.Instance.GrantSouls(soulValue);
         FXManager.Instance.FlashWhite(gameObject);
 
         if (currentHealth <= 0)
         {
+            switch (type)
+            {
+                case EnemyType.None:
+                    break;
+                case EnemyType.Imp:
+                    AudioManager.Instance.PlayImpDeath();
+                    break;
+                case EnemyType.ShadowDemon:
+                    break;
+                case EnemyType.Behemoth:
+                    break;
+                case EnemyType.Zul:
+                    break;
+                default:
+                    break;
+            }
+
             PlayerStatsManager.Instance.GrantExp(expValue);            
             EventManager.OnEnemyDeath?.Invoke();
             if (FXManager.Instance.EnemyDeathShakePreset != null)
