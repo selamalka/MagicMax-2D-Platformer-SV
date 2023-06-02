@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioClip musicClip;
     [SerializeField] AudioClip[] footsteps;
+    [SerializeField] AudioClip[] landOnGround;
 
     private void Awake()
     {
@@ -33,5 +34,11 @@ public class AudioManager : MonoBehaviour
     {
         playerSFX.volume = 0.4f;
         playerSFX.PlayOneShot(footsteps[Random.Range(0, footsteps.Length)]);
+    }
+
+    public void PlayRandomLandOnGround()
+    {
+        playerSFX.volume = 0.5f;
+        playerSFX.PlayOneShot(landOnGround[Random.Range(0, landOnGround.Length)]);
     }
 }
