@@ -13,6 +13,7 @@ public class SpellData : ScriptableObject
     [field: SerializeField] public int ManaCost { get; private set; }
     [field: SerializeField] public int Damage { get; private set; }
     [field: SerializeField] public float Lifespan { get; private set; }   
+    [field: SerializeField] public AudioClip AudioClip { get; private set; }   
 
     public void SetIsUnlocked(bool value)
     {

@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Progression>k__BackingField: {fileID: 11400000, guid: 131db4c0106e22e489721c5ea5583264, type: 2}
-  <IsTesting>k__BackingField: 1
+  <IsTesting>k__BackingField: 0
   <IsCheckpointSaved>k__BackingField: 0
 --- !u!114 &3691343324569232439
 MonoBehaviour:
@@ -199,7 +199,7 @@ MonoBehaviour:
   <ShadowDemonMaxDistanceFromPlayer>k__BackingField: 15
   <ShadowDemonDetectionRadius>k__BackingField: 30
   <ShadowDemonProjetilePrefab>k__BackingField: {fileID: 102004324205810066, guid: 0517d414b6012304a965f50ef2f8aa94, type: 3}
-  <BehemothMaxHealth>k__BackingField: 30
+  <BehemothMaxHealth>k__BackingField: 10
   <BehemothSpeed>k__BackingField: 2
   <BehemothExpValue>k__BackingField: 50
   <BehemothSoulValue>k__BackingField: 1
@@ -208,11 +208,16 @@ MonoBehaviour:
   <BehemothRangedDetectionRadius>k__BackingField: 27
   <BehemothMeleeDetectionRadius>k__BackingField: 10
   <BehemothProjetilePrefab>k__BackingField: {fileID: 3775555820293171531, guid: 17779603ee4b8184fb09092717ef37c9, type: 3}
-  <ZulMaxHealth>k__BackingField: 50
+  <ZulMaxHealth>k__BackingField: 20
   <ZulSpeed>k__BackingField: 20
   <ZulTimeBetweenProjectiles>k__BackingField: 1
   <ZulProjectilePrefab>k__BackingField: {fileID: 7247966296244393618, guid: c12a786a4fdaaa34e8a56a63b5f335f4, type: 3}
-  <ZulSpawnPoints>k__BackingField: []
+  <ZulSpawnPoints>k__BackingField:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &3691343324569232433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +263,7 @@ MonoBehaviour:
   powerups:
   - {fileID: 7721148815597658549, guid: eebd4baf86f925c4abebd81c3456f83b, type: 3}
   - {fileID: 8671604351437798901, guid: fc7d194e5fdb15e49bfdba9699f179d6, type: 3}
-  <DropChance>k__BackingField: 100
+  <DropChance>k__BackingField: 20
 --- !u!114 &3691343324569232435
 MonoBehaviour:
   m_ObjectHideFlags: 0

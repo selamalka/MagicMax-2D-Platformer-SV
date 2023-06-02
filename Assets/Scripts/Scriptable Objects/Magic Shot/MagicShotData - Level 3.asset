@@ -21,3 +21,4 @@ MonoBehaviour:
   <ManaCost>k__BackingField: 1
   <Damage>k__BackingField: 3
   <Lifespan>k__BackingField: 3
+  <AudioClip>k__BackingField: {fileID: 8300000, guid: 572eb4a66d47f6944b45f0fdd2bf3bea, type: 3}

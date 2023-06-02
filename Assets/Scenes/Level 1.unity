@@ -62092,18 +62092,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 331160524}
     - target: {fileID: 3691343324569232437, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
-      propertyPath: <ZulMaxHealth>k__BackingField
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3691343324569232437, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
-      propertyPath: <BehemothMaxHealth>k__BackingField
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3691343324569232437, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
-      propertyPath: <ZulSpawnPoints>k__BackingField.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3691343324569232437, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
       propertyPath: <ZulSpawnPoints>k__BackingField.Array.data[0]
       value: 
       objectReference: {fileID: 573618416}

@@ -315,6 +315,7 @@ MonoBehaviour:
   playerGetHit: {fileID: 8300000, guid: 7d37054c736ef5743bbf254172a905ae, type: 3}
   powerupDrop: {fileID: 8300000, guid: b8aa8a65e907de04c9eccc06b8c470ed, type: 3}
   pickupPowerup: {fileID: 8300000, guid: 76a03945b72a69e43a530804b18cea84, type: 3}
+  magicShot: {fileID: 8300000, guid: 572eb4a66d47f6944b45f0fdd2bf3bea, type: 3}
   impDeath: {fileID: 8300000, guid: 55f1933d32264314393e524f8c679834, type: 3}
   impGetHit:
   - {fileID: 8300000, guid: b4d89a1f80961b6458a48b907d60097f, type: 3}
