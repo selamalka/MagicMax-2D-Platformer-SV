@@ -5,11 +5,17 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     [SerializeField] private AudioSource musicAudioSource;
-    [SerializeField] private AudioSource playerSFX;
+    [SerializeField] private AudioSource sfxAudioSource;
+    [SerializeField] private AudioSource enemySFXAudioSource;
 
     [SerializeField] private AudioClip musicClip;
     [SerializeField] private AudioClip turnWoosh;
-    [SerializeField] private AudioClip[] footsteps;
+    [SerializeField] private AudioClip jump;
+    [SerializeField] private AudioClip impDeath;
+    [SerializeField] private AudioClip[] impGetHit;
+    [SerializeField] private AudioClip[] enemyImpact;
+    [SerializeField] private AudioClip[] meleeCast;
+    [SerializeField] private AudioClip[] footstep;
     [SerializeField] private AudioClip[] landOnGround;
 
     private void Awake()
@@ -31,21 +37,51 @@ public class AudioManager : MonoBehaviour
         musicAudioSource.Play();
     }
 
-    public void PlayRandomFootstep()
+    public void PlayFootstep()
     {
-        playerSFX.volume = 0.4f;
-        playerSFX.PlayOneShot(footsteps[Random.Range(0, footsteps.Length)]);
+        sfxAudioSource.volume = 0.4f;
+        sfxAudioSource.PlayOneShot(footstep[Random.Range(0, footstep.Length)]);
     }
 
-    public void PlayRandomLandOnGround()
+    public void PlayLandOnGround()
     {
-        playerSFX.volume = 0.5f;
-        playerSFX.PlayOneShot(landOnGround[Random.Range(0, landOnGround.Length)]);
+        sfxAudioSource.volume = 0.5f;
+        sfxAudioSource.PlayOneShot(landOnGround[Random.Range(0, landOnGround.Length)]);
     }
 
     public void PlayTurnWoosh()
     {
-        playerSFX.volume = 0.25f;
-        playerSFX.PlayOneShot(turnWoosh);
+        sfxAudioSource.volume = 0.1f;
+        sfxAudioSource.PlayOneShot(turnWoosh);
+    }
+
+    public void PlayJump()
+    {
+        sfxAudioSource.volume = 0.3f;
+        sfxAudioSource.PlayOneShot(jump);
+    }
+
+    public void PlayMeleeCast()
+    {
+        sfxAudioSource.volume = 0.5f;
+        sfxAudioSource.PlayOneShot(meleeCast[Random.Range(0,meleeCast.Length)]);
+    }
+
+    public void PlayEnemyImpact()
+    {
+        sfxAudioSource.volume = 0.4f;
+        sfxAudioSource.PlayOneShot(enemyImpact[Random.Range(0, enemyImpact.Length)]);
+    }
+
+    public void PlayImpGetHit()
+    {
+        enemySFXAudioSource.volume = 0.3f;
+        enemySFXAudioSource.PlayOneShot(impGetHit[Random.Range(0, impGetHit.Length)]);
+    }
+
+    public void PlayImpDeath()
+    {
+        enemySFXAudioSource.volume = 0.3f;
+        enemySFXAudioSource.PlayOneShot(impDeath);
     }
 }

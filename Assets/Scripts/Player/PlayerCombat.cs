@@ -44,6 +44,7 @@ public class PlayerCombat : MonoBehaviour
         {
             //MeleeSlash();
             PlayerController.Instance.Animator.SetTrigger("meleeAttack");
+            AudioManager.Instance.PlayMeleeCast();
         }
 
         if (InputManager.Instance.IsQPressed())
