@@ -66,7 +66,11 @@ public class PlayerCombat : MonoBehaviour
         {
             var spellContainer = Instantiate(SpellSlot1.CurrentSpell.SpellPrefab, projectileOriginSide.position, Quaternion.identity);
             spellContainer.transform.rotation = Quaternion.Euler(0, 0, PlayerController.Instance.IsFacingRight ? -90 : 90);
-            PlayerController.Instance.Animator.SetTrigger("magicShot");
+            PlayerController.Instance.Animator.SetTrigger("castSpell");
+            if (SpellSlot1.CurrentSpell.SpellData.AudioClip != null)
+            {
+                AudioManager.Instance.PlayCastSpell(SpellSlot1.CurrentSpell.SpellData.AudioClip);
+            }
             if (PlayerStatsManager.Instance.IsEnoughMana(SpellSlot1.CurrentSpell.SpellData.ManaCost))
             {
                 PlayerStatsManager.Instance.UseMana(SpellSlot1.CurrentSpell.SpellData.ManaCost);
@@ -86,7 +90,11 @@ public class PlayerCombat : MonoBehaviour
         {
             var spellContainer = Instantiate(SpellSlot2.CurrentSpell.SpellPrefab, projectileOriginSide.position, Quaternion.identity);
             spellContainer.transform.rotation = Quaternion.Euler(0, 0, PlayerController.Instance.IsFacingRight ? -90 : 90);
-            PlayerController.Instance.Animator.SetTrigger("magicShot");
+            PlayerController.Instance.Animator.SetTrigger("castSpell");
+            if (SpellSlot2.CurrentSpell.SpellData.AudioClip != null)
+            {
+                AudioManager.Instance.PlayCastSpell(SpellSlot2.CurrentSpell.SpellData.AudioClip);
+            }
             if (PlayerStatsManager.Instance.IsEnoughMana(SpellSlot2.CurrentSpell.SpellData.ManaCost))
             {
                 PlayerStatsManager.Instance.UseMana(SpellSlot2.CurrentSpell.SpellData.ManaCost);

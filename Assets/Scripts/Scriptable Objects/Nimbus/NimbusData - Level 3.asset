@@ -16,7 +16,9 @@ MonoBehaviour:
   <Sprite>k__BackingField: {fileID: 21300000, guid: bc9d74ee1266f9f4188f72f430621fea, type: 3}
   <Level>k__BackingField: 3
   <SpellPointCost>k__BackingField: 3
-  <Speed>k__BackingField: 0
-  <ManaCost>k__BackingField: 0
+  <IsUnlocked>k__BackingField: 1
+  <Speed>k__BackingField: 12
+  <ManaCost>k__BackingField: 1
   <Damage>k__BackingField: 0
   <Lifespan>k__BackingField: 12
+  <AudioClip>k__BackingField: {fileID: 0}
