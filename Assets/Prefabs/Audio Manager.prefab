@@ -209,10 +209,14 @@ MonoBehaviour:
   musicAudioSource: {fileID: 3901427109995014016}
   playerSFX: {fileID: 4247175524596774790}
   musicClip: {fileID: 8300000, guid: 25945a89c9223b545acce969e0e14995, type: 3}
+  turnWoosh: {fileID: 8300000, guid: 677961840731be74c983a67bc341851e, type: 3}
   footsteps:
   - {fileID: 8300000, guid: 31e093ef06f75794c942635edd09057d, type: 3}
   - {fileID: 8300000, guid: afe0d66caa19634468702103957a7953, type: 3}
   - {fileID: 8300000, guid: 48fd224bc3b89bf47b43aa7adf3f5d56, type: 3}
+  landOnGround:
+  - {fileID: 8300000, guid: 597a89fd2aefd2d4b9388e74a8b35d7d, type: 3}
+  - {fileID: 8300000, guid: e0ed50834af2d104aa2ef2b434c45c9d, type: 3}
 --- !u!1 &7194790766214912506
 GameObject:
   m_ObjectHideFlags: 0

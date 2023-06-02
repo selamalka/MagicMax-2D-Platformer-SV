@@ -8,8 +8,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource playerSFX;
 
     [SerializeField] private AudioClip musicClip;
-    [SerializeField] AudioClip[] footsteps;
-    [SerializeField] AudioClip[] landOnGround;
+    [SerializeField] private AudioClip turnWoosh;
+    [SerializeField] private AudioClip[] footsteps;
+    [SerializeField] private AudioClip[] landOnGround;
 
     private void Awake()
     {
@@ -40,5 +41,11 @@ public class AudioManager : MonoBehaviour
     {
         playerSFX.volume = 0.5f;
         playerSFX.PlayOneShot(landOnGround[Random.Range(0, landOnGround.Length)]);
+    }
+
+    public void PlayTurnWoosh()
+    {
+        playerSFX.volume = 0.25f;
+        playerSFX.PlayOneShot(turnWoosh);
     }
 }
