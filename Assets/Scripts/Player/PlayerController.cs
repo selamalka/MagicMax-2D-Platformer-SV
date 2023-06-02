@@ -340,6 +340,8 @@ public class PlayerController : MonoBehaviour
     }
     private void Turn()
     {
+        AudioManager.Instance.PlayTurnWoosh();
+
         Quaternion rotation = transform.rotation;
         rotation.y = IsFacingRight ? 180f : 0f;
         transform.rotation = rotation;
