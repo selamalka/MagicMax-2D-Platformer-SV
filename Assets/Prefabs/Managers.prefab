@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+  pauseMenuPanel: {fileID: 0}
   healthPoints:
   - {fileID: 0}
   - {fileID: 0}

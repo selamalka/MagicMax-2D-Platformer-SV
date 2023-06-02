@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject pauseMenuPanel;
     [SerializeField] private Image[] healthPoints;
     [SerializeField] private Image[] manaPoints;
     [SerializeField] private Image[] soulPoints;
@@ -35,6 +36,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnSPressed += ToggleSpellbook;
         EventManager.OnPlayerLevelUp += UpdateSpellPoints;
         EventManager.OnPlayerLevelUp += AnnounceLevelUp;
+        EventManager.OnEscPressed += TogglePauseMenu;
 
     }
 
@@ -45,6 +47,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnSPressed -= ToggleSpellbook;
         EventManager.OnPlayerLevelUp -= UpdateSpellPoints;
         EventManager.OnPlayerLevelUp -= AnnounceLevelUp;
+        EventManager.OnEscPressed -= TogglePauseMenu;
     }
 
     private void Start()
@@ -72,6 +75,23 @@ public class UIManager : MonoBehaviour
         {
             GameManager.Instance.ResumeGame();
             spellbookPanel.gameObject.SetActive(false);
+        }
+    }
+    public void TogglePauseMenu()
+    {
+        if (GameManager.Instance.IsPaused && !pauseMenuPanel.gameObject.activeInHierarchy)
+        {
+            pauseMenuPanel.gameObject.SetActive(true);
+        }
+        else if (!GameManager.Instance.IsPaused && !pauseMenuPanel.gameObject.activeInHierarchy)
+        {
+            GameManager.Instance.PauseGame();
+            pauseMenuPanel.gameObject.SetActive(true);
+        }
+        else if (pauseMenuPanel.gameObject.activeInHierarchy && GameManager.Instance.IsPaused)
+        {
+            GameManager.Instance.ResumeGame();
+            pauseMenuPanel.gameObject.SetActive(false);
         }
     }
 

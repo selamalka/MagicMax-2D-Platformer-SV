@@ -5,6 +5,9 @@ public class EventManager : MonoBehaviour
     public delegate void SPressedAction();
     public static SPressedAction OnSPressed;
 
+    public delegate void EscPressedAction();
+    public static EscPressedAction OnEscPressed;
+
     public delegate void PlayerGetHitAction();
     public static PlayerGetHitAction OnPlayerGetHit;
 
