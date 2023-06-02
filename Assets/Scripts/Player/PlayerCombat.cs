@@ -60,7 +60,11 @@ public class PlayerCombat : MonoBehaviour
 
     private void UseSpellSlot1()
     {
-        if (SpellSlot1.CurrentSpell == null) print("No spell is equipped");
+        if (SpellSlot1.CurrentSpell == null)
+        {
+            print("No spell is equipped");
+            return;
+        }
         else if (PlayerStatsManager.Instance.CurrentMana == 0) print("Not enough mana");
         else
         {
@@ -84,7 +88,11 @@ public class PlayerCombat : MonoBehaviour
     }
     private void UseSpellSlot2()
     {
-        if (SpellSlot2.CurrentSpell == null) print("No spell is equipped");
+        if (SpellSlot2.CurrentSpell == null)
+        {
+            print("No spell is equipped");
+            return;
+        }
         else if (PlayerStatsManager.Instance.CurrentMana == 0) print("Not enough mana");
         else
         {

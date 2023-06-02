@@ -17,20 +17,21 @@ public class ProgressionManager : MonoBehaviour
         if (Progression.IsNewGame)
         {
             Progression.SetHealthPoints(5);
-            UIManager.Instance.UpdateHealthPoints();
-
             Progression.SetManaPoints(0);
-            UIManager.Instance.UpdateManaPoints();
-
             Progression.SetSoulPoints(0);
-            UIManager.Instance.UpdateSoulPoints();
-
             Progression.SetTargetExp(10f);
             Progression.SetCurrentExpPoints(0);
+
+            PlayerStatsManager.Instance.SetCurrentHealth(5);
+            PlayerStatsManager.Instance.SetCurrentMana(0);
+            PlayerStatsManager.Instance.SetCurrentSouls(0);
+
+            UIManager.Instance.UpdateHealthPoints();
+            UIManager.Instance.UpdateManaPoints();
+            UIManager.Instance.UpdateSoulPoints();
             UIManager.Instance.UpdateExpBar();
 
             Progression.SetSpellPoints(0);
-
             Progression.UnlockedSpellsList.Clear();
             Progression.SetSpellSlot1Info(null, null);
             Progression.SetSpellSlot2Info(null, null);
