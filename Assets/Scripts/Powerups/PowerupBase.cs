@@ -11,11 +11,12 @@ public class PowerupBase : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Nimbus"))
         {
-            ActivatePowerup();
+            PickupPowerup();
+            AudioManager.Instance.PlayPickupPowerup();
         }
     }
 
-    public virtual void ActivatePowerup() 
+    public virtual void PickupPowerup() 
     {
 
     }

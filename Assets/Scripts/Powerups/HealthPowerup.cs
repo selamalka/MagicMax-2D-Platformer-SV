@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HealthPowerup : PowerupBase
 {
-    public override void ActivatePowerup()
+    public override void PickupPowerup()
     {
         if (PlayerStatsManager.Instance.CurrentHealth < PlayerStatsManager.Instance.MaxHealth)
         {

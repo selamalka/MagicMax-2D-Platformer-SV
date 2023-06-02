@@ -54,6 +54,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     {
         if (isInvulnerable) return;
         PlayerController.Instance.Animator.SetTrigger("getHit");
+        AudioManager.Instance.PlayPlayerGetHit();
         isInvulnerable = true;
         invulnerableCounter = InvulnerableStartTime;
         PlayerController.Instance.Knockback(PlayerController.Instance.IsFacingRight ? Vector2.right : Vector2.left, 15, 15, 250);
