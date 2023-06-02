@@ -210,14 +210,9 @@ MonoBehaviour:
   playerSFX: {fileID: 4247175524596774790}
   musicClip: {fileID: 8300000, guid: 25945a89c9223b545acce969e0e14995, type: 3}
   footsteps:
-  - {fileID: 8300000, guid: e6fcb3080d456e04aba8fa4466244b98, type: 3}
-  - {fileID: 8300000, guid: 21915c3e4e50a8c41beea1675e8399ab, type: 3}
-  - {fileID: 8300000, guid: 5afaf3f8ede173c46b058f8c72e10b61, type: 3}
-  - {fileID: 8300000, guid: e267eeec9ddbf654a8faa0bcc8ece1dd, type: 3}
-  - {fileID: 8300000, guid: 0669d54fc4537b74f8511d11a6d39efd, type: 3}
-  - {fileID: 8300000, guid: 224d4cb74e94356469c453e977e271be, type: 3}
-  - {fileID: 8300000, guid: 6269884832104684c968ec091f7d26f0, type: 3}
-  - {fileID: 8300000, guid: 658ac71422e5b6f4dac1d40f07553315, type: 3}
+  - {fileID: 8300000, guid: 31e093ef06f75794c942635edd09057d, type: 3}
+  - {fileID: 8300000, guid: afe0d66caa19634468702103957a7953, type: 3}
+  - {fileID: 8300000, guid: 48fd224bc3b89bf47b43aa7adf3f5d56, type: 3}
 --- !u!1 &7194790766214912506
 GameObject:
   m_ObjectHideFlags: 0

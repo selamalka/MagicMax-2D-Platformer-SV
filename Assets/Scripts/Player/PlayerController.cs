@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     private bool isZooming;
     private GameObject cameraContainer;
     private CameraController cameraController;
-    private Vector3 originalCameraPosition;
+    //private Vector3 originalCameraPosition;
 
     private void Awake()
     {
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         cameraContainer = GameObject.Find("Camera Container");
-        originalCameraPosition = cameraContainer.transform.position;
+        //originalCameraPosition = cameraContainer.transform.position;
     }
     private void Update()
     {
@@ -156,6 +156,11 @@ public class PlayerController : MonoBehaviour
             SetGravityScale(8);
             Rb.mass = 1f;
         }
+    }
+
+    public void PlayRandomFootstep()
+    {
+        AudioManager.Instance.PlayRandomFootstep();
     }
 
     private void DashHandler()
