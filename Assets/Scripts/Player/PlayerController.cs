@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
             isDashing = true;
             canDash = false;
             ghostScript.SetShouldCreateGhost(true);
-
+            AudioManager.Instance.PlayDash();
             dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
             if (dashDirection == Vector2.zero)

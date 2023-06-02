@@ -19,7 +19,8 @@ public class PowerupManager : MonoBehaviour
 
         if (randomRoll <= dropChance)
         {
-            Instantiate(GetRandomPowerup(), transform.position + new Vector3(0, 1, 0), Quaternion.identity); 
+            Instantiate(GetRandomPowerup(), transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+            AudioManager.Instance.PlayPowerupDrop();
         }
     }
 

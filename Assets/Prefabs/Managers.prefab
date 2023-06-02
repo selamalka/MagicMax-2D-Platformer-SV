@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentExp>k__BackingField: 0
   <TargetExp>k__BackingField: 10
-  <TargetExpMultiplier>k__BackingField: 3
+  <TargetExpMultiplier>k__BackingField: 1.2
   <SpellPoints>k__BackingField: 0
   <MaxHealth>k__BackingField: 5
   <CurrentHealth>k__BackingField: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
   powerups:
   - {fileID: 7721148815597658549, guid: eebd4baf86f925c4abebd81c3456f83b, type: 3}
   - {fileID: 8671604351437798901, guid: fc7d194e5fdb15e49bfdba9699f179d6, type: 3}
-  <DropChance>k__BackingField: 20
+  <DropChance>k__BackingField: 100
 --- !u!114 &3691343324569232435
 MonoBehaviour:
   m_ObjectHideFlags: 0

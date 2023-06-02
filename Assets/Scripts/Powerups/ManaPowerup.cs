@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ManaPowerup : PowerupBase
 {
-    public override void ActivatePowerup()
+    public override void PickupPowerup()
     {
         if (PlayerStatsManager.Instance.CurrentMana < PlayerStatsManager.Instance.MaxMana)
         {
