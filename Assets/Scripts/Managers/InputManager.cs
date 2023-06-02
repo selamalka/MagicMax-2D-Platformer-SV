@@ -26,6 +26,16 @@ public class InputManager : MonoBehaviour
         {
             EventManager.OnSPressed?.Invoke();
         }
+
+        if (IsEscPressed())
+        {
+            EventManager.OnEscPressed?.Invoke();
+        }
+    }
+
+    private bool IsEscPressed()
+    {
+        return Input.GetKeyDown(KeyCode.Escape);
     }
 
     public bool IsQPressed()

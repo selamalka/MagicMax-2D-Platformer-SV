@@ -61767,6 +61767,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4498467530636410515, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3691343323826102966}
+    - target: {fileID: 4498467530636410515, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMainMenuScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313081474006394586, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3691343323826102967}
+    - target: {fileID: 5313081474006394586, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TogglePauseMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 5673519779423712222, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -61916,6 +61932,11 @@ PrefabInstance:
 --- !u!1 &436240197310133181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2305377692981263486, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
+  m_PrefabInstance: {fileID: 436240197310133180}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &436240197310133182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2865500397607915655, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
   m_PrefabInstance: {fileID: 436240197310133180}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1136577216479333284
@@ -62128,6 +62149,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1331034974}
     - target: {fileID: 3691343324569232439, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
+      propertyPath: pauseMenuPanel
+      value: 
+      objectReference: {fileID: 436240197310133182}
+    - target: {fileID: 3691343324569232439, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
       propertyPath: spellbookPanel
       value: 
       objectReference: {fileID: 545308036}
@@ -62241,6 +62266,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
+--- !u!114 &3691343323826102966 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3691343324569232438, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
+  m_PrefabInstance: {fileID: 3691343323826102965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9582a41804fda4cb82dcd0c10327bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3691343323826102967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3691343324569232439, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
+  m_PrefabInstance: {fileID: 3691343323826102965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6062a4ebe5d479c489508bc969982c31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6546188687180037267
 PrefabInstance:
   m_ObjectHideFlags: 0
