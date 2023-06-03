@@ -82,9 +82,6 @@ public class ZulAI : MonoBehaviour
                 }
                 break;
 
-            case ZulStateType.Summon:
-                break;
-
             default:
                 break;
         }
@@ -95,6 +92,10 @@ public class ZulAI : MonoBehaviour
         Vector3 direction = playerPosition - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         InstantiateProjectile();
+    }
+    public void PlayLightningSound()
+    {
+        AudioManager.Instance.PlayZulLightning();
     }
     public void SetIsTriggered(bool value)
     {

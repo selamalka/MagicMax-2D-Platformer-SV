@@ -1,4 +1,7 @@
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyStats : MonoBehaviour, IDamageable
 {
@@ -48,6 +51,15 @@ public class EnemyStats : MonoBehaviour, IDamageable
         }
     }
 
+    private async void ZulDeathHandler()
+    {
+        AudioManager.Instance.PlayZulDeathCry();
+        AudioManager.Instance.ChangeMusic(AudioManager.Instance.MainMusicClip);
+        UIManager.Instance.FadeToBlack(3);
+        await Task.Delay(3000);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -92,7 +104,8 @@ public class EnemyStats : MonoBehaviour, IDamageable
                     AudioManager.Instance.PlayBehemothDeathCry();
                     break;
                 case EnemyType.Zul:
-                    AudioManager.Instance.PlayZulDeathCry();
+                    ZulDeathHandler();
+
                     break;
                 default:
                     break;
@@ -107,6 +120,6 @@ public class EnemyStats : MonoBehaviour, IDamageable
             FXManager.Instance.PauseGameEffect(60);
             Destroy(gameObject, 0.1f);
             PowerupManager.Instance.DropRandomPowerup(transform, PowerupManager.Instance.DropChance);
-        }
+        }        
     }
 }

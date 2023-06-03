@@ -327,6 +327,7 @@ MonoBehaviour:
   shadowDemonDeathCry: {fileID: 8300000, guid: 9beb3203c50ece843ae8d2c09c8c9e24, type: 3}
   behemothDeathCry: {fileID: 8300000, guid: 3fd6dafaa3f63ca4ba04d293cd695827, type: 3}
   zulLaugh: {fileID: 8300000, guid: e619f519471210d43a7f238ad10e3984, type: 3}
+  zulDeathCry: {fileID: 8300000, guid: d5cb45388df6aef4d90c9bd90e9dd20c, type: 3}
   impGetHit:
   - {fileID: 8300000, guid: b4d89a1f80961b6458a48b907d60097f, type: 3}
   - {fileID: 8300000, guid: d10c600d1e6eeee409fb8fc8d0d746d7, type: 3}
@@ -340,6 +341,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2e846830a98eddf4a9ba29271f4c0172, type: 3}
   - {fileID: 8300000, guid: be1a8ab18d6d7e84e93b098ed56e0cea, type: 3}
   - {fileID: 8300000, guid: 5e55f1ca581842b498ec45009ec2e6df, type: 3}
+  zulLightning:
+  - {fileID: 8300000, guid: 33ec32536b16e95409fbca1f9ad2bb8f, type: 3}
+  - {fileID: 8300000, guid: 47aa1f9426eff7e4b8b062fd5c87b2dd, type: 3}
+  - {fileID: 8300000, guid: e105af170cea523418cbbe1d3301f7b3, type: 3}
   enemyImpact:
   - {fileID: 8300000, guid: 06603cac10219f143afa26745ebf6664, type: 3}
   - {fileID: 8300000, guid: 98dc9582721a36a47a8ff3a8b0ee6cf5, type: 3}
