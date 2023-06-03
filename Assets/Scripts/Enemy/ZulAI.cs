@@ -56,12 +56,14 @@ public class ZulAI : MonoBehaviour
                 {
                     AttackStateCounter = AttackStateStartTime;
                     projectileCooldownCounter = startTimeBetweenProjectiles;
+                    animator.SetBool("isFlying", false);
                     currentState = ZulStateType.Attack;
                 }
                 else
                 {
                     flyStateCounter -= Time.deltaTime;
                     Fly();
+                    animator.SetBool("isFlying", true);
                 }
 
                 break;
@@ -81,7 +83,6 @@ public class ZulAI : MonoBehaviour
                 break;
 
             case ZulStateType.Summon:
-
                 break;
 
             default:
@@ -89,6 +90,16 @@ public class ZulAI : MonoBehaviour
         }
     }
 
+    public void Attack()
+    {
+        Vector3 direction = playerPosition - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        InstantiateProjectile();
+    }
+    public void SetIsTriggered(bool value)
+    {
+        IsTriggered = value;
+    }
     private void SummonMinions()
     {
         for (int i = 0; i < amountOfEnemies; i++)
@@ -97,12 +108,6 @@ public class ZulAI : MonoBehaviour
             Instantiate(EnemyManager.Instance.ImpPrefab, randomSpawnPointTransform.position, Quaternion.identity);
         }
     }
-
-    private Transform GetRandomSpawnPoint()
-    {
-        return EnemyManager.Instance.ZulSpawnPoints[UnityEngine.Random.Range(0, EnemyManager.Instance.ZulSpawnPoints.Length)];
-    }
-
     private void ProjectileHandler()
     {
         if (projectileCooldownCounter <= 0)
@@ -115,9 +120,10 @@ public class ZulAI : MonoBehaviour
             projectileCooldownCounter -= Time.deltaTime;
         }
     }
-
     private void Fly()
     {
+        animator.SetTrigger("fly");
+
         if (Vector2.Distance(transform.position, patrolPoints[currentPatrolPointIndex].position) < 0.1f)
         {
             currentPatrolPointIndex = (currentPatrolPointIndex + 1) % patrolPoints.Length;
@@ -125,19 +131,10 @@ public class ZulAI : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPatrolPointIndex].position, speed * Time.deltaTime);
     }
-
-    public void Attack()
-    {
-        Vector3 direction = playerPosition - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        InstantiateProjectile();
-    }
-
     private void InstantiateProjectile()
     {
         Instantiate(projectilePrefab, transform.position, Quaternion.identity);
     }
-
     private void Turn()
     {
         isTurning = true;
@@ -168,9 +165,8 @@ public class ZulAI : MonoBehaviour
             }
         }
     }
-
-    public void SetIsTriggered(bool value)
+    private Transform GetRandomSpawnPoint()
     {
-        IsTriggered = value;
+        return EnemyManager.Instance.ZulSpawnPoints[UnityEngine.Random.Range(0, EnemyManager.Instance.ZulSpawnPoints.Length)];
     }
 }

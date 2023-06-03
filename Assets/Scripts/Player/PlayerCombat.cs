@@ -20,17 +20,17 @@ public class PlayerCombat : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        meleeCooldownCounter = 0;
 
         if (GameObject.Find("Spell Slot 1") == null)
         {
             SpellSlot1 = GameObject.Find("Spell Slot 1").GetComponent<SpellSlot>();
             SpellSlot2 = GameObject.Find("Spell Slot 2").GetComponent<SpellSlot>();
         }
-    }
-
-    private void Start()
-    {
-        meleeCooldownCounter = 0;
     }
 
     private void Update()

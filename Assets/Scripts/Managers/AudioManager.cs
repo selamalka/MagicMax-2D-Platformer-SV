@@ -28,10 +28,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip impDeathCry;
     [SerializeField] private AudioClip shadowDemonDeathCry;
     [SerializeField] private AudioClip behemothDeathCry;
+    [SerializeField] private AudioClip zulLaugh;
+    [SerializeField] private AudioClip zulDeathCry;
     //[SerializeField] private AudioClip enemyDeath;
     [SerializeField] private AudioClip[] impGetHit;
     [SerializeField] private AudioClip[] shadowDemonGetHit;
     [SerializeField] private AudioClip[] behemothGetHit;
+    [SerializeField] private AudioClip[] zulGetHit;
     [SerializeField] private AudioClip[] enemyImpact;
     [SerializeField] private AudioClip[] meleeCast;
     [SerializeField] private AudioClip[] footstep;
@@ -141,7 +144,22 @@ public class AudioManager : MonoBehaviour
     public void PlayBehemothDeathCry()
     {
         enemySFXAudioSource.volume = 0.3f;
-        
+
+    }
+    public void PlayZulGetHit()
+    {
+        enemySFXAudioSource.volume = 0.5f;
+        enemySFXAudioSource.PlayOneShot(zulGetHit[Random.Range(0, zulGetHit.Length)]);
+    }
+    public void PlayZulLaugh()
+    {
+        enemySFXAudioSource.volume = 0.8f;
+        enemySFXAudioSource.PlayOneShot(zulLaugh);
+    }
+    public void PlayZulDeathCry()
+    {
+        enemySFXAudioSource.volume = 0.8f;
+        enemySFXAudioSource.PlayOneShot(zulDeathCry);
     }
 
     public void PlayPowerupDrop()
