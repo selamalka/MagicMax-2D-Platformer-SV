@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Progression>k__BackingField: {fileID: 11400000, guid: 131db4c0106e22e489721c5ea5583264, type: 2}
-  <IsTesting>k__BackingField: 1
+  <IsTesting>k__BackingField: 0
   <IsCheckpointSaved>k__BackingField: 0
 --- !u!114 &3691343324569232439
 MonoBehaviour:

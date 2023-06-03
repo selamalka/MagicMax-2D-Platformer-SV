@@ -45,7 +45,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayFootstep()
     {
-        playerSFXAudioSource.volume = 0.4f;
+        playerSFXAudioSource.volume = 0.2f;
         playerSFXAudioSource.PlayOneShot(footstep[Random.Range(0, footstep.Length)]);
     }
     public void PlayLandOnGround()

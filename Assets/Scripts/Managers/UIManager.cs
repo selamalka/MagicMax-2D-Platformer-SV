@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -79,6 +80,8 @@ public class UIManager : MonoBehaviour
     }
     public void TogglePauseMenu()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1) return;
+
         if (GameManager.Instance.IsPaused && !pauseMenuPanel.gameObject.activeInHierarchy)
         {
             pauseMenuPanel.gameObject.SetActive(true);
@@ -88,7 +91,7 @@ public class UIManager : MonoBehaviour
             GameManager.Instance.PauseGame();
             pauseMenuPanel.gameObject.SetActive(true);
         }
-        else if (pauseMenuPanel.gameObject.activeInHierarchy && GameManager.Instance.IsPaused)
+        else if (GameManager.Instance.IsPaused && pauseMenuPanel.gameObject.activeInHierarchy)
         {
             GameManager.Instance.ResumeGame();
             pauseMenuPanel.gameObject.SetActive(false);
