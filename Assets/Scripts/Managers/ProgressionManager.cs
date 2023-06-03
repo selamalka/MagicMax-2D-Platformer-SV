@@ -43,7 +43,11 @@ public class ProgressionManager : MonoBehaviour
         if (!IsTesting)
         {
             GameObject.FindWithTag("Player").transform.position = Progression.LastCheckpoint;
-            GameObject.FindWithTag("CameraContainer").transform.position = Progression.LastCheckpoint + new Vector3(12f, 8.4f, -10f);
+
+            if (GameObject.FindWithTag("CameraContainer") != null)
+            {
+                GameObject.FindWithTag("CameraContainer").transform.position = Progression.LastCheckpoint + new Vector3(12f, 8.4f, -10f); 
+            }
         }
 
         FindObjectOfType<PositionCameraToPlayer>().SetCameraToPlayer();
