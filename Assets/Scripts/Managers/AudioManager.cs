@@ -26,9 +26,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip regenerateHealth;
     [SerializeField] private AudioClip impDeathCry;
     [SerializeField] private AudioClip shadowDemonDeathCry;
+    [SerializeField] private AudioClip behemothDeathCry;
     //[SerializeField] private AudioClip enemyDeath;
     [SerializeField] private AudioClip[] impGetHit;
     [SerializeField] private AudioClip[] shadowDemonGetHit;
+    [SerializeField] private AudioClip[] behemothGetHit;
     [SerializeField] private AudioClip[] enemyImpact;
     [SerializeField] private AudioClip[] meleeCast;
     [SerializeField] private AudioClip[] footstep;
@@ -98,6 +100,7 @@ public class AudioManager : MonoBehaviour
         playerSFXAudioSource.volume = 0.7f;
         playerSFXAudioSource.PlayOneShot(enemyImpact[Random.Range(0, enemyImpact.Length)]);
     }
+
     public void PlayImpGetHit()
     {
         enemySFXAudioSource.volume = 0.2f;
@@ -119,6 +122,18 @@ public class AudioManager : MonoBehaviour
         enemySFXAudioSource.volume = 0.3f;
         enemySFXAudioSource.PlayOneShot(shadowDemonDeathCry);
     }
+    public void PlayBehemothGetHit()
+    {
+        enemySFXAudioSource.volume = 0.5f;
+        enemySFXAudioSource.PlayOneShot(behemothGetHit[Random.Range(0, behemothGetHit.Length)]);
+    }
+    public void PlayBehemothDeathCry()
+    {
+        enemySFXAudioSource.volume = 0.3f;
+        
+    }
+
+
     public void PlayPowerupDrop()
     {
         sceneSFXAudioSource.volume = 0.7f;
@@ -161,6 +176,7 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayRegenerateHealth()
     {
+        playerSFXAudioSource.volume = 1;
         playerSFXAudioSource.PlayOneShot(regenerateHealth);
     }
 
