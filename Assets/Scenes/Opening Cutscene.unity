@@ -15740,7 +15740,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2460709807467563800, guid: 47cbd34acf1c283469e5c7a0f67e1e76, type: 3}
       propertyPath: m_Name
-      value: Cutscene
+      value: Opening Cutscene
       objectReference: {fileID: 0}
     - target: {fileID: 2460709807467563806, guid: 47cbd34acf1c283469e5c7a0f67e1e76, type: 3}
       propertyPath: m_SceneBindings.Array.size
@@ -15796,7 +15796,7 @@ PrefabInstance:
       objectReference: {fileID: 1583856915}
     - target: {fileID: 2460709807467563807, guid: 47cbd34acf1c283469e5c7a0f67e1e76, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2460709807467563807, guid: 47cbd34acf1c283469e5c7a0f67e1e76, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16073,7 +16073,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3192079772641726379, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 16777215
       objectReference: {fileID: 0}
     - target: {fileID: 3192079772694711517, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -16089,7 +16089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3192079773826955268, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
       propertyPath: m_Name
-      value: Canvas - Story Teller
+      value: Canvas - Story Teller - Opening Cutscene
       objectReference: {fileID: 0}
     - target: {fileID: 3192079773826955288, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
       propertyPath: m_Pivot.x
@@ -16101,7 +16101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3192079773826955288, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3192079773826955288, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
       propertyPath: m_AnchorMax.x
