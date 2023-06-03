@@ -10,6 +10,7 @@ public class Tip : MonoBehaviour
         {
             UIManager.Instance.KillTip();
             UIManager.Instance.ShowTip(message);
+            AudioManager.Instance.PlayTip();
         }
     }
 

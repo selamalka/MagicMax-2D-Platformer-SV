@@ -106,6 +106,7 @@ public class PlayerStatsManager : MonoBehaviour
             {
                 PlayerController.Instance.Animator.SetTrigger("triggerChargeHealth");
                 PlayerController.Instance.Animator.SetBool("isChargingHealth", true);
+                AudioManager.Instance.PlayRegenerateHealth();
                 isChargingHealthActivated = true;
             }
 
@@ -126,6 +127,7 @@ public class PlayerStatsManager : MonoBehaviour
         {
             PlayerController.Instance.SetIsControllable(true);
             PlayerController.Instance.Animator.SetBool("isChargingHealth", false);
+            AudioManager.Instance.StopPlayerAudioSource();
             isChargingHealthActivated = false;
             healthRegenFillCounter = HealthRegenFillTime;
         }
@@ -192,6 +194,7 @@ public class PlayerStatsManager : MonoBehaviour
         TargetExp *= TargetExpMultiplier;
         ProgressionManager.Instance.Progression.SetTargetExp(TargetExp);
         SpellPoints++;
+        AudioManager.Instance.PlayLevelUp();
         //CurrentLevel++;
         //UIManager.Instance.UpdateSpellPoints();
     }

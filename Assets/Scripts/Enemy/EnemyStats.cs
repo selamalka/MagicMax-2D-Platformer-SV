@@ -78,7 +78,7 @@ public class EnemyStats : MonoBehaviour, IDamageable
                 case EnemyType.None:
                     break;
                 case EnemyType.Imp:
-                    AudioManager.Instance.PlayImpDeath();
+                    AudioManager.Instance.PlayImpDeathCry();
                     break;
                 case EnemyType.ShadowDemon:
                     break;

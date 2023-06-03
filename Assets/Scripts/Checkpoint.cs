@@ -11,6 +11,7 @@ public class Checkpoint : MonoBehaviour
             ProgressionManager.Instance.SetIsCheckpointSaved(true);
             ProgressionManager.Instance.Progression.SetLastCheckpoint(transform.position);
             UIManager.Instance.ShowTip("Checkpoint Saved");
+            AudioManager.Instance.PlayCheckpoint();
         }
     }
 

@@ -16,8 +16,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip playerGetHit;
     [SerializeField] private AudioClip powerupDrop;
     [SerializeField] private AudioClip pickupPowerup;
+    [SerializeField] private AudioClip levelUp;
     [SerializeField] private AudioClip magicShot;
-    [SerializeField] private AudioClip impDeath;
+    [SerializeField] private AudioClip checkpoint;
+    [SerializeField] private AudioClip tip;
+    [SerializeField] private AudioClip openSpellbook;
+    [SerializeField] private AudioClip closeSpellbook;
+    [SerializeField] private AudioClip regenerateHealth;
+    [SerializeField] private AudioClip impDeathCry;
     [SerializeField] private AudioClip[] impGetHit;
     [SerializeField] private AudioClip[] enemyImpact;
     [SerializeField] private AudioClip[] meleeCast;
@@ -41,6 +47,11 @@ public class AudioManager : MonoBehaviour
     {
         musicAudioSource.clip = musicClip;
         musicAudioSource.Play();
+    }
+
+    public void StopPlayerAudioSource()
+    {
+        playerSFXAudioSource.Stop();
     }
 
     public void PlayFootstep()
@@ -88,10 +99,10 @@ public class AudioManager : MonoBehaviour
         enemySFXAudioSource.volume = 0.2f;
         enemySFXAudioSource.PlayOneShot(impGetHit[Random.Range(0, impGetHit.Length)]);
     }
-    public void PlayImpDeath()
+    public void PlayImpDeathCry()
     {
         enemySFXAudioSource.volume = 0.3f;
-        enemySFXAudioSource.PlayOneShot(impDeath);
+        enemySFXAudioSource.PlayOneShot(impDeathCry);
     }
     public void PlayPowerupDrop()
     {
@@ -107,5 +118,34 @@ public class AudioManager : MonoBehaviour
     {
         playerSFXAudioSource.volume = 0.8f;
         playerSFXAudioSource.PlayOneShot(clip);
+    }
+    public void PlayLevelUp()
+    {
+        sceneSFXAudioSource.volume = 0.5f;
+        sceneSFXAudioSource.PlayOneShot(levelUp);
+    }
+    public void PlayCheckpoint()
+    {
+        sceneSFXAudioSource.volume = 0.5f;
+        sceneSFXAudioSource.PlayOneShot(checkpoint);
+    }
+    public void PlayTip()
+    {
+        sceneSFXAudioSource.volume = 0.5f;
+        sceneSFXAudioSource.PlayOneShot(tip);
+    }
+    public void PlayOpenSpellbook()
+    {
+        sceneSFXAudioSource.volume = 0.3f;
+        sceneSFXAudioSource.PlayOneShot(openSpellbook);
+    }
+    public void PlayCloseSpellbook()
+    {
+        sceneSFXAudioSource.volume = 0.3f;
+        sceneSFXAudioSource.PlayOneShot(closeSpellbook);
+    }
+    public void PlayRegenerateHealth()
+    {
+        playerSFXAudioSource.PlayOneShot(regenerateHealth);
     }
 }

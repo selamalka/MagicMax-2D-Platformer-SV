@@ -315,8 +315,14 @@ MonoBehaviour:
   playerGetHit: {fileID: 8300000, guid: 7d37054c736ef5743bbf254172a905ae, type: 3}
   powerupDrop: {fileID: 8300000, guid: b8aa8a65e907de04c9eccc06b8c470ed, type: 3}
   pickupPowerup: {fileID: 8300000, guid: 76a03945b72a69e43a530804b18cea84, type: 3}
+  levelUp: {fileID: 8300000, guid: a666a8f820c48f94290d1eb70e003b26, type: 3}
   magicShot: {fileID: 8300000, guid: 572eb4a66d47f6944b45f0fdd2bf3bea, type: 3}
-  impDeath: {fileID: 8300000, guid: 55f1933d32264314393e524f8c679834, type: 3}
+  checkpoint: {fileID: 8300000, guid: 5f5a733a8971ccb4db6aa7f90d5fe32d, type: 3}
+  tip: {fileID: 8300000, guid: 1ccc2b31699002441a34dd95c0bd7ce3, type: 3}
+  openSpellbook: {fileID: 8300000, guid: f437324b2331efc469606d68aa435c03, type: 3}
+  closeSpellbook: {fileID: 8300000, guid: 68ebd81c096364047bf22c7c792d2c7c, type: 3}
+  impDeathCry: {fileID: 8300000, guid: 55f1933d32264314393e524f8c679834, type: 3}
+  enemyDeath: {fileID: 8300000, guid: a8a495bbaec907545832ed77159205c5, type: 3}
   impGetHit:
   - {fileID: 8300000, guid: b4d89a1f80961b6458a48b907d60097f, type: 3}
   - {fileID: 8300000, guid: d10c600d1e6eeee409fb8fc8d0d746d7, type: 3}
