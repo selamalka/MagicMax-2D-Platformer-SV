@@ -71,11 +71,13 @@ public class UIManager : MonoBehaviour
         {
             GameManager.Instance.PauseGame();
             spellbookPanel.gameObject.SetActive(true);
+            AudioManager.Instance.PlayOpenSpellbook();
         }
         else
         {
             GameManager.Instance.ResumeGame();
             spellbookPanel.gameObject.SetActive(false);
+            AudioManager.Instance.PlayCloseSpellbook();
         }
     }
     public void TogglePauseMenu()
