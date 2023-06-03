@@ -63,6 +63,7 @@ public class EnemyStats : MonoBehaviour, IDamageable
                 AudioManager.Instance.PlayShadowDemonGetHit();
                 break;
             case EnemyType.Behemoth:
+                AudioManager.Instance.PlayBehemothGetHit();
                 break;
             case EnemyType.Zul:
                 break;
@@ -87,6 +88,7 @@ public class EnemyStats : MonoBehaviour, IDamageable
                     AudioManager.Instance.PlayShadowDemonDeathCry();
                     break;
                 case EnemyType.Behemoth:
+                    AudioManager.Instance.PlayBehemothDeathCry();
                     break;
                 case EnemyType.Zul:
                     break;
