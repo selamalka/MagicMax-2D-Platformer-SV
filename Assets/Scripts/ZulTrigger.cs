@@ -7,6 +7,7 @@ public class ZulTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             FindObjectOfType<ZulAI>().SetIsTriggered(true);
+            AudioManager.Instance.ChangeMusic(AudioManager.Instance.ZulBattleMusicClip);
             Destroy(gameObject);
         }
     }

@@ -21,9 +21,11 @@ public class PlayerCombat : MonoBehaviour
     {
         Instance = this;
 
-        if (GameObject.Find("Spell Slot 1") == null) return;
-        SpellSlot1 = GameObject.Find("Spell Slot 1").GetComponent<SpellSlot>();
-        SpellSlot2 = GameObject.Find("Spell Slot 2").GetComponent<SpellSlot>();
+        if (GameObject.Find("Spell Slot 1") == null)
+        {
+            SpellSlot1 = GameObject.Find("Spell Slot 1").GetComponent<SpellSlot>();
+            SpellSlot2 = GameObject.Find("Spell Slot 2").GetComponent<SpellSlot>();
+        }
     }
 
     private void Start()
@@ -60,11 +62,8 @@ public class PlayerCombat : MonoBehaviour
 
     private void UseSpellSlot1()
     {
-        if (SpellSlot1.CurrentSpell == null)
-        {
-            print("No spell is equipped");
-            return;
-        }
+        if (SpellSlot1.CurrentSpell == null) return;
+
         else if (PlayerStatsManager.Instance.CurrentMana == 0) print("Not enough mana");
         else
         {
@@ -88,11 +87,8 @@ public class PlayerCombat : MonoBehaviour
     }
     private void UseSpellSlot2()
     {
-        if (SpellSlot2.CurrentSpell == null)
-        {
-            print("No spell is equipped");
-            return;
-        }
+        if (SpellSlot2.CurrentSpell == null) return;
+
         else if (PlayerStatsManager.Instance.CurrentMana == 0) print("Not enough mana");
         else
         {
