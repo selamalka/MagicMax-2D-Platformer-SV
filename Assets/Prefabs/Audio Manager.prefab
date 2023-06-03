@@ -304,11 +304,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 871eaaa78b35b704ebf902daaeea35c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicAudioSource: {fileID: 3901427109995014016}
+  <MusicAudioSource>k__BackingField: {fileID: 3901427109995014016}
   playerSFXAudioSource: {fileID: 4247175524596774790}
   enemySFXAudioSource: {fileID: 5005103620711775012}
   sceneSFXAudioSource: {fileID: 4308829371392213027}
-  musicClip: {fileID: 8300000, guid: 25945a89c9223b545acce969e0e14995, type: 3}
+  <MainMusicClip>k__BackingField: {fileID: 8300000, guid: 25945a89c9223b545acce969e0e14995, type: 3}
+  <ZulBattleMusicClip>k__BackingField: {fileID: 8300000, guid: 81063b8c2b50b4743a602cbac34d3b7a, type: 3}
   turnWoosh: {fileID: 8300000, guid: 677961840731be74c983a67bc341851e, type: 3}
   jump: {fileID: 8300000, guid: 0be84710b8bff384487349f949290d1c, type: 3}
   dash: {fileID: 8300000, guid: 1c38db19dc101dd4bb1703f7976c3a51, type: 3}

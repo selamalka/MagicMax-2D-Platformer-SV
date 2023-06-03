@@ -5,12 +5,13 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    [SerializeField] private AudioSource musicAudioSource;
+    [field: SerializeField] public AudioSource MusicAudioSource { get; private set; }
     [SerializeField] private AudioSource playerSFXAudioSource;
     [SerializeField] private AudioSource enemySFXAudioSource;
     [SerializeField] private AudioSource sceneSFXAudioSource;
 
-    [SerializeField] private AudioClip musicClip;
+    [field: SerializeField] public AudioClip MainMusicClip { get; private set; }
+    [field: SerializeField] public AudioClip ZulBattleMusicClip { get; private set; }
     [SerializeField] private AudioClip turnWoosh;
     [SerializeField] private AudioClip jump;
     [SerializeField] private AudioClip dash;
@@ -51,10 +52,20 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        musicAudioSource.clip = musicClip;
-        musicAudioSource.Play();
+        MusicAudioSource.clip = MainMusicClip;
+        MusicAudioSource.Play();
     }
 
+    public void ChangeMusic(AudioClip clip)
+    {
+        AudioClip currentClip = MusicAudioSource.clip;
+
+        if (currentClip != clip)
+        {
+            MusicAudioSource.clip = clip;
+            MusicAudioSource.Play();
+        }
+    }
     public void StopPlayerAudioSource()
     {
         playerSFXAudioSource.Stop();
@@ -133,7 +144,6 @@ public class AudioManager : MonoBehaviour
         
     }
 
-
     public void PlayPowerupDrop()
     {
         sceneSFXAudioSource.volume = 0.7f;
@@ -156,7 +166,7 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayCheckpoint()
     {
-        sceneSFXAudioSource.volume = 0.5f;
+        sceneSFXAudioSource.volume = 0.2f;
         sceneSFXAudioSource.PlayOneShot(checkpoint);
     }
     public void PlayTip()
