@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <IsNewGame>k__BackingField: 0
   <UnlockedSpellsList>k__BackingField: []
-  <LastCheckpoint>k__BackingField: {x: 765.95, y: 74.03275, z: 0}
+  <LastCheckpoint>k__BackingField: {x: 103, y: -14, z: 0}
   <ExpPoints>k__BackingField: 0
   <TargetExp>k__BackingField: 10
   <SpellPoints>k__BackingField: 0
-  <HealthPoints>k__BackingField: 5
+  <HealthPoints>k__BackingField: 4
   <ManaPoints>k__BackingField: 0
   <SoulPoints>k__BackingField: 0
   <SpellSlot1Prefab>k__BackingField: {fileID: 0}

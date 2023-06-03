@@ -8,6 +8,7 @@ public class ZulTrigger : MonoBehaviour
         {
             FindObjectOfType<ZulAI>().SetIsTriggered(true);
             AudioManager.Instance.ChangeMusic(AudioManager.Instance.ZulBattleMusicClip);
+            AudioManager.Instance.PlayZulLaugh();
             Destroy(gameObject);
         }
     }

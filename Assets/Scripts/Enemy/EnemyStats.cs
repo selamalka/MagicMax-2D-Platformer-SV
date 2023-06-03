@@ -66,6 +66,7 @@ public class EnemyStats : MonoBehaviour, IDamageable
                 AudioManager.Instance.PlayBehemothGetHit();
                 break;
             case EnemyType.Zul:
+                AudioManager.Instance.PlayZulGetHit();
                 break;
             default:
                 break;
@@ -91,12 +92,13 @@ public class EnemyStats : MonoBehaviour, IDamageable
                     AudioManager.Instance.PlayBehemothDeathCry();
                     break;
                 case EnemyType.Zul:
+                    AudioManager.Instance.PlayZulDeathCry();
                     break;
                 default:
                     break;
             }
 
-            PlayerStatsManager.Instance.GrantExp(expValue);            
+            PlayerStatsManager.Instance.GrantExp(expValue);
             EventManager.OnEnemyDeath?.Invoke();
             if (FXManager.Instance.EnemyDeathShakePreset != null)
             {

@@ -172,7 +172,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -326,6 +326,7 @@ MonoBehaviour:
   impDeathCry: {fileID: 8300000, guid: 55f1933d32264314393e524f8c679834, type: 3}
   shadowDemonDeathCry: {fileID: 8300000, guid: 9beb3203c50ece843ae8d2c09c8c9e24, type: 3}
   behemothDeathCry: {fileID: 8300000, guid: 3fd6dafaa3f63ca4ba04d293cd695827, type: 3}
+  zulLaugh: {fileID: 8300000, guid: e619f519471210d43a7f238ad10e3984, type: 3}
   impGetHit:
   - {fileID: 8300000, guid: b4d89a1f80961b6458a48b907d60097f, type: 3}
   - {fileID: 8300000, guid: d10c600d1e6eeee409fb8fc8d0d746d7, type: 3}
@@ -335,6 +336,10 @@ MonoBehaviour:
   behemothGetHit:
   - {fileID: 8300000, guid: 4ef7a9f09861cfc4796065d1db9bc262, type: 3}
   - {fileID: 8300000, guid: 52d9de86006187a4e97d0b8602a16834, type: 3}
+  zulGetHit:
+  - {fileID: 8300000, guid: 2e846830a98eddf4a9ba29271f4c0172, type: 3}
+  - {fileID: 8300000, guid: be1a8ab18d6d7e84e93b098ed56e0cea, type: 3}
+  - {fileID: 8300000, guid: 5e55f1ca581842b498ec45009ec2e6df, type: 3}
   enemyImpact:
   - {fileID: 8300000, guid: 06603cac10219f143afa26745ebf6664, type: 3}
   - {fileID: 8300000, guid: 98dc9582721a36a47a8ff3a8b0ee6cf5, type: 3}
