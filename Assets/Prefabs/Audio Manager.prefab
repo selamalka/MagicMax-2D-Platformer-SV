@@ -321,11 +321,15 @@ MonoBehaviour:
   tip: {fileID: 8300000, guid: 1ccc2b31699002441a34dd95c0bd7ce3, type: 3}
   openSpellbook: {fileID: 8300000, guid: f437324b2331efc469606d68aa435c03, type: 3}
   closeSpellbook: {fileID: 8300000, guid: 68ebd81c096364047bf22c7c792d2c7c, type: 3}
+  regenerateHealth: {fileID: 8300000, guid: 67a3509f40d281d41b1376da703013ef, type: 3}
   impDeathCry: {fileID: 8300000, guid: 55f1933d32264314393e524f8c679834, type: 3}
   enemyDeath: {fileID: 8300000, guid: a8a495bbaec907545832ed77159205c5, type: 3}
   impGetHit:
   - {fileID: 8300000, guid: b4d89a1f80961b6458a48b907d60097f, type: 3}
   - {fileID: 8300000, guid: d10c600d1e6eeee409fb8fc8d0d746d7, type: 3}
+  shadowDemonGetHit:
+  - {fileID: 8300000, guid: f4bddb4aa8f3353429659327e994f106, type: 3}
+  - {fileID: 8300000, guid: 4721e573554eff94fa7efcc5d396f734, type: 3}
   enemyImpact:
   - {fileID: 8300000, guid: 06603cac10219f143afa26745ebf6664, type: 3}
   - {fileID: 8300000, guid: 98dc9582721a36a47a8ff3a8b0ee6cf5, type: 3}

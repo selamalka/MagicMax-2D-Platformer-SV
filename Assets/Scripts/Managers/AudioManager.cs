@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -24,7 +25,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip closeSpellbook;
     [SerializeField] private AudioClip regenerateHealth;
     [SerializeField] private AudioClip impDeathCry;
+    [SerializeField] private AudioClip shadowDemonDeathCry;
+    //[SerializeField] private AudioClip enemyDeath;
     [SerializeField] private AudioClip[] impGetHit;
+    [SerializeField] private AudioClip[] shadowDemonGetHit;
     [SerializeField] private AudioClip[] enemyImpact;
     [SerializeField] private AudioClip[] meleeCast;
     [SerializeField] private AudioClip[] footstep;
@@ -35,7 +39,7 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); 
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -87,7 +91,7 @@ public class AudioManager : MonoBehaviour
     public void PlayMeleeCast()
     {
         playerSFXAudioSource.volume = 0.5f;
-        playerSFXAudioSource.PlayOneShot(meleeCast[Random.Range(0,meleeCast.Length)]);
+        playerSFXAudioSource.PlayOneShot(meleeCast[Random.Range(0, meleeCast.Length)]);
     }
     public void PlayEnemyImpact()
     {
@@ -103,6 +107,17 @@ public class AudioManager : MonoBehaviour
     {
         enemySFXAudioSource.volume = 0.3f;
         enemySFXAudioSource.PlayOneShot(impDeathCry);
+
+    }
+    public void PlayShadowDemonGetHit()
+    {
+        enemySFXAudioSource.volume = 0.5f;
+        enemySFXAudioSource.PlayOneShot(shadowDemonGetHit[Random.Range(0, shadowDemonGetHit.Length)]);
+    }
+    public void PlayShadowDemonDeathCry()
+    {
+        enemySFXAudioSource.volume = 0.3f;
+        enemySFXAudioSource.PlayOneShot(shadowDemonDeathCry);
     }
     public void PlayPowerupDrop()
     {
@@ -148,4 +163,10 @@ public class AudioManager : MonoBehaviour
     {
         playerSFXAudioSource.PlayOneShot(regenerateHealth);
     }
+
+    /*    public void PlayEnemyDeath()
+        {
+            enemySFXAudioSource.volume = 1;
+            enemySFXAudioSource.PlayOneShot(enemyDeath);
+        }*/
 }

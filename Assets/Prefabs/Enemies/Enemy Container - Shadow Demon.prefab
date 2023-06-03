@@ -69,14 +69,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1284834233062613784}
     m_Modifications:
-    - target: {fileID: 73456916387935732, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 273212503044209485, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: patrolPoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 273212503044209485, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
       propertyPath: patrolPoints.Array.data[0]
       value: 
@@ -93,10 +85,6 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[3]
       value: 
       objectReference: {fileID: 6954609946549441915}
-    - target: {fileID: 501011307534070591, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: m_Radius
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 1055330521563560400, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -144,54 +132,6 @@ PrefabInstance:
     - target: {fileID: 2192496899450675635, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
       propertyPath: m_Name
       value: Shadow Demon
-      objectReference: {fileID: 0}
-    - target: {fileID: 2595304868853628696, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.752
-      objectReference: {fileID: 0}
-    - target: {fileID: 2595304868853628696, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 5911560530182241338, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6885348692916944948, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: m_Radius
-      value: 1.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 6885348692916944948, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6885348692916944948, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 6885348692916944948, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8498534185121773998, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8498534185121773998, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8498534185121773998, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8498534185121773998, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8498534185121773998, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a025c9f799500542b24037c1f9026a0, type: 3}

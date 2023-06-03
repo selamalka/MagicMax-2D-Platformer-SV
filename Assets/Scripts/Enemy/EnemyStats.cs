@@ -6,9 +6,11 @@ public class EnemyStats : MonoBehaviour, IDamageable
     [SerializeField] private float currentHealth;
     private float expValue;
     private int soulValue;
+    private AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         SetStatsByType();
     }
 
@@ -58,6 +60,7 @@ public class EnemyStats : MonoBehaviour, IDamageable
                 AudioManager.Instance.PlayImpGetHit();
                 break;
             case EnemyType.ShadowDemon:
+                AudioManager.Instance.PlayShadowDemonGetHit();
                 break;
             case EnemyType.Behemoth:
                 break;
@@ -81,6 +84,7 @@ public class EnemyStats : MonoBehaviour, IDamageable
                     AudioManager.Instance.PlayImpDeathCry();
                     break;
                 case EnemyType.ShadowDemon:
+                    AudioManager.Instance.PlayShadowDemonDeathCry();
                     break;
                 case EnemyType.Behemoth:
                     break;

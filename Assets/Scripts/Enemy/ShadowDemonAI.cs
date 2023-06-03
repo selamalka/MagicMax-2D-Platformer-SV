@@ -18,11 +18,13 @@ public class ShadowDemonAI : MonoBehaviour
     private float startTimeBetweenProjectiles;
     private float projectileCooldownCounter;
     private Vector3 directionToPlayer;
+    private Animator animator;
 
     private void Start()
     {
         playerGameObject = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         speed = EnemyManager.Instance.ShadowDemonSpeed;
         projectilePrefab = EnemyManager.Instance.ShadowDemonProjetilePrefab;
@@ -109,7 +111,8 @@ public class ShadowDemonAI : MonoBehaviour
         {
             if (projectileCooldownCounter <= 0)
             {
-                InstantiateProjectile();
+                //InstantiateProjectile();
+                animator.SetTrigger("attack");
                 projectileCooldownCounter = startTimeBetweenProjectiles;
             }
         }
