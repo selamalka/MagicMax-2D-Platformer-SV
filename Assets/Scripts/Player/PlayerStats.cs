@@ -25,7 +25,17 @@ public class PlayerStats : MonoBehaviour, IDamageable
         {
             if (!isInvulnerable)
             {
-                TakeDamageOnEnemyCollision(collision);
+                TakeDamageOnEnemyCollision();
+            }
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            if (!isInvulnerable)
+            {
+                TakeDamageOnEnemyCollision();
             }
         }
     }
@@ -65,12 +75,12 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
         if (FXManager.Instance.PlayerHitShakePreset != null)
         {
-            FXManager.Instance.CameraShaker.Shake(FXManager.Instance.PlayerHitShakePreset); 
+            FXManager.Instance.CameraShaker.Shake(FXManager.Instance.PlayerHitShakePreset);
         }
         EventManager.OnPlayerGetHit?.Invoke();
 
         if (PlayerStatsManager.Instance.CurrentHealth <= 0)
-        {            
+        {
             Destroy(gameObject);
             ProgressionManager.Instance.Progression.SetHealthPoints(5);
             ProgressionManager.Instance.Progression.SetManaPoints(0);
@@ -83,14 +93,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
         }
     }
 
-    private void TakeDamageOnEnemyCollision(Collision2D collision)
+    private void TakeDamageOnEnemyCollision(/*Collision2D collision*/)
     {
-        Vector2 enemyDirection = collision.gameObject.transform.position - transform.position;
+        //Vector2 enemyDirection = collision.gameObject.transform.position - transform.position;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
-        if (!collision.gameObject.CompareTag("Behemoth"))
-        {
-            TakeDamage(1);            
-        }
+        TakeDamage(1);
     }
 }
