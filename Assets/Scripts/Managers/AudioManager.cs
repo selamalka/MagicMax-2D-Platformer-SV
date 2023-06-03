@@ -35,6 +35,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip[] shadowDemonGetHit;
     [SerializeField] private AudioClip[] behemothGetHit;
     [SerializeField] private AudioClip[] zulGetHit;
+    [SerializeField] private AudioClip[] zulLightning;
     [SerializeField] private AudioClip[] enemyImpact;
     [SerializeField] private AudioClip[] meleeCast;
     [SerializeField] private AudioClip[] footstep;
@@ -160,6 +161,11 @@ public class AudioManager : MonoBehaviour
     {
         enemySFXAudioSource.volume = 0.8f;
         enemySFXAudioSource.PlayOneShot(zulDeathCry);
+    }
+    public void PlayZulLightning()
+    {
+        enemySFXAudioSource.volume = 0.6f;
+        enemySFXAudioSource.PlayOneShot(zulLightning[Random.Range(0, zulLightning.Length)]);
     }
 
     public void PlayPowerupDrop()
