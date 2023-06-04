@@ -12,8 +12,10 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Transform projectileOriginBottom;
     [SerializeField] private GameObject meleeSlashPrefab;
     [SerializeField] private GameObject hitEffectPrefab;
+
     [field: SerializeField] public SpellSlot SpellSlot1 { get; private set; }
     [field: SerializeField] public SpellSlot SpellSlot2 { get; private set; }
+
     [SerializeField] private float meleeCooldownTime;
     private float meleeCooldownCounter;
 
@@ -26,7 +28,7 @@ public class PlayerCombat : MonoBehaviour
     {
         meleeCooldownCounter = 0;
 
-        if (GameObject.Find("Spell Slot 1") == null)
+        if ((SpellSlot1 || SpellSlot2 == null) && GameObject.Find("Spell Slot 1") != null)
         {
             SpellSlot1 = GameObject.Find("Spell Slot 1").GetComponent<SpellSlot>();
             SpellSlot2 = GameObject.Find("Spell Slot 2").GetComponent<SpellSlot>();
