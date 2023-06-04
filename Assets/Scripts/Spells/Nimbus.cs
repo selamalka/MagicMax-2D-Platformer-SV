@@ -55,7 +55,7 @@ public class Nimbus : MonoBehaviour
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
 
-        Rb.velocity = new Vector2(inputX * speed * Time.deltaTime, inputY * speed * Time.deltaTime);
+        Rb.velocity = new Vector2(inputX * speed, inputY * speed);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
