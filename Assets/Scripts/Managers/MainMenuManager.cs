@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    private void Start()
+    {
+        Cursor.visible = true;
+    }
+
     public async void StartGame()
     {
         GameObject.Find("Background").GetComponent<SpriteRenderer>().DOColor(Color.black, 2);
