@@ -10,6 +10,12 @@ public class ProgressionManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        if (Progression.IsNewGame)
+        {
+            Progression.SetSpellSlot1Info(null, null);
+            Progression.SetSpellSlot2Info(null, null); 
+        }
     }
 
     private void Start()
@@ -33,8 +39,6 @@ public class ProgressionManager : MonoBehaviour
 
             Progression.SetSpellPoints(0);
             Progression.UnlockedSpellsList.Clear();
-            Progression.SetSpellSlot1Info(null, null);
-            Progression.SetSpellSlot2Info(null, null);
             Progression.SetLastCheckpoint(new Vector3(103, -14, 0));
             IsCheckpointSaved = false;
             Progression.SetIsNewGame(false);
@@ -46,7 +50,7 @@ public class ProgressionManager : MonoBehaviour
 
             if (GameObject.FindWithTag("CameraContainer") != null)
             {
-                GameObject.FindWithTag("CameraContainer").transform.position = Progression.LastCheckpoint + new Vector3(12f, 8.4f, -10f); 
+                GameObject.FindWithTag("CameraContainer").transform.position = Progression.LastCheckpoint + new Vector3(12f, 8.4f, -10f);
             }
         }
 
