@@ -5,6 +5,13 @@ public class SpellSlot : MonoBehaviour
 {
     [field: SerializeField] public int SpellSlotNumber { get; private set; }
     [field: SerializeField] public UISpell CurrentSpell { get; private set; }
+    [field: SerializeField] public GameObject SpellSlotChild { get; private set; }
+
+    public void SetChild(GameObject childObject)
+    {
+        SpellSlotChild = childObject;
+        SpellSlotChild.transform.SetParent(transform, false);
+    }
 
     public void SetCurrentSpell(UISpell uiSpell)
     {
@@ -34,7 +41,7 @@ public class SpellSlot : MonoBehaviour
             CurrentSpell = spell;
             CurrentSpell.SetSpellPrefab(ProgressionManager.Instance.Progression.SpellSlot1Prefab);
             CurrentSpell.SetSpellData(ProgressionManager.Instance.Progression.SpellSlot1Data);
-            gameObject.GetComponent<Image>().sprite = CurrentSpell.GetComponent<Image>().sprite;
+            //gameObject.GetComponent<Image>().sprite = CurrentSpell.GetComponent<Image>().sprite;
             gameObject.GetComponent<Image>().color = new Color(1,1,1,1);
         }
         else if (number == 2)
@@ -44,7 +51,7 @@ public class SpellSlot : MonoBehaviour
             CurrentSpell = spell;
             CurrentSpell.SetSpellPrefab(ProgressionManager.Instance.Progression.SpellSlot2Prefab);
             CurrentSpell.SetSpellData(ProgressionManager.Instance.Progression.SpellSlot2Data);
-            gameObject.GetComponent<Image>().sprite = CurrentSpell.GetComponent<Image>().sprite;
+            //gameObject.GetComponent<Image>().sprite = CurrentSpell.GetComponent<Image>().sprite;
             gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 1);
         }
     }

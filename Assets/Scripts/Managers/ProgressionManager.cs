@@ -31,6 +31,7 @@ public class ProgressionManager : MonoBehaviour
             PlayerStatsManager.Instance.SetCurrentHealth(5);
             PlayerStatsManager.Instance.SetCurrentMana(0);
             PlayerStatsManager.Instance.SetCurrentSouls(0);
+            PlayerStatsManager.Instance.SetTargetExp(10);
             PlayerStatsManager.Instance.SetCurrentExp(0);
 
             UIManager.Instance.UpdateHealthPoints();
@@ -39,6 +40,8 @@ public class ProgressionManager : MonoBehaviour
             UIManager.Instance.UpdateExpBar();
 
             Progression.SetSpellPoints(0);
+            UIManager.Instance.UpdateSpellPoints();
+
             Progression.UnlockedSpellsList.Clear();
             Progression.SetLastCheckpoint(new Vector3(103, -14, 0));
             IsCheckpointSaved = false;
@@ -55,7 +58,7 @@ public class ProgressionManager : MonoBehaviour
             }
         }
 
-        FindObjectOfType<PositionCameraToPlayer>().SetCameraToPlayer();
+        //FindObjectOfType<PositionCameraToPlayer>().SetCameraToPlayer();
     }
 
     public void SetIsCheckpointSaved(bool value)
