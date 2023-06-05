@@ -62167,6 +62167,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2865500397607915655, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2904320151728481962, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -62291,6 +62295,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5039121018786526750, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5137077335730063187, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -62413,6 +62421,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6141775032469824802, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7703023573820840832, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7844006307681149975, guid: 1c56b2bce9fa8624ea7fc6aadcd73622, type: 3}
@@ -62867,10 +62879,6 @@ PrefabInstance:
     - target: {fileID: 3691343324569232586, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786555264823782904, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
-      propertyPath: <IsTesting>k__BackingField
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93d3333b458f3544b87bf0c96eb7b8c6, type: 3}
