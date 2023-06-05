@@ -16,10 +16,12 @@ public class Progression : ScriptableObject
     [field: SerializeField] public int SoulPoints { get; private set; }
 
     [field: SerializeField] public GameObject SpellSlot1Prefab { get; private set; }
+    [field: SerializeField] public GameObject SpellSlot1Child { get; private set; }
     [field: SerializeField] public SpellData SpellSlot1Data { get; private set; }
     [field: SerializeField] public GameObject SpellSlot2Prefab { get; private set; }
+    [field: SerializeField] public GameObject SpellSlot2Child { get; private set; }
     [field: SerializeField] public SpellData SpellSlot2Data { get; private set; }
-
+    
     public void SetLastCheckpoint(Vector3 lastCheckpoint)
     {
         LastCheckpoint = lastCheckpoint;
