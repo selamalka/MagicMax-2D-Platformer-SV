@@ -18,10 +18,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI spellPointsValue;
     [SerializeField] private GameObject spellbookPanel;
     [SerializeField] private TextMeshProUGUI levelUpAnnouncement;
-    [SerializeField] private TextMeshProUGUI tipText;    
+    [SerializeField] private TextMeshProUGUI tipText;
 
     private Image masterPanelImage;
     private Tween tipTween;
+
+    private bool isPauseMenuOpen;
+    private bool isSpellbookOpen;
 
     private void Awake()
     {
@@ -70,33 +73,48 @@ public class UIManager : MonoBehaviour
         if (!GameManager.Instance.IsPaused)
         {
             GameManager.Instance.PauseGame();
-            spellbookPanel.gameObject.SetActive(true);
-            AudioManager.Instance.PlayOpenSpellbook();
         }
-        else
+        else if (GameManager.Instance.IsPaused && !isPauseMenuOpen)
         {
             GameManager.Instance.ResumeGame();
+        }
+
+        if (!spellbookPanel.gameObject.activeInHierarchy)
+        {
+            spellbookPanel.gameObject.SetActive(true);
+            isSpellbookOpen = true;
+            AudioManager.Instance.PlayOpenSpellbook();
+        }
+        else if (spellbookPanel.gameObject.activeInHierarchy)
+        {
             spellbookPanel.gameObject.SetActive(false);
+            isSpellbookOpen = false;
             AudioManager.Instance.PlayCloseSpellbook();
         }
     }
+
     public void TogglePauseMenu()
     {
         if (SceneManager.GetActiveScene().buildIndex == 1) return;
 
-        if (GameManager.Instance.IsPaused && !pauseMenuPanel.gameObject.activeInHierarchy)
-        {
-            pauseMenuPanel.gameObject.SetActive(true);
-        }
-        else if (!GameManager.Instance.IsPaused && !pauseMenuPanel.gameObject.activeInHierarchy)
+        if (!GameManager.Instance.IsPaused)
         {
             GameManager.Instance.PauseGame();
-            pauseMenuPanel.gameObject.SetActive(true);
         }
-        else if (GameManager.Instance.IsPaused && pauseMenuPanel.gameObject.activeInHierarchy)
+        else if (GameManager.Instance.IsPaused && !isSpellbookOpen)
         {
             GameManager.Instance.ResumeGame();
+        }
+
+        if (!pauseMenuPanel.gameObject.activeInHierarchy)
+        {
+            pauseMenuPanel.gameObject.SetActive(true);
+            isPauseMenuOpen = true;
+        }
+        else if (pauseMenuPanel.gameObject.activeInHierarchy)
+        {
             pauseMenuPanel.gameObject.SetActive(false);
+            isPauseMenuOpen = false;
         }
     }
 
@@ -172,7 +190,7 @@ public class UIManager : MonoBehaviour
         {
             if (soulPoints[i].color.a == 0)
             {
-                soulPoints[i].DOFade(1, 0.2f).OnComplete(()=> UpdateSoulPoints());
+                soulPoints[i].DOFade(1, 0.2f).OnComplete(() => UpdateSoulPoints());
                 break;
             }
         }

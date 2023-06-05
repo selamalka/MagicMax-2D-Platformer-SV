@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        if (Time.timeScale == 0) return;
         Time.timeScale = 0;
         Cursor.visible = true;
         IsPaused = true;
