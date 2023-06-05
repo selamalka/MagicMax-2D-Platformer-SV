@@ -47,6 +47,7 @@ public class Nimbus : MonoBehaviour
     private void Update()
     {
         LifespanHandler();
+        GetComponentInParent<Transform>().rotation = Quaternion.Euler(0, GetComponentInParent<Transform>().rotation.y, 0);
     }
 
     private void FixedUpdate()
