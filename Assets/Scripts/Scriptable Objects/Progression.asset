@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33115e948d52007459fe3b84e353fa9b, type: 3}
   m_Name: Progression
   m_EditorClassIdentifier: 
-  <IsNewGame>k__BackingField: 1
+  <IsNewGame>k__BackingField: 0
   <UnlockedSpellsList>k__BackingField:
   - {fileID: 11400000, guid: 3a96e59b1d42307469357c1fa5b813ab, type: 2}
   <LastCheckpoint>k__BackingField: {x: 103, y: -14, z: 0}
-  <ExpPoints>k__BackingField: 22
-  <TargetExp>k__BackingField: 20.736002
+  <ExpPoints>k__BackingField: 40
+  <TargetExp>k__BackingField: 51.597824
   <SpellPoints>k__BackingField: 0
   <HealthPoints>k__BackingField: 4
   <ManaPoints>k__BackingField: 0
-  <SoulPoints>k__BackingField: 3
+  <SoulPoints>k__BackingField: 1
   <SpellSlot1Prefab>k__BackingField: {fileID: 6891076197353053397, guid: 6f7826af8745d8543aacba702a7213bf, type: 3}
   <SpellSlot1Data>k__BackingField: {fileID: 11400000, guid: 3a96e59b1d42307469357c1fa5b813ab, type: 2}
-  <SpellSlot2Prefab>k__BackingField: {fileID: 6891076197353053397, guid: 6f7826af8745d8543aacba702a7213bf, type: 3}
-  <SpellSlot2Data>k__BackingField: {fileID: 11400000, guid: 3a96e59b1d42307469357c1fa5b813ab, type: 2}
+  <SpellSlot2Prefab>k__BackingField: {fileID: 0}
+  <SpellSlot2Data>k__BackingField: {fileID: 0}
