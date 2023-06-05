@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI spellPointsValue;
     [SerializeField] private GameObject spellbookPanel;
     [SerializeField] private TextMeshProUGUI levelUpAnnouncement;
-    [SerializeField] private TextMeshProUGUI tipText;
+    [SerializeField] private TextMeshProUGUI tipText;    
 
     private Image masterPanelImage;
     private Tween tipTween;

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ZulAI : MonoBehaviour
 {
@@ -87,11 +88,10 @@ public class ZulAI : MonoBehaviour
         }
     }
 
-    public void Attack()
+    //Animation Event
+    private void InstantiateProjectile()
     {
-        Vector3 direction = playerPosition - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        InstantiateProjectile();
+        Instantiate(projectilePrefab, transform.position, Quaternion.identity);
     }
     public void PlayLightningSound()
     {
@@ -131,10 +131,6 @@ public class ZulAI : MonoBehaviour
         }
 
         transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPatrolPointIndex].position, speed * Time.deltaTime);
-    }
-    private void InstantiateProjectile()
-    {
-        Instantiate(projectilePrefab, transform.position, Quaternion.identity);
     }
     private void Turn()
     {

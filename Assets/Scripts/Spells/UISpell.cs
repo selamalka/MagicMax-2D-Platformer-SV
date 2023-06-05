@@ -84,7 +84,11 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     public void OnDrag(PointerEventData eventData)
     {
         if (SpellData.Level == 0 || !SpellData.IsUnlocked) return;
-        draggedIcon.transform.position = Input.mousePosition;
+
+        RectTransform canvasRectTransform = transform.root.GetComponent<RectTransform>();
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, Input.mousePosition, GameObject.Find("Main Camera").GetComponent<Camera>(), out Vector2 localPoint);
+        draggedIcon.transform.localPosition = localPoint;
+
     }
     public void OnEndDrag(PointerEventData eventData)
     {
@@ -99,11 +103,11 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 
             if (PlayerCombat.Instance.SpellSlot1 != null)
             {
-                PlayerCombat.Instance.SpellSlot1.SaveSpellSlotInfo(1); 
+                PlayerCombat.Instance.SpellSlot1.SaveSpellSlotInfo(1);
             }
             if (PlayerCombat.Instance.SpellSlot2 != null)
             {
-                PlayerCombat.Instance.SpellSlot2.SaveSpellSlotInfo(2); 
+                PlayerCombat.Instance.SpellSlot2.SaveSpellSlotInfo(2);
             }
         }
         else
