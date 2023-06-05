@@ -57,8 +57,6 @@ public class ProgressionManager : MonoBehaviour
                 GameObject.FindWithTag("CameraContainer").transform.position = Progression.LastCheckpoint + new Vector3(12f, 8.4f, -10f);
             }
         }
-
-        //FindObjectOfType<PositionCameraToPlayer>().SetCameraToPlayer();
     }
 
     public void SetIsCheckpointSaved(bool value)
