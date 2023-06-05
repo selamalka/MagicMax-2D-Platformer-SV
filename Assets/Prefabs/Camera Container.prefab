@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1136577216174134822}
-  - component: {fileID: 1136577216174134823}
   - component: {fileID: 782333540}
   - component: {fileID: 5872757287359837777}
   m_Layer: 0
@@ -26,8 +25,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136577216174134821}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 115, y: -5.6, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 115, y: -5.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35,24 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1136577216174134823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136577216174134821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dabcbcd9bb58adc4d9496907d14c5d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  followTargetPosition: 1
-  targetObject: {fileID: 0}
-  cameraFollowSmoothness: 3
-  orbitAroundTarget: 0
-  rotationSpeed: 0
-  mouseButton: 0
 --- !u!114 &782333540
 MonoBehaviour:
   m_ObjectHideFlags: 0

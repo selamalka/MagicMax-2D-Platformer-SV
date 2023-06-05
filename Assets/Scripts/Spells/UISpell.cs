@@ -76,6 +76,7 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     {
         if (SpellData.Level == 0 || !SpellData.IsUnlocked) return;
         draggedIcon = new GameObject(SpellData.Name);
+
         Image iconImage = draggedIcon.AddComponent<Image>();
         iconImage.sprite = GetComponent<Image>().sprite;
         iconImage.raycastTarget = false;
@@ -99,6 +100,8 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         {
             draggedIcon.transform.SetParent(spellSlot.transform, false);
             draggedIcon.transform.position = spellSlot.transform.position;
+            spellSlot.SetChild(draggedIcon);
+
             spellSlot.SetCurrentSpell(this);
 
             if (PlayerCombat.Instance.SpellSlot1 != null)

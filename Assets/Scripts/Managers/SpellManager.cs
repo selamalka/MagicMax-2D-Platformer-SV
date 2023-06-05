@@ -16,7 +16,7 @@ public class SpellManager : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerCombat.Instance.SpellSlot1 != null)
+        if (PlayerCombat.Instance.SpellSlot1 != null || PlayerCombat.Instance.SpellSlot2 != null)
         {
             PlayerCombat.Instance.LoadSpellSlotsInfo(); 
         }
