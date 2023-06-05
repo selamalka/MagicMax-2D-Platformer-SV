@@ -175,6 +175,7 @@ public class PlayerStatsManager : MonoBehaviour
         {
             CurrentSouls += soulValue;
             UIManager.Instance.FillSoulPoint();
+
             ProgressionManager.Instance.Progression.SetSoulPoints(CurrentSouls);
 
             if (CurrentSouls >= MaxSouls)

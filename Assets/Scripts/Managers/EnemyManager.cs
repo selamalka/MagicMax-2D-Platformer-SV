@@ -41,6 +41,7 @@ public class EnemyManager : MonoBehaviour
     [field: Header("Zul")]
     [field: SerializeField] public float ZulMaxHealth { get; private set; }
     [field: SerializeField] public float ZulSpeed { get; private set; }
+    [field: SerializeField] public int ZulSoulValue { get; private set; }
     [field: SerializeField] public float ZulTimeBetweenProjectiles { get; private set; }
     [field: SerializeField] public GameObject ZulProjectilePrefab { get; private set; }
     [field: SerializeField] public Transform[] ZulSpawnPoints { get; private set; }
