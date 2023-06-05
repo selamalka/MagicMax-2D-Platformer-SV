@@ -31,6 +31,7 @@ public class ProgressionManager : MonoBehaviour
             PlayerStatsManager.Instance.SetCurrentHealth(5);
             PlayerStatsManager.Instance.SetCurrentMana(0);
             PlayerStatsManager.Instance.SetCurrentSouls(0);
+            PlayerStatsManager.Instance.SetCurrentExp(0);
 
             UIManager.Instance.UpdateHealthPoints();
             UIManager.Instance.UpdateManaPoints();
