@@ -22,6 +22,7 @@ public class PositionCameraToPlayer : MonoBehaviour
 
     private void Update()
     {
+        if (GameObject.FindWithTag("Player") == null) return;
         transform.position = GameObject.FindWithTag("Player").transform.position + new Vector3(12f, 8.4f, -10f);
     }
 
