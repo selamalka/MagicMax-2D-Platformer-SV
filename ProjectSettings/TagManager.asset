@@ -81,3 +81,6 @@ TagManager:
   - name: Story Teller
     uniqueID: 3168338567
     locked: 0
+  - name: Canvas
+    uniqueID: 912005695
+    locked: 0
