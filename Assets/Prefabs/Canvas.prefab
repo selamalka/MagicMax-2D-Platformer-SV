@@ -2949,8 +2949,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 106.34277, y: 88.98633}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 101, y: 97.17999}
+  m_SizeDelta: {x: 145, y: 145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &436240196829482208
 CanvasRenderer:
@@ -2973,14 +2973,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5e8b0e7b4365f6a44a338369476608d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4045,8 +4045,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 306.34277, y: 88.98633}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 267, y: 97.17999}
+  m_SizeDelta: {x: 145, y: 145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &436240197433179402
 CanvasRenderer:
@@ -4069,14 +4069,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5e8b0e7b4365f6a44a338369476608d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5052,7 +5052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 142, y: -326}
+  m_AnchoredPosition: {x: 142, y: -407}
   m_SizeDelta: {x: 700, y: 740}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1939679998530657665
@@ -5479,8 +5479,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 241.58, y: -156.43}
-  m_SizeDelta: {x: 483.151, y: 312.8589}
+  m_AnchoredPosition: {x: 181.04999, y: -112}
+  m_SizeDelta: {x: 362.1, y: 224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6353408918605795115
 CanvasRenderer:
@@ -6828,7 +6828,7 @@ PrefabInstance:
     - target: {fileID: 8812991018689947468, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8a96b38c76be79946a150249547b07bc, type: 3}
+      objectReference: {fileID: 21300000, guid: 3e1584fe606a0d046bd7a1682434dfe2, type: 3}
     - target: {fileID: 8812991018689947469, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6939,6 +6939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UISpell - Flame Burst - Level 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1874609972153624230, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5692c7ab49afb924aa69763d983b4aec, type: 3}
     - target: {fileID: 1874609972153624231, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7166,7 +7170,7 @@ PrefabInstance:
     - target: {fileID: 8812991018689947468, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8a96b38c76be79946a150249547b07bc, type: 3}
+      objectReference: {fileID: 21300000, guid: 3e1584fe606a0d046bd7a1682434dfe2, type: 3}
     - target: {fileID: 8812991018689947469, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7398,7 +7402,7 @@ PrefabInstance:
     - target: {fileID: 8812991018689947468, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8a96b38c76be79946a150249547b07bc, type: 3}
+      objectReference: {fileID: 21300000, guid: 3e1584fe606a0d046bd7a1682434dfe2, type: 3}
     - target: {fileID: 8812991018689947469, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7627,6 +7631,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UISpell - Flame Burst - Level 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1874609972153624230, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5692c7ab49afb924aa69763d983b4aec, type: 3}
     - target: {fileID: 1874609972153624231, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7851,6 +7859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UISpell - Flame Burst - Level 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1874609972153624230, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5692c7ab49afb924aa69763d983b4aec, type: 3}
     - target: {fileID: 1874609972153624231, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
