@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NimbusData - Level 3
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Nimbus
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 921fa9fe018246847bdc3f3f1fd0fde6, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: bec1578dbd7909645b516252952ea83f, type: 3}
   <Level>k__BackingField: 3
   <SpellPointCost>k__BackingField: 3
   <IsUnlocked>k__BackingField: 0

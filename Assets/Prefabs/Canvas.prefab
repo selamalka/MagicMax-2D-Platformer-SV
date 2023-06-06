@@ -6817,18 +6817,10 @@ PrefabInstance:
       propertyPath: <SpellData>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 11410fbc85ee1984dbef46325ef5c2d3, type: 2}
-    - target: {fileID: 8812991018689947457, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
-      propertyPath: <SpellPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 7042656606697494040, guid: d93a05b74dbb55743af529a7545d0eba, type: 3}
     - target: {fileID: 8812991018689947466, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_Name
       value: UISpell - Mana Shield - Level 3
       objectReference: {fileID: 0}
-    - target: {fileID: 8812991018689947468, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3e1584fe606a0d046bd7a1682434dfe2, type: 3}
     - target: {fileID: 8812991018689947469, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6913,10 +6905,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8812991018710591161, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
-      propertyPath: m_Color.a
-      value: 0.7607843
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
 --- !u!224 &8954245155354815389 stripped
@@ -6931,18 +6919,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 436240196973845736}
     m_Modifications:
-    - target: {fileID: 1874609972140320595, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
-      propertyPath: m_Color.a
-      value: 0.7607843
-      objectReference: {fileID: 0}
     - target: {fileID: 1874609972153624224, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
       propertyPath: m_Name
       value: UISpell - Flame Burst - Level 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1874609972153624230, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5692c7ab49afb924aa69763d983b4aec, type: 3}
     - target: {fileID: 1874609972153624231, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7027,14 +7007,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1874609972153624235, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
-      propertyPath: <SpellData>k__BackingField
-      value: 
-      objectReference: {fileID: 11400000, guid: 47884b1abd39bdd47ba38622876c4c5d, type: 2}
-    - target: {fileID: 1874609972153624235, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
-      propertyPath: <SpellPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 1379266275719879541, guid: 16d051dc89d19e0429673a6201f8d34f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
 --- !u!224 &2021595012522636550 stripped
@@ -7133,25 +7105,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5238163605019011505, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 921fa9fe018246847bdc3f3f1fd0fde6, type: 3}
     - target: {fileID: 5238163605019011511, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
       propertyPath: m_Name
       value: UISpell - Nimbus - Level 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5238163605019011516, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
-      propertyPath: <SpellData>k__BackingField
-      value: 
-      objectReference: {fileID: 11400000, guid: 496d9a2a12ca66a469ebc34209ace717, type: 2}
-    - target: {fileID: 5238163605019011516, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
-      propertyPath: <SpellPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 3631402563533277038, guid: 1c17a9ae98dde5c44b37ee1ca99f74db, type: 3}
-    - target: {fileID: 5238163605073078340, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
-      propertyPath: m_Color.a
-      value: 0.7490196
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
@@ -7167,14 +7123,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 436240196973845736}
     m_Modifications:
+    - target: {fileID: 8812991018689947457, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
+      propertyPath: <SpellData>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: cef58021b39d6eb43a9fc365197d5ef0, type: 2}
     - target: {fileID: 8812991018689947466, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_Name
       value: UISpell - Mana Shield - Level 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8812991018689947468, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3e1584fe606a0d046bd7a1682434dfe2, type: 3}
     - target: {fileID: 8812991018689947469, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7258,10 +7214,6 @@ PrefabInstance:
     - target: {fileID: 8812991018689947469, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8812991018710591161, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
-      propertyPath: m_Color.a
-      value: 0.7607843
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
@@ -7361,10 +7313,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5238163605019011505, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 921fa9fe018246847bdc3f3f1fd0fde6, type: 3}
     - target: {fileID: 5238163605019011511, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
       propertyPath: m_Name
       value: UISpell - Nimbus - Level 2
@@ -7373,14 +7321,6 @@ PrefabInstance:
       propertyPath: <SpellData>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: fba384164bdabfd4887ae985d6fd57f2, type: 2}
-    - target: {fileID: 5238163605019011516, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
-      propertyPath: <SpellPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 3631402563533277038, guid: 07eb7c8232b79724292ea7b97aad202e, type: 3}
-    - target: {fileID: 5238163605073078340, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
-      propertyPath: m_Color.a
-      value: 0.7490196
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
 --- !u!224 &5673519779423712222 stripped
@@ -7395,22 +7335,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 436240196973845736}
     m_Modifications:
-    - target: {fileID: 8812991018689947457, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
-      propertyPath: <SpellData>k__BackingField
-      value: 
-      objectReference: {fileID: 11400000, guid: d481d388ec3060c4ea07b722127c5945, type: 2}
-    - target: {fileID: 8812991018689947457, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
-      propertyPath: <SpellPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 7042656606697494040, guid: 7fc7c34fe8dd8384db34c4e35ae60caa, type: 3}
     - target: {fileID: 8812991018689947466, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_Name
       value: UISpell - Mana Shield - Level 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8812991018689947468, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3e1584fe606a0d046bd7a1682434dfe2, type: 3}
     - target: {fileID: 8812991018689947469, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7495,10 +7423,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8812991018710591161, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
-      propertyPath: m_Color.a
-      value: 0.7607843
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
 --- !u!224 &8954245153940689849 stripped
@@ -7521,18 +7445,10 @@ PrefabInstance:
       propertyPath: <SpellData>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 7d7f856f7e1297e439a8ee691cb3575a, type: 2}
-    - target: {fileID: 1596816345454689825, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
-      propertyPath: <SpellPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 6891076197353053397, guid: 0b52f8a23d3626e4aa3f88646e5b4ffa, type: 3}
     - target: {fileID: 1596816345454689834, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
       propertyPath: m_Name
       value: UISpell - Magic Shot - Level 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1596816345454689836, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 00e7ab4a80b989d4bacbc6cda1bd1db3, type: 3}
     - target: {fileID: 1596816345454689837, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7631,18 +7547,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 436240196973845736}
     m_Modifications:
-    - target: {fileID: 1874609972140320595, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
-      propertyPath: m_Color.a
-      value: 0.7607843
-      objectReference: {fileID: 0}
     - target: {fileID: 1874609972153624224, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
       propertyPath: m_Name
       value: UISpell - Flame Burst - Level 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1874609972153624230, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5692c7ab49afb924aa69763d983b4aec, type: 3}
     - target: {fileID: 1874609972153624231, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7731,10 +7639,6 @@ PrefabInstance:
       propertyPath: <SpellData>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: db6f1963df421b14885c3bb19ae580af, type: 2}
-    - target: {fileID: 1874609972153624235, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
-      propertyPath: <SpellPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 1379266275719879541, guid: 8e297ab8f9e7d2d46a21e06310ec1130, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
 --- !u!224 &2021595011456821841 stripped
@@ -7753,14 +7657,14 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.7607843
       objectReference: {fileID: 0}
+    - target: {fileID: 1596816345454689825, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
+      propertyPath: <SpellData>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a96e59b1d42307469357c1fa5b813ab, type: 2}
     - target: {fileID: 1596816345454689834, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
       propertyPath: m_Name
       value: UISpell - Magic Shot - Level 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1596816345454689836, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 00e7ab4a80b989d4bacbc6cda1bd1db3, type: 3}
     - target: {fileID: 1596816345454689837, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7859,18 +7763,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 436240196973845736}
     m_Modifications:
-    - target: {fileID: 1874609972140320595, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
-      propertyPath: m_Color.a
-      value: 0.7607843
-      objectReference: {fileID: 0}
     - target: {fileID: 1874609972153624224, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
       propertyPath: m_Name
       value: UISpell - Flame Burst - Level 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1874609972153624230, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5692c7ab49afb924aa69763d983b4aec, type: 3}
     - target: {fileID: 1874609972153624231, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7955,6 +7851,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1874609972153624235, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
+      propertyPath: <SpellData>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 5052a363ba545bb458cf598374a4db3a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
 --- !u!224 &2021595010722641949 stripped
@@ -7969,26 +7869,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 436240196973845736}
     m_Modifications:
-    - target: {fileID: 1596816345433259993, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
-      propertyPath: m_Color.a
-      value: 0.7607843
-      objectReference: {fileID: 0}
-    - target: {fileID: 1596816345454689825, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
-      propertyPath: <SpellData>k__BackingField
-      value: 
-      objectReference: {fileID: 11400000, guid: cbd0ac18cccd0e44c8bd2e00177e018c, type: 2}
-    - target: {fileID: 1596816345454689825, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
-      propertyPath: <SpellPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 6891076197353053397, guid: eaa7bf30ca1890a42aa12dad2218c8f8, type: 3}
     - target: {fileID: 1596816345454689834, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
       propertyPath: m_Name
       value: UISpell - Magic Shot - Level 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1596816345454689836, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 00e7ab4a80b989d4bacbc6cda1bd1db3, type: 3}
     - target: {fileID: 1596816345454689837, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8171,10 +8055,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5238163605019011505, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 921fa9fe018246847bdc3f3f1fd0fde6, type: 3}
     - target: {fileID: 5238163605019011511, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
       propertyPath: m_Name
       value: UISpell - Nimbus - Level 3
@@ -8183,14 +8063,6 @@ PrefabInstance:
       propertyPath: <SpellData>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 0fa83386a4d008c419203d0db8224972, type: 2}
-    - target: {fileID: 5238163605019011516, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
-      propertyPath: <SpellPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 3631402563533277038, guid: 5f720a4b547801b4da54baa23fb5a6d6, type: 3}
-    - target: {fileID: 5238163605073078340, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
-      propertyPath: m_Color.a
-      value: 0.7490196
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
 --- !u!224 &5673519780409758398 stripped

@@ -3000,10 +3000,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1081117674339621061, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
-      propertyPath: speed
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 2608739400377468351, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
       propertyPath: <SpellSlot1>k__BackingField
       value: 
@@ -3059,10 +3055,6 @@ PrefabInstance:
     - target: {fileID: 4505071554451754095, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8963468310251956158, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}
-      propertyPath: <InvulnerableStartTime>k__BackingField
-      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713e72c2db03c6e42bb04d717cbc9527, type: 3}

@@ -10150,7 +10150,7 @@ MonoBehaviour:
   <IsFacingRight>k__BackingField: 0
   jumpForce: 15
   jumpTime: 0.3
-  speed: 14
+  speed: 18
   fallMultiplier: 0.1
   sidePushForce: 3
   upPushForce: 20

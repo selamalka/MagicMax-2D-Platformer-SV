@@ -94,10 +94,10 @@ PrefabInstance:
     - target: {fileID: 7327263993323584369, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: bc9d74ee1266f9f4188f72f430621fea, type: 3}
+      objectReference: {fileID: 21300000, guid: bec1578dbd7909645b516252952ea83f, type: 3}
     - target: {fileID: 7327263993323584375, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
       propertyPath: m_Name
-      value: UISpell - Nimbus
+      value: UISpell - Nimbus - Level 1
       objectReference: {fileID: 0}
     - target: {fileID: 7327263993323584380, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
       propertyPath: <SpellData>k__BackingField
@@ -111,5 +111,9 @@ PrefabInstance:
       propertyPath: <SpellPrefab>k__BackingField
       value: 
       objectReference: {fileID: 3631402563533277038, guid: 1c17a9ae98dde5c44b37ee1ca99f74db, type: 3}
+    - target: {fileID: 7327263993343834756, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
+      propertyPath: m_Color.a
+      value: 0.7490196
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}

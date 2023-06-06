@@ -94,15 +94,15 @@ PrefabInstance:
     - target: {fileID: 7327263993323584369, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: dd3885098198d104888439be4c590aba, type: 3}
+      objectReference: {fileID: 21300000, guid: ecc940ac240254341a637223eb687c20, type: 3}
     - target: {fileID: 7327263993323584375, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
       propertyPath: m_Name
-      value: UISpell - Flame Burst
+      value: UISpell - Flame Burst - Level 3
       objectReference: {fileID: 0}
     - target: {fileID: 7327263993323584380, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
       propertyPath: <SpellData>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 5052a363ba545bb458cf598374a4db3a, type: 2}
+      objectReference: {fileID: 11400000, guid: 47884b1abd39bdd47ba38622876c4c5d, type: 2}
     - target: {fileID: 7327263993323584380, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
       propertyPath: <SpellName>k__BackingField
       value: Flame Burst
@@ -110,6 +110,10 @@ PrefabInstance:
     - target: {fileID: 7327263993323584380, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
       propertyPath: <SpellPrefab>k__BackingField
       value: 
-      objectReference: {fileID: 1379266275719879541, guid: 69022b425b4a54745a62785715ed9ca3, type: 3}
+      objectReference: {fileID: 1379266275719879541, guid: 16d051dc89d19e0429673a6201f8d34f, type: 3}
+    - target: {fileID: 7327263993343834756, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
+      propertyPath: m_Color.a
+      value: 0.7607843
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
