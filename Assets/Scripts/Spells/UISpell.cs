@@ -8,7 +8,6 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     [field: SerializeField] public SpellData SpellData { get; private set; }
     [field: SerializeField] public string SpellName { get; private set; }
 
-
     [SerializeField] private Image blockedImage;
     private GameObject draggedIcon;
     private Button button;
@@ -93,14 +92,19 @@ public class UISpell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     }
     public void OnEndDrag(PointerEventData eventData)
     {
+        Destroy(draggedIcon);
+
         if (SpellData.Level == 0 || !SpellData.IsUnlocked) return;
         SpellSlot spellSlot = eventData.pointerEnter.GetComponent<SpellSlot>();
 
         if (spellSlot != null)
         {
-            draggedIcon.transform.SetParent(spellSlot.transform, false);
-            draggedIcon.transform.position = spellSlot.transform.position;
-            spellSlot.SetChild(draggedIcon);
+            spellSlot.GetComponent<Image>().sprite = SpellData.Sprite;
+
+            /*            draggedIcon.transform.SetParent(spellSlot.transform, false);
+                        draggedIcon.transform.position = spellSlot.transform.position;*/
+
+            //spellSlot.SetChild(draggedIcon);
 
             spellSlot.SetCurrentSpell(this);
 

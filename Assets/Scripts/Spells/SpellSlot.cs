@@ -5,13 +5,13 @@ public class SpellSlot : MonoBehaviour
 {
     [field: SerializeField] public int SpellSlotNumber { get; private set; }
     [field: SerializeField] public UISpell CurrentSpell { get; private set; }
-    [field: SerializeField] public GameObject SpellSlotChild { get; private set; }
+    //[field: SerializeField] public GameObject SpellSlotChild { get; private set; }
 
-    public void SetChild(GameObject childObject)
+/*    public void SetChild(GameObject childObject)
     {
         SpellSlotChild = childObject;
         SpellSlotChild.transform.SetParent(transform, false);
-    }
+    }*/
 
     public void SetCurrentSpell(UISpell uiSpell)
     {

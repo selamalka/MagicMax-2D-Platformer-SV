@@ -94,15 +94,15 @@ PrefabInstance:
     - target: {fileID: 7327263993323584369, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 00e7ab4a80b989d4bacbc6cda1bd1db3, type: 3}
+      objectReference: {fileID: 21300000, guid: c6a2543cf4e446d47a2405c90fa7a88a, type: 3}
     - target: {fileID: 7327263993323584375, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
       propertyPath: m_Name
-      value: UISpell - Magic Shot
+      value: UISpell - Magic Shot - Level 3
       objectReference: {fileID: 0}
     - target: {fileID: 7327263993323584380, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
       propertyPath: <SpellData>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 3a96e59b1d42307469357c1fa5b813ab, type: 2}
+      objectReference: {fileID: 11400000, guid: cbd0ac18cccd0e44c8bd2e00177e018c, type: 2}
     - target: {fileID: 7327263993323584380, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
       propertyPath: <SpellName>k__BackingField
       value: Magic Shot
@@ -110,6 +110,10 @@ PrefabInstance:
     - target: {fileID: 7327263993323584380, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
       propertyPath: <SpellPrefab>k__BackingField
       value: 
-      objectReference: {fileID: 6891076197353053397, guid: 6f7826af8745d8543aacba702a7213bf, type: 3}
+      objectReference: {fileID: 6891076197353053397, guid: eaa7bf30ca1890a42aa12dad2218c8f8, type: 3}
+    - target: {fileID: 7327263993343834756, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}
+      propertyPath: m_Color.a
+      value: 0.7607843
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cea5c9be6a879044ab3eadecc67770d, type: 3}

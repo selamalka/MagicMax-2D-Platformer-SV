@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ManaShieldData - Level 1
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Mana Shield
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 3e1584fe606a0d046bd7a1682434dfe2, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: f871d2750d21b9c4c92d412c871c6362, type: 3}
   <Level>k__BackingField: 1
   <SpellPointCost>k__BackingField: 1
   <IsUnlocked>k__BackingField: 0
