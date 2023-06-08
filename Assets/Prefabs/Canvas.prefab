@@ -6817,6 +6817,10 @@ PrefabInstance:
       propertyPath: <SpellData>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 11410fbc85ee1984dbef46325ef5c2d3, type: 2}
+    - target: {fileID: 8812991018689947457, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
+      propertyPath: <SpellPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: 7042656606697494040, guid: d93a05b74dbb55743af529a7545d0eba, type: 3}
     - target: {fileID: 8812991018689947466, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_Name
       value: UISpell - Mana Shield - Level 3
@@ -7127,6 +7131,10 @@ PrefabInstance:
       propertyPath: <SpellData>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: cef58021b39d6eb43a9fc365197d5ef0, type: 2}
+    - target: {fileID: 8812991018689947457, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
+      propertyPath: <SpellPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: 7042656606697494040, guid: b4330fcf100d9a044b5b7f8d034ba3cc, type: 3}
     - target: {fileID: 8812991018689947466, guid: ded29bc934b8b384890dd5471971b01e, type: 3}
       propertyPath: m_Name
       value: UISpell - Mana Shield - Level 1
@@ -7321,6 +7329,10 @@ PrefabInstance:
       propertyPath: <SpellData>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: fba384164bdabfd4887ae985d6fd57f2, type: 2}
+    - target: {fileID: 5238163605019011516, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
+      propertyPath: <SpellPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: 3631402563533277038, guid: 07eb7c8232b79724292ea7b97aad202e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
 --- !u!224 &5673519779423712222 stripped
@@ -7445,6 +7457,10 @@ PrefabInstance:
       propertyPath: <SpellData>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 7d7f856f7e1297e439a8ee691cb3575a, type: 2}
+    - target: {fileID: 1596816345454689825, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
+      propertyPath: <SpellPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: 6891076197353053397, guid: 0b52f8a23d3626e4aa3f88646e5b4ffa, type: 3}
     - target: {fileID: 1596816345454689834, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
       propertyPath: m_Name
       value: UISpell - Magic Shot - Level 2
@@ -7639,6 +7655,10 @@ PrefabInstance:
       propertyPath: <SpellData>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: db6f1963df421b14885c3bb19ae580af, type: 2}
+    - target: {fileID: 1874609972153624235, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
+      propertyPath: <SpellPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: 1379266275719879541, guid: 8e297ab8f9e7d2d46a21e06310ec1130, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
 --- !u!224 &2021595011456821841 stripped
@@ -7661,6 +7681,10 @@ PrefabInstance:
       propertyPath: <SpellData>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 3a96e59b1d42307469357c1fa5b813ab, type: 2}
+    - target: {fileID: 1596816345454689825, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
+      propertyPath: <SpellPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: 6891076197353053397, guid: 6f7826af8745d8543aacba702a7213bf, type: 3}
     - target: {fileID: 1596816345454689834, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
       propertyPath: m_Name
       value: UISpell - Magic Shot - Level 1
@@ -7855,6 +7879,10 @@ PrefabInstance:
       propertyPath: <SpellData>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 5052a363ba545bb458cf598374a4db3a, type: 2}
+    - target: {fileID: 1874609972153624235, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
+      propertyPath: <SpellPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: 1379266275719879541, guid: 69022b425b4a54745a62785715ed9ca3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
 --- !u!224 &2021595010722641949 stripped
@@ -8063,6 +8091,10 @@ PrefabInstance:
       propertyPath: <SpellData>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 0fa83386a4d008c419203d0db8224972, type: 2}
+    - target: {fileID: 5238163605019011516, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
+      propertyPath: <SpellPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: 3631402563533277038, guid: 5f720a4b547801b4da54baa23fb5a6d6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8226d94e550d001409facc3b559b84cc, type: 3}
 --- !u!224 &5673519780409758398 stripped
