@@ -161,6 +161,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayRandomFootstep()
     {
+        if (IsNimbusActive) return;
         AudioManager.Instance.PlayFootstep();
     }
 
