@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D Rb { get; private set; }
     private bool isZooming;
     private GameObject cameraContainer;
-    private CameraController cameraController;
+    //private CameraController cameraController;
     //private Vector3 originalCameraPosition;
 
     private void Awake()
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         ghostScript = GetComponent<Ghost>();
         Rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
-        cameraContainer = GameObject.Find("Camera Container");
+        cameraContainer = GameObject.FindWithTag("CameraContainer");
         //originalCameraPosition = cameraContainer.transform.position;
     }
     private void Update()
@@ -354,29 +354,22 @@ public class PlayerController : MonoBehaviour
     }
     private void ZoomHandler()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            cameraController = cameraContainer.GetComponent<CameraController>();
-            cameraController.followTargetPosition = false;
-        }
-
         if (Input.GetKey(KeyCode.Z))
         {
             isZooming = true;
             Animator.SetBool("isWalking", false);
             Rb.velocity = new Vector2(0, Rb.velocity.y);
 
-            if (cameraController.GetComponentInChildren<Camera>().orthographicSize < 35)
+            if (cameraContainer.GetComponentInChildren<Camera>().orthographicSize < 35)
             {
-                cameraController.GetComponentInChildren<Camera>().orthographicSize += (40 * Time.deltaTime);
+                cameraContainer.GetComponentInChildren<Camera>().orthographicSize += (40 * Time.deltaTime);
             }
         }
 
         if (Input.GetKeyUp(KeyCode.Z))
         {
             isZooming = false;
-            cameraController.GetComponentInChildren<Camera>().DOOrthoSize(16, 0.5f).SetEase(Ease.OutSine);
-            cameraController.followTargetPosition = true;
+            cameraContainer.GetComponentInChildren<Camera>().DOOrthoSize(16, 0.5f).SetEase(Ease.OutSine);
         }
     }
 }
