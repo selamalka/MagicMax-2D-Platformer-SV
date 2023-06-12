@@ -6,7 +6,6 @@ public class PlayerStatsManager : MonoBehaviour
     public static PlayerStatsManager Instance;
 
     [field: Header("Exp")]
-    //[field: SerializeField] public int CurrentLevel { get; private set; }
     [field: SerializeField] public float CurrentExp { get; private set; }
     [field: SerializeField] public float TargetExp { get; private set; }
     [field: SerializeField] public float TargetExpMultiplier { get; private set; }
@@ -34,8 +33,6 @@ public class PlayerStatsManager : MonoBehaviour
 
     private void Start()
     {
-        //CurrentLevel = 1;
-
         CurrentHealth = ProgressionManager.Instance.Progression.HealthPoints;
         CurrentMana = ProgressionManager.Instance.Progression.ManaPoints;
         CurrentSouls = ProgressionManager.Instance.Progression.SoulPoints;
@@ -48,7 +45,6 @@ public class PlayerStatsManager : MonoBehaviour
         UIManager.Instance.UpdateExpBar();
 
         SpellPoints = ProgressionManager.Instance.Progression.SpellPoints;
-
     }
 
     private void Update()
@@ -56,23 +52,14 @@ public class PlayerStatsManager : MonoBehaviour
         HealthRegenHandler();
     }
 
-    #region Setters
-
     public void SetCurrentExp(float value)
     {
         CurrentExp = value;
     }
-
     public void SetTargetExp(float value)
     {
         TargetExp = value;
     }
-
-    /*    public void SetCurrentLevel(int value)
-        {
-            CurrentLevel = value;
-        }*/
-
     public void SetCurrentHealth(int value)
     {
         CurrentHealth = value;
@@ -85,13 +72,10 @@ public class PlayerStatsManager : MonoBehaviour
     {
         CurrentSouls = value;
     }
-
     public void SetSpellPoints(int value)
     {
         SpellPoints = value;
     }
-
-    #endregion
 
     private void RegenerateHealthPoint()
     {

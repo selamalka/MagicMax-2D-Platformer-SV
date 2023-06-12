@@ -93,9 +93,8 @@ public class PlayerStats : MonoBehaviour, IDamageable
         }
     }
 
-    private void TakeDamageOnEnemyCollision(/*Collision2D collision*/)
+    private void TakeDamageOnEnemyCollision()
     {
-        //Vector2 enemyDirection = collision.gameObject.transform.position - transform.position;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         TakeDamage(1);
     }

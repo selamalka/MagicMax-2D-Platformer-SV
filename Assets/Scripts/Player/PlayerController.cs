@@ -46,8 +46,6 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D Rb { get; private set; }
     private bool isZooming;
     private GameObject cameraContainer;
-    //private CameraController cameraController;
-    //private Vector3 originalCameraPosition;
 
     private void Awake()
     {
@@ -71,7 +69,6 @@ public class PlayerController : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         cameraContainer = GameObject.FindWithTag("CameraContainer");
-        //originalCameraPosition = cameraContainer.transform.position;
     }
     private void Update()
     {
