@@ -209,7 +209,7 @@ MonoBehaviour:
   <BehemothRangedDetectionRadius>k__BackingField: 30
   <BehemothMeleeDetectionRadius>k__BackingField: 15
   <BehemothProjetilePrefab>k__BackingField: {fileID: 3775555820293171531, guid: 17779603ee4b8184fb09092717ef37c9, type: 3}
-  <ZulMaxHealth>k__BackingField: 50
+  <ZulMaxHealth>k__BackingField: 30
   <ZulSpeed>k__BackingField: 20
   <ZulSoulValue>k__BackingField: 1
   <ZulTimeBetweenProjectiles>k__BackingField: 1
