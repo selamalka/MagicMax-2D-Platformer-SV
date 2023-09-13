@@ -15490,12 +15490,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2460709807467563806, guid: 47cbd34acf1c283469e5c7a0f67e1e76, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2460709807467563806, guid: 47cbd34acf1c283469e5c7a0f67e1e76, type: 3}
       propertyPath: m_SceneBindings.Array.data[6].key
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -2541630962531758940, guid: b829b353f1d59604f9608f13d1a29be4, type: 2}
     - target: {fileID: 2460709807467563806, guid: 47cbd34acf1c283469e5c7a0f67e1e76, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
@@ -15588,8 +15588,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2460709807779877429, guid: 47cbd34acf1c283469e5c7a0f67e1e76, type: 3}
+      propertyPath: director
+      value: 
+      objectReference: {fileID: 2460709807779877428}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47cbd34acf1c283469e5c7a0f67e1e76, type: 3}
+--- !u!320 &2460709807779877428 stripped
+PlayableDirector:
+  m_CorrespondingSourceObject: {fileID: 2460709807467563806, guid: 47cbd34acf1c283469e5c7a0f67e1e76, type: 3}
+  m_PrefabInstance: {fileID: 2460709807779877427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2498348763949596745
 GameObject:
   m_ObjectHideFlags: 0
@@ -15845,6 +15854,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas - Story Teller - Opening Cutscene
       objectReference: {fileID: 0}
+    - target: {fileID: 3192079773826955268, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3192079773826955288, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -15939,7 +15952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3192079774065391271, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 16777215
       objectReference: {fileID: 0}
     - target: {fileID: 3192079774276204799, guid: b3e1d6e3a94b3b84e96156d12a8a8587, type: 3}
       propertyPath: m_fontColor32.rgba

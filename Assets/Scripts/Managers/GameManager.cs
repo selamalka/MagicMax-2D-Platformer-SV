@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -40,5 +41,6 @@ public class GameManager : MonoBehaviour
     public void LoadMainMenuScene()
     {
         SceneManager.LoadScene(0);
+        DOTween.KillAll();
     }
 }
