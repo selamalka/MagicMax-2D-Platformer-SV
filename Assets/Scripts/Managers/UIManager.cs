@@ -120,12 +120,10 @@ public class UIManager : MonoBehaviour
 
     public void FadeToBlack(float duration)
     {
-        print("Fade To Black");
         masterPanelImage.DOColor(new Color(0, 0, 0, 1), duration);
     }
     public void FadeFromBlack(float duration)
     {
-        print("Fade From Black");
         masterPanelImage.DOColor(new Color(0, 0, 0, 0), duration);
     }
 
