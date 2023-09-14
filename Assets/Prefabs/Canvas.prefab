@@ -5479,8 +5479,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 181.04999, y: -112}
-  m_SizeDelta: {x: 362.1, y: 224}
+  m_AnchoredPosition: {x: 181.04999, y: -110.149994}
+  m_SizeDelta: {x: 362.1, y: 220.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6353408918605795115
 CanvasRenderer:
@@ -7011,6 +7011,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1874609972153624235, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
+      propertyPath: <SpellData>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 47884b1abd39bdd47ba38622876c4c5d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a112eb6cf0150ba46a34df94d89d43a2, type: 3}
 --- !u!224 &2021595012522636550 stripped
@@ -7897,6 +7901,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 436240196973845736}
     m_Modifications:
+    - target: {fileID: 1596816345454689825, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
+      propertyPath: <SpellData>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: cbd0ac18cccd0e44c8bd2e00177e018c, type: 2}
     - target: {fileID: 1596816345454689834, guid: 229092c860d29bc4b8532f95cf6d0c5a, type: 3}
       propertyPath: m_Name
       value: UISpell - Magic Shot - Level 3
