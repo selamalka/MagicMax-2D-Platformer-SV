@@ -66,11 +66,21 @@ public class FXManager : MonoBehaviour
 
         await Task.Delay(150);
 
-        foreach (SpriteRenderer renderer2 in spriteRenderers)
+        foreach (SpriteRenderer renderer in spriteRenderers)
         {
-            if (renderer2 != null)
+            if (renderer != null)
             {
-                renderer2.sharedMaterial = originalMaterial;
+                renderer.sharedMaterial = originalMaterial;
+            }
+        }
+
+        await Task.Delay(10);
+
+        foreach (SpriteRenderer renderer in spriteRenderers)
+        {
+            if (renderer != null)
+            {
+                renderer.sharedMaterial = originalMaterial;
             }
         }
     }
