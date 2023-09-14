@@ -300,12 +300,10 @@ public class PlayerController : MonoBehaviour
 
         if (enemyDirection.x > 0)
         {
-            print("suppose to push left");
             Rb.velocity = Vector2.left * sidePushForce;
         }
         else if (enemyDirection.x < 0)
         {
-            print("suppose to push right");
             Rb.velocity = Vector2.right * sidePushForce;
         }
     }
