@@ -55,8 +55,19 @@ public class FXManager : MonoBehaviour
     }
 
     public async void FlashWhite(GameObject objectToFlash)
-    {
+    {       
         SpriteRenderer[] spriteRenderers = objectToFlash.GetComponentsInChildren<SpriteRenderer>();
+
+        if (spriteRenderers[0].sharedMaterial == whiteFlashMaterial)
+        {
+            foreach (SpriteRenderer renderer in spriteRenderers)
+            {
+                if (renderer != null)
+                {
+                    renderer.sharedMaterial = originalMaterial;
+                }
+            }
+        }
 
         foreach (SpriteRenderer renderer in spriteRenderers)
         {
@@ -65,16 +76,6 @@ public class FXManager : MonoBehaviour
         }
 
         await Task.Delay(150);
-
-        foreach (SpriteRenderer renderer in spriteRenderers)
-        {
-            if (renderer != null)
-            {
-                renderer.sharedMaterial = originalMaterial;
-            }
-        }
-
-        await Task.Delay(10);
 
         foreach (SpriteRenderer renderer in spriteRenderers)
         {
